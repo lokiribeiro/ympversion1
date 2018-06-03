@@ -1,0 +1,408 @@
+
+<!-- BEGIN SIDEBAR -->
+<div class="sidebar" style="z-index: 999999999 !important;">
+    <div class="logopanel">
+      <h1>
+        <a href="/"></a>
+      </h1>
+    </div>
+    <div class="sidebar-inner">
+      <ul class="nav nav-sidebar">
+        <li class="nav-parent active" ng-click="dashboard.gotoDashboard()" ng-if="dashboard.currentUser.jobs">
+          <a href=""><i class="icon-home"></i><span>Jobs</span></a>
+        </li>
+        <li class="nav-parent" ng-click="dashboard.gotoInventory()" ng-if="dashboard.currentUser.inventory">
+          <a href=""><i class="icon-basket"></i><span>Inventory</span><span class="fa arrow"></span></a>
+        </li>
+        <li class="nav-parent" ng-click="dashboard.gotoLogbook()" ng-if="dashboard.currentUser.logbook">
+          <a href=""><i class="icon-note"></i><span>Logbook </span><span class="fa arrow"></span></a>
+        </li>
+        <li class="nav-parent" ng-click="dashboard.gotoEmployees()" ng-if="dashboard.currentUser.employees">
+          <a href=""><i class="icon-user"></i><span>Employees </span><span class="fa arrow"></span></a>
+        </li>
+        <li class="nav-parent" ng-click="dashboard.gotoReports()" ng-if="dashboard.currentUser.reports">
+          <a href=""><i class="icon-docs"></i><span>Reports </span><span class="fa arrow"></span></a>
+        </li>
+        <li class="nav-parent" ng-click="dashboard.gotoWatchkeep()" ng-if="dashboard.currentUser.watchkeeping || dashboard.currentUser.watchkeeper">
+          <a href=""><i class="icon-cup"></i><span>Watchkeep </span><span class="fa arrow"></span></a>
+        </li>
+        <li class="nav-parent" ng-click="dashboard.gotoAdminPanel()" ng-if="dashboard.currentUser.superadmin">
+          <a href=""><i class="icon-puzzle"></i><span>Super Admin </span><span class="fa arrow"></span></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- END SIDEBAR -->
+  
+  <div class="main-content">
+    <!-- BEGIN TOPBAR -->
+    <div class="topbar" style="z-index: 999999999 !important;">
+      <div class="header-right">
+        <ul class="header-menu nav navbar-nav">
+          <!-- BEGIN USER DROPDOWN 
+          <li class="dropdown" id="language-header">
+            <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+            <i class="icon-globe"></i>
+            <span>Language</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="#" data-lang="en"><img src="../assets/global/images/flags/usa.png" alt="flag-english"> <span>English</span></a>
+              </li>
+              <li>
+                <a href="#" data-lang="es"><img src="../assets/global/images/flags/spanish.png" alt="flag-english"> <span>Español</span></a>
+              </li>
+              <li>
+                <a href="#" data-lang="fr"><img src="../assets/global/images/flags/french.png" alt="flag-english"> <span>Français</span></a>
+              </li>
+            </ul>
+          </li> -->
+          <!-- END USER DROPDOWN -->
+          <!-- BEGIN NOTIFICATION DROPDOWN 
+          <li class="dropdown" id="notifications-header">
+            <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+            <i class="icon-bell"></i>
+            <span class="badge badge-danger badge-header">6</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-header clearfix">
+                <p class="pull-left">12 Pending Notifications</p>
+              </li>
+              <li>
+                <ul class="dropdown-menu-list withScroll" data-height="220">
+                  <li>
+                    <a href="#">
+                    <i class="fa fa-star p-r-10 f-18 c-orange"></i>
+                    Steve have rated your photo
+                    <span class="dropdown-time">Just now</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                    <i class="fa fa-heart p-r-10 f-18 c-red"></i>
+                    John added you to his favs
+                    <span class="dropdown-time">15 mins</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                    <i class="fa fa-file-text p-r-10 f-18"></i>
+                    New document available
+                    <span class="dropdown-time">22 mins</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                    <i class="fa fa-picture-o p-r-10 f-18 c-blue"></i>
+                    New picture added
+                    <span class="dropdown-time">40 mins</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                    <i class="fa fa-bell p-r-10 f-18 c-orange"></i>
+                    Meeting in 1 hour
+                    <span class="dropdown-time">1 hour</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                    <i class="fa fa-bell p-r-10 f-18"></i>
+                    Server 5 overloaded
+                    <span class="dropdown-time">2 hours</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                    <i class="fa fa-comment p-r-10 f-18 c-gray"></i>
+                    Bill comment your post
+                    <span class="dropdown-time">3 hours</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                    <i class="fa fa-picture-o p-r-10 f-18 c-blue"></i>
+                    New picture added
+                    <span class="dropdown-time">2 days</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="dropdown-footer clearfix">
+                <a href="#" class="pull-left">See all notifications</a>
+                <a href="#" class="pull-right">
+                <i class="icon-settings"></i>
+                </a>
+              </li>
+            </ul>
+          </li> -->
+          <!-- END NOTIFICATION DROPDOWN -->
+          <!-- BEGIN USER DROPDOWN -->
+          <li class="dropdown" id="user-header">
+            <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+            <img style="width: 36px !important; height: 36px !important;" src="{{dashboard.currentUser.profilePhoto}}" alt="user image">
+            <span class="username">Hi, {{dashboard.currentUser.username}}</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a ui-sref="profilepage({ employeeId: dashboard.currentUserId })"><i class="icon-user"></i><span>My Profile</span></a>
+              </li>
+              <!--<li>
+                <a href="#"><i class="icon-settings"></i><span>Account Settings</span></a>
+              </li>-->
+              <li>
+                <a href="#" ng-click="dashboard.logout()"><i class="icon-logout"></i><span>Logout</span></a>
+              </li>
+            </ul>
+          </li>
+          <!-- END USER DROPDOWN -->
+        </ul>
+      </div>
+      <!-- header-right -->
+    </div>
+    <!-- END TOPBAR -->
+    <!-- BEGIN PAGE CONTENT -->
+    <div class="page-content">
+      <div class="row">
+        <div class="col-lg-12 portlets">
+          <div class="panel bg-dark">
+            <div class="panel-content">
+              <div class="row">
+                <div class="col-sm-8">
+                  <div class="form-group">
+                    <label class="control-label">Equipment</label>
+                    <select ng-model="dashboard.selectEquip" class="form-control">
+                      <option ng-repeat="group in dashboard.groups" value="{{group._id}}">{{group.name}}</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-sm-4" style="padding-left: 0 !important; padding-right: 0 !important;">
+                  <div class="form-group" style="margin-top: 25px !important;">
+                    <button class="btn btn-dark" ng-click="dashboard.gotoEquipList(dashboard.selectEquip)" ng-if="dashboard.selectEquip">View Equipment</button>
+                    <button class="btn btn-dark" ng-click="dashboard.gotoEquipments()" ng-if="dashboard.currentUser.role == 'admin'">Add/Edit Equipment</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 portlets">
+          <div class="panel bg-dark">
+            <div class="panel-header panel-controls">
+              <div class="m-b-20 m-t-10">
+                <div class="btn-group">
+                  <button class="btn btn-dark" data-toggle="modal" data-target="#modal-responsive"><i class="fa fa-plus"></i> Add Planned Job</button>
+                </div>
+                <div class="btn-group">
+                  <button class="btn btn-dark" data-toggle="modal" data-target="#modal-unplanned"><i class="fa fa-plus"></i> Add Unplanned Job</button>
+                </div>
+                <div class="btn-group" ng-hide="dashboard.viewJobs">
+                  <button class="btn btn-dark pull-right" ng-click="dashboard.viewFilter()"><i class="fa fa-eye-slash"></i> View due Jobs</button>
+                </div>
+                <div class="btn-group" ng-if="dashboard.viewJobs">
+                  <button class="btn btn-dark pull-right" ng-click="dashboard.viewFilter()"><i class="fa fa-eye"></i> View all Jobs</button>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <label class="control-label">Equipment</label>
+                    <select ng-model="dashboard.searchText" class="form-control">
+                      <option ng-repeat="group in dashboard.groups" value="{{group.name}}">{{group.name}}</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="form-label">From</label>
+                        <div class="prepend-icon">
+                            <date-picker language="en" ng-model="dashboard.dateFrom" format="MMMM d, y"></date-picker>
+                          <i class="icon-calendar"></i>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="form-label">To</label>
+                        <div class="prepend-icon">
+                            <date-picker language="en" ng-model="dashboard.dateTo" format="MMMM d, y"></date-picker>
+                          <i class="icon-calendar"></i>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-sm-2" style="padding-left: 0 !important; padding-right: 0 !important;">
+                    <div class="form-group" style="margin-top: 25px !important;"> 
+                    <button class="btn btn-dark" ng-click="dashboard.filterNow()">Search</button>
+                    <button class="btn btn-dark" ng-click="dashboard.reset()">Reset</button>
+                    </div>
+                </div>
+                </div>
+                  <div class="row">
+                      <div class="col-sm-12">
+                          <form>
+                            <div class="append-icon">
+                              <input type="search" ng-model="dashboard.searchText" class="form-control form-white input-lg" placeholder="Search..." autofocus>
+                              <i class="icon-magnifier"></i>
+                            </div>
+                          </form>
+                        </div>
+                  </div>
+            </div>
+            <div class="panel-content">
+              <!--<p>Here you can manage your jobs easily: add new row, edit or remove existing data. You can export your table in PDF, Excel, CSV or just print it.</p>-->
+              <table class="table table-hover dataTable" id="table-editable">
+                <thead>
+                  <tr>
+                    <th>Equipment</th>
+                    <th>Title</th>
+                    <th>Frequency (Hrs)</th>
+                    <th>Frequency (Days)</th>
+                    <th>Date</th>
+                    <th>Is it Done?</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="job in dashboard.jobs" ui-sref="jobdetails({ jobId: job._id, stateHolder: 'jobs' })" ng-click="" ng-hide="dashboard.viewJobs" ng-if="dashboard.currentUser.department == job.department || dashboard.currentUser.department == 'Captain'">
+                    <td style="color: #ff5050 !important;" ng-if="job.status == false">{{job.group}}</td><td style="color: #5cd65c !important;" ng-if="job.status == true">{{job.group}}</td>
+                    <td style="color: #ff5050 !important;" ng-if="job.status == false">{{job.title}}</td><td style="color: #5cd65c !important;" ng-if="job.status == true">{{job.title}}</td>
+                    <td style="color: #ff5050 !important;" ng-if="job.status == false">{{job.hours ? job.hours : "0"}}</td><td style="color: #5cd65c !important;" ng-if="job.status == true">{{job.hours ? job.hours : "0"}}</td>
+                    <td style="color: #ff5050 !important;" ng-if="job.status == false">{{job.days ? job.days : "0"}}</td><td style="color: #5cd65c !important;" ng-if="job.status == true">{{job.days ? job.days : "0"}}</td>
+                    <td style="color: #ff5050 !important;" ng-if="job.status == false">{{job.date | date : "medium"}}</td><td style="color: #5cd65c !important;" ng-if="job.status == true">{{job.date | date : "medium"}}</td>
+                    <!--<td class="text-right"><a class="edit btn btn-sm btn-default" ui-sref="jobdetails({ jobId: job._id })"><i class="icon-note"></i></a>  <a class="delete btn btn-sm btn-danger" href="javascript:;"><i class="icons-office-52"></i></a>-->
+                    <td style="color: #ff5050 !important;" ng-if="job.status == false">{{job.status ? "yes" : "no"}}</td><td style="color: #5cd65c !important;" ng-if="job.status == true">{{job.status ? "yes" : "no"}}</td>
+                    </td>
+                  </tr>
+                  <tr ng-repeat="job in dashboard.jobs" ui-sref="jobdetails({ jobId: job._id, stateHolder: 'jobs' })" ng-click="" ng-if="job.status == false && dashboard.viewJobs && (dashboard.currentUser.department == job.department || dashboard.currentUser.department == 'Captain')" >
+                      <td style="color: #ff5050 !important;">{{job.group}}</td>
+                      <td style="color: #ff5050 !important;">{{job.title}}</td>
+                      <td style="color: #ff5050 !important;">{{job.hours ? job.hours : "0"}}</td>
+                      <td style="color: #ff5050 !important;">{{job.days ? job.days : "0"}}</td>
+                      <td style="color: #ff5050 !important;">{{job.date | date : "medium"}}</td>
+                      <!--<td class="text-right"><a class="edit btn btn-sm btn-default" ui-sref="jobdetails({ jobId: job._id })"><i class="icon-note"></i></a>  <a class="delete btn btn-sm btn-danger" href="javascript:;"><i class="icons-office-52"></i></a>-->
+                      <td style="color: #ff5050 !important;">{{job.status ? "yes" : "no"}}</td>
+                      </td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+              <!--<dir-pagination-controls on-page-change="dashboard.pageChanged(newPageNumber)"></dir-pagination-controls>-->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="copyright">
+          <p class="pull-left sm-pull-reset">
+            <span>Copyright <span class="copyright">©</span> 2018 </span>
+            <span>Powered by TYS Ltd</span>.
+            <span>All rights reserved. </span>
+          </p>
+          <p class="pull-right sm-pull-reset">
+            <span><a href="#" class="m-r-10">Support</a> | <a href="#" class="m-l-10 m-r-10">Terms of use</a> | <a href="#" class="m-l-10">Privacy Policy</a></span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="modal-responsive" aria-hidden="true">
+      <!--<div class="modal-dialog modal-lg" style="margin-top: 15% !important;">-->
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header bg-dark">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52" style="color: #fff !important;"></i></button>
+            <h4 class="modal-title"><strong>New Planned</strong> Job</h4>
+          </div>
+          <div class="modal-body bg-dark">
+            <!--<p>Change screen size to see responsive behaviour.</p>-->
+            <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="control-label">Equipment</label>
+                      <select ng-model="dashboard.job.group" name="group" class="form-control" required>
+                        <option ng-repeat="group in dashboard.groups" value="{{group.name}}">{{group.name}}</option>
+                      </select>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="field-1" class="control-label">Title</label>
+                    <input type="text" ng-model="dashboard.job.title" class="form-control" placeholder="Job Title" required>
+                  </div>
+                </div>
+            </div>
+            <div class="row" >
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label class="control-label">Description
+                  </label>
+                  <div>
+                    <textarea rows="10" class="form-control" ng-model="dashboard.job.description" placeholder="Write description..."  ></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="field-4" class="control-label">Frequency in hours</label>
+                  <input type="text" ng-model="dashboard.job.hours" class="form-control" placeholder="0" required>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="field-5" class="control-label">Frequency in days</label>
+                  <input type="text" ng-model="dashboard.job.days" class="form-control" placeholder="0" required>
+                </div>
+              </div>
+              <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="control-label">Repeating job?</label>
+                      <select ng-model="dashboard.job.repeating" name="group" class="form-control" required>
+                        <option ng-repeat="choice in dashboard.choices" value="{{choice.value}}">{{choice.name}}</option>
+                      </select>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <div class="modal-footer text-center bg-dark">
+            <button class="btn btn-dark" data-dismiss="modal" ng-click=""><i class="fa fa-times"></i> Cancel</button>
+            <button class="btn btn-dark" ng-click="dashboard.resetForm()"><i class="fa fa-refresh"></i> Reset</button>
+            <button type="submit" class="btn btn-dark" data-dismiss="modal" ng-click="dashboard.submit()"><i class="fa fa-check"></i> Add</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="modal-unplanned" aria-hidden="true">
+      <!--<div class="modal-dialog modal-lg" style="margin-top: 15% !important;">-->
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header bg-dark">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52" style="color: #fff !important;"></i></button>
+            <h4 class="modal-title"><strong>New Unplanned</strong> Job</h4>
+          </div>
+          <div class="modal-body bg-dark">
+            <!--<p>Change screen size to see responsive behaviour.</p>-->
+            <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="control-label">Equipment</label>
+                      <select ng-model="dashboard.job.group" name="group" class="form-control" required>
+                        <option ng-repeat="group in dashboard.groups" value="{{group.name}}">{{group.name}}</option>
+                      </select>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <div class="modal-footer text-center bg-dark">
+            <button class="btn btn-dark" data-dismiss="modal" ng-click=""><i class="fa fa-times"></i> Cancel</button>
+            <button class="btn btn-dark" ng-click="dashboard.resetForm()"><i class="fa fa-refresh"></i> Reset</button>
+            <button type="submit" class="btn btn-dark" data-dismiss="modal" ng-click="dashboard.submitUnplanned()"><i class="fa fa-check"></i> Add</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END PAGE CONTENT -->
+  </div>

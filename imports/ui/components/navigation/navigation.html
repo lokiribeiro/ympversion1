@@ -1,0 +1,34 @@
+<!--<div class="fluid-container">
+        <div class="navbar-header">
+          <a href="/parties" class="navbar-brand">Socially</a>
+          <login-buttons class="navbar-brand"></login-buttons>
+        </div>
+      </div>
+    -->
+<!-- BEGIN SIDEBAR -->
+<div class="sidebar" ng-if="navigation.isLoggedIn" style="z-index: 999999999 !important;">
+  <div class="logopanel">
+    <h1>
+      <a href="/"></a>
+    </h1>
+  </div>
+  <div class="sidebar-inner">
+    <ul class="nav nav-sidebar">
+      <li class="nav-parent" ng-hide="navigation.stateHolder == 'jobs'" ng-click="navigation.gotoDashboard()"><a href=""><i class="icon-home"></i><span>Jobs</span></a></li>
+      <li class="nav-parent active" ng-if="navigation.stateHolder == 'jobs'" ng-click="navigation.gotoDashboard()"><a href=""><i class="icon-home"></i><span>Jobs</span></a></li>
+      <li class="nav-parent" ng-click="navigation.gotoInventory()">
+        <a href=""><i class="icon-basket"></i><span>Inventory</span><span class="fa arrow"></span></a>
+      </li>
+      <li class="nav-parent" ng-click="navigation.gotoLogbook()">
+        <a href=""><i class="icon-note"></i><span>Logbook </span><span class="fa arrow"></span></a>
+      </li>
+      <li class="nav-parent" ng-click="navigation.gotoEmployees()">
+        <a href=""><i class="icon-user"></i><span>Employees </span><span class="fa arrow"></span></a>
+      </li>
+      <li class="nav-parent" ng-click="navigation.gotoSettings()">
+        <a href=""><i class="icon-puzzle"></i><span>Settings</span> <span class="fa arrow"></span></a>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- END SIDEBAR -->

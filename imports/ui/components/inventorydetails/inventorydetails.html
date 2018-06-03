@@ -1,0 +1,367 @@
+<!-- BEGIN SIDEBAR -->
+<div class="sidebar" style="z-index: 999999999 !important;">
+    <div class="logopanel">
+      <h1>
+        <a href="/"></a>
+      </h1>
+    </div>
+    <div class="sidebar-inner">
+      <ul class="nav nav-sidebar">
+        <li class="nav-parent" ng-click="inventorydetails.gotoDashboard()" ng-if="inventorydetails.currentUser.jobs">
+          <a href=""><i class="icon-home"></i><span>Jobs</span></a>
+        </li>
+        <li class="nav-parent active" ng-click="inventorydetails.gotoInventory()" ng-if="inventorydetails.currentUser.inventory">
+          <a href=""><i class="icon-basket"></i><span>Inventory</span><span class="fa arrow"></span></a>
+        </li>
+        <li class="nav-parent" ng-click="inventorydetails.gotoLogbook()" ng-if="inventorydetails.currentUser.logbook">
+          <a href=""><i class="icon-note"></i><span>Logbook </span><span class="fa arrow"></span></a>
+        </li>
+        <li class="nav-parent" ng-click="inventorydetails.gotoEmployees()" ng-if="inventorydetails.currentUser.employees">
+          <a href=""><i class="icon-user"></i><span>Employees </span><span class="fa arrow"></span></a>
+        </li>
+        <li class="nav-parent" ng-click="inventorydetails.gotoReports()" ng-if="inventorydetails.currentUser.reports">
+            <a href=""><i class="icon-docs"></i><span>Reports </span><span class="fa arrow"></span></a>
+        </li>
+        <li class="nav-parent" ng-click="inventorydetails.gotoWatchkeep()" ng-if="inventorydetails.currentUser.watchkeeping || inventorydetails.currentUser.watchkeeper">
+          <a href=""><i class="icon-cup"></i><span>Watchkeep </span><span class="fa arrow"></span></a>
+        </li>
+        <li class="nav-parent" ng-click="inventorydetails.gotoAdminPanel()" ng-if="inventorydetails.currentUser.superadmin">
+          <a href=""><i class="icon-puzzle"></i><span>Super Admin </span><span class="fa arrow"></span></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- END SIDEBAR -->
+
+<div class="main-content">
+        <!-- BEGIN TOPBAR -->
+        <div class="topbar"  style="z-index: 999999999 !important;">
+          <div class="header-right">
+            <ul class="header-menu nav navbar-nav">
+              <!-- BEGIN USER DROPDOWN 
+              <li class="dropdown" id="language-header">
+                <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                <i class="icon-globe"></i>
+                <span>Language</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="#" data-lang="en"><img src="../assets/global/images/flags/usa.png" alt="flag-english"> <span>English</span></a>
+                  </li>
+                  <li>
+                    <a href="#" data-lang="es"><img src="../assets/global/images/flags/spanish.png" alt="flag-english"> <span>Español</span></a>
+                  </li>
+                  <li>
+                    <a href="#" data-lang="fr"><img src="../assets/global/images/flags/french.png" alt="flag-english"> <span>Français</span></a>
+                  </li>
+                </ul>
+              </li> -->
+              <!-- END USER DROPDOWN -->
+              <!-- BEGIN NOTIFICATION DROPDOWN 
+              <li class="dropdown" id="notifications-header">
+                <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                <i class="icon-bell"></i>
+                <span class="badge badge-danger badge-header">6</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown-header clearfix">
+                    <p class="pull-left">12 Pending Notifications</p>
+                  </li>
+                  <li>
+                    <ul class="dropdown-menu-list withScroll" data-height="220">
+                      <li>
+                        <a href="#">
+                        <i class="fa fa-star p-r-10 f-18 c-orange"></i>
+                        Steve have rated your photo
+                        <span class="dropdown-time">Just now</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                        <i class="fa fa-heart p-r-10 f-18 c-red"></i>
+                        John added you to his favs
+                        <span class="dropdown-time">15 mins</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                        <i class="fa fa-file-text p-r-10 f-18"></i>
+                        New document available
+                        <span class="dropdown-time">22 mins</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                        <i class="fa fa-picture-o p-r-10 f-18 c-blue"></i>
+                        New picture added
+                        <span class="dropdown-time">40 mins</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                        <i class="fa fa-bell p-r-10 f-18 c-orange"></i>
+                        Meeting in 1 hour
+                        <span class="dropdown-time">1 hour</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                        <i class="fa fa-bell p-r-10 f-18"></i>
+                        Server 5 overloaded
+                        <span class="dropdown-time">2 hours</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                        <i class="fa fa-comment p-r-10 f-18 c-gray"></i>
+                        Bill comment your post
+                        <span class="dropdown-time">3 hours</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                        <i class="fa fa-picture-o p-r-10 f-18 c-blue"></i>
+                        New picture added
+                        <span class="dropdown-time">2 days</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="dropdown-footer clearfix">
+                    <a href="#" class="pull-left">See all notifications</a>
+                    <a href="#" class="pull-right">
+                    <i class="icon-settings"></i>
+                    </a>
+                  </li>
+                </ul>
+              </li> -->
+              <!-- END NOTIFICATION DROPDOWN -->
+              <!-- BEGIN USER DROPDOWN -->
+              <li class="dropdown" id="user-header">
+                <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                <img style="width: 36px !important; height: 36px !important;" src="{{inventorydetails.currentUser.profilePhoto}}" alt="user image">
+                <span class="username">Hi, {{inventorydetails.currentUser.username}}</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a ui-sref="profilepage({ employeeId: inventorydetails.currentUserId })"><i class="icon-user"></i><span>My Profile</span></a>
+                  </li>
+                  <!--<li>
+                    <a href="#"><i class="icon-settings"></i><span>Account Settings</span></a>
+                  </li>-->
+                  <li>
+                    <a href="#" ng-click="inventorydetails.logout()"><i class="icon-logout"></i><span>Logout</span></a>
+                  </li>
+                </ul>
+              </li>
+              <!-- END USER DROPDOWN -->
+            </ul>
+          </div>
+          <!-- header-right -->
+        </div>
+        <!-- END TOPBAR -->
+        <!-- BEGIN PAGE CONTENT -->
+        <div class="page-content">
+          <div class="row">
+                <div class="col-md-12">
+                  <div class="panel panel-default">
+                    <div class="panel-content bg-dark">
+                      <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                          <form role="form" class="form-horizontal form-validation">
+                            <div class="row">
+                              <div class="col-sm-6">
+                            <div class="form-group">
+                              <label class="col-sm-3 control-label">Name
+                              </label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" ng-model="inventorydetails.inventory.name">
+                              </div>
+                            </div>
+                            </div>
+                            <div class="col-sm-6">
+                            <div class="form-group">
+                              <label class="col-sm-3 control-label">Category
+                              </label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" ng-model="inventorydetails.inventory.category">
+                              </div>
+                            </div>
+                          </div>
+                          </div>
+
+                          <div class="row">
+                              <div class="col-sm-6">
+                            <div class="form-group">
+                              <label class="col-sm-3 control-label">Manufacturer
+                              </label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" ng-model="inventorydetails.inventory.manufacturer">
+                              </div>
+                            </div>
+                            </div>
+                            <div class="col-sm-6">
+                            <div class="form-group">
+                              <label class="col-sm-3 control-label">Model number
+                              </label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" ng-model="inventorydetails.inventory.modelNo">
+                              </div>
+                            </div>
+                          </div>
+                          </div>
+
+                          <div class="row">
+                              <div class="col-sm-6">
+                            <div class="form-group">
+                              <label class="col-sm-3 control-label">Part Number
+                              </label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" ng-model="inventorydetails.inventory.partNo">
+                              </div>
+                            </div>
+                            </div>
+                            <div class="col-sm-6">
+                            <div class="form-group">
+                              <label class="col-sm-3 control-label">Total Amount Held
+                              </label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" ng-model="inventorydetails.inventory.totalAmount">
+                              </div>
+                            </div>
+                          </div>
+                          </div>
+
+                          <div class="row">
+                              <div class="col-sm-6">
+                            <div class="form-group">
+                              <label class="col-sm-3 control-label">Minimum amount
+                              </label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" ng-model="inventorydetails.inventory.minAmount">
+                              </div>
+                            </div>
+                            </div>
+                            <div class="col-sm-6">
+                            <div class="form-group">
+                              <label class="col-sm-3 control-label">Department
+                              </label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" ng-model="inventorydetails.inventory.department" required>
+                              </div>
+                            </div>
+                          </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <div class="form-group">
+                                <label class="col-sm-3 control-label">Price
+                                </label>
+                                <div class="col-sm-9">
+                                  <input type="text" class="form-control" ng-model="inventorydetails.inventory.price">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-sm-6">
+                              <div class="form-group">
+                                <label class="col-sm-3 control-label">Critical Item
+                                </label>
+                                <div class="col-sm-9">
+                                  <select ng-model="inventorydetails.inventory.critical" name="group" class="form-control">
+                                    <option ng-repeat="option in inventorydetails.options" value="{{option.value}}">{{option.name}}</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                            <div class="row">
+                              <div class="col-sm-9 col-sm-offset-3">
+                                <div class="pull-right">
+                                    <button ng-if="inventorydetails.currentUser.role == 'admin'"  ng-click="inventorydetails.delete()" type="submit" class="btn btn-embossed btn-primary m-r-20">Delete Item</button>
+                                  <button ng-click="inventorydetails.save()" type="submit" class="btn btn-embossed btn-primary m-r-20">Save</button>
+                                </div>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          <div class="footer">
+            <div class="copyright">
+              <p class="pull-left sm-pull-reset">
+                <span>Copyright <span class="copyright">©</span> 2018 </span>
+                <span>Powered by TYS Ltd</span>.
+                <span>All rights reserved. </span>
+              </p>
+              <p class="pull-right sm-pull-reset">
+                <span><a href="#" class="m-r-10">Support</a> | <a href="#" class="m-l-10 m-r-10">Terms of use</a> | <a href="#" class="m-l-10">Privacy Policy</a></span>
+              </p>
+            </div>
+          </div>
+        </div>
+    
+        <div class="modal fade" id="modal-responsive" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+                <h4 class="modal-title"><strong>New</strong> Job</h4>
+              </div>
+              <div class="modal-body">
+                <!--<p>Change screen size to see responsive behaviour.</p>-->
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="field-1" class="control-label">Title</label>
+                      <input type="text" ng-model="dashboard.job.title" class="form-control" placeholder="Job Title" required>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          <label for="field-3" class="control-label">Location</label>
+                          <input type="text" ng-model="dashboard.job.location" class="form-control" placeholder="Location" required>
+                        </div>
+                  </div>
+                </div>
+    
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="field-4" class="control-label">Frequency in hours</label>
+                      <input type="text" ng-model="dashboard.job.hours" class="form-control" placeholder="0" required>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="field-5" class="control-label">Frequency in years</label>
+                      <input type="text" ng-model="dashboard.job.years" class="form-control" placeholder="0" required>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label class="control-label">Group</label>
+                        <select ng-model="dashboard.job.group" name="group" class="form-control" required>
+                          <option value="">Select Group...</option>
+                          <option value="Main Engine">Main Engine</option>
+                          <option value="Engine Room">Engine Room</option>
+                          <option value="Bridge">Bridge</option>
+                          <option value="Fuel Tank">Fuel Tank</option>
+                          <option value="Jet Ski">Jet Ski</option>
+                        </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer text-center">
+                <button type="button" class="btn btn-primary btn-embossed bnt-square"  ng-click="dashboard.submit()"><i class="fa fa-check"></i> Add</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END PAGE CONTENT -->
+      </div>

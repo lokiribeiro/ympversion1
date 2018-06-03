@@ -1,0 +1,93 @@
+<div class="account2">
+        <div class="container" id="login-block">
+                <i class="user-img icons-faces-users-03"></i>
+                <div class="account-info">
+                    <a href="dashboard.html" class="logo2"></a> 
+                    <h3>Yacht Management</h3>
+                    <ul>
+                        <li><i class="icon-magic-wand"></i> Jobs Management</li>
+                        <li><i class="icon-layers"></i> Logbook</li>
+                        <li><i class="icon-arrow-right"></i> Inventory Management</li>
+                        <li><i class="icon-drop"></i> Employees Management</li>
+                    </ul>
+                </div>
+                <div class="account-form">
+                    <form ng-hide="signUpNow" class="form-signin" role="form">
+                        <h3><strong>Sign in</strong> to your account</h3>
+                        <h3 ng-if="completed"><strong>Account successfully created</h3>
+                        <div class="append-icon">
+                            <input type="text" ng-model="login.login.username" class="form-control form-white username" placeholder="Username" required>
+                            <i class="icon-user"></i>
+                        </div>
+                        <div class="append-icon m-b-20">
+                            <input type="password" ng-model="login.login.password" class="form-control form-white password" placeholder="Password" required>
+                            <i class="icon-lock"></i>
+                        </div>
+                        <button type="submit" id="submit-form" class="btn btn-lg btn-dark btn-rounded ladda-button" data-style="expand-right" ng-click="login.signin()">Sign In</button>
+                        <!--<span class="forgot-password"><a href="account-forgot-password.html">Forgot password?</a></span>-->
+                        <div class="preview active" ng-if="login.error">
+                            <div class="alert alert-danger media fade in">
+                              <p>{{loginerror}}</p>
+                            </div>
+                        </div>
+                        <div class="form-footer">
+                            <div class="clearfix">
+                                <p class="new-here"><a href="" ng-click="login.signup()">New here? Sign up</a></p>
+                            </div>
+                        </div>
+                    </form>
+                    <form ng-if="signUpNow" class="form-signin" role="form">
+                        <h3 ng-hide="inProgress"><strong>Create</strong> new account</h3>
+                        <h3 ng-if="inProgress"><strong>Creating</strong> new account</h3>
+                        <div ng-hide="inProgress" class="append-icon">
+                            <input type="text" ng-model="login.register.username" class="form-control form-white username" placeholder="Username" required>
+                            <i class="icon-user"></i>
+                        </div>
+                        <div ng-hide="inProgress" class="append-icon m-b-20">
+                            <input type="password" ng-model="login.register.password" class="form-control form-white password" placeholder="Password" required>
+                            <i class="icon-lock"></i>
+                        </div>
+                        <div ng-hide="inProgress" class="append-icon m-b-20">
+                            <input type="password" ng-model="login.register.password2" class="form-control form-white password" placeholder="Confirm Password" required>
+                            <i class="icon-lock"></i>
+                        </div>
+                        <div ng-hide="inProgress" class="append-icon">
+                            <input type="text" ng-model="login.register.boatID" class="form-control form-white username" placeholder="Boat Name" required>
+                            <i class="icon icons-office-04"></i>
+                        </div>
+                        <div ng-hide="inProgress" class="append-icon">
+                            <input type="text" ng-model="login.register.license" class="form-control form-white username" placeholder="Software License Code" required>
+                            <i class="icon icons-office-11"></i>
+                        </div>
+                        <button ng-hide="inProgress" type="submit" id="submit-form" class="btn btn-lg btn-dark btn-rounded ladda-button" data-style="expand-right" ng-click="login.registerNow()">Create Account</button>
+                        <div class="preview active" ng-if="login.error">
+                            <div class="alert alert-danger media fade in">
+                              <p>{{loginerror}}</p>
+                            </div>
+                        </div>
+                        <div ng-hide="inProgress" class="form-footer">
+                            <div class="clearfix">
+                                <p class="new-here"><a href="" ng-click="login.signup()">Got an account? Sign in</a></p>
+                            </div>
+                        </div>
+                        <div  ng-if="inProgress" class="loader2 col-sm-offset-5"></div>
+                    </form>
+                    <form class="form-password" role="form">
+                        <h3><strong>Reset</strong> your password</h3>
+                        <div class="append-icon m-b-20">
+                            <input type="password" name="password" class="form-control form-white password" placeholder="Password" required>
+                            <i class="icon-lock"></i>
+                        </div>
+                        <button type="submit" class="btn btn-lg btn-danger btn-block ladda-button" data-style="expand-left">Send Password Reset Link</button>
+                        <div class="clearfix m-t-60">
+                            <p class="pull-left m-t-20 m-b-0"><a href="#">Have an account? Sign In</a></p>
+                            <p class="pull-right m-t-20 m-b-0"></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <p class="account-copyright">
+                    <span>Copyright © 2018 </span><span>YMP powered by TYS Ltd</span>.<span> All rights reserved.</span>
+                </p>
+
+</div>

@@ -1,0 +1,409 @@
+<!-- BEGIN SIDEBAR -->
+<div class="sidebar" style="z-index: 999999999 !important;">
+        <div class="logopanel">
+          <h1>
+            <a href="/"></a>
+          </h1>
+        </div>
+        <div class="sidebar-inner">
+          <ul class="nav nav-sidebar">
+            <li class="nav-parent" ng-click="taskgroupdetails.gotoDashboard()" ng-if="taskgroupdetails.currentUser.jobs">
+              <a href=""><i class="icon-home"></i><span>Jobs</span></a>
+            </li>
+            <li class="nav-parent" ng-click="taskgroupdetails.gotoInventory()" ng-if="taskgroupdetails.currentUser.inventory">
+              <a href=""><i class="icon-basket"></i><span>Inventory</span><span class="fa arrow"></span></a>
+            </li>
+            <li class="nav-parent" ng-click="taskgroupdetails.gotoLogbook()" ng-if="taskgroupdetails.currentUser.logbook">
+              <a href=""><i class="icon-note"></i><span>Logbook </span><span class="fa arrow"></span></a>
+            </li>
+            <li class="nav-parent" ng-click="taskgroupdetails.gotoEmployees()" ng-if="taskgroupdetails.currentUser.employees">
+              <a href=""><i class="icon-user"></i><span>Employees </span><span class="fa arrow"></span></a>
+            </li>
+            <li class="nav-parent" ng-click="taskgroupdetails.gotoReports()" ng-if="taskgroupdetails.currentUser.reports">
+                <a href=""><i class="icon-docs"></i><span>Reports </span><span class="fa arrow"></span></a>
+            </li>
+            <li class="nav-parent active" ng-click="taskgroupdetails.gotoWatchkeep()" ng-if="taskgroupdetails.currentUser.watchkeeping || dashboard.currentUser.watchkeeper">
+                    <a href=""><i class="icon-cup"></i><span>Watchkeep </span><span class="fa arrow"></span></a>
+            </li>
+            <li class="nav-parent" ng-click="taskgroupdetails.gotoAdminPanel()" ng-if="taskgroupdetails.currentUser.superadmin">
+              <a href=""><i class="icon-puzzle"></i><span>Super Admin </span><span class="fa arrow"></span></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- END SIDEBAR -->
+      
+      <div class="main-content">
+        <!-- BEGIN TOPBAR -->
+        <div class="topbar" style="z-index: 999999999 !important;">
+          <div class="header-right">
+            <ul class="header-menu nav navbar-nav">
+              <!-- BEGIN USER DROPDOWN 
+              <li class="dropdown" id="language-header">
+                <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                <i class="icon-globe"></i>
+                <span>Language</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="#" data-lang="en"><img src="../assets/global/images/flags/usa.png" alt="flag-english"> <span>English</span></a>
+                  </li>
+                  <li>
+                    <a href="#" data-lang="es"><img src="../assets/global/images/flags/spanish.png" alt="flag-english"> <span>Español</span></a>
+                  </li>
+                  <li>
+                    <a href="#" data-lang="fr"><img src="../assets/global/images/flags/french.png" alt="flag-english"> <span>Français</span></a>
+                  </li>
+                </ul>
+              </li> -->
+              <!-- END USER DROPDOWN -->
+              <!-- BEGIN NOTIFICATION DROPDOWN 
+              <li class="dropdown" id="notifications-header">
+                <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                <i class="icon-bell"></i>
+                <span class="badge badge-danger badge-header">6</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown-header clearfix">
+                    <p class="pull-left">12 Pending Notifications</p>
+                  </li>
+                  <li>
+                    <ul class="dropdown-menu-list withScroll" data-height="220">
+                      <li>
+                        <a href="#">
+                        <i class="fa fa-star p-r-10 f-18 c-orange"></i>
+                        Steve have rated your photo
+                        <span class="dropdown-time">Just now</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                        <i class="fa fa-heart p-r-10 f-18 c-red"></i>
+                        John added you to his favs
+                        <span class="dropdown-time">15 mins</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                        <i class="fa fa-file-text p-r-10 f-18"></i>
+                        New document available
+                        <span class="dropdown-time">22 mins</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                        <i class="fa fa-picture-o p-r-10 f-18 c-blue"></i>
+                        New picture added
+                        <span class="dropdown-time">40 mins</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                        <i class="fa fa-bell p-r-10 f-18 c-orange"></i>
+                        Meeting in 1 hour
+                        <span class="dropdown-time">1 hour</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                        <i class="fa fa-bell p-r-10 f-18"></i>
+                        Server 5 overloaded
+                        <span class="dropdown-time">2 hours</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                        <i class="fa fa-comment p-r-10 f-18 c-gray"></i>
+                        Bill comment your post
+                        <span class="dropdown-time">3 hours</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                        <i class="fa fa-picture-o p-r-10 f-18 c-blue"></i>
+                        New picture added
+                        <span class="dropdown-time">2 days</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="dropdown-footer clearfix">
+                    <a href="#" class="pull-left">See all notifications</a>
+                    <a href="#" class="pull-right">
+                    <i class="icon-settings"></i>
+                    </a>
+                  </li>
+                </ul>
+              </li> -->
+              <!-- END NOTIFICATION DROPDOWN -->
+              <!-- BEGIN USER DROPDOWN -->
+              <li class="dropdown" id="user-header">
+                <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                <img style="width: 36px !important; height: 36px !important;" src="{{taskgroupdetails.currentUser.profilePhoto}}" alt="user image">
+                <span class="username">Hi, {{taskgroupdetails.currentUser.username}}</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a ui-sref="profilepage({ employeeId: taskgroupdetails.currentUserId })"><i class="icon-user"></i><span>My Profile</span></a>
+                  </li>
+                  <!--<li>
+                    <a href="#"><i class="icon-settings"></i><span>Account Settings</span></a>
+                  </li>-->
+                  <li>
+                    <a href="#" ng-click="taskgroupdetails.logout()"><i class="icon-logout"></i><span>Logout</span></a>
+                  </li>
+                </ul>
+              </li>
+              <!-- END USER DROPDOWN -->
+            </ul>
+          </div>
+          <!-- header-right -->
+        </div>
+        <!-- END TOPBAR -->
+        <!-- BEGIN PAGE CONTENT -->
+        <div class="page-content">
+            <div ng-if="taskgroupdetails.showNotif2" class="preview active">
+                <div class="alert alert-success media fade in">
+                  <p>Watchkeeper removed<button type="button" class="close" ng-click="taskgroupdetails.notification2()" aria-hidden="true"><i class="icons-office-52"></i></button></p>
+                </div>
+              </div>
+              <div ng-if="taskgroupdetails.showNotif" class="preview active">
+                <div class="alert alert-success media fade in">
+                  <p>Details saved <button type="button" class="close" ng-click="taskgroupdetails.notification()" aria-hidden="true"><i class="icons-office-52"></i></button></p>
+                </div>
+              </div>
+              <div ng-if="taskgroupdetails.notComplete" class="preview active">
+                  <div class="alert alert-danger media fade in">
+                    <p>Please fill in "Done by" field <button type="button" class="close" ng-click="taskgroupdetails.notCompleted()" aria-hidden="true"><i class="icons-office-52"></i></button></p>
+                  </div>
+                </div>
+          <div class="row">
+                <div class="col-md-8">
+                  <div class="panel panel-default">
+                        <div class="panel-content bg-dark">
+                                <div class="btn-group">
+                                        <button class="btn btn-dark" data-toggle="modal" data-target="#modal-responsive2"><i class="fa fa-plus"></i> Add New Task</button>
+                                    </div>
+                                  <table class="table table-hover dataTable" id="table-editable">
+                                      <thead>
+                                          <tr>
+                                              <th>Task</th>
+                                              <th>Time </th>
+                                              <th>Status</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody>
+                                          <tr ng-repeat="taskgroupdetail in taskgroupdetails.watchkeeps | itemsPerPage: taskgroupdetail.perPage">
+                                              <td>{{taskgroupdetail.task}}</td>
+                                              <td><span ng-if="taskgroupdetail.withTime == 'true'">{{taskgroupdetail.time | date : "shortTime"}}</span><span ng-if="taskgroupdetail.withTime == 'false'">none</span></td>
+                                              <td>{{taskgroupdetail.status == "true" ? "active" : "inactive"}}</td>
+                                          </tr>
+                                      </tbody>
+                                  </table>
+                            </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="panel panel-default">
+                    <div class="panel-content bg-dark">
+                      <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="btn-group">
+                                    <button id="table-edit_new" class="btn btn-dark" data-toggle="modal" data-target="#modal-responsive"><i class="fa fa-plus"></i> Assign Watchkeeper</button>
+                                </div>                  
+                                <table class="table table-hover dataTable" id="table-editable">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="watchkeeper in taskgroupdetails.watchkeepers" ng-click="taskgroupdetails.viewWatchkeeper(watchkeeper)" data-toggle="modal" data-target="#modal-editkeeper">
+                                            <td>{{watchkeeper.name}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+          <div class="footer">
+            <div class="copyright">
+              <p class="pull-left sm-pull-reset">
+                <span>Copyright <span class="copyright">©</span> 2018 </span>
+                <span>Powered by TYS Ltd</span>.
+                <span>All rights reserved. </span>
+              </p>
+              <p class="pull-right sm-pull-reset">
+                <span><a href="#" class="m-r-10">Support</a> | <a href="#" class="m-l-10 m-r-10">Terms of use</a> | <a href="#" class="m-l-10">Privacy Policy</a></span>
+              </p>
+            </div>
+          </div>
+        </div>
+                <div class="modal fade" id="modal-confirm" aria-hidden="true">
+                  <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" ng-click="taskgroupdetails.resetValue()" aria-hidden="true"><i class="icons-office-52"></i></button>
+                          <h4 class="modal-title">Are you sure you want to delete this task: <strong>{{taskName}}</strong>?</h4>
+                      </div>
+                      <div class="modal-body">
+                          <div ng-show="notMatch" class="preview active">
+                              <div class="alert alert-danger media fade in">
+                                <p> Incorrect Password</p>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label class="col-sm-4 control-label">Type password to confirm
+                              </label>
+                              <div class="col-sm-8">
+                                <input type="password" class="form-control" ng-model="passworD">
+                              </div>
+                            </div>
+                      </div>
+                      <div class="modal-footer text-center">
+                        <button class="btn btn-dark f-12" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-dark f-12" type="submit" ng-click="taskgroupdetails.removeJob()"><i class="fa fa-trash"></i> Delete Now</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal fade" id="modal-responsive" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header bg-dark">
+                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52" style="color: #fff !important;"></i></button>
+                              <h4 class="modal-title"><strong>Add</strong> Watchkeeper</h4>
+                            </div>
+                            <div class="modal-body bg-dark">
+                              <!--<p>Change screen size to see responsive behaviour.</p>-->
+                                <div class="row">
+                                  <div class="col-md-12">
+                                      <div class="form-group">
+                                          <label class="control-label">Watchkeeper</label>
+                                            <select ng-model="taskgroupdetails.doneby.user" class="form-control" required>
+                                                <option ng-repeat="profile in taskgroupdetails.profiles" ng-value="profile" >{{profile.firstName + ' ' + profile.lastName}}</option>
+                                            </select>
+                                      </div>
+                                  </div>
+                                </div>
+                              <div ng-if="taskgroupdetails.doneby.user">
+                                  <button class="btn btn-dark" ng-click="taskgroupdetails.addDates()"><i class="fa fa-plus"></i> Add Date/s</button>
+                              </div>
+                              <div class="row" ng-if="taskgroupdetails.doneby.user">
+                                  <div class="col-sm-4" ng-repeat="item in taskgroupdetails.watchDate track by $index">
+                                      <div class="form-group">
+                                          <label for="item" class="form-label">Date {{item.id}}</label>
+                                          <div class="prepend-icon">
+                                              <date-picker language="en" ng-model="taskgroupdetails.watchDate[$index].newdate" format="MMMM d, y"></date-picker>
+                                            <i class="icon-calendar"></i>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer bg-dark text-center" ng-if="taskgroupdetails.watchDate">
+                              <button type="submit" class="btn btn-dark" data-dismiss="modal" ng-click="taskgroupdetails.submitWatch()"><i class="fa fa-check"></i> Add</button>
+                            </div>
+                          </div>
+                        </div>
+                </div>
+
+              <div class="modal fade" id="modal-responsive2" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+                        <div class="modal-header bg-dark">
+                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+                          <h4 class="modal-title"><strong>New</strong> Task</h4>
+                        </div>
+                        <div class="modal-body bg-dark">
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label for="field-1" class="control-label">Task</label>
+                                <input type="text" ng-model="taskgroupdetails.watchkeep.task" class="form-control" placeholder="Task name" required>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                                  <div class="form-group">
+                                      <label class="control-label">With Time?</label>
+                                      <select ng-model="taskgroupdetails.watchkeep.withTime" class="form-control" required>
+                                          <option ng-repeat="option in taskgroupdetails.options" value="{{option.value}}">{{option.name}}</option>
+                                      </select>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="row" ng-if="taskgroupdetails.watchkeep.withTime == 'true'">
+                            <div class="col-md-12">
+                              <div class="form-group">
+                                    <label for="field-3" class="control-label">Time</label>
+                                    <input type="time" ng-model="taskgroupdetails.watchkeep.time" class="form-control input-sm" placeholder="Time" required>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="modal-footer bg-dark text-center">
+                          <button type="submit" class="btn btn-primary btn-embossed bnt-square" data-dismiss="modal" ng-click="taskgroupdetails.submit()"><i class="fa fa-check"></i> Add</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="modal fade" id="modal-editkeeper" aria-hidden="true">
+                  <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+                          <div class="modal-header bg-dark">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+                            <h4 class="modal-title"><strong>View</strong> Watchkeeper Schedule</h4>
+                          </div>
+                          <div class="modal-body bg-dark">
+                            <!--<p>Change screen size to see responsive behaviour.</p>-->
+                              <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label">Watchkeeper</label>
+                                          <div>
+                                            <input type="text" class="form-control" ng-model="taskgroupdetails.selectedWatchkeep.name" disabled>
+                                          </div>
+                                    </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                  <div class="col-sm-4" ng-repeat="item in taskgroupdetails.selectedWatchkeep.dates track by $index">
+                                      <div class="form-group">
+                                          <label for="item" class="form-label">Date {{item.id}}</label>
+                                          <div class="prepend-icon">
+                                              <date-picker language="en" ng-model="item.newdate" format="MMMM d, y" disabled></date-picker>
+                                            <i class="icon-calendar"></i>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="row" ng-hide="taskgroupdetails.selectedWatchkeep.dates">
+                                  <div class="col-sm-12">
+                                      <h4 class="modal-title">Watchkeeper is assigned individual tasks</h4>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="modal-footer bg-dark text-center">
+                            <div class="row">
+                              <div class="col-sm-9 col-sm-offset-3">
+                                <div class="pull-right">
+                                  <!--<button type="submit" class="btn btn-dark" data-dismiss="modal" ng-click="watchkeepdetails.saveChanges(watchkeepdetails.selectedWatchkeep)"><i class="fa fa-save"></i> Save Changes</button>-->
+                                  <button data-dismiss="modal" ng-click="taskgroupdetails.removeJobConfirm(taskgroupdetails.selectedWatchkeep)" class="btn btn-dark"><i class="fa fa-trash"></i> Remove Watchkeeper</button>
+                                  <button data-dismiss="modal" class="btn btn-dark">Cancel</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+              </div>
+
+
+    
+    
+    </div>

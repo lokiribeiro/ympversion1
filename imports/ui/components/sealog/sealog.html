@@ -1,0 +1,2237 @@
+<!-- BEGIN SIDEBAR -->
+<div class="sidebar" style="z-index: 999999999 !important;">
+        <div class="logopanel">
+          <h1>
+            <a href="/"></a>
+          </h1>
+        </div>
+        <div class="sidebar-inner">
+          <ul class="nav nav-sidebar">
+            <li class="nav-parent" ng-click="sealog.gotoDashboard()" ng-if="sealog.currentUser.jobs">
+              <a href=""><i class="icon-home"></i><span>Jobs</span></a>
+            </li>
+            <li class="nav-parent" ng-click="sealog.gotoInventory()" ng-if="sealog.currentUser.inventory">
+              <a href=""><i class="icon-basket"></i><span>Inventory</span><span class="fa arrow"></span></a>
+            </li>
+            <li class="nav-parent active" ng-click="sealog.gotoLogbook()" ng-if="sealog.currentUser.logbook">
+              <a href=""><i class="icon-note"></i><span>Logbook </span><span class="fa arrow"></span></a>
+            </li>
+            <li class="nav-parent" ng-click="sealog.gotoEmployees()" ng-if="sealog.currentUser.employees">
+              <a href=""><i class="icon-user"></i><span>Employees </span><span class="fa arrow"></span></a>
+            </li>
+            <li class="nav-parent" ng-click="sealog.gotoReports()" ng-if="sealog.currentUser.reports">
+                <a href=""><i class="icon-docs"></i><span>Reports </span><span class="fa arrow"></span></a>
+            </li>
+            <li class="nav-parent" ng-click="sealog.gotoWatchkeep()" ng-if="sealog.currentUser.watchkeeping || sealog.currentUser.watchkeeper">
+              <a href=""><i class="icon-cup"></i><span>Watchkeep </span><span class="fa arrow"></span></a>
+            </li>
+            <li class="nav-parent" ng-click="sealog.gotoAdminPanel()" ng-if="sealog.currentUser.superadmin">
+              <a href=""><i class="icon-puzzle"></i><span>Super Admin </span><span class="fa arrow"></span></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- END SIDEBAR -->
+      
+      <div class="main-content">
+        <!-- BEGIN TOPBAR -->
+        <div class="topbar" style="z-index: 999999999 !important;">
+          <div class="header-right">
+            <ul class="header-menu nav navbar-nav">
+              <!-- BEGIN USER DROPDOWN 
+              <li class="dropdown" id="language-header">
+                <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                <i class="icon-globe"></i>
+                <span>Language</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="#" data-lang="en"><img src="../assets/global/images/flags/usa.png" alt="flag-english"> <span>English</span></a>
+                  </li>
+                  <li>
+                    <a href="#" data-lang="es"><img src="../assets/global/images/flags/spanish.png" alt="flag-english"> <span>Español</span></a>
+                  </li>
+                  <li>
+                    <a href="#" data-lang="fr"><img src="../assets/global/images/flags/french.png" alt="flag-english"> <span>Français</span></a>
+                  </li>
+                </ul>
+              </li> -->
+              <!-- END USER DROPDOWN -->
+              <!-- BEGIN NOTIFICATION DROPDOWN 
+              <li class="dropdown" id="notifications-header">
+                <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                <i class="icon-bell"></i>
+                <span class="badge badge-danger badge-header">6</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown-header clearfix">
+                    <p class="pull-left">12 Pending Notifications</p>
+                  </li>
+                  <li>
+                    <ul class="dropdown-menu-list withScroll" data-height="220">
+                      <li>
+                        <a href="#">
+                        <i class="fa fa-star p-r-10 f-18 c-orange"></i>
+                        Steve have rated your photo
+                        <span class="dropdown-time">Just now</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                        <i class="fa fa-heart p-r-10 f-18 c-red"></i>
+                        John added you to his favs
+                        <span class="dropdown-time">15 mins</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                        <i class="fa fa-file-text p-r-10 f-18"></i>
+                        New document available
+                        <span class="dropdown-time">22 mins</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                        <i class="fa fa-picture-o p-r-10 f-18 c-blue"></i>
+                        New picture added
+                        <span class="dropdown-time">40 mins</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                        <i class="fa fa-bell p-r-10 f-18 c-orange"></i>
+                        Meeting in 1 hour
+                        <span class="dropdown-time">1 hour</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                        <i class="fa fa-bell p-r-10 f-18"></i>
+                        Server 5 overloaded
+                        <span class="dropdown-time">2 hours</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                        <i class="fa fa-comment p-r-10 f-18 c-gray"></i>
+                        Bill comment your post
+                        <span class="dropdown-time">3 hours</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                        <i class="fa fa-picture-o p-r-10 f-18 c-blue"></i>
+                        New picture added
+                        <span class="dropdown-time">2 days</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="dropdown-footer clearfix">
+                    <a href="#" class="pull-left">See all notifications</a>
+                    <a href="#" class="pull-right">
+                    <i class="icon-settings"></i>
+                    </a>
+                  </li>
+                </ul>
+              </li> -->
+              <!-- END NOTIFICATION DROPDOWN -->
+              <!-- BEGIN USER DROPDOWN -->
+              <li class="dropdown" id="user-header">
+                <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                <img style="width: 36px !important; height: 36px !important;" src="{{sealog.currentUser.profilePhoto}}" alt="user image">
+                <span class="username">Hi, {{sealog.currentUser.username}}</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a ui-sref="profilepage({ employeeId: sealog.currentUserId })"><i class="icon-user"></i><span>My Profile</span></a>
+                  </li>
+                  <!--<li>
+                    <a href="#"><i class="icon-settings"></i><span>Account Settings</span></a>
+                  </li>-->
+                  <li>
+                    <a href="#" ng-click="sealog.logout()"><i class="icon-logout"></i><span>Logout</span></a>
+                  </li>
+                </ul>
+              </li>
+              <!-- END USER DROPDOWN -->
+            </ul>
+          </div>
+          <!-- header-right -->
+        </div>
+        <!-- END TOPBAR -->
+        <!-- BEGIN PAGE CONTENT -->
+        <div class="page-content" id="thisPage">
+            <div ng-if="sealog.showNotif" class="preview active">
+                <div class="alert alert-success media fade in">
+                  <p>Changes Saved <button type="button" class="close" ng-click="jobdetails.notification()" aria-hidden="true"><i class="icons-office-52"></i></button></p>
+                </div>
+              </div>
+              <div class="row">
+              <div class="nav-tabs3">
+                <ul id="myTab6" class="nav nav-tabs">
+                  <li class="active"><a href="#tab6_11" data-toggle="tab">Page 1</a></li>
+                </ul>
+                <div class="tab-content">
+                  <div class="tab-pane fade active in" id="tab6_11">
+                        <div class="row">
+                                <div class="col-md-6" ng-repeat="group in sealog.groups track by $index" ng-if="group.atSea">
+                                        <div class="panel panel-default" style="border: 1px solid #fff !important;">
+                                          <div class="panel-header">
+                                            {{group.name}}
+                                          </div>
+                                          <div class="panel-content bg-dark f-10">
+                                            <div class="row">
+                                              <div class="col-md-12 col-sm-12 col-xs-12">
+                                                <form role="form" class="form-horizontal form-validation">   
+                                                    <div class="row">
+                                                        <div class="form-group" ng-if="group.hours">
+                                                            <label class="col-sm-4 control-label f-10">Running Hours
+                                                            </label>
+                                                            <div class="col-sm-4">
+                                                                <input type="text" class="form-control f-10" ng-model="sealog.port.groupHours[$parent.$index]" placeholder="0" >
+                                                            </div>
+                                                            <div class="col-sm-4">
+                                                                <input type="text" class="form-control f-10" ng-model="subgroup.unit" placeholder="Hours" disabled>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row" ng-repeat="subgroup in sealog.subgroups" ng-if="subgroup.groupID == group._id">
+                                                            <div class="form-group">
+                                                                    <label class="col-sm-4 control-label f-10">{{subgroup.itemName}}
+                                                                    </label>
+                                                                    <div class="col-sm-2" ng-if="subgroup.withoutOptions">
+                                                                        <input type="text" class="form-control f-10" ng-model="sealog.port.groupSub[$parent.$index]" placeholder="{{subgroup.itemName}}" >
+                                                                    </div>
+                                                                    <div class="col-sm-2" ng-repeat="option in subgroup.optionItems track by $index">
+                                                                        <input type="text" class="form-control" ng-model="sealog.port.groupSub[$parent.$index].item[$index]" placeholder="{{option}}" >
+                                                                    </div>
+                                                                    <div class="col-sm-2">
+                                                                            <input type="text" class="form-control f-10" ng-model="sealog.port.groupUnit[$parent.$index]" value="{{subgroup.unit}}" placeholder="{{subgroup.unit}}" disabled>
+                                                                    </div>
+                                                              </div>
+                                                    </div>         
+                                                </form>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                
+                                      <div class="col-md-6">
+                                            <div class="panel panel-default" style="border: 1px solid #fff !important;">
+                                                    <div class="panel-content bg-dark f-10">
+                                                      <div class="row">
+                                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                                          <form role="form" class="form-horizontal form-validation">
+                                                              <div class="col-sm-12">
+                                                                  <div class="form-group">
+                                                                      <label class="control-label">Notes / History
+                                                                      </label>
+                                                                      <div>
+                                                                        <textarea rows="10" class="form-control" ng-model="sealog.port.notes" placeholder="Write notes..."></textarea>
+                                                                      </div>
+                                                                    </div>
+                                                              </div>
+                                                              <div class="col-sm-12">
+                                                                  <div class="form-group">
+                                                                          <label class="control-label">Engineer on watch</label>
+                                                                          <div>
+                                                                          <select ng-model="sealog.engineer.doneBy" name="users" class="form-control" required>
+                                                                            <option ng-repeat="profile in sealog.profiles" ng-value="profile" >{{profile.firstName + ' ' + profile.lastName}}</option>
+                                                                          </select>
+                                                                        </div>
+                                                                  </div>
+                                                              </div>
+                                                              <div class="row">
+                                                                  <div class="col-sm-12">
+                                                                    <div class="col-sm-4">
+                                                                      <button ng-click="sealog.save()" type="submit" class="btn btn-embossed btn-primary m-r-20"><i class="fa fa-save"></i> Save Changes</button>
+                                                                    </div>
+                                                                    <div class="col-sm-4">
+                                                                        <button class="btn btn-embossed btn-primary m-r-20" ng-print print-element-id="thisPage"><i class="fa fa-print"></i>Print</button>
+                                                                      </div>
+                                                                      <div class="col-sm-4">
+                                                                          <button ng-click="sealog.gotoLogbook()" class="btn btn-embossed btn-primary m-r-20"><i class="fa fa-exclamation-circle"></i>Cancel</button>
+                                                                        </div>
+                                                                  </div>
+                                                              </div>
+                          
+                                                          </form>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                            </div>
+                                      </div>
+                                    </div>
+
+
+
+
+                                <!--<div class="col-md-12">
+                                  <div class="panel panel-default" style="border: 1px solid #fff !important;">
+                                    <div class="panel-header">
+                                      Main Engine
+                                    </div>
+                                    <div class="panel-content bg-dark f-10">
+                                      <div class="row">
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                          <form role="form" class="form-horizontal form-validation">
+                                            <div class="form-group">
+                                              <label class="col-sm-3 control-label f-10">Coolant Temperature
+                                              </label>
+                                              <div class="col-sm-1">
+                                                <input type="text" class="form-control" ng-model="sealog.port.meCoolTempPort" placeholder="Port">
+                                              </div>
+                                              <div class="col-sm-1">
+                                                <input type="text" class="form-control" ng-model="sealog.port.meCoolTempStar" placeholder="Starboard">
+                                              </div>
+                                              <div class="col-sm-1">
+                                                <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                                  <option value="C">C'</option>
+                                                </select>
+                                              </div>
+                                              <label class="col-sm-3 control-label f-10">Engine Oil pressure
+                                              </label>
+                                              <div class="col-sm-1">
+                                                <input type="text" class="form-control" ng-model="sealog.port.meEngOilPressPort" placeholder="Port">
+                                              </div>
+                                              <div class="col-sm-1">
+                                                <input type="text" class="form-control" ng-model="sealog.port.meEngOilPressStar" placeholder="Starboard">
+                                              </div>
+                                              <div class="col-sm-1">
+                                                <select ng-model="sealog.selectedUnitKpa" name="group" class="form-control">
+                                                  <option value="Kpa">Kpa</option>
+                                                </select>
+                                              </div>
+                                            </div>
+                                            <div class="form-group">
+                                              <label class="col-sm-3 control-label f-10">Engine speed
+                                              </label>
+                                              <div class="col-sm-1">
+                                                  <input type="text" class="form-control" ng-model="sealog.port.meEngSpeedPort" placeholder="Port">
+                                              </div>
+                                              <div class="col-sm-1">
+                                                  <input type="text" class="form-control" ng-model="sealog.port.meEngSpeedStar" placeholder="Starboard">
+                                              </div>
+                                              <div class="col-sm-1">
+                                                      <select ng-model="sealog.selectedUnitKPM" name="group" class="form-control">
+                                                          <option value="KPM">KPM</option>
+                                                        </select>
+                                              </div>
+                                              <label class="col-sm-3 control-label f-10">Boost pressure
+                                              </label>
+                                              <div class="col-sm-1">
+                                                  <input type="text" class="form-control" ng-model="sealog.port.meBoostPressPort" placeholder="Port">
+                                              </div>
+                                              <div class="col-sm-1">
+                                                  <input type="text" class="form-control" ng-model="sealog.port.meBoostPressStar" placeholder="Starboard">
+                                              </div>
+                                              <div class="col-sm-1">
+                                                      <select ng-model="sealog.selectedUnitKpa" name="group" class="form-control">
+                                                          <option value="Kpa">Kpa</option>
+                                                        </select>
+                                              </div>
+                                              </div>
+                                              <div class="form-group">
+                                              <label class="col-sm-3 control-label f-10">% Load
+                                              </label>
+                                              <div class="col-sm-1">
+                                                  <input type="text" class="form-control" ng-model="sealog.port.mePerLoadPort" placeholder="Port">
+                                              </div>
+                                              <div class="col-sm-1">
+                                                  <input type="text" class="form-control" ng-model="sealog.port.mePerLoadStar" placeholder="Starboard">
+                                              </div>
+                                              <div class="col-sm-1">
+                                                      <select ng-model="sealog.selectedUnitPercent" name="group" class="form-control">
+                                                          <option value="%">%</option>
+                                                        </select>
+                                              </div>
+                                              <label class="col-sm-3 control-label f-10">Fuel Pressure
+                                              </label>
+                                              <div class="col-sm-1">
+                                                  <input type="text" class="form-control" ng-model="sealog.port.meFuelPressPort" placeholder="Port">
+                                              </div>
+                                              <div class="col-sm-1">
+                                                  <input type="text" class="form-control" ng-model="sealog.port.meFuelPressStar" placeholder="Starboard">
+                                              </div>
+                                              <div class="col-sm-1">
+                                                      <select ng-model="sealog.selectedUnitKpa" name="group" class="form-control">
+                                                          <option value="Kpa">Kpa</option>
+                                                        </select>
+                                              </div>
+                                              </div>
+                                              <div class="form-group">
+                                              <label class="col-sm-3 control-label f-10">Fuel rate
+                                              </label>
+                                              <div class="col-sm-1">
+                                                  <input type="text" class="form-control" ng-model="sealog.port.meFuelRatePort" placeholder="Port">
+                                              </div>
+                                              <div class="col-sm-1">
+                                                  <input type="text" class="form-control" ng-model="sealog.port.meFuelRateStar" placeholder="Starboard">
+                                              </div>
+                                              <div class="col-sm-1">
+                                                      <select ng-model="sealog.selectedUnitIH" name="group" class="form-control">
+                                                          <option value="IH">I/H</option>
+                                                        </select>
+                                              </div>
+                                              <label class="col-sm-3 control-label f-10">Fuel filter diff. Pressure
+                                              </label>
+                                              <div class="col-sm-1">
+                                                  <input type="text" class="form-control" ng-model="sealog.port.meFuelFilterPort" placeholder="Port">
+                                              </div>
+                                              <div class="col-sm-1">
+                                                  <input type="text" class="form-control" ng-model="sealog.port.meFuelFilterStar" placeholder="Starboard">
+                                              </div>
+                                              <div class="col-sm-1">
+                                                      <select ng-model="sealog.selectedUnitKpa" name="group" class="form-control">
+                                                          <option value="Kpa">Kpa</option>
+                                                        </select>
+                                              </div>
+                                              </div>
+            
+                                              <div class="form-group">
+                                              <label class="col-sm-3 control-label f-10">Oil filter diff. Pressure
+                                              </label>
+                                              <div class="col-sm-1">
+                                                  <input type="text" class="form-control" ng-model="sealog.port.meOilFilterPort" placeholder="Port">
+                                              </div>
+                                              <div class="col-sm-1">
+                                                  <input type="text" class="form-control" ng-model="sealog.port.meOilFilterPort" placeholder="Starboard">
+                                              </div>
+                                              <div class="col-sm-1">
+                                                      <select ng-model="sealog.selectedUnitKpa" name="group" class="form-control">
+                                                          <option value="Kpa">Kpa</option>
+                                                        </select>
+                                              </div>
+                                              <label class="col-sm-3 control-label f-10">Transm. Oil pressure
+                                              </label>
+                                              <div class="col-sm-1">
+                                                  <input type="text" class="form-control" ng-model="sealog.port.meTransOilPressPort" placeholder="Port">
+                                              </div>
+                                              <div class="col-sm-1">
+                                                  <input type="text" class="form-control" ng-model="sealog.port.meTransOilPressStar" placeholder="Starboard">
+                                              </div>
+                                              <div class="col-sm-1">
+                                                      <select ng-model="sealog.selectedUnitKpa" name="group" class="form-control">
+                                                          <option value="Kpa">Kpa</option>
+                                                        </select>
+                                              </div>
+                                              </div>
+                                              <div class="form-group">
+                                              <label class="col-sm-3 control-label f-10">Transm. Oil Temperature
+                                              </label>
+                                              <div class="col-sm-1">
+                                                  <input type="text" class="form-control" ng-model="sealog.port.meTransOilTempPort" placeholder="Port">
+                                              </div>
+                                              <div class="col-sm-1">
+                                                  <input type="text" class="form-control" ng-model="sealog.port.meTransOilTempStar" placeholder="Starboard">
+                                              </div>
+                                              <div class="col-sm-1">
+                                                      <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                                          <option value="C">C'</option>
+                                                        </select>
+                                              </div>
+                                              <label class="col-sm-3 control-label f-10">Transm. Thrust bearing temp
+                                              </label>
+                                              <div class="col-sm-1">
+                                                  <input type="text" class="form-control" ng-model="sealog.port.meThrustBearPort" placeholder="Port">
+                                              </div>
+                                              <div class="col-sm-1">
+                                                  <input type="text" class="form-control" ng-model="sealog.port.meThrustBearStar" placeholder="Starboard">
+                                              </div>
+                                              <div class="col-sm-1">
+                                                      <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                                          <option value="C">C'</option>
+                                                        </select>
+                                              </div>
+                                              </div>
+                                              <div class="form-group">
+                                              <label class="col-sm-3 control-label f-10">Transm. Lubrication oil pressure
+                                              </label>
+                                              <div class="col-sm-1">
+                                                  <input type="text" class="form-control" ng-model="sealog.port.meLubOilPort" placeholder="Port">
+                                              </div>
+                                              <div class="col-sm-1">
+                                                  <input type="text" class="form-control" ng-model="sealog.port.meLubOilStar" placeholder="Starboard">
+                                              </div>
+                                              <div class="col-sm-1">
+                                                      <select ng-model="sealog.selectedUnitKpa" name="group" class="form-control">
+                                                          <option value="Kpa">Kpa</option>
+                                                        </select>
+                                              </div>
+                                              <label class="col-sm-3 control-label f-10">Intake manif. Temperature
+                                              </label>
+                                              <div class="col-sm-1">
+                                                  <input type="text" class="form-control" ng-model="sealog.port.meManifTempPort" placeholder="Port">
+                                              </div>
+                                              <div class="col-sm-1">
+                                                  <input type="text" class="form-control" ng-model="sealog.port.meManifTempStar" placeholder="Starboard">
+                                              </div>
+                                              <div class="col-sm-1">
+                                                      <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                                          <option value="C">C'</option>
+                                                        </select>
+                                              </div>
+                                              </div>
+            
+                                              <div class="form-group">
+                                              <label class="col-sm-3 control-label f-10">Engine interc. Temperature
+                                              </label>
+                                              <div class="col-sm-1">
+                                                  <input type="text" class="form-control" ng-model="sealog.port.meInterTempPort" placeholder="Port">
+                                              </div>
+                                              <div class="col-sm-1">
+                                                  <input type="text" class="form-control" ng-model="sealog.port.meInterTempStar" placeholder="Starboard">
+                                              </div>
+                                              <div class="col-sm-1">
+                                                      <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                                          <option value="C">C'</option>
+                                                        </select>
+                                              </div>
+                                              <label class="col-sm-3 control-label f-10">Engine oil temperature
+                                              </label>
+                                              <div class="col-sm-1">
+                                                  <input type="text" class="form-control" ng-model="sealog.port.meEngiOilPort" placeholder="Port">
+                                              </div>
+                                              <div class="col-sm-1">
+                                                  <input type="text" class="form-control" ng-model="sealog.port.meEngiOilStar" placeholder="Starboard">
+                                              </div>
+                                              <div class="col-sm-1">
+                                                      <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                                          <option value="C">C'</option>
+                                                        </select>
+                                              </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                    <label class="col-sm-3 control-label f-10">Crankcase pressure
+                                                    </label>
+                                                    <div class="col-sm-1">
+                                                      <input type="text" class="form-control" ng-model="sealog.port.meCrankPort" placeholder="Port">
+                                                    </div>
+                                                    <div class="col-sm-1">
+                                                      <input type="text" class="form-control" ng-model="sealog.port.meCrankStar" placeholder="Starboard">
+                                                    </div>
+                                                    <div class="col-sm-1">
+                                                      <select ng-model="sealog.selectedUnitKpa" name="group" class="form-control">
+                                                        <option value="Kpa">Kpa</option>
+                                                      </select>
+                                                    </div>
+                                                    <label class="col-sm-3 control-label f-10">Battery voltage
+                                                    </label>
+                                                    <div class="col-sm-1">
+                                                      <input type="text" class="form-control" ng-model="sealog.port.meBattVoltPort" placeholder="Port">
+                                                    </div>
+                                                    <div class="col-sm-1">
+                                                      <input type="text" class="form-control" ng-model="sealog.port.meBattVoltStar" placeholder="Starboard">
+                                                    </div>
+                                                    <div class="col-sm-1">
+                                                      <select ng-model="sealog.selectedUnitV" name="group" class="form-control">
+                                                        <option value="V">V</option>
+                                                      </select>
+                                                    </div>
+                                                  </div>
+                                                  <div class="form-group">
+                                                    <label class="col-sm-3 control-label f-10">Fuel consumption
+                                                    </label>
+                                                    <div class="col-sm-1">
+                                                        <input type="text" class="form-control" ng-model="sealog.port.meFuelConsumpPort" placeholder="Port">
+                                                    </div>
+                                                    <div class="col-sm-1">
+                                                        <input type="text" class="form-control" ng-model="sealog.port.meFuelConsumpStar" placeholder="Starboard">
+                                                    </div>
+                                                    <div class="col-sm-1">
+                                                            <select ng-model="sealog.selectedUnitI" name="group" class="form-control">
+                                                                <option value="I">I</option>
+                                                              </select>
+                                                    </div>
+                                                    <label class="col-sm-3 control-label f-10">Air filter differential pressure
+                                                    </label>
+                                                    <div class="col-sm-1">
+                                                        <input type="text" class="form-control" ng-model="sealog.port.meAirFilterPort" placeholder="Port">
+                                                    </div>
+                                                    <div class="col-sm-1">
+                                                        <input type="text" class="form-control" ng-model="sealog.port.meAirFilterStar" placeholder="Starboard">
+                                                    </div>
+                                                    <div class="col-sm-1">
+                                                            <select ng-model="sealog.selectedUnitKpa" name="group" class="form-control">
+                                                                <option value="Kpa">Kpa</option>
+                                                              </select>
+                                                    </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                    <label class="col-sm-3 control-label f-10">Main engine LO. Level
+                                                    </label>
+                                                    <div class="col-sm-1">
+                                                        <input type="text" class="form-control" ng-model="sealog.port.meEngineLoPort" placeholder="Port">
+                                                    </div>
+                                                    <div class="col-sm-1">
+                                                        <input type="text" class="form-control" ng-model="sealog.port.meEngineLoStar" placeholder="Starboard">
+                                                    </div>
+                                                    <div class="col-sm-1">
+                                                            <select ng-model="sealog.selectedUnit" name="group" class="form-control">
+                                                                <option value=" "> </option>
+                                                              </select>
+                                                    </div>
+                                                    <label class="col-sm-3 control-label f-10">Main engine L.O. Temperature
+                                                    </label>
+                                                    <div class="col-sm-1">
+                                                        <input type="text" class="form-control" ng-model="sealog.port.meEngineLoTempPort" placeholder="Port">
+                                                    </div>
+                                                    <div class="col-sm-1">
+                                                        <input type="text" class="form-control" ng-model="sealog.port.meEngineLoTempStar" placeholder="Starboard">
+                                                    </div>
+                                                    <div class="col-sm-1">
+                                                            <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                                                <option value="C">C'</option>
+                                                              </select>
+                                                    </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                    <label class="col-sm-3 control-label f-10">T/C Speed
+                                                    </label>
+                                                    <div class="col-sm-1">
+                                                        <input type="text" class="form-control" ng-model="sealog.port.meTcSpeedPort" placeholder="Port">
+                                                    </div>
+                                                    <div class="col-sm-1">
+                                                        <input type="text" class="form-control" ng-model="sealog.port.meTcSpeedStar" placeholder="Starboard">
+                                                    </div>
+                                                    <div class="col-sm-1">
+                                                            <select ng-model="sealog.selectedUniKPM" name="group" class="form-control">
+                                                                <option value="KPM">KPM</option>
+                                                              </select>
+                                                    </div>
+                                                    <label class="col-sm-3 control-label f-10">S.W. Pressure
+                                                    </label>
+                                                    <div class="col-sm-1">
+                                                        <input type="text" class="form-control" ng-model="sealog.port.meSwPressPort" placeholder="Port">
+                                                    </div>
+                                                    <div class="col-sm-1">
+                                                        <input type="text" class="form-control" ng-model="sealog.port.meSwPressStar" placeholder="Starboard">
+                                                    </div>
+                                                    <div class="col-sm-1">
+                                                            <select ng-model="sealog.selectedUnitKpa" name="group" class="form-control">
+                                                                <option value="Kpa">Kpa</option>
+                                                              </select>
+                                                    </div>
+                                                    </div>
+                  
+                                                    <div class="form-group">
+                                                    <label class="col-sm-3 control-label f-10">Gearbox L.O. level
+                                                    </label>
+                                                    <div class="col-sm-1">
+                                                        <input type="text" class="form-control" ng-model="sealog.port.meGearboxLoPort" placeholder="Port">
+                                                    </div>
+                                                    <div class="col-sm-1">
+                                                        <input type="text" class="form-control" ng-model="sealog.port.meGearboxLoStar" placeholder="Starboard">
+                                                    </div>
+                                                    <div class="col-sm-1">
+                                                            <select ng-model="sealog.selectedUnit" name="group" class="form-control">
+                                                                <option value=" "> </option>
+                                                              </select>
+                                                    </div>
+                                                    <label class="col-sm-3 control-label f-10">Gearbox S.W. outlet temp.
+                                                    </label>
+                                                    <div class="col-sm-1">
+                                                        <input type="text" class="form-control" ng-model="sealog.port.meGearboxSwPort" placeholder="Port">
+                                                    </div>
+                                                    <div class="col-sm-1">
+                                                        <input type="text" class="form-control" ng-model="sealog.port.meGearboxSwStar" placeholder="Starboard">
+                                                    </div>
+                                                    <div class="col-sm-1">
+                                                            <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                                                <option value="C">C'</option>
+                                                              </select>
+                                                    </div>
+                                                    </div>
+                                            
+                                          </form>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>-->
+                              
+                                <!--<div class="row">
+                                  <div class="col-md-6">
+                                    <div class="panel panel-default" style="border: 1px solid #fff !important;">
+                                      <div class="panel-content bg-dark f-10">
+                                        <div class="row">
+                                          <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <form role="form" class="form-horizontal form-validation">
+                                              <div class="form-group">
+                                                <label class="col-sm-2 control-label f-10">cyl. 2 left bank
+                                                </label>
+                                                <div class="col-sm-2">
+                                                    <input type="text" class="form-control" ng-model="sealog.port.cylLeftBankPort2" placeholder="Port M/E temp">
+                                                </div>
+                                                <div class="col-sm-2">
+                                                  <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                                    <option value="C">C'</option>
+                                                  </select>
+                                                </div>
+                                                <label class="col-sm-2 control-label f-10">cyl. 2 left bank
+                                                </label>
+                                                <div class="col-sm-2">
+                                                  <input type="text" class="form-control" ng-model="sealog.port.cylLeftBankStar2" placeholder="Starboard M/E temp">
+                                                </div>
+                                                <div class="col-sm-2">
+                                                  <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                                    <option value="C">C'</option>
+                                                  </select>
+                                                </div>
+                                              </div>
+                                              <div class="form-group">
+                                                    <label class="col-sm-2 control-label f-10">cyl. 4 left bank
+                                                    </label>
+                                                    <div class="col-sm-2">
+                                                        <input type="text" class="form-control" ng-model="sealog.port.cylLeftBankPort4" placeholder="Port M/E temp">
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                      <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                                        <option value="C">C'</option>
+                                                      </select>
+                                                    </div>
+                                                    <label class="col-sm-2 control-label f-10">cyl. 4 left bank
+                                                    </label>
+                                                    <div class="col-sm-2">
+                                                      <input type="text" class="form-control" ng-model="sealog.port.cylLeftBankStar4" placeholder="Starboard M/E temp">
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                      <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                                        <option value="C">C'</option>
+                                                      </select>
+                                                    </div>
+                                              </div>
+                                              <div class="form-group">
+                                                    <label class="col-sm-2 control-label f-10">cyl. 6 left bank
+                                                    </label>
+                                                    <div class="col-sm-2">
+                                                        <input type="text" class="form-control" ng-model="sealog.port.cylLeftBankPort6" placeholder="Port M/E temp">
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                      <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                                        <option value="C">C'</option>
+                                                      </select>
+                                                    </div>
+                                                    <label class="col-sm-2 control-label f-10">cyl. 6 left bank
+                                                    </label>
+                                                    <div class="col-sm-2">
+                                                      <input type="text" class="form-control" ng-model="sealog.port.cylLeftBankStar6" placeholder="Starboard M/E temp">
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                      <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                                        <option value="C">C'</option>
+                                                      </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                        <label class="col-sm-2 control-label f-10">cyl. 8 left bank
+                                                        </label>
+                                                        <div class="col-sm-2">
+                                                            <input type="text" class="form-control" ng-model="sealog.port.cylLeftBankPort8" placeholder="Port M/E temp">
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                          <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                                            <option value="C">C'</option>
+                                                          </select>
+                                                        </div>
+                                                        <label class="col-sm-2 control-label f-10">cyl. 8 left bank
+                                                        </label>
+                                                        <div class="col-sm-2">
+                                                          <input type="text" class="form-control" ng-model="sealog.port.cylLeftBankStar8" placeholder="Starboard M/E temp">
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                          <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                                            <option value="C">C'</option>
+                                                          </select>
+                                                        </div>
+                                                </div>
+                                                <div class="form-group">
+                                                        <label class="col-sm-2 control-label f-10">cyl. 10 left bank
+                                                        </label>
+                                                        <div class="col-sm-2">
+                                                            <input type="text" class="form-control" ng-model="sealog.port.cylLeftBankPort10" placeholder="Port M/E temp">
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                          <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                                            <option value="C">C'</option>
+                                                          </select>
+                                                        </div>
+                                                        <label class="col-sm-2 control-label f-10">cyl. 10 left bank
+                                                        </label>
+                                                        <div class="col-sm-2">
+                                                          <input type="text" class="form-control" ng-model="sealog.port.cylLeftBankStar10" placeholder="Starboard M/E temp">
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                          <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                                            <option value="C">C'</option>
+                                                          </select>
+                                                        </div>
+                                                </div>
+                                                <div class="form-group">
+                                                        <label class="col-sm-2 control-label f-10">cyl. 12 left bank
+                                                        </label>
+                                                        <div class="col-sm-2">
+                                                            <input type="text" class="form-control" ng-model="sealog.port.cylLeftBankPort12" placeholder="Port M/E temp">
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                          <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                                            <option value="C">C'</option>
+                                                          </select>
+                                                        </div>
+                                                        <label class="col-sm-2 control-label f-10">cyl. 12 left bank
+                                                        </label>
+                                                        <div class="col-sm-2">
+                                                          <input type="text" class="form-control" ng-model="sealog.port.cylLeftBankStar12" placeholder="Starboard M/E temp">
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                          <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                                            <option value="C">C'</option>
+                                                          </select>
+                                                        </div>
+                                                </div>
+                                                <div class="form-group">
+                                                        <label class="col-sm-2 control-label f-10">cyl. 1 right bank
+                                                        </label>
+                                                        <div class="col-sm-2">
+                                                            <input type="text" class="form-control" ng-model="sealog.port.cylRightBankPort1" placeholder="Port M/E temp">
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                          <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                                            <option value="C">C'</option>
+                                                          </select>
+                                                        </div>
+                                                        <label class="col-sm-2 control-label f-10">cyl. 1 right bank
+                                                        </label>
+                                                        <div class="col-sm-2">
+                                                          <input type="text" class="form-control" ng-model="sealog.port.cylRightBankStar1" placeholder="Starboard M/E temp">
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                          <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                                            <option value="C">C'</option>
+                                                          </select>
+                                                        </div>
+                                                </div>
+                                                <div class="form-group">
+                                                        <label class="col-sm-2 control-label f-10">cyl. 3 right bank
+                                                        </label>
+                                                        <div class="col-sm-2">
+                                                            <input type="text" class="form-control" ng-model="sealog.port.cylRightBankPort3" placeholder="Port M/E temp">
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                          <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                                            <option value="C">C'</option>
+                                                          </select>
+                                                        </div>
+                                                        <label class="col-sm-2 control-label f-10">cyl. 3 right bank
+                                                        </label>
+                                                        <div class="col-sm-2">
+                                                          <input type="text" class="form-control" ng-model="sealog.port.cylRightBankStar3" placeholder="Starboard M/E temp">
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                          <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                                            <option value="C">C'</option>
+                                                          </select>
+                                                        </div>
+                                                </div>
+                                                <div class="form-group">
+                                                        <label class="col-sm-2 control-label f-10">cyl. 5 right bank
+                                                        </label>
+                                                        <div class="col-sm-2">
+                                                            <input type="text" class="form-control" ng-model="sealog.port.cylRightBankPort5" placeholder="Port M/E temp">
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                          <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                                            <option value="C">C'</option>
+                                                          </select>
+                                                        </div>
+                                                        <label class="col-sm-2 control-label f-10">cyl. 5 right bank
+                                                        </label>
+                                                        <div class="col-sm-2">
+                                                          <input type="text" class="form-control" ng-model="sealog.port.cylRightBankStar5" placeholder="Starboard M/E temp">
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                          <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                                            <option value="C">C'</option>
+                                                          </select>
+                                                        </div>
+                                                </div>
+                                                <div class="form-group">
+                                                        <label class="col-sm-2 control-label f-10">cyl. 7 right bank
+                                                        </label>
+                                                        <div class="col-sm-2">
+                                                            <input type="text" class="form-control" ng-model="sealog.port.cylRightBankPort7" placeholder="Port M/E temp">
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                          <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                                            <option value="C">C'</option>
+                                                          </select>
+                                                        </div>
+                                                        <label class="col-sm-2 control-label f-10">cyl. 7 right bank
+                                                        </label>
+                                                        <div class="col-sm-2">
+                                                          <input type="text" class="form-control" ng-model="sealog.port.cylRightBankStar7" placeholder="Starboard M/E temp">
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                          <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                                            <option value="C">C'</option>
+                                                          </select>
+                                                        </div>
+                                                </div>
+                                                <div class="form-group">
+                                                        <label class="col-sm-2 control-label f-10">cyl. 9 right bank
+                                                        </label>
+                                                        <div class="col-sm-2">
+                                                            <input type="text" class="form-control" ng-model="sealog.port.cylRightBankPort9" placeholder="Port M/E temp">
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                          <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                                            <option value="C">C'</option>
+                                                          </select>
+                                                        </div>
+                                                        <label class="col-sm-2 control-label f-10">cyl. 9 right bank
+                                                        </label>
+                                                        <div class="col-sm-2">
+                                                          <input type="text" class="form-control" ng-model="sealog.port.cylRightBankStar9" placeholder="Starboard M/E temp">
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                          <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                                            <option value="C">C'</option>
+                                                          </select>
+                                                        </div>
+                                                </div>
+                                                <div class="form-group">
+                                                        <label class="col-sm-2 control-label f-10">cyl. 11 right bank
+                                                        </label>
+                                                        <div class="col-sm-2">
+                                                            <input type="text" class="form-control" ng-model="sealog.port.cylRightBankPort11" placeholder="Port M/E temp">
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                          <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                                            <option value="C">C'</option>
+                                                          </select>
+                                                        </div>
+                                                        <label class="col-sm-2 control-label f-10">cyl. 11 right bank
+                                                        </label>
+                                                        <div class="col-sm-2">
+                                                          <input type="text" class="form-control" ng-model="sealog.port.cylRightBankStar11" placeholder="Starboard M/E temp">
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                          <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                                            <option value="C">C'</option>
+                                                          </select>
+                                                        </div>
+                                                </div>
+                                                <div class="form-group">
+                                                        <label class="col-sm-2 control-label f-10">Left manifold exh. Temp.
+                                                        </label>
+                                                        <div class="col-sm-2">
+                                                            <input type="text" class="form-control" ng-model="sealog.port.cylLeftManifold" placeholder="Temperature">
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                          <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                                            <option value="C">C'</option>
+                                                          </select>
+                                                        </div>
+                                                        <label class="col-sm-2 control-label f-10">Right manifold exh. Temp.
+                                                        </label>
+                                                        <div class="col-sm-2">
+                                                          <input type="text" class="form-control" ng-model="sealog.port.cylRightManifold" placeholder="Temperature">
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                          <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                                            <option value="C">C'</option>
+                                                          </select>
+                                                        </div>
+                                                </div>
+                                                <div class="form-group">
+                                                        <label class="col-sm-2 control-label f-10">Left avg Temp.
+                                                        </label>
+                                                        <div class="col-sm-2">
+                                                            <input type="text" class="form-control" ng-model="sealog.port.cylLeftAvgTemp" placeholder="Temperature">
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                          <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                                            <option value="C">C'</option>
+                                                          </select>
+                                                        </div>
+                                                        <label class="col-sm-2 control-label f-10">Right avg Temp.
+                                                        </label>
+                                                        <div class="col-sm-2">
+                                                          <input type="text" class="form-control" ng-model="sealog.port.cylRightAvgTemp" placeholder="Temperature">
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                          <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                                            <option value="C">C'</option>
+                                                          </select>
+                                                        </div>
+                                                </div>
+                                            </form>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+            
+                                    
+                                  </div>
+                                  <div class="col-md-6">
+                                        <div class="panel panel-default" style="border: 1px solid #fff !important;">
+                                                <div class="panel-header">
+                                                  Steering Gear Power pack
+                                                </div>
+                                                <div class="panel-content bg-dark f-10">
+                                                  <div class="row">
+                                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                                      <form role="form" class="form-horizontal form-validation">
+                                                        <div class="form-group">
+                                                          <label class="col-sm-3 control-label f-10">Running Hours
+                                                          </label>
+                                                          <div class="col-sm-6">
+                                                            <input type="text" class="form-control" ng-model="sealog.port.sgppRunningHours" placeholder="Running Hours">
+                                                          </div>
+                                                          <div class="col-sm-3">
+                                                            <select ng-model="sealog.selectedUnitHours" name="group" class="form-control">
+                                                              <option value="Hours">Hours</option>
+                                                            </select>
+                                                          </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                          <label class="col-sm-3 control-label f-10">Hydraulic oil level
+                                                          </label>
+                                                          <div class="col-sm-3">
+                                                              <input type="text" class="form-control" ng-model="sealog.port.sgppHydraulicOilLevel1" placeholder="No. 1">
+                                                          </div>
+                                                          <div class="col-sm-3">
+                                                              <input type="text" class="form-control" ng-model="sealog.port.sgppHydraulicOilLevel2" placeholder="No. 2">
+                                                          </div>
+                                                          <div class="col-sm-3">
+                                                                  <select ng-model="sealog.selectedUnit" name="group" class="form-control">
+                                                                      <option value=" "> </option>
+                                                                    </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                                <label class="col-sm-3 control-label f-10">Hydraulic oil
+                                                                </label>
+                                                                <div class="col-sm-3">
+                                                                    <input type="text" class="form-control" ng-model="sealog.port.sgppHydraulicOil1" placeholder="No. 1">
+                                                                </div>
+                                                                <div class="col-sm-3">
+                                                                    <input type="text" class="form-control" ng-model="sealog.port.sgppHydraulicOil2" placeholder="No. 2">
+                                                                </div>
+                                                                <div class="col-sm-3">
+                                                                        <select ng-model="sealog.selectedUnit" name="group" class="form-control">
+                                                                            <option value=" "> </option>
+                                                                          </select>
+                                                                  </div>
+                                                              </div>
+                                                      </form>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                    <div class="panel panel-default" style="border: 1px solid #fff !important;">
+                                      <div class="panel-content bg-dark f-10">
+                                        <div class="row">
+                                          <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <form role="form" class="form-horizontal form-validation">
+                                              <div class="form-group">
+                                                <label class="col-sm-3 control-label f-10">Temp fridge 1
+                                                </label>
+                                                <div class="col-sm-6">
+                                                  <input type="text" class="form-control" ng-model="sealog.port.tempFridge1" placeholder="Temperature">
+                                                </div>
+                                                <div class="col-sm-3">
+                                                  <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                                    <option value="C">C'</option>
+                                                  </select>
+                                                </div>
+                                              </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label f-10">Temp fridge 2
+                                                    </label>
+                                                    <div class="col-sm-6">
+                                                      <input type="text" class="form-control" ng-model="sealog.port.tempFridge2" placeholder="Temperature">
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                      <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                                        <option value="C">C'</option>
+                                                      </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                        <label class="col-sm-3 control-label f-10">Temp fridge 3
+                                                        </label>
+                                                        <div class="col-sm-6">
+                                                          <input type="text" class="form-control" ng-model="sealog.port.tempFridge3" placeholder="Temperature">
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                          <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                                            <option value="C">C'</option>
+                                                          </select>
+                                                        </div>
+                                                </div>
+                                                <div class="form-group">
+                                                        <label class="col-sm-3 control-label f-10">Temp freezer 1
+                                                        </label>
+                                                        <div class="col-sm-6">
+                                                          <input type="text" class="form-control" ng-model="sealog.port.tempFreezer1" placeholder="Temperature">
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                          <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                                            <option value="C">C'</option>
+                                                          </select>
+                                                        </div>
+                                                </div>
+                                                <div class="form-group">
+                                                        <label class="col-sm-3 control-label f-10">Temp freezer 2
+                                                        </label>
+                                                        <div class="col-sm-6">
+                                                          <input type="text" class="form-control" ng-model="sealog.port.tempFreezer2" placeholder="Temperature">
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                          <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                                            <option value="C">C'</option>
+                                                          </select>
+                                                        </div>
+                                                </div>
+                                              
+                                            </form>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>-->
+                              
+                  </div>
+                  <!--<div class="tab-pane fade" id="tab6_1">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="panel panel-default" style="border: 1px solid #fff !important;">
+                          <div class="panel-header">
+                            Engine Room
+                          </div>
+                          <div class="panel-content bg-dark f-10">
+                            <div class="row">
+                              <div class="col-md-12 col-sm-12 col-xs-12">
+                                <form role="form" class="form-horizontal form-validation">
+                                  <div class="form-group">
+                                    <label class="col-sm-4 control-label f-10">S.W. Temperature
+                                    </label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" ng-model="sealog.port.erSwTemp" placeholder="S.W. Temperature">
+                                    </div>
+                                    <div class="col-sm-4">
+                                      <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                        <option value="C">C'</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="col-sm-4 control-label">Engine room Temperature
+                                    </label>
+                                    <div class="col-sm-4">
+                                      <input type="text" class="form-control" ng-model="sealog.port.erErTemp" placeholder="Engine room Temperature">
+                                    </div>
+                                    <div class="col-sm-4">
+                                      <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                        <option value="C">C'</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="col-sm-4 control-label">Engine room pressure
+                                    </label>
+                                    <div class="col-sm-4">
+                                      <input type="text" class="form-control" ng-model="sealog.port.erErPressure" placeholder="Engine room pressure">
+                                    </div>
+                                    <div class="col-sm-4">
+                                      <select ng-model="sealog.selectedUnitKpa" name="group" class="form-control">
+                                        <option value="Kpa">Kpa</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="panel panel-default" style="border: 1px solid #fff !important;">
+                            <div class="panel-header">
+                              NFV F.O. treatment
+                            </div>
+                            <div class="panel-content bg-dark f-10">
+                              <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                  <form role="form" class="form-horizontal form-validation">
+                                    <div class="form-group">
+                                      <label class="col-sm-3 control-label f-10">Running Hours
+                                      </label>
+                                      <div class="col-sm-6">
+                                        <input type="text" class="form-control" ng-model="sealog.port.ntRunningHours" placeholder="Running Hours">
+                                      </div>
+                                      <div class="col-sm-3">
+                                        <select ng-model="sealog.selectedUnitHours" name="group" class="form-control">
+                                          <option value="Hours">Hours</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="form-group">
+                                      <label class="col-sm-3 control-label f-10">Differential pressure
+                                      </label>
+                                      <div class="col-sm-3">
+                                          <input type="text" class="form-control" ng-model="sealog.port.ntDiffPressure1stage" placeholder="1st Stage">
+                                      </div>
+                                      <div class="col-sm-3">
+                                          <input type="text" class="form-control" ng-model="sealog.port.ntDiffPressure2stage" placeholder="2nd Stage">
+                                      </div>
+                                      <div class="col-sm-3">
+                                              <select ng-model="sealog.selectedUnitKpa" name="group" class="form-control">
+                                                  <option value="Kpa">Kpa'</option>
+                                                </select>
+                                        </div>
+                                    </div>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="panel panel-default" style="border: 1px solid #fff !important;">
+                          <div class="panel-header">
+                            Air Compressor
+                          </div>
+                          <div class="panel-content bg-dark f-10">
+                            <div class="row">
+                              <div class="col-md-12 col-sm-12 col-xs-12">
+                                <form role="form" class="form-horizontal form-validation">
+                                  <div class="form-group">
+                                    <label class="col-sm-3 control-label f-10">Running Hours
+                                    </label>
+                                    <div class="col-sm-6">
+                                      <input type="text" class="form-control" ng-model="sealog.port.acRunningHours" placeholder="Running Hours">
+                                    </div>
+                                    <div class="col-sm-3">
+                                      <select ng-model="sealog.selectedUnitHours" name="group" class="form-control">
+                                        <option value="Hours">Hours</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="col-sm-3 control-label f-10">Air Pressure
+                                    </label>
+                                    <div class="col-sm-3">
+                                      <input type="text" class="form-control" ng-model="sealog.port.acAirPressureHours" placeholder="hours">
+                                    </div>
+                                    <div class="col-sm-3">
+                                      <input type="text" class="form-control" ng-model="sealog.port.acAirPressure" placeholder="Air Pressure">
+                                  </div>
+                                    <div class="col-sm-3">
+                                            <select ng-model="sealog.selectedUnitKpa" name="group" class="form-control">
+                                                <option value="Kpa">Kpa'</option>
+                                              </select>
+                                      </div>
+                                  </div>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="panel panel-default" style="border: 1px solid #fff !important;">
+                          <div class="panel-header">
+                            Ultra Fog System
+                          </div>
+                          <div class="panel-content bg-dark f-10">
+                            <div class="row">
+                              <div class="col-md-12 col-sm-12 col-xs-12">
+                                <form role="form" class="form-horizontal form-validation">
+                                  <div class="form-group">
+                                    <label class="col-sm-4 control-label f-10">Running Hours
+                                    </label>
+                                    <div class="col-sm-4">
+                                      <input type="text" class="form-control" ng-model="sealog.port.ufsRunningHours" placeholder="Running Hours">
+                                    </div>
+                                    <div class="col-sm-4">
+                                      <select ng-model="sealog.selectedUnitHours" name="group" class="form-control">
+                                        <option value="Hours">Hours</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="col-sm-4 control-label f-10">Pressure
+                                    </label>
+                                    <div class="col-sm-4">
+                                      <input type="text" class="form-control" ng-model="sealog.port.ufsPressure" placeholder="Pressure">
+                                  </div>
+                                    <div class="col-sm-4">
+                                            <select ng-model="sealog.selectedUnitKpa" name="group" class="form-control">
+                                                <option value="Kpa">Kpa'</option>
+                                              </select>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="col-sm-4 control-label f-10">Nitrogen Pressure
+                                    </label>
+                                    <div class="col-sm-4">
+                                      <input type="text" class="form-control" ng-model="sealog.port.ufsNitroPressure" placeholder="Nitrogen Pressure">
+                                    </div>
+                                    <div class="col-sm-4">
+                                            <select ng-model="sealog.selectedUnitKpa" name="group" class="form-control">
+                                                <option value="Kpa">Kpa</option>
+                                              </select>
+                                      </div>
+                                  </div>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-md-12">
+                      <div class="panel panel-default" style="border: 1px solid #fff !important;">
+                        <div class="panel-header">
+                          Genset
+                        </div>
+                        <div class="panel-content bg-dark f-10">
+                          <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                              <form role="form" class="form-horizontal form-validation">
+                                <div class="form-group">
+                                  <label class="col-sm-2 control-label f-10">Running Hours
+                                  </label>
+                                  <div class="col-sm-2">
+                                    <input type="text" class="form-control" ng-model="sealog.port.gRunningHours" placeholder="Running Hours">
+                                  </div>
+                                  <div class="col-sm-2">
+                                    <select ng-model="sealog.selectedUnitHours" name="group" class="form-control">
+                                      <option value="Hours">Hours</option>
+                                    </select>
+                                  </div>
+                                  <label class="col-sm-2 control-label f-10">Oil Temperature
+                                  </label>
+                                  <div class="col-sm-1">
+                                    <input type="text" class="form-control" ng-model="sealog.port.gOilTemp1" placeholder="No.1">
+                                  </div>
+                                  <div class="col-sm-1">
+                                    <input type="text" class="form-control" ng-model="sealog.port.gOilTemp2" placeholder="No.2">
+                                  </div>
+                                  <div class="col-sm-1">
+                                    <input type="text" class="form-control" ng-model="sealog.port.gOilTemp3" placeholder="No.3">
+                                  </div>
+                                  <div class="col-sm-1">
+                                    <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                      <option value="C">C'</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label class="col-sm-2 control-label f-10">Oil Pressure
+                                  </label>
+                                  <div class="col-sm-1">
+                                      <input type="text" class="form-control" ng-model="sealog.port.gOilPressure1" placeholder="No.1">
+                                  </div>
+                                  <div class="col-sm-1">
+                                      <input type="text" class="form-control" ng-model="sealog.port.gOilPressure2" placeholder="No.2">
+                                  </div>
+                                  <div class="col-sm-1">
+                                    <input type="text" class="form-control" ng-model="sealog.port.gOilPressure3" placeholder="No.3">
+                                  </div>
+                                  <div class="col-sm-1">
+                                          <select ng-model="sealog.selectedUnitKpa" name="group" class="form-control">
+                                              <option value="Kpa">Kpa'</option>
+                                            </select>
+                                  </div>
+                                  <label class="col-sm-2 control-label f-10">Coolant Temperature
+                                  </label>
+                                  <div class="col-sm-1">
+                                      <input type="text" class="form-control" ng-model="sealog.port.gCoolTemp1" placeholder="No.1">
+                                  </div>
+                                  <div class="col-sm-1">
+                                      <input type="text" class="form-control" ng-model="sealog.port.gCoolTemp2" placeholder="No.2">
+                                  </div>
+                                  <div class="col-sm-1">
+                                    <input type="text" class="form-control" ng-model="sealog.port.gCoolTemp3" placeholder="No.3">
+                                  </div>
+                                  <div class="col-sm-1">
+                                          <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                              <option value="C">C'</option>
+                                            </select>
+                                  </div>
+                                  </div>
+                                  <div class="form-group">
+                                  <label class="col-sm-2 control-label f-10">Engine Speed
+                                  </label>
+                                  <div class="col-sm-1">
+                                      <input type="text" class="form-control" ng-model="sealog.port.gEngSpeed1" placeholder="No.1">
+                                  </div>
+                                  <div class="col-sm-1">
+                                      <input type="text" class="form-control" ng-model="sealog.port.gEngSpeed2" placeholder="No.2">
+                                  </div>
+                                  <div class="col-sm-1">
+                                    <input type="text" class="form-control" ng-model="sealog.port.gEngSpeed3" placeholder="No.3">
+                                  </div>
+                                  <div class="col-sm-1">
+                                          <select ng-model="sealog.selectedUnitRPM" name="group" class="form-control">
+                                              <option value="RPM">RPM</option>
+                                            </select>
+                                  </div>
+                                  <label class="col-sm-2 control-label f-10">Battery Voltage
+                                  </label>
+                                  <div class="col-sm-1">
+                                      <input type="text" class="form-control" ng-model="sealog.port.gBatVolt1" placeholder="No.1">
+                                  </div>
+                                  <div class="col-sm-1">
+                                      <input type="text" class="form-control" ng-model="sealog.port.gBatVolt2" placeholder="No.2">
+                                  </div>
+                                  <div class="col-sm-1">
+                                    <input type="text" class="form-control" ng-model="sealog.port.gBatVolt3" placeholder="No.3">
+                                  </div>
+                                  <div class="col-sm-1">
+                                          <select ng-model="sealog.selectedUnitV" name="group" class="form-control">
+                                              <option value="V">V</option>
+                                            </select>
+                                  </div>
+                                  </div>
+                                  <div class="form-group">
+                                  <label class="col-sm-2 control-label f-10">Intake Man
+                                  </label>
+                                  <div class="col-sm-1">
+                                      <input type="text" class="form-control" ng-model="sealog.port.gIntakeMan1" placeholder="No.1">
+                                  </div>
+                                  <div class="col-sm-1">
+                                      <input type="text" class="form-control" ng-model="sealog.port.gIntakeMan2" placeholder="No.2">
+                                  </div>
+                                  <div class="col-sm-1">
+                                    <input type="text" class="form-control" ng-model="sealog.port.gIntakeMan3" placeholder="No.3">
+                                  </div>
+                                  <div class="col-sm-1">
+                                          <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                              <option value="C">C'</option>
+                                            </select>
+                                  </div>
+                                  <label class="col-sm-2 control-label f-10">Boost
+                                  </label>
+                                  <div class="col-sm-1">
+                                      <input type="text" class="form-control" ng-model="sealog.port.gBoost1" placeholder="No.1">
+                                  </div>
+                                  <div class="col-sm-1">
+                                      <input type="text" class="form-control" ng-model="sealog.port.gBoost2" placeholder="No.2">
+                                  </div>
+                                  <div class="col-sm-1">
+                                    <input type="text" class="form-control" ng-model="sealog.port.gBoost3" placeholder="No.3">
+                                  </div>
+                                  <div class="col-sm-1">
+                                          <select ng-model="sealog.selectedUnitKpa" name="group" class="form-control">
+                                              <option value="Kpa">Kpa</option>
+                                            </select>
+                                  </div>
+                                  </div>
+
+                                  <div class="form-group">
+                                  <label class="col-sm-2 control-label f-10">Fuel Consumption
+                                  </label>
+                                  <div class="col-sm-1">
+                                      <input type="text" class="form-control" ng-model="sealog.port.gFuelCons1" placeholder="No.1">
+                                  </div>
+                                  <div class="col-sm-1">
+                                      <input type="text" class="form-control" ng-model="sealog.port.gFuelCons2" placeholder="No.2">
+                                  </div>
+                                  <div class="col-sm-1">
+                                    <input type="text" class="form-control" ng-model="sealog.port.gFuelCons3" placeholder="No.3">
+                                  </div>
+                                  <div class="col-sm-1">
+                                          <select ng-model="sealog.selectedUnitI" name="group" class="form-control">
+                                              <option value="I">I</option>
+                                            </select>
+                                  </div>
+                                  <label class="col-sm-2 control-label f-10">Fuel Rate
+                                  </label>
+                                  <div class="col-sm-1">
+                                      <input type="text" class="form-control" ng-model="sealog.port.gFuelRate1" placeholder="No.1">
+                                  </div>
+                                  <div class="col-sm-1">
+                                      <input type="text" class="form-control" ng-model="sealog.port.gFuelRate2" placeholder="No.2">
+                                  </div>
+                                  <div class="col-sm-1">
+                                    <input type="text" class="form-control" ng-model="sealog.port.gFuelRate3" placeholder="No.3">
+                                  </div>
+                                  <div class="col-sm-1">
+                                          <select ng-model="sealog.selectedUnitIH" name="group" class="form-control">
+                                              <option value="IH">I/H</option>
+                                            </select>
+                                  </div>
+                                  </div>
+                                  <div class="form-group">
+                                  <label class="col-sm-2 control-label f-10">L.O. Level
+                                  </label>
+                                  <div class="col-sm-1">
+                                      <input type="text" class="form-control" ng-model="sealog.port.gLoLevel1" placeholder="No.1">
+                                  </div>
+                                  <div class="col-sm-1">
+                                      <input type="text" class="form-control" ng-model="sealog.port.gLoLevel2" placeholder="No.2">
+                                  </div>
+                                  <div class="col-sm-1">
+                                    <input type="text" class="form-control" ng-model="sealog.port.gLoLevel3" placeholder="No.3">
+                                  </div>
+                                  <div class="col-sm-1">
+                                          <select ng-model="sealog.selectedUnit" name="group" class="form-control">
+                                              <option value=" "> </option>
+                                            </select>
+                                  </div>
+                                  <label class="col-sm-2 control-label f-10">Voltage Out
+                                  </label>
+                                  <div class="col-sm-1">
+                                      <input type="text" class="form-control" ng-model="sealog.port.gVoltOut1" placeholder="No.1">
+                                  </div>
+                                  <div class="col-sm-1">
+                                      <input type="text" class="form-control" ng-model="sealog.port.gVoltOut2" placeholder="No.2">
+                                  </div>
+                                  <div class="col-sm-1">
+                                    <input type="text" class="form-control" ng-model="sealog.port.gVoltOut3" placeholder="No.3">
+                                  </div>
+                                  <div class="col-sm-1">
+                                          <select ng-model="sealog.selectedUnitV" name="group" class="form-control">
+                                              <option value="V">V</option>
+                                            </select>
+                                  </div>
+                                  </div>
+                                  <div class="form-group">
+                                  <label class="col-sm-2 control-label f-10">Currency Out
+                                  </label>
+                                  <div class="col-sm-1">
+                                      <input type="text" class="form-control" ng-model="sealog.port.gCurrOut1" placeholder="No.1">
+                                  </div>
+                                  <div class="col-sm-1">
+                                      <input type="text" class="form-control" ng-model="sealog.port.gCurrOut2" placeholder="No.2">
+                                  </div>
+                                  <div class="col-sm-1">
+                                    <input type="text" class="form-control" ng-model="sealog.port.gCurrOut3" placeholder="No.3">
+                                  </div>
+                                  <div class="col-sm-1">
+                                          <select ng-model="sealog.selectedUnitA" name="group" class="form-control">
+                                              <option value="A">A</option>
+                                            </select>
+                                  </div>
+                                  <label class="col-sm-2 control-label f-10">Power Out
+                                  </label>
+                                  <div class="col-sm-1">
+                                      <input type="text" class="form-control" ng-model="sealog.port.gPowerOut1" placeholder="No.1">
+                                  </div>
+                                  <div class="col-sm-1">
+                                      <input type="text" class="form-control" ng-model="sealog.port.gPowerOut2" placeholder="No.2">
+                                  </div>
+                                  <div class="col-sm-1">
+                                    <input type="text" class="form-control" ng-model="sealog.port.gPowerOut3" placeholder="No.3">
+                                  </div>
+                                  <div class="col-sm-1">
+                                          <select ng-model="sealog.selectedUnitkW" name="group" class="form-control">
+                                              <option value="kW">kW</option>
+                                            </select>
+                                  </div>
+                                  </div>
+
+                                  <div class="form-group">
+                                  <label class="col-sm-2 control-label f-10">Frequency Out
+                                  </label>
+                                  <div class="col-sm-1">
+                                      <input type="text" class="form-control" ng-model="sealog.port.gFreqOut1" placeholder="No.1">
+                                  </div>
+                                  <div class="col-sm-1">
+                                      <input type="text" class="form-control" ng-model="sealog.port.gFreqOut2" placeholder="No.2">
+                                  </div>
+                                  <div class="col-sm-1">
+                                    <input type="text" class="form-control" ng-model="sealog.port.gFreqOut3" placeholder="No.3">
+                                  </div>
+                                  <div class="col-sm-1">
+                                          <select ng-model="sealog.selectedUnitHz" name="group" class="form-control">
+                                              <option value="Hz">Hz</option>
+                                            </select>
+                                  </div>
+                                  <label class="col-sm-2 control-label f-10">Apparent power
+                                  </label>
+                                  <div class="col-sm-1">
+                                      <input type="text" class="form-control" ng-model="sealog.port.gAppPower1" placeholder="No.1">
+                                  </div>
+                                  <div class="col-sm-1">
+                                      <input type="text" class="form-control" ng-model="sealog.port.gAppPower2" placeholder="No.2">
+                                  </div>
+                                  <div class="col-sm-1">
+                                    <input type="text" class="form-control" ng-model="sealog.port.gAppPower3" placeholder="No.3">
+                                  </div>
+                                  <div class="col-sm-1">
+                                          <select ng-model="sealog.selectedUnitkVA" name="group" class="form-control">
+                                              <option value="kVA">kVA</option>
+                                            </select>
+                                  </div>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  </div>-->
+                  <!--<div class="tab-pane fade" id="tab6_2">
+                      <div class="row">
+                          <div class="col-md-12">
+                            <div class="panel panel-default" style="border: 1px solid #fff !important;">
+                              <div class="panel-header">
+                                Tank Level
+                              </div>
+                              <div class="panel-content bg-dark f-10">
+                                <div class="row">
+                                  <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <form role="form" class="form-horizontal form-validation">
+                                      <div class="form-group">
+                                        <label class="col-sm-1 control-label f-10">Running Hours
+                                        </label>
+                                        <div class="col-sm-1">
+                                          <input type="text" class="form-control" ng-model="sealog.port.tlRunningHours" placeholder="Running Hours">
+                                        </div>
+                                        <div class="col-sm-1">
+                                          <select ng-model="sealog.selectedUnitHours" name="group" class="form-control">
+                                            <option value="Hours">Hours</option>
+                                          </select>
+                                        </div>
+                                        <label class="col-sm-1 control-label f-10">Bilge tank 8
+                                        </label>
+                                        <div class="col-sm-1">
+                                          <input type="text" class="form-control" ng-model="sealog.port.tlBilge8" placeholder="">
+                                        </div>
+                                        <div class="col-sm-1">
+                                          <select ng-model="sealog.selectedUnit5" name="group" class="form-control">
+                                            <option value="5">5</option>
+                                          </select>
+                                        </div>
+                                        <label class="col-sm-1 control-label f-10">F.O. daily tank port
+                                          </label>
+                                          <div class="col-sm-1">
+                                              <input type="text" class="form-control" ng-model="sealog.port.tlTankPort" placeholder="">
+                                          </div>
+                                          <div class="col-sm-1">
+                                            <select ng-model="sealog.selectedUnitm2" name="group" class="form-control">
+                                              <option value="m2">m2</option>
+                                            </select>
+                                          </div>
+                                          <label class="col-sm-1 control-label f-10">F.O. daily tank starboard
+                                          </label>
+                                          <div class="col-sm-1">
+                                            <input type="text" class="form-control" ng-model="sealog.port.tlTankStar" placeholder="">
+                                          </div>
+                                          <div class="col-sm-1">
+                                            <select ng-model="sealog.selectedUnitm2" name="group" class="form-control">
+                                              <option value="m2">m2</option>
+                                            </select>
+                                          </div>
+                                      </div>
+                                        <div class="form-group">
+                                          <label class="col-sm-1 control-label f-10">F.O. 13
+                                          </label>
+                                          <div class="col-sm-1">
+                                            <input type="text" class="form-control" ng-model="sealog.port.tlFo13" placeholder="">
+                                          </div>
+                                          <div class="col-sm-1">
+                                            <select ng-model="sealog.selectedUnitm2" name="group" class="form-control">
+                                              <option value="m2">m2</option>
+                                            </select>
+                                          </div>
+                                          <label class="col-sm-1 control-label f-10">F.O. 14
+                                          </label>
+                                          <div class="col-sm-1">
+                                            <input type="text" class="form-control" ng-model="sealog.port.tlFo14" placeholder="">
+                                          </div>
+                                          <div class="col-sm-1">
+                                            <select ng-model="sealog.selectedUnitm2" name="group" class="form-control">
+                                              <option value="m2">m2</option>
+                                            </select>
+                                          </div>
+                                          <label class="col-sm-1 control-label f-10">F.O. 15
+                                            </label>
+                                            <div class="col-sm-1">
+                                              <input type="text" class="form-control" ng-model="sealog.port.tlFo15" placeholder="">
+                                            </div>
+                                            <div class="col-sm-1">
+                                              <select ng-model="sealog.selectedUnitm2" name="group" class="form-control">
+                                                <option value="m2">m2</option>
+                                              </select>
+                                            </div>
+                                            <label class="col-sm-1 control-label f-10">F.O. 16
+                                            </label>
+                                            <div class="col-sm-1">
+                                              <input type="text" class="form-control" ng-model="sealog.port.tlFo16" placeholder="">
+                                            </div>
+                                            <div class="col-sm-1">
+                                              <select ng-model="sealog.selectedUnitm2" name="group" class="form-control">
+                                                <option value="m2">m2</option>
+                                              </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                          <label class="col-sm-1 control-label f-10">F.O. 17
+                                          </label>
+                                          <div class="col-sm-1">
+                                            <input type="text" class="form-control" ng-model="sealog.port.tlFo17" placeholder="">
+                                          </div>
+                                          <div class="col-sm-1">
+                                            <select ng-model="sealog.selectedUnitm2" name="group" class="form-control">
+                                              <option value="m2">m2</option>
+                                            </select>
+                                          </div>
+                                          <label class="col-sm-1 control-label f-10">F.O. 18
+                                          </label>
+                                          <div class="col-sm-1">
+                                            <input type="text" class="form-control" ng-model="sealog.port.tlFo18" placeholder="">
+                                          </div>
+                                          <div class="col-sm-1">
+                                            <select ng-model="sealog.selectedUnitm2" name="group" class="form-control">
+                                              <option value="m2">m2</option>
+                                            </select>
+                                          </div>
+                                          <label class="col-sm-1 control-label f-10">F.O. 19
+                                            </label>
+                                            <div class="col-sm-1">
+                                              <input type="text" class="form-control" ng-model="sealog.port.tlFo19" placeholder="">
+                                            </div>
+                                            <div class="col-sm-1">
+                                              <select ng-model="sealog.selectedUnitm2" name="group" class="form-control">
+                                                <option value="m2">m2</option>
+                                              </select>
+                                            </div>
+                                            <label class="col-sm-1 control-label f-10">F.O. EDG
+                                            </label>
+                                            <div class="col-sm-1">
+                                              <input type="text" class="form-control" ng-model="sealog.port.tlFoEDG" placeholder="">
+                                            </div>
+                                            <div class="col-sm-1">
+                                              <select ng-model="sealog.selectedUnitm2" name="group" class="form-control">
+                                                <option value="m2">m2</option>
+                                              </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                          <label class="col-sm-1 control-label f-10">F.O. overflow
+                                          </label>
+                                          <div class="col-sm-1">
+                                            <input type="text" class="form-control" ng-model="sealog.port.tlFoOverflow" placeholder="">
+                                          </div>
+                                          <div class="col-sm-1">
+                                            <select ng-model="sealog.selectedUnitm2" name="group" class="form-control">
+                                              <option value="m2">m2</option>
+                                            </select>
+                                          </div>
+                                          <label class="col-sm-1 control-label f-10">F.O. total
+                                          </label>
+                                          <div class="col-sm-1">
+                                            <input type="text" class="form-control" ng-model="sealog.port.tlFoTotal" placeholder="">
+                                          </div>
+                                          <div class="col-sm-1">
+                                            <select ng-model="sealog.selectedUnitm2" name="group" class="form-control">
+                                              <option value="m2">m2</option>
+                                            </select>
+                                          </div>
+                                          <label class="col-sm-1 control-label f-10">F.W. 1
+                                            </label>
+                                            <div class="col-sm-1">
+                                              <input type="text" class="form-control" ng-model="sealog.port.tlFw1" placeholder="">
+                                            </div>
+                                            <div class="col-sm-1">
+                                              <select ng-model="sealog.selectedUnitm2" name="group" class="form-control">
+                                                <option value="m2">m2</option>
+                                              </select>
+                                            </div>
+                                            <label class="col-sm-1 control-label f-10">F.W. 2
+                                            </label>
+                                            <div class="col-sm-1">
+                                              <input type="text" class="form-control" ng-model="sealog.port.tlFw2" placeholder="">
+                                            </div>
+                                            <div class="col-sm-1">
+                                              <select ng-model="sealog.selectedUnitm2" name="group" class="form-control">
+                                                <option value="m2">m2</option>
+                                              </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                          <label class="col-sm-1 control-label f-10">F.W. 3
+                                          </label>
+                                          <div class="col-sm-1">
+                                            <input type="text" class="form-control" ng-model="sealog.port.tlFw3" placeholder="">
+                                          </div>
+                                          <div class="col-sm-1">
+                                            <select ng-model="sealog.selectedUnitm2" name="group" class="form-control">
+                                              <option value="m2">m2</option>
+                                            </select>
+                                          </div>
+                                          <label class="col-sm-1 control-label f-10">F.W. 4
+                                          </label>
+                                          <div class="col-sm-1">
+                                            <input type="text" class="form-control" ng-model="sealog.port.tlFw4" placeholder="">
+                                          </div>
+                                          <div class="col-sm-1">
+                                            <select ng-model="sealog.selectedUnitm2" name="group" class="form-control">
+                                              <option value="m2">m2</option>
+                                            </select>
+                                          </div>
+                                          <label class="col-sm-1 control-label f-10">F.W. total
+                                            </label>
+                                            <div class="col-sm-1">
+                                                <input type="text" class="form-control" ng-model="sealog.port.tlFwTotal" placeholder="">
+                                            </div>
+                                            <div class="col-sm-1">
+                                                    <select ng-model="sealog.selectedUnitm2" name="group" class="form-control">
+                                                        <option value="m2">m2</option>
+                                                      </select>
+                                            </div>
+                                            <label class="col-sm-1 control-label f-10">Dirty L.O. tank 7
+                                              </label>
+                                              <div class="col-sm-1">
+                                                  <input type="text" class="form-control" ng-model="sealog.port.tlDirtyTank7" placeholder="">
+                                              </div>
+                                              <div class="col-sm-1">
+                                                      <select ng-model="sealog.selectedUnitm2" name="group" class="form-control">
+                                                          <option value="m2">m2</option>
+                                                        </select>
+                                              </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-1 control-label f-10">Sludge Tank 9
+                                              </label>
+                                              <div class="col-sm-1">
+                                                  <input type="text" class="form-control" ng-model="sealog.port.tlSludge9" placeholder="">
+                                              </div>
+                                              <div class="col-sm-1">
+                                                      <select ng-model="sealog.selectedUnitm2" name="group" class="form-control">
+                                                          <option value="m2">m2</option>
+                                                        </select>
+                                              </div>
+                                              <label class="col-sm-1 control-label f-10">Clean L.O. tank 23
+                                                </label>
+                                                <div class="col-sm-1">
+                                                    <input type="text" class="form-control" ng-model="sealog.port.tlCleanTank23" placeholder="">
+                                                </div>
+                                                <div class="col-sm-1">
+                                                        <select ng-model="sealog.selectedUnitm2" name="group" class="form-control">
+                                                            <option value="m2">m2</option>
+                                                          </select>
+                                                </div>
+                                                <label class="col-sm-1 control-label f-10">B.W. tank 5
+                                                  </label>
+                                                  <div class="col-sm-1">
+                                                      <input type="text" class="form-control" ng-model="sealog.port.tlBwTank5" placeholder="">
+                                                  </div>
+                                                  <div class="col-sm-1">
+                                                          <select ng-model="sealog.selectedUnitm2" name="group" class="form-control">
+                                                              <option value="m2">m2</option>
+                                                            </select>
+                                                  </div>
+                                                  <label class="col-sm-1 control-label f-10">Sewage tank 6
+                                                    </label>
+                                                    <div class="col-sm-1">
+                                                        <input type="text" class="form-control" ng-model="sealog.port.tlSewage6" placeholder="">
+                                                    </div>
+                                                    <div class="col-sm-1">
+                                                            <select ng-model="sealog.selectedUnitm2" name="group" class="form-control">
+                                                                <option value="m2">m2</option>
+                                                              </select>
+                                                    </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-1 control-label f-10">G.W. tank 20
+                                              </label>
+                                              <div class="col-sm-1">
+                                                  <input type="text" class="form-control" ng-model="sealog.port.tlGwTank20" placeholder="">
+                                              </div>
+                                              <div class="col-sm-1">
+                                                      <select ng-model="sealog.selectedUnitm2" name="group" class="form-control">
+                                                          <option value="m2">m2</option>
+                                                        </select>
+                                              </div>
+                                              <label class="col-sm-1 control-label f-10">G.W. tank 21
+                                                </label>
+                                                <div class="col-sm-1">
+                                                    <input type="text" class="form-control" ng-model="sealog.port.tlGwTank21" placeholder="">
+                                                </div>
+                                                <div class="col-sm-1">
+                                                        <select ng-model="sealog.selectedUnitm2" name="group" class="form-control">
+                                                            <option value="m2">m2</option>
+                                                          </select>
+                                                </div>
+                                        </div>
+                                    </form>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                          <div class="panel panel-default" style="border: 1px solid #fff !important;">
+                              <div class="panel-header">
+                                Calorifier Temperature
+                              </div>
+                              <div class="panel-content bg-dark f-10">
+                                <div class="row">
+                                  <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <form role="form" class="form-horizontal form-validation">
+                                      <div class="form-group">
+                                        <label class="col-sm-4 control-label f-10">Running Hours
+                                        </label>
+                                        <div class="col-sm-4">
+                                          <input type="text" class="form-control" ng-model="sealog.port.ctRunningHours" placeholder="Running Hours">
+                                        </div>
+                                        <div class="col-sm-4">
+                                          <select ng-model="sealog.selectedUnitHours" name="group" class="form-control">
+                                            <option value="Hours">Hours</option>
+                                          </select>
+                                        </div>
+                                      </div>
+                                      <div class="form-group">
+                                        <label class="col-sm-2 control-label f-10">Calorifier Temperature
+                                        </label>
+                                        <div class="col-sm-2">
+                                            <input type="text" class="form-control" ng-model="sealog.port.ctCaTemp1" placeholder="No.1">
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <input type="text" class="form-control" ng-model="sealog.port.ctCaTemp2" placeholder="No.2">
+                                        </div>
+                                        <div class="col-sm-2">
+                                          <input type="text" class="form-control" ng-model="sealog.port.ctCaTemp3" placeholder="No.3">
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <input type="text" class="form-control" ng-model="sealog.port.ctCaTemp4" placeholder="No.4">
+                                          </div>
+                                        <div class="col-sm-2">
+                                          <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                            <option value="C">C'</option>
+                                          </select>
+                                        </div>
+                                        </div>
+                                    </form>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                        <div class="panel panel-default" style="border: 1px solid #fff !important;">
+                          <div class="panel-header">
+                            Shore Power
+                          </div>
+                          <div class="panel-content bg-dark f-10">
+                            <div class="row">
+                              <div class="col-md-12 col-sm-12 col-xs-12">
+                                <form role="form" class="form-horizontal form-validation">
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label f-10">Running Hours
+                                        </label>
+                                        <div class="col-sm-4">
+                                          <input type="text" class="form-control" ng-model="sealog.port.spRunningHours" placeholder="Running Hours">
+                                        </div>
+                                        <div class="col-sm-4">
+                                          <select ng-model="sealog.selectedUnitHours" name="group" class="form-control">
+                                            <option value="Hours">Hours</option>
+                                          </select>
+                                        </div>
+                                      </div>
+                                  <div class="form-group">
+                                    <label class="col-sm-4 control-label f-10">Voltage
+                                    </label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" ng-model="sealog.port.spVoltage" placeholder="Voltage">
+                                      </div>
+                                      <div class="col-sm-4">
+                                            <select ng-model="sealog.selectedUnitV" name="group" class="form-control">
+                                                <option value="V">V</option>
+                                              </select>
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-sm-4 control-label">Currency
+                                      </label>
+                                      <div class="col-sm-4">
+                                          <input type="text" class="form-control" ng-model="sealog.port.spCurrency" placeholder="Currency">
+                                        </div>
+                                        <div class="col-sm-4">
+                                              <select ng-model="sealog.selectedUnitA" name="group" class="form-control">
+                                                  <option value="A">A</option>
+                                                </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Frequency
+                                        </label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" ng-model="sealog.port.spFrequency" placeholder="Frequency">
+                                          </div>
+                                          <div class="col-sm-4">
+                                                <select ng-model="sealog.selectedUnitHz" name="group" class="form-control">
+                                                    <option value="Hz">Hz</option>
+                                                  </select>
+                                          </div>
+                                      </div>
+                                      <div class="form-group">
+                                          <label class="col-sm-4 control-label">Power
+                                          </label>
+                                          <div class="col-sm-4">
+                                              <input type="text" class="form-control" ng-model="sealog.port.spPower" placeholder="Frequency">
+                                            </div>
+                                            <div class="col-sm-4">
+                                                  <select ng-model="sealog.selectedUnitkW" name="group" class="form-control">
+                                                      <option value="Hz">Hz</option>
+                                                    </select>
+                                            </div>
+                                        </div>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="panel panel-default" style="border: 1px solid #fff !important;">
+                            <div class="panel-header">
+                              Freezer Unit
+                            </div>
+                            <div class="panel-content bg-dark f-10">
+                              <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                  <form role="form" class="form-horizontal form-validation">
+                                    <div class="form-group">
+                                      <label class="col-sm-3 control-label f-10">Running Hours
+                                      </label>
+                                      <div class="col-sm-6">
+                                        <input type="text" class="form-control" ng-model="sealog.port.fuRunningHours" placeholder="Running Hours">
+                                      </div>
+                                      <div class="col-sm-3">
+                                        <select ng-model="sealog.selectedUnitHours" name="group" class="form-control">
+                                          <option value="Hours">Hours</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="form-group">
+                                      <label class="col-sm-3 control-label f-10">L.P.
+                                      </label>
+                                      <div class="col-sm-3">
+                                          <input type="text" class="form-control" ng-model="sealog.port.fuLP1" placeholder="No.1">
+                                      </div>
+                                      <div class="col-sm-3">
+                                          <input type="text" class="form-control" ng-model="sealog.port.fuLP2" placeholder="No.2">
+                                      </div>
+                                      <div class="col-sm-3">
+                                              <select ng-model="sealog.selectedUnitKpa" name="group" class="form-control">
+                                                  <option value="Kpa">Kpa'</option>
+                                                </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                      <label class="col-sm-3 control-label f-10">H.P.
+                                      </label>
+                                      <div class="col-sm-3">
+                                        <input type="text" class="form-control" ng-model="sealog.port.fuHP1" placeholder="No.1">
+                                      </div>
+                                      <div class="col-sm-3">
+                                        <input type="text" class="form-control" ng-model="sealog.port.fuHP2" placeholder="No.2">
+                                      </div>
+                                      <div class="col-sm-3">
+                                        <select ng-model="sealog.selectedUnitKpa" name="group" class="form-control">
+                                          <option value="Kpa">Kpa'</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+
+
+                      </div>
+                      <div class="col-md-6">
+                        <div class="panel panel-default" style="border: 1px solid #fff !important;">
+                          <div class="panel-header">
+                            Chiller Unit
+                          </div>
+                          <div class="panel-content bg-dark f-10">
+                            <div class="row">
+                              <div class="col-md-12 col-sm-12 col-xs-12">
+                                <form role="form" class="form-horizontal form-validation">
+                                  <div class="form-group">
+                                    <label class="col-sm-4 control-label f-10">Running Hours
+                                    </label>
+                                    <div class="col-sm-4">
+                                      <input type="text" class="form-control" ng-model="sealog.port.cuRunningHours" placeholder="Running Hours">
+                                    </div>
+                                    <div class="col-sm-4">
+                                      <select ng-model="sealog.selectedUnitHours" name="group" class="form-control">
+                                        <option value="Hours">Hours</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="col-sm-3 control-label f-10">Load
+                                    </label>
+                                    <div class="col-sm-3">
+                                      <input type="text" class="form-control" ng-model="sealog.port.cuLoad1" placeholder="No.1">
+                                    </div>
+                                    <div class="col-sm-3">
+                                      <input type="text" class="form-control" ng-model="sealog.port.cuLoad2" placeholder="No.2">
+                                    </div>
+                                    <div class="col-sm-3">
+                                      <select ng-model="sealog.selectedUnitPercent" name="group" class="form-control">
+                                        <option value="%">%</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="col-sm-3 control-label f-10">Chilled water temp in
+                                    </label>
+                                    <div class="col-sm-3">
+                                      <input type="text" class="form-control" ng-model="sealog.port.cuChillIn1" placeholder="No.1">
+                                    </div>
+                                    <div class="col-sm-3">
+                                      <input type="text" class="form-control" ng-model="sealog.port.cuChillIn2" placeholder="No.2">
+                                    </div>
+                                    <div class="col-sm-3">
+                                      <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                        <option value="C">C'</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="col-sm-3 control-label f-10">Chilled water temp out
+                                    </label>
+                                    <div class="col-sm-3">
+                                      <input type="text" class="form-control" ng-model="sealog.port.cuChillOut1" placeholder="No.1">
+                                    </div>
+                                    <div class="col-sm-3">
+                                      <input type="text" class="form-control" ng-model="sealog.port.cuChillOut2" placeholder="No.2">
+                                    </div>
+                                    <div class="col-sm-3">
+                                      <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                        <option value="C">C'</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <label class="col-sm-3 control-label f-10">Chilled water pressure
+                                    </label>
+                                    <div class="col-sm-3">
+                                      <input type="text" class="form-control" ng-model="sealog.port.cuChillPressure1" placeholder="No.1">
+                                    </div>
+                                    <div class="col-sm-3">
+                                      <input type="text" class="form-control" ng-model="sealog.port.cuChillPressure2" placeholder="No.2">
+                                    </div>
+                                    <div class="col-sm-3">
+                                      <select ng-model="sealog.selectedUnitKpa" name="group" class="form-control">
+                                        <option value="Kpa">Kpa</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label f-10">L.P.
+                                                </label>
+                                                <div class="col-sm-3">
+                                                    <input type="text" class="form-control" ng-model="sealog.port.cuLP1" placeholder="No.1">
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <input type="text" class="form-control" ng-model="sealog.port.cuLP2" placeholder="No.2">
+                                                </div>
+                                                <div class="col-sm-3">
+                                                        <select ng-model="sealog.selectedUnitKpa" name="group" class="form-control">
+                                                            <option value="Kpa">Kpa</option>
+                                                          </select>
+                                                  </div>
+                                              </div>
+                                              <div class="form-group">
+                                                  <label class="col-sm-3 control-label f-10">H.P.
+                                                  </label>
+                                                  <div class="col-sm-3">
+                                                      <input type="text" class="form-control" ng-model="sealog.port.cuHP1" placeholder="No.1">
+                                                  </div>
+                                                  <div class="col-sm-3">
+                                                      <input type="text" class="form-control" ng-model="sealog.port.cuHP2" placeholder="No.2">
+                                                  </div>
+                                                  <div class="col-sm-3">
+                                                          <select ng-model="sealog.selectedUnitKpa" name="group" class="form-control">
+                                                              <option value="Kpa">Kpa</option>
+                                                            </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label f-10">S.W. out
+                                                    </label>
+                                                    <div class="col-sm-3">
+                                                        <input type="text" class="form-control" ng-model="sealog.port.cuSwOut1" placeholder="No.1">
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <input type="text" class="form-control" ng-model="sealog.port.cuSwOut2" placeholder="No.2">
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                            <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                                                <option value="C">C'</option>
+                                                              </select>
+                                                      </div>
+                                                  </div>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="panel panel-default" style="border: 1px solid #fff !important;">
+                          <div class="panel-header">
+                            Outside Temperature
+                          </div>
+                          <div class="panel-content bg-dark f-10">
+                            <div class="row">
+                              <div class="col-md-12 col-sm-12 col-xs-12">
+                                <form role="form" class="form-horizontal form-validation">
+                                  <div class="form-group">
+                                    <label class="col-sm-4 control-label f-10">Outside Temperature
+                                    </label>
+                                    <div class="col-sm-4">
+                                      <input type="text" class="form-control" ng-model="sealog.port.otOutTemp" placeholder="Temperature">
+                                  </div>
+                                    <div class="col-sm-4">
+                                            <select ng-model="sealog.selectedUnitC" name="group" class="form-control">
+                                                <option value="C">C'</option>
+                                              </select>
+                                      </div>
+                                  </div>
+
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        
+                      </div>
+                    </div>
+                    
+                  </div>-->
+                </div>
+              </div>
+            </div>
+          <div class="footer">
+            <div class="copyright">
+              <p class="pull-left sm-pull-reset">
+                <span>Copyright <span class="copyright">©</span> 2018 </span>
+                <span>Powered by TYS Ltd</span>.
+                <span>All rights reserved. </span>
+              </p>
+              <p class="pull-right sm-pull-reset">
+                <span><a href="#" class="m-r-10">Support</a> | <a href="#" class="m-l-10 m-r-10">Terms of use</a> | <a href="#" class="m-l-10">Privacy Policy</a></span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+</div>

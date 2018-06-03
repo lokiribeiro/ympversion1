@@ -1,0 +1,283 @@
+
+<!-- BEGIN SIDEBAR -->
+<div class="sidebar" style="z-index: 999999999 !important;">
+    <div class="logopanel">
+      <h1>
+        <a href="/"></a>
+      </h1>
+    </div>
+    <div class="sidebar-inner">
+      <ul class="nav nav-sidebar">
+        <li class="nav-parent" ng-click="watchkeeplog.gotoDashboard()" ng-if="watchkeeplog.currentUser.jobs">
+          <a href=""><i class="icon-home"></i><span>Jobs</span></a>
+        </li>
+        <li class="nav-parent" ng-click="watchkeeplog.gotoInventory()" ng-if="watchkeeplog.currentUser.inventory">
+          <a href=""><i class="icon-basket"></i><span>Inventory</span><span class="fa arrow"></span></a>
+        </li>
+        <li class="nav-parent" ng-click="watchkeeplog.gotoLogbook()" ng-if="watchkeeplog.currentUser.logbook">
+          <a href=""><i class="icon-note"></i><span>Logbook </span><span class="fa arrow"></span></a>
+        </li>
+        <li class="nav-parent" ng-click="watchkeeplog.gotoEmployees()" ng-if="watchkeeplog.currentUser.employees">
+          <a href=""><i class="icon-user"></i><span>Employees </span><span class="fa arrow"></span></a>
+        </li>
+        <li class="nav-parent" ng-click="watchkeeplog.gotoReports()" ng-if="watchkeeplog.currentUser.reports">
+            <a href=""><i class="icon-docs"></i><span>Reports </span><span class="fa arrow"></span></a>
+        </li>
+        <li class="nav-parent active" ng-click="watchkeeplog.gotoWatchkeep()" ng-if="watchkeeplog.currentUser.watchkeeping">
+          <a href=""><i class="icon-cup"></i><span>Watchkeep </span><span class="fa arrow"></span></a>
+        </li>
+        <li class="nav-parent" ng-click="watchkeeplog.gotoAdminPanel()" ng-if="watchkeeplog.currentUser.superadmin">
+          <a href=""><i class="icon-puzzle"></i><span>Super Admin </span><span class="fa arrow"></span></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- END SIDEBAR -->
+  
+  <div class="main-content">
+    <!-- BEGIN TOPBAR -->
+    <div class="topbar" style="z-index: 999999999 !important;">
+      <div class="header-right">
+        <ul class="header-menu nav navbar-nav">
+          <!-- BEGIN USER DROPDOWN 
+          <li class="dropdown" id="language-header">
+            <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+            <i class="icon-globe"></i>
+            <span>Language</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="#" data-lang="en"><img src="../assets/global/images/flags/usa.png" alt="flag-english"> <span>English</span></a>
+              </li>
+              <li>
+                <a href="#" data-lang="es"><img src="../assets/global/images/flags/spanish.png" alt="flag-english"> <span>Español</span></a>
+              </li>
+              <li>
+                <a href="#" data-lang="fr"><img src="../assets/global/images/flags/french.png" alt="flag-english"> <span>Français</span></a>
+              </li>
+            </ul>
+          </li> -->
+          <!-- END USER DROPDOWN -->
+          <!-- BEGIN NOTIFICATION DROPDOWN 
+          <li class="dropdown" id="notifications-header">
+            <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+            <i class="icon-bell"></i>
+            <span class="badge badge-danger badge-header">6</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-header clearfix">
+                <p class="pull-left">12 Pending Notifications</p>
+              </li>
+              <li>
+                <ul class="dropdown-menu-list withScroll" data-height="220">
+                  <li>
+                    <a href="#">
+                    <i class="fa fa-star p-r-10 f-18 c-orange"></i>
+                    Steve have rated your photo
+                    <span class="dropdown-time">Just now</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                    <i class="fa fa-heart p-r-10 f-18 c-red"></i>
+                    John added you to his favs
+                    <span class="dropdown-time">15 mins</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                    <i class="fa fa-file-text p-r-10 f-18"></i>
+                    New document available
+                    <span class="dropdown-time">22 mins</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                    <i class="fa fa-picture-o p-r-10 f-18 c-blue"></i>
+                    New picture added
+                    <span class="dropdown-time">40 mins</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                    <i class="fa fa-bell p-r-10 f-18 c-orange"></i>
+                    Meeting in 1 hour
+                    <span class="dropdown-time">1 hour</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                    <i class="fa fa-bell p-r-10 f-18"></i>
+                    Server 5 overloaded
+                    <span class="dropdown-time">2 hours</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                    <i class="fa fa-comment p-r-10 f-18 c-gray"></i>
+                    Bill comment your post
+                    <span class="dropdown-time">3 hours</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                    <i class="fa fa-picture-o p-r-10 f-18 c-blue"></i>
+                    New picture added
+                    <span class="dropdown-time">2 days</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="dropdown-footer clearfix">
+                <a href="#" class="pull-left">See all notifications</a>
+                <a href="#" class="pull-right">
+                <i class="icon-settings"></i>
+                </a>
+              </li>
+            </ul>
+          </li> -->
+          <!-- END NOTIFICATION DROPDOWN -->
+          <!-- BEGIN USER DROPDOWN -->
+          <li class="dropdown" id="user-header">
+            <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+            <img style="width: 36px !important; height: 36px !important;" src="{{watchkeeplog.currentUser.profilePhoto}}" alt="user image">
+            <span class="username">Hi, {{watchkeeplog.currentUser.username}}</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a ui-sref="profilepage({ employeeId: watchkeeplog.currentUserId })"><i class="icon-user"></i><span>My Profile</span></a>
+              </li>
+              <!--<li>
+                <a href="#"><i class="icon-settings"></i><span>Account Settings</span></a>
+              </li>-->
+              <li>
+                <a href="#" ng-click="watchkeeplog.logout()"><i class="icon-logout"></i><span>Logout</span></a>
+              </li>
+            </ul>
+          </li>
+          <!-- END USER DROPDOWN -->
+        </ul>
+      </div>
+      <!-- header-right -->
+    </div>
+    <!-- END TOPBAR -->
+    <!-- BEGIN PAGE CONTENT -->
+    <div class="page-content">
+      <div class="row">
+        <div class="col-lg-12 portlets">
+          <div class="panel bg-dark">
+            <div class="panel-content">
+              <div class="row">
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label class="control-label">Watchkeeper</label>
+                  <select ng-model="watchkeeplog.searchText" name="users" class="form-control" required>
+                      <option ng-repeat="profile in watchkeeplog.profiles" ng-value="profile.firstName" >{{profile.firstName + ' ' + profile.lastName}}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                  <div class="form-group">
+                      <label class="form-label">From</label>
+                      <div class="prepend-icon">
+                          <date-picker language="en" ng-model="watchkeeplog.dateFrom" format="MMMM d, y"></date-picker>
+                        <i class="icon-calendar"></i>
+                      </div>
+                    </div>
+              </div>
+              <div class="col-sm-3">
+                  <div class="form-group">
+                      <label class="form-label">To</label>
+                      <div class="prepend-icon">
+                          <date-picker language="en" ng-model="watchkeeplog.dateTo" format="MMMM d, y"></date-picker>
+                        <i class="icon-calendar"></i>
+                      </div>
+                    </div>
+              </div>
+              <div class="col-sm-2">
+                  <div class="form-group col-sm-12" style="margin-top: 25px !important;"> 
+                  <button class="btn btn-dark col-sm-6" ng-click="watchkeeplog.filterNow()">Search</button>
+                  <button class="btn btn-dark col-sm-5" ng-click="watchkeeplog.reset()">Reset</button>
+                  </div>
+              </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 portlets">
+          <div class="panel bg-dark">
+            <div class="panel-header panel-controls">
+                  <div class="row">
+                    <div class="col-sm-12">
+                        <form>
+                          <div class="append-icon">
+                            <input type="search" ng-model="watchkeeplog.searchText" class="form-control form-white input-lg" placeholder="Search..." autofocus>
+                            <i class="icon-magnifier"></i>
+                          </div>
+                        </form>
+                      </div>
+                </div>
+            </div>
+            <div class="panel-content">
+              <!--<p>Here you can manage your jobs easily: add new row, edit or remove existing data. You can export your table in PDF, Excel, CSV or just print it.</p>-->
+              <table class="table table-hover dataTable" id="table-editable">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Watchkeeper</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr dir-paginate="watchkeeplog in watchkeeplog.watchlogs | itemsPerPage: watchkeeplog.perPage" total-items="watchkeeplog.logbooksCount" ui-sref="watchkeeplogdetails({ watchkeeplogId: watchkeeplog._id })" ng-click="">
+                    <td>{{watchkeeplog.logDate | date : "mediumDate"}}</td>
+                    <td>{{watchkeeplog.name}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <dir-pagination-controls on-page-change="watchkeeplog.pageChanged(newPageNumber)"></dir-pagination-controls>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="copyright">
+          <p class="pull-left sm-pull-reset">
+            <span>Copyright <span class="copyright">©</span> 2018 </span>
+            <span>Powered by TYS Ltd</span>.
+            <span>All rights reserved. </span>
+          </p>
+          <p class="pull-right sm-pull-reset">
+            <span><a href="#" class="m-r-10">Support</a> | <a href="#" class="m-l-10 m-r-10">Terms of use</a> | <a href="#" class="m-l-10">Privacy Policy</a></span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="new-log" aria-hidden="true">
+            <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+                  <h4 class="modal-title"><strong>New</strong> Log</h4>
+                </div>
+                <div class="modal-body " style="overflow-x: hidden !important;">  
+                        <div class="col-sm-12" style="margin-top: 10px !important;">
+                            <div class="col-sm-6">
+                                    <button ng-click="watchkeeplog.gotoNewLog()" data-dismiss="modal" type="submit" class="btn btn-dark col-sm-12"><i class="fa fa-dashboard"></i> At Port</button>     
+                            </div>
+                            <div class="col-sm-6">
+                                    <button ng-click="watchkeeplog.gotoSeaLog()" data-dismiss="modal" type="submit" class="btn btn-dark col-sm-12"><i class="fa fa-globe"></i> At Sea</button>     
+                            </div>
+                        </div>               
+                </div>
+                <div class="modal-footer text-center">
+                 <!--<button type="button" class="btn btn-primary btn-embossed bnt-square" ><i class="fa fa-check"></i> Add</button>-->
+                </div>
+              </div>
+            </div>
+          </div>
+    <!-- END PAGE CONTENT -->
+  </div>

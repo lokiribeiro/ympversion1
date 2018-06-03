@@ -1,0 +1,445 @@
+
+<!-- BEGIN SIDEBAR -->
+<div class="sidebar" style="z-index: 999999999 !important;">
+        <div class="logopanel">
+          <h1>
+            <a href="/"></a>
+          </h1>
+        </div>
+        <div class="sidebar-inner">
+          <ul class="nav nav-sidebar">
+            <li class="nav-parent" ng-click="adminequipment.gotoDashboard()" ng-if="adminequipment.currentUser.jobs">
+              <a href=""><i class="icon-home"></i><span>Jobs</span></a>
+            </li>
+            <li class="nav-parent" ng-click="adminequipment.gotoInventory()" ng-if="adminequipment.currentUser.inventory">
+              <a href=""><i class="icon-basket"></i><span>Inventory</span><span class="fa arrow"></span></a>
+            </li>
+            <li class="nav-parent" ng-click="adminequipment.gotoLogbook()" ng-if="adminequipment.currentUser.logbook">
+              <a href=""><i class="icon-note"></i><span>Logbook </span><span class="fa arrow"></span></a>
+            </li>
+            <li class="nav-parent" ng-click="adminequipment.gotoEmployees()" ng-if="adminequipment.currentUser.employees">
+              <a href=""><i class="icon-user"></i><span>Employees </span><span class="fa arrow"></span></a>
+            </li>
+            <li class="nav-parent" ng-click="adminequipment.gotoReports()" ng-if="adminequipment.currentUser.reports">
+                <a href=""><i class="icon-docs"></i><span>Reports </span><span class="fa arrow"></span></a>
+            </li>
+            <li class="nav-parent" ng-click="adminequipment.gotoWatchkeep()" ng-if="adminequipment.currentUser.watchkeeping || adminequipment.currentUser.watchkeeper">
+              <a href=""><i class="icon-cup"></i><span>Watchkeep </span><span class="fa arrow"></span></a>
+            </li>
+            <li class="nav-parent active" ng-click="adminequipment.gotoAdminPanel()" ng-if="adminequipment.currentUser.superadmin">
+              <a href=""><i class="icon-puzzle"></i><span>Super Admin </span><span class="fa arrow"></span></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- END SIDEBAR -->
+      
+      <div class="main-content">
+        <!-- BEGIN TOPBAR -->
+        <div class="topbar" style="z-index: 999999999 !important;">
+          <div class="header-right">
+            <ul class="header-menu nav navbar-nav">
+              <!-- BEGIN USER DROPDOWN 
+              <li class="dropdown" id="language-header">
+                <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                <i class="icon-globe"></i>
+                <span>Language</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="#" data-lang="en"><img src="../assets/global/images/flags/usa.png" alt="flag-english"> <span>English</span></a>
+                  </li>
+                  <li>
+                    <a href="#" data-lang="es"><img src="../assets/global/images/flags/spanish.png" alt="flag-english"> <span>Español</span></a>
+                  </li>
+                  <li>
+                    <a href="#" data-lang="fr"><img src="../assets/global/images/flags/french.png" alt="flag-english"> <span>Français</span></a>
+                  </li>
+                </ul>
+              </li> -->
+              <!-- END USER DROPDOWN -->
+              <!-- BEGIN NOTIFICATION DROPDOWN 
+              <li class="dropdown" id="notifications-header">
+                <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                <i class="icon-bell"></i>
+                <span class="badge badge-danger badge-header">6</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown-header clearfix">
+                    <p class="pull-left">12 Pending Notifications</p>
+                  </li>
+                  <li>
+                    <ul class="dropdown-menu-list withScroll" data-height="220">
+                      <li>
+                        <a href="#">
+                        <i class="fa fa-star p-r-10 f-18 c-orange"></i>
+                        Steve have rated your photo
+                        <span class="dropdown-time">Just now</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                        <i class="fa fa-heart p-r-10 f-18 c-red"></i>
+                        John added you to his favs
+                        <span class="dropdown-time">15 mins</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                        <i class="fa fa-file-text p-r-10 f-18"></i>
+                        New document available
+                        <span class="dropdown-time">22 mins</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                        <i class="fa fa-picture-o p-r-10 f-18 c-blue"></i>
+                        New picture added
+                        <span class="dropdown-time">40 mins</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                        <i class="fa fa-bell p-r-10 f-18 c-orange"></i>
+                        Meeting in 1 hour
+                        <span class="dropdown-time">1 hour</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                        <i class="fa fa-bell p-r-10 f-18"></i>
+                        Server 5 overloaded
+                        <span class="dropdown-time">2 hours</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                        <i class="fa fa-comment p-r-10 f-18 c-gray"></i>
+                        Bill comment your post
+                        <span class="dropdown-time">3 hours</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                        <i class="fa fa-picture-o p-r-10 f-18 c-blue"></i>
+                        New picture added
+                        <span class="dropdown-time">2 days</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="dropdown-footer clearfix">
+                    <a href="#" class="pull-left">See all notifications</a>
+                    <a href="#" class="pull-right">
+                    <i class="icon-adminequipment"></i>
+                    </a>
+                  </li>
+                </ul>
+              </li> -->
+              <!-- END NOTIFICATION DROPDOWN -->
+              <!-- BEGIN USER DROPDOWN -->
+              <li class="dropdown" id="user-header">
+                <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                <img style="width: 36px !important; height: 36px !important;" src="{{adminequipment.currentUser.profilePhoto}}" alt="user image">
+                <span class="username">Hi, {{adminequipment.currentUser.username}}</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a ui-sref="profilepage({ employeeId: adminequipment.currentUserId })"><i class="icon-user"></i><span>My Profile</span></a>
+                  </li>
+                  <!--<li>
+                    <a href="#"><i class="icon-settings"></i><span>Account Settings</span></a>
+                  </li>-->
+                  <li>
+                    <a href="#" ng-click="adminequipment.logout()"><i class="icon-logout"></i><span>Logout</span></a>
+                  </li>
+                </ul>
+              </li>
+              <!-- END USER DROPDOWN -->
+            </ul>
+          </div>
+          <!-- header-right -->
+        </div>
+        <!-- END TOPBAR -->
+        <!-- BEGIN PAGE CONTENT -->
+        <div class="page-content">
+          <div class="row">
+            <div class="col-lg-12 portlets">
+              <div class="panel bg-dark">
+                <div class="panel-content">
+                  <div class="row">
+                    <div class="col-md-6">
+                        <h3><strong>Add </strong>Equipment to Database</h3>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label>New Equipment Name</label>
+                            <input type="text" class="form-control" ng-model="adminequipment.group.name" placeholder="Equipment name">
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <label> </label>
+                            <div class="icheck-list">
+                              <label>
+                                <input type="checkbox" class="icheckbox_square-blue f-12" ng-model="adminequipment.group.hours"> With hours</label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-3">
+                          <div class="form-group">
+                            <label> </label>
+                            <div class="icheck-list">
+                              <label>
+                                <input type="checkbox" class="icheckbox_square-blue f-12" ng-model="adminequipment.group.days"> With Days</label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label for="field-1" class="control-label">Location</label>
+                            <input type="text" ng-model="adminequipment.group.location" class="form-control" placeholder="Location" required>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label for="field-3" class="control-label">Model Number</label>
+                            <input type="text" ng-model="adminequipment.group.modelNumber" class="form-control" placeholder="Model Number" required>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label for="field-4" class="control-label">Serial No.</label>
+                            <input type="text" ng-model="adminequipment.group.serialNumber" class="form-control" placeholder="Serial No." required>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label for="field-5" class="control-label">Manufacturer</label>
+                            <input type="text" ng-model="adminequipment.group.manufacturer" class="form-control" placeholder="manufacturer" required>
+                          </div>
+                        </div>
+                      </div>
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="btn-group"> 
+                                <button class="btn btn-dark" ng-click="adminequipment.save()"><i class="fa fa-plus"></i> Add Equip</button>
+                            </div>
+                            <div class="btn-group"> 
+                                <button class="btn btn-dark" data-toggle="modal" data-target="#upload-equipments" >Upload Equips</button>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                        <h3><strong>Equipment</strong>List</h3>
+                        <div class="panel-group panel-accordion dark-accordion" id="accordion">
+                            <div class="panel panel-default" ng-repeat="group in adminequipment.groups">
+                                <div class="panel-heading">
+                                    <h4>
+                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#Collapse{{group._id}}">
+                                            {{group.name}}
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="Collapse{{group._id}}" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                      <label for="field-1" class="control-label">Equipment</label>
+                                                      <input type="text" ng-model="group.name" class="form-control" placeholder="Equipment Name" required>
+                                                    </div>
+                                                  </div>
+                                                    <div class="col-sm-4">
+                                                        <div class="form-group">
+                                                            <label>At Port</label>
+                                                            <input type="checkbox" class="icheckbox_square-blue" ng-model="group.atPort" ng-click="adminequipment.updatePort(group)">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <div class="form-group">
+                                                            <label>At Sea</label>
+                                                            <input type="checkbox" class="icheckbox_square-blue" ng-model="group.atSea" ng-click="adminequipment.updateSea(group)">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                      <div class="form-group">
+                                                        <label for="field-1" class="control-label">Location</label>
+                                                        <input type="text" ng-model="group.location" class="form-control" placeholder="Location" required>
+                                                      </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                      <div class="form-group">
+                                                        <label for="field-3" class="control-label">Model Number</label>
+                                                        <input type="text" ng-model="group.modelNumber" class="form-control" placeholder="Model Number" required>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                  <div class="row">
+                                                    <div class="col-sm-6">
+                                                      <div class="form-group">
+                                                        <label for="field-4" class="control-label">Serial No.</label>
+                                                        <input type="text" ng-model="group.serialNumber" class="form-control" placeholder="Serial No." required>
+                                                      </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                      <div class="form-group">
+                                                        <label for="field-5" class="control-label">Manufacturer</label>
+                                                        <input type="text" ng-model="group.manufacturer" class="form-control" placeholder="manufacturer" required>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                  <div class="row">
+                                                    <div class="col-sm-6 col-sm-offset-6">
+                                                      <div class="pull-right">
+                                                        <button class="btn btn-dark f-12" data-toggle="modal" data-target="#modal-confirm" ng-click="adminequipment.removeGroupConfirm(group)"><i class="fa fa-trash"></i> Delete Equip</button>
+                                                        <button ng-click="adminequipment.saveChanges(group)" type="submit" class="btn btn-dark f-12">Save Changes</button>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label>Measurement Values</label>
+                                                    <input type="text" class="form-control" ng-model="adminequipment.subgroup.itemName" placeholder="Measurement Values">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-group">
+                                                    <label>Unit</label>
+                                                    <select ng-model="adminequipment.unit" name="group" class="form-control">
+                                                        <option ng-repeat="unit in adminequipment.units" value="{{unit.unit}}">{{unit.value}}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <!--<div class="col-sm-3">
+                                                <div class="form-group" style="margin-top: 25px !important;"> 
+                                                    <button class="btn btn-dark col-sm-12" ng-click="adminequipment.addField()">Add Option</button>
+                                                </div>
+                                            </div>-->
+                                            <div class="col-sm-3" ng-if="adminequipment.subgroup.itemName">
+                                                <div class="form-group" style="margin-top: 25px !important;"> 
+                                                   <button class="btn btn-dark col-sm-12" ng-click="adminequipment.addRow(group, adminequipment.unit)"><i class="fa fa-save"></i> Save</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                          <div class="col-sm-4" ng-repeat="item in adminequipment.inputs">
+                                            <div class="form-group">
+                                              <label>Option</label>
+                                              <input type="text" class="form-control" ng-model="item.option" placeholder="Option">
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group" ng-if="group.hours">
+                                                <label class="col-sm-4 control-label f-10">Running Hours
+                                                </label>
+                                                <div class="col-sm-4">
+                                                    <input type="text" class="form-control f-10" ng-model="subgroup.itemName" placeholder="0" disabled>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <input type="text" class="form-control f-10" ng-model="subgroup.unit" placeholder="Hours" disabled>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" ng-repeat="subgroup in adminequipment.subgroups" ng-if="subgroup.groupID == group._id">
+                                          <div class="form-group">
+                                            <label class="col-sm-4 control-label f-10">{{subgroup.itemName}}
+                                            </label>
+                                            <div class="col-sm-2" ng-if="subgroup.withoutOptions">
+                                              <input type="text" class="form-control f-10" ng-model="subgroup.itemName" placeholder="{{subgroup.itemName}}" disabled>
+                                            </div>
+                                            <div class="col-sm-2" ng-repeat="option in subgroup.optionItems">
+                                              <input type="text" class="form-control" placeholder="{{option}}" disabled>
+                                            </div>
+                                            <div class="col-sm-2">
+                                              <input type="text" class="form-control f-10" ng-model="subgroup.unit" placeholder="{{subgroup.unit}}" disabled>
+                                            </div>
+                                            <div class="col-sm-2">
+                                              <i class="fa fa-times" ng-click="adminequipment.deleteRow(subgroup)"></i>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="footer">
+            <div class="copyright">
+              <p class="pull-left sm-pull-reset">
+                <span>Copyright <span class="copyright">©</span> 2018 </span>
+                <span>Powered by TYS Ltd</span>.
+                <span>All rights reserved. </span>
+              </p>
+              <p class="pull-right sm-pull-reset">
+                <span><a href="#" class="m-r-10">Support</a> | <a href="#" class="m-l-10 m-r-10">Terms of use</a> | <a href="#" class="m-l-10">Privacy Policy</a></span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="modal-confirm" aria-hidden="true">
+          <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+                  <h4 class="modal-title">Are you sure you want to delete this equipment: {{equipName}}?</h4>
+              </div>
+              <div class="modal-footer text-center">
+                <button class="btn btn-dark f-12" data-dismiss="modal">Cancel</button>
+                <button class="btn btn-dark f-12" data-dismiss="modal" ng-click="adminequipment.removeGroup(group)"><i class="fa fa-trash"></i> Delete Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="upload-equipments" aria-hidden="true">
+                <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+                      <h4 class="modal-title"><strong>Upload</strong> Equipments</h4>
+                    </div>
+                    <div class="modal-body">
+                      <!--<p>Change screen size to see responsive behaviour.</p>-->
+                            <div  ng-show="doneSearching" class="loader2 col-sm-offset-5"></div>
+                            <div ng-show="uploadSuccess" class="preview active">
+                                <div class="alert alert-success media fade in">
+                                  <p><strong>Well done!</strong> Upload Successful.</p>
+                                </div>
+                              </div>
+                      
+                      <div class="row" ng-hide="doneSearching">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label class="control-label">File</label>
+                            <div class="file">
+                                <div class="option-group">
+                                  <input type="file"  ngf-select="adminequipment.uploadFiles($file, $invalidFiles)" class="custom-file" name="avatar" required>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer text-center">
+                     <!--<button type="button" class="btn btn-primary btn-embossed bnt-square" ><i class="fa fa-check"></i> Add</button>-->
+                    </div>
+                  </div>
+                </div>
+              </div>
+        <!-- END PAGE CONTENT -->
+      </div>
