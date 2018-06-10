@@ -1,44 +1,81 @@
 <!-- BEGIN SIDEBAR -->
 <div class="sidebar" style="z-index: 999999999 !important;">
-        <div class="logopanel">
-          <h1>
-            <a href="/"></a>
-          </h1>
-        </div>
-        <div class="sidebar-inner">
-          <ul class="nav nav-sidebar">
-            <li class="nav-parent active" ng-click="equipmentlist.gotoDashboard()" ng-if="equipmentlist.currentUser.jobs">
-              <a href=""><i class="icon-home"></i><span>Jobs</span></a>
-            </li>
-            <li class="nav-parent" ng-click="equipmentlist.gotoInventory()" ng-if="equipmentlist.currentUser.inventory">
-              <a href=""><i class="icon-basket"></i><span>Inventory</span><span class="fa arrow"></span></a>
-            </li>
-            <li class="nav-parent" ng-click="equipmentlist.gotoLogbook()" ng-if="equipmentlist.currentUser.logbook">
-              <a href=""><i class="icon-note"></i><span>Logbook </span><span class="fa arrow"></span></a>
-            </li>
-            <li class="nav-parent" ng-click="equipmentlist.gotoEmployees()" ng-if="equipmentlist.currentUser.employees">
-              <a href=""><i class="icon-user"></i><span>Employees </span><span class="fa arrow"></span></a>
-            </li>
-            <li class="nav-parent" ng-click="equipmentlist.gotoReports()" ng-if="equipmentlist.currentUser.reports">
-                <a href=""><i class="icon-docs"></i><span>Reports </span><span class="fa arrow"></span></a>
-            </li>
-            <li class="nav-parent" ng-click="equipmentlist.gotoWatchkeep()" ng-if="equipmentlist.currentUser.watchkeeping || equipmentlist.currentUser.watchkeeper">
-              <a href=""><i class="icon-cup"></i><span>Watchkeep </span><span class="fa arrow"></span></a>
-            </li>
-            <li class="nav-parent" ng-click="equipmentlist.gotoAdminPanel()" ng-if="equipmentlist.currentUser.superadmin">
-              <a href=""><i class="icon-puzzle"></i><span>Super Admin </span><span class="fa arrow"></span></a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <!-- END SIDEBAR -->
-      
-      <div class="main-content">
-        <!-- BEGIN TOPBAR -->
-        <div class="topbar" style="z-index: 999999999 !important;">
-          <div class="header-right">
-            <ul class="header-menu nav navbar-nav">
-              <!-- BEGIN USER DROPDOWN 
+  <div class="logopanel">
+    <h1>
+      <a href="/"></a>
+    </h1>
+  </div>
+  <div class="sidebar-inner">
+    <ul class="nav nav-sidebar">
+      <li class="nav-parent active" ng-click="equipmentlist.gotoDashboard()" ng-if="equipmentlist.currentUser.jobs">
+        <a href="">
+          <i class="icon-home"></i>
+          <span>Jobs</span>
+        </a>
+      </li>
+      <li class="nav-parent" ng-click="equipmentlist.gotoInventory()" ng-if="equipmentlist.currentUser.inventory">
+        <a href="">
+          <i class="icon-basket"></i>
+          <span>Inventory</span>
+          <span class="fa arrow"></span>
+        </a>
+      </li>
+      <li class="nav-parent" ng-click="equipmentlist.gotoLogbook()" ng-if="equipmentlist.currentUser.logbook">
+        <a href="">
+          <i class="icon-note"></i>
+          <span>Logbook </span>
+          <span class="fa arrow"></span>
+        </a>
+      </li>
+      <li class="nav-parent" ng-click="equipmentlist.gotoEmployees()" ng-if="equipmentlist.currentUser.employees">
+        <a href="">
+          <i class="icon-user"></i>
+          <span>Employees </span>
+          <span class="fa arrow"></span>
+        </a>
+      </li>
+      <li class="nav-parent" ng-click="equipmentlist.gotoReports()" ng-if="equipmentlist.currentUser.reports">
+        <a href="">
+          <i class="icon-docs"></i>
+          <span>Reports </span>
+          <span class="fa arrow"></span>
+        </a>
+      </li>
+      <li class="nav-parent" ng-click="equipmentlist.gotoWatchkeep()" ng-if="equipmentlist.currentUser.watchkeeping || equipmentlist.currentUser.watchkeeper">
+        <a href="">
+          <i class="icon-cup"></i>
+          <span>Watchkeep </span>
+          <span class="fa arrow"></span>
+        </a>
+      </li>
+      <li class="nav-parent" ng-click="equipmentlist.gotoSupplier()" ng-if="equipmentlist.currentUser.supplier">
+        <a href="">
+          <i class="icon-layers"></i>
+          <span>Supplier </span>
+          <span class="fa arrow"></span>
+        </a>
+      </li>
+      <li class="nav-parent" ng-click="equipmentlist.gotoAdminPanel()" ng-if="equipmentlist.currentUser.superadmin">
+        <a href="">
+          <i class="icon-puzzle"></i>
+          <span>Super Admin </span>
+          <span class="fa arrow"></span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- END SIDEBAR -->
+
+<div class="main-content">
+  <!-- BEGIN TOPBAR -->
+  <div class="topbar" style="z-index: 999999999 !important;">
+    <div class="header-left" style="margin-top: 15px !important; margin-left: 10px !important;">
+      <span class="username" style="color: #fff !important;">{{equipmentlist.currentUser.boatName}}</span>
+    </div>
+    <div class="header-right">
+      <ul class="header-menu nav navbar-nav">
+        <!-- BEGIN USER DROPDOWN 
               <li class="dropdown" id="language-header">
                 <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                 <i class="icon-globe"></i>
@@ -56,8 +93,8 @@
                   </li>
                 </ul>
               </li> -->
-              <!-- END USER DROPDOWN -->
-              <!-- BEGIN NOTIFICATION DROPDOWN 
+        <!-- END USER DROPDOWN -->
+        <!-- BEGIN NOTIFICATION DROPDOWN 
               <li class="dropdown" id="notifications-header">
                 <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                 <i class="icon-bell"></i>
@@ -135,86 +172,104 @@
                   </li>
                 </ul>
               </li> -->
-              <!-- END NOTIFICATION DROPDOWN -->
-              <!-- BEGIN USER DROPDOWN -->
-              <li class="dropdown" id="user-header">
-                <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                <img style="width: 36px !important; height: 36px !important;" src="{{equipmentlist.currentUser.profilePhoto}}" alt="user image">
-                <span class="username">Hi, {{equipmentlist.currentUser.username}}</span>
-                </a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <a ui-sref="profilepage({ employeeId: equipmentlist.currentUserId })"><i class="icon-user"></i><span>My Profile</span></a>
-                  </li>
-                  <!--<li>
+        <!-- END NOTIFICATION DROPDOWN -->
+        <!-- BEGIN USER DROPDOWN -->
+        <li class="dropdown" id="user-header">
+          <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+            <img style="width: 36px !important; height: 36px !important;" src="{{equipmentlist.currentUser.profilePhoto}}" alt="user image">
+            <span class="username">Hi, {{equipmentlist.currentUser.username}}</span>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a ui-sref="profilepage({ employeeId: equipmentlist.currentUserId })">
+                <i class="icon-user"></i>
+                <span>My Profile</span>
+              </a>
+            </li>
+            <!--<li>
                     <a href="#"><i class="icon-settings"></i><span>Account Settings</span></a>
                   </li>-->
-                  <li>
-                    <a href="#" ng-click="equipmentlist.logout()"><i class="icon-logout"></i><span>Logout</span></a>
-                  </li>
-                </ul>
-              </li>
-              <!-- END USER DROPDOWN -->
-            </ul>
-          </div>
-          <!-- header-right -->
-        </div>
-        <!-- END TOPBAR -->
-        <!-- BEGIN PAGE CONTENT -->
-        <div class="page-content">
-            <div ng-if="equipmentlist.showNotif2" class="preview active">
-                <div class="alert alert-success media fade in">
-                  <p>Changes Saved <button type="button" class="close" ng-click="equipmentlist.notification2()" aria-hidden="true"><i class="icons-office-52"></i></button></p>
-                </div>
-              </div>
-              <div ng-if="equipmentlist.showNotif" class="preview active">
-                <div class="alert alert-success media fade in">
-                  <p>Job Submitted <button type="button" class="close" ng-click="equipmentlist.notification()" aria-hidden="true"><i class="icons-office-52"></i></button></p>
-                </div>
-              </div>
-              <div ng-if="equipmentlist.notComplete" class="preview active">
-                  <div class="alert alert-danger media fade in">
-                    <p>Please fill in "Done by" field <button type="button" class="close" ng-click="equipmentlist.notCompleted()" aria-hidden="true"><i class="icons-office-52"></i></button></p>
+            <li>
+              <a href="#" ng-click="equipmentlist.logout()">
+                <i class="icon-logout"></i>
+                <span>Logout</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <!-- END USER DROPDOWN -->
+      </ul>
+    </div>
+    <!-- header-right -->
+  </div>
+  <!-- END TOPBAR -->
+  <!-- BEGIN PAGE CONTENT -->
+  <div class="page-content">
+    <div ng-if="equipmentlist.showNotif2" class="preview active">
+      <div class="alert alert-success media fade in">
+        <p>Changes Saved
+          <button type="button" class="close" ng-click="equipmentlist.notification2()" aria-hidden="true">
+            <i class="icons-office-52"></i>
+          </button>
+        </p>
+      </div>
+    </div>
+    <div ng-if="equipmentlist.showNotif" class="preview active">
+      <div class="alert alert-success media fade in">
+        <p>Job Submitted
+          <button type="button" class="close" ng-click="equipmentlist.notification()" aria-hidden="true">
+            <i class="icons-office-52"></i>
+          </button>
+        </p>
+      </div>
+    </div>
+    <div ng-if="equipmentlist.notComplete" class="preview active">
+      <div class="alert alert-danger media fade in">
+        <p>Please fill in "Done by" field
+          <button type="button" class="close" ng-click="equipmentlist.notCompleted()" aria-hidden="true">
+            <i class="icons-office-52"></i>
+          </button>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-content bg-dark">
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <form role="form" class="form-horizontal form-validation">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">Equipment</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" ng-model="equipmentlist.equip.name" disabled>
+                    </div>
                   </div>
-                </div>
-          <div class="row">
-                <div class="col-md-6">
-                  <div class="panel panel-default">
-                    <div class="panel-content bg-dark">
-                      <div class="row">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                          <form role="form" class="form-horizontal form-validation">
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Equipment</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" ng-model="equipmentlist.equip.name" disabled>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                              <label class="col-sm-3 control-label">Location</label>
-                              <div class="col-sm-9">
-                                <input type="text" class="form-control" ng-model="equipmentlist.equip.location" disabled>
-                              </div>
-                            </div>
-                            <div class="form-group">
-                              <label class="col-sm-3 control-label">Model Number</label>
-                                <div class="col-sm-9">
-                                  <input type="text" class="form-control" ng-model="equipmentlist.equip.modelNumber" disabled>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                              <label class="col-sm-3 control-label">Serial Number</label>
-                              <div class="col-sm-9">
-                                <input type="text" class="form-control" ng-model="equipmentlist.equip.serialNumber" disabled>
-                              </div>
-                            </div>
-                            <div class="form-group">
-                              <label class="col-sm-3 control-label">Manufacturer</label>
-                              <div class="col-sm-9">
-                                <input type="text" class="form-control" ng-model="equipmentlist.equip.manufacturer" disabled>
-                              </div>
-                            </div>
-                            <!--<div class="form-group">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">Location</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" ng-model="equipmentlist.equip.location" disabled>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">Model Number</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" ng-model="equipmentlist.equip.modelNumber" disabled>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">Serial Number</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" ng-model="equipmentlist.equip.serialNumber" disabled>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">Manufacturer</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" ng-model="equipmentlist.equip.manufacturer" disabled>
+                    </div>
+                  </div>
+                  <!--<div class="form-group">
                               <label class="col-sm-3 control-label"> </label>
                               <div class="col-sm-3" ng-repeat="doc in equipmentlist.docs" ng-if="doc.fileType == 'drawings'">
                                 <a target="_blank" href="{{doc.downloadurl}}" class="btn btn-embossed btn-primary m-r-20">Drawing</a>
@@ -226,7 +281,7 @@
                                 <a target="_blank" href="{{doc.downloadurl}}" class="btn btn-embossed btn-primary m-r-20">Specification</a>
                               </div>
                             </div>-->
-                            <!--<div class="row" ng-if="equipmentlist.currentUser.role == 'admin'">
+                  <!--<div class="row" ng-if="equipmentlist.currentUser.role == 'admin'">
                               <div class="col-sm-9 col-sm-offset-3">
                                 <div class="pull-right">
                                   <button data-toggle="modal" data-target="#modal-confirm" ng-click="equipmentlist.removeJobConfirm(equipmentlist.job)" class="btn btn-embossed btn-primary m-r-20"><i class="fa fa-trash"></i> Delete Job</button>
@@ -234,26 +289,26 @@
                                 </div>
                               </div>
                             </div>-->
-                            
-                            <!--<div class="row">
+
+                  <!--<div class="row">
                               <div class="col-sm-9 col-sm-offset-3">
                                 <div class="pull-right">
                                   <button ng-click="equipmentlist.save()" type="submit" class="btn btn-embossed btn-primary m-r-20">Save</button>
                                 </div>
                               </div>
                             </div>-->
-                          </form>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="panel panel-default">
-                    <div class="panel-body bg-dark">
-                      <div class="row">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <!--<div class="row" ng-if="equipmentlist.currentUser.role == 'admin'">
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-body bg-dark">
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <!--<div class="row" ng-if="equipmentlist.currentUser.role == 'admin'">
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label class="control-label">Drawing</label>
@@ -290,46 +345,48 @@
                                          
                                   </div>
                               </div>
-                            </div>   -->                 
-    
-                              <div class="row">
-                                  <div class="nav-tabs3">
-                                      <ul id="myTab6" class="nav nav-tabs">
-                                        <li class=""><a href="#tab6_2" data-toggle="tab">Equipment History</a></li>
-                                      </ul>
-                                      <div class="tab-content">
-                                        <div class="tab-pane fade active in" id="tab6_2">
-                                            <div class="row">
-                                                <div class="col-sm-12">
-                                                    <form>
-                                                      <div class="append-icon">
-                                                        <input type="search" ng-model="equipmentlist.searchGroup" class="form-control form-white input-lg" placeholder="Search..." autofocus>
-                                                        <i class="icon-magnifier"></i>
-                                                      </div>
-                                                    </form>
-                                                  </div>
-                                            </div>             
-                                            <div class="panel-content withScroll" data-height="200" style="max-height: 400px; overflow: auto !important;">
-                                                <p ng-repeat="history in equipmentlist.histories" ng-if="history.group == equipmentlist.equip.name">
-                                                  <span class="f-12"><strong>{{history.title}}</strong> | {{history.dateNow | date : "medium"}}</span>
-                                                  <br />
-                                                  {{history.workHistory}}
-                                                  <br />
-                                                  _________________________________________________________________________________________________________________
-                                                </p>
-                                              </div>
-                                        </div>
-                                      </div>
-                                    </div>
+                            </div>   -->
+
+                <div class="row">
+                  <div class="nav-tabs3">
+                    <ul id="myTab6" class="nav nav-tabs">
+                      <li class="">
+                        <a href="#tab6_2" data-toggle="tab">Equipment History</a>
+                      </li>
+                    </ul>
+                    <div class="tab-content">
+                      <div class="tab-pane fade active in" id="tab6_2">
+                        <div class="row">
+                          <div class="col-sm-12">
+                            <form>
+                              <div class="append-icon">
+                                <input type="search" ng-model="equipmentlist.searchGroup" class="form-control form-white input-lg" placeholder="Search..."
+                                  autofocus>
+                                <i class="icon-magnifier"></i>
                               </div>
+                            </form>
+                          </div>
+                        </div>
+                        <div class="panel-content withScroll" data-height="200" style="max-height: 400px; overflow: auto !important;">
+                          <p ng-repeat="history in equipmentlist.histories" ng-if="history.group == equipmentlist.equip.name">
+                            <span class="f-12">
+                              <strong>{{history.title}}</strong> | {{history.dateNow | date : "medium"}}</span>
+                            <br /> {{history.workHistory}}
+                            <br /> _________________________________________________________________________________________________________________
+                          </p>
                         </div>
                       </div>
                     </div>
                   </div>
-                  
                 </div>
               </div>
-              <!--<div class="row" ng-hide="equipmentlist.job.unplanned">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!--<div class="row" ng-hide="equipmentlist.job.unplanned">
               <div class="col-md-12">
                   <div class="panel panel-default">
                       <div class="panel-body bg-dark">
@@ -362,373 +419,422 @@
                     </div>
               </div>
             </div>-->
-          <div class="footer">
-            <div class="copyright">
-              <p class="pull-left sm-pull-reset">
-                <span>Copyright <span class="copyright">©</span> 2018 </span>
-                <span>Powered by TYS Ltd</span>.
-                <span>All rights reserved. </span>
-              </p>
-              <p class="pull-right sm-pull-reset">
-                <span><a href="#" class="m-r-10">Support</a> | <a href="#" class="m-l-10 m-r-10">Terms of use</a> | <a href="#" class="m-l-10">Privacy Policy</a></span>
-              </p>
-            </div>
-          </div>
-        </div>
-    
-        <div class="modal fade" id="upload-drawing" aria-hidden="true">
-          <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
-                <h4 class="modal-title"><strong>Upload</strong> Drawing</h4>
-              </div>
-              <div class="modal-body">
-                <!--<p>Change screen size to see responsive behaviour.</p>-->
-                      <div  ng-show="doneSearching" class="loader2 col-sm-offset-5"></div>
-                      <div ng-show="uploadSuccess" class="preview active">
-                          <div class="alert alert-success media fade in">
-                            <p><strong>Well done!</strong> Upload Successful.</p>
-                          </div>
-                        </div>
-                
-                <div class="row" ng-hide="doneSearching">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label class="control-label">File</label>
-                      <div class="file">
-                          <div class="option-group">
-                            <input type="file"  ngf-select="equipmentlist.uploadFiles($file, $invalidFiles)" class="custom-file" name="avatar" required>
-                          </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="modal-footer text-center">
-               <!--<button type="button" class="btn btn-primary btn-embossed bnt-square" ><i class="fa fa-check"></i> Add</button>-->
-              </div>
-            </div>
-          </div>
-        </div>
-    
-        <div class="modal fade" id="upload-manual" aria-hidden="true">
-          <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
-                <h4 class="modal-title"><strong>Upload</strong> Manual</h4>
-              </div>
-              <div class="modal-body">
-                <!--<p>Change screen size to see responsive behaviour.</p>-->
-                      <div  ng-show="doneSearching" class="loader2 col-sm-offset-5"></div>
-                      <div ng-show="uploadSuccess" class="preview active">
-                          <div class="alert alert-success media fade in">
-                            <p><strong>Well done!</strong> Upload Successful.</p>
-                          </div>
-                        </div>
-                
-                <div class="row" ng-hide="doneSearching">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label class="control-label">File</label>
-                      <div class="file">
-                          <div class="option-group">
-                            <input type="file"  ngf-select="equipmentlist.uploadManual($file, $invalidFiles)" class="custom-file" name="avatar" required>
-                          </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="modal-footer text-center">
-               <!--<button type="button" class="btn btn-primary btn-embossed bnt-square" ><i class="fa fa-check"></i> Add</button>-->
-              </div>
-            </div>
-          </div>
-        </div>
-    
-        <div class="modal fade" id="upload-specs" aria-hidden="true">
-          <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
-                <h4 class="modal-title"><strong>Upload</strong> Specification</h4>
-              </div>
-              <div class="modal-body">
-                <!--<p>Change screen size to see responsive behaviour.</p>-->
-                      <div  ng-show="doneSearching" class="loader2 col-sm-offset-5"></div>
-                      <div ng-show="uploadSuccess" class="preview active">
-                          <div class="alert alert-success media fade in">
-                            <p><strong>Well done!</strong> Upload Successful.</p>
-                          </div>
-                        </div>
-                
-                <div class="row" ng-hide="doneSearching">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label class="control-label">File</label>
-                      <div class="file">
-                          <div class="option-group">
-                            <input type="file"  ngf-select="equipmentlist.uploadSpecs($file, $invalidFiles)" class="custom-file" name="avatar" required>
-                          </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="modal-footer text-center">
-               <!--<button type="button" class="btn btn-primary btn-embossed bnt-square" ><i class="fa fa-check"></i> Add</button>-->
-              </div>
-            </div>
-          </div>
-        </div>
-    
-        <div class="modal fade" id="upload-pages" aria-hidden="true">
-          <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
-                <h4 class="modal-title"><strong>Upload</strong> Page</h4>
-              </div>
-              <div class="modal-body">
-                <!--<p>Change screen size to see responsive behaviour.</p>-->
-                      <div  ng-show="doneSearching" class="loader2 col-sm-offset-5"></div>
-                      <div ng-show="uploadSuccess" class="preview active">
-                          <div class="alert alert-success media fade in">
-                            <p><strong>Well done!</strong> Upload Successful.</p>
-                          </div>
-                        </div>
-                
-                <div class="row" ng-hide="doneSearching">
-                        <div class="col-md-12">
-                          <div class="form-group">
-                            <label class="control-label">Page Number</label>
-                            <input type="text" ng-model="equipmentlist.pageNum" class="form-control" placeholder="1" required>
-                          </div>
-                        </div>
-                  <div class="col-md-6" ng-if="equipmentlist.pageNum">
-                    <div class="form-group">
-                      <label class="control-label">File</label>
-                      <div class="file">
-                          <div class="option-group">
-                            <input type="file"  ngf-select="equipmentlist.uploadPage($file, $invalidFiles)" class="custom-file" name="avatar" required>
-                          </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="modal-footer text-center">
-               <!--<button type="button" class="btn btn-primary btn-embossed bnt-square" ><i class="fa fa-check"></i> Add</button>-->
-              </div>
-            </div>
-          </div>
-        </div>
-    
-        <div class="modal fade" id="upload-image" aria-hidden="true">
-            <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
-                  <h4 class="modal-title"><strong>Upload</strong> Image</h4>
-                </div>
-                <div class="modal-body">
-                  <!--<p>Change screen size to see responsive behaviour.</p>-->
-                        <div  ng-show="doneSearching" class="loader2 col-sm-offset-5"></div>
-                        <div ng-show="uploadSuccess" class="preview active">
-                            <div class="alert alert-success media fade in">
-                              <p><strong>Well done!</strong> Upload Successful.</p>
-                            </div>
-                          </div>
-                  
-                  <div class="row" ng-hide="doneSearching">
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label class="control-label">File</label>
-                        <div class="file">
-                            <div class="option-group">
-                              <input type="file"  ngf-select="equipmentlist.uploadImage($file, $invalidFiles)" class="custom-file" name="avatar" required>
-                            </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="modal-footer text-center">
-                 <!--<button type="button" class="btn btn-primary btn-embossed bnt-square" ><i class="fa fa-check"></i> Add</button>-->
-                </div>
-              </div>
-            </div>
-          </div>
-    
-          <div class="modal fade" id="work-history" aria-hidden="true">
-            <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
-                  <h4 class="modal-title"><strong>Work</strong> History</h4>
-                </div>
-                <div class="modal-body " style="overflow-x: hidden !important;">                  
-                    
-                </div>
-                <div class="modal-footer text-center">
-                 <!--<button type="button" class="btn btn-primary btn-embossed bnt-square" ><i class="fa fa-check"></i> Add</button>-->
-                </div>
-              </div>
-            </div>
-          </div>
-    
-          <div class="modal fade" id="group-history" aria-hidden="true">
-              <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
-                    <h4 class="modal-title"><strong>Group</strong> History</h4>
-                  </div>
-                  <div class="modal-body " style="overflow-x: hidden !important;">      
-                      
-                  </div>
-                  <div class="modal-footer text-center">
-                   <!--<button type="button" class="btn btn-primary btn-embossed bnt-square" ><i class="fa fa-check"></i> Add</button>-->
-                  </div>
-                </div>
-              </div>
-            </div>
-    
-            <div class="modal fade" id="add-support" aria-hidden="true">
-                <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
-                      <h4 class="modal-title"><strong>Add</strong> Support Information</h4>
-                    </div>
-                    <div class="modal-body ">         
-                        <div class="col-sm-12">
-                            <textarea rows="10" class="form-control" ng-model="equipmentlist.support.info" placeholder="Write support..."></textarea>
-                          </div>    
-                          <div class="col-sm-9 col-sm-offset-3" style="margin-top: 10px !important;">
-                            <div class="pull-right">
-                                <button ng-click="equipmentlist.supportSave()" data-dismiss="modal" class="btn btn-embossed btn-primary m-r-20"><i class="fa fa-save"></i> Save</button>     
-                            </div>
-                          </div>
-                          
-                        
-                    </div>
-                    <div class="modal-footer text-center">
-                     <!--<button type="button" class="btn btn-primary btn-embossed bnt-square" ><i class="fa fa-check"></i> Add</button>-->
-                    </div>
-                  </div>
-                </div>
-              </div>
-    
-              <div class="modal fade" id="view-support" aria-hidden="true">
-                  <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
-                        <h4 class="modal-title"><strong>Support</strong> Information</h4>
-                      </div>
-                      <div class="modal-body " style="overflow-x: hidden !important;">                 
-                          <table class="table table-hover dataTable" >
-                            <thead>
-                              <tr>
-                                <th> </th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr ng-repeat="support in equipmentlist.supports" ng-if="support.jobID == equipmentlist.job._id">
-                                <td>{{support.info}}</td>
-                              </tr>
-                              
-                            </tbody>
-                          </table>
-                      </div>
-                      <div class="modal-footer text-center">
-                       <!--<button type="button" class="btn btn-primary btn-embossed bnt-square" ><i class="fa fa-check"></i> Add</button>-->
-                      </div>
-                    </div>
-                  </div>
-                </div>
-    
-                <div class="modal fade" id="modal-confirm" aria-hidden="true">
-                  <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
-                          <h4 class="modal-title">Are you sure you want to delete this job: <strong>{{jobName}}</strong>?</h4>
-                      </div>
-                      <div class="modal-body">
-                          <div ng-show="notMatch" class="preview active">
-                              <div class="alert alert-danger media fade in">
-                                <p> Incorrect Password</p>
-                              </div>
-                          </div>
-                          <div class="form-group">
-                              <label class="col-sm-4 control-label">Type password to confirm
-                              </label>
-                              <div class="col-sm-8">
-                                <input type="password" class="form-control" ng-model="passworD">
-                              </div>
-                            </div>
-                      </div>
-                      <div class="modal-footer text-center">
-                        <button class="btn btn-dark f-12" data-dismiss="modal">Cancel</button>
-                        <button class="btn btn-dark f-12" type="submit" ng-click="equipmentlist.removeJob()"><i class="fa fa-trash"></i> Delete Now</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-    
-                <div class="modal fade" id="upload-service" aria-hidden="true">
-                  <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
-                        <h4 class="modal-title"><strong>Upload</strong> Service Reports</h4>
-                      </div>
-                      <div class="modal-body">
-                        <!--<p>Change screen size to see responsive behaviour.</p>-->
-                        <div  ng-show="doneSearching" class="loader2 col-sm-offset-5"></div>
-                          <div ng-show="uploadSuccess" class="preview active">
-                            <div class="alert alert-success media fade in">
-                              <p><strong>Well done!</strong> Upload Successful.</p>
-                            </div>
-                          </div>     
-                          <div class="row" ng-hide="doneSearching">
-                            <div class="col-md-6">
-                              <div class="form-group">
-                                <label class="control-label">File</label>
-                                <div class="file">
-                                  <div class="option-group">
-                                    <input type="file"  ngf-select="equipmentlist.uploadService($file, $invalidFiles)" class="custom-file" name="avatar" required>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-    
-                <div class="modal fade" id="view-service" aria-hidden="true">
-                  <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
-                        <h4 class="modal-title"><strong>Service Reports</strong> Information</h4>
-                      </div>
-                      <div class="modal-body " style="overflow-x: hidden !important;">     
-                        <div class="row">
-                          <div class="col-sm-3" ng-repeat="service in equipmentlist.docs" ng-if="service.fileType == 'service'">
-                            <a target="_blank" href="{{service.downloadurl}}" class="btn btn-embossed btn-primary m-r-20">{{service.date | date: mediumDate}}</a>
-                          </div>
-                        </div>            
-                      </div>
-                    </div>
-                  </div>
-                </div>
-    
-    
+    <div class="footer">
+      <div class="copyright">
+        <p class="pull-left sm-pull-reset">
+          <span>Copyright
+            <span class="copyright">©</span> 2018 </span>
+          <span>Powered by TYS Ltd</span>.
+          <span>All rights reserved. </span>
+        </p>
+        <p class="pull-right sm-pull-reset">
+          <span>
+            <a href="#" class="m-r-10">Support</a> |
+            <a href="#" class="m-l-10 m-r-10">Terms of use</a> |
+            <a href="#" class="m-l-10">Privacy Policy</a>
+          </span>
+        </p>
       </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="upload-drawing" aria-hidden="true">
+    <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            <i class="icons-office-52"></i>
+          </button>
+          <h4 class="modal-title">
+            <strong>Upload</strong> Drawing</h4>
+        </div>
+        <div class="modal-body">
+          <!--<p>Change screen size to see responsive behaviour.</p>-->
+          <div ng-show="doneSearching" class="loader2 col-sm-offset-5"></div>
+          <div ng-show="uploadSuccess" class="preview active">
+            <div class="alert alert-success media fade in">
+              <p>
+                <strong>Well done!</strong> Upload Successful.</p>
+            </div>
+          </div>
+
+          <div class="row" ng-hide="doneSearching">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label">File</label>
+                <div class="file">
+                  <div class="option-group">
+                    <input type="file" ngf-select="equipmentlist.uploadFiles($file, $invalidFiles)" class="custom-file" name="avatar" required>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer text-center">
+          <!--<button type="button" class="btn btn-primary btn-embossed bnt-square" ><i class="fa fa-check"></i> Add</button>-->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="upload-manual" aria-hidden="true">
+    <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            <i class="icons-office-52"></i>
+          </button>
+          <h4 class="modal-title">
+            <strong>Upload</strong> Manual</h4>
+        </div>
+        <div class="modal-body">
+          <!--<p>Change screen size to see responsive behaviour.</p>-->
+          <div ng-show="doneSearching" class="loader2 col-sm-offset-5"></div>
+          <div ng-show="uploadSuccess" class="preview active">
+            <div class="alert alert-success media fade in">
+              <p>
+                <strong>Well done!</strong> Upload Successful.</p>
+            </div>
+          </div>
+
+          <div class="row" ng-hide="doneSearching">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label">File</label>
+                <div class="file">
+                  <div class="option-group">
+                    <input type="file" ngf-select="equipmentlist.uploadManual($file, $invalidFiles)" class="custom-file" name="avatar" required>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer text-center">
+          <!--<button type="button" class="btn btn-primary btn-embossed bnt-square" ><i class="fa fa-check"></i> Add</button>-->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="upload-specs" aria-hidden="true">
+    <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            <i class="icons-office-52"></i>
+          </button>
+          <h4 class="modal-title">
+            <strong>Upload</strong> Specification</h4>
+        </div>
+        <div class="modal-body">
+          <!--<p>Change screen size to see responsive behaviour.</p>-->
+          <div ng-show="doneSearching" class="loader2 col-sm-offset-5"></div>
+          <div ng-show="uploadSuccess" class="preview active">
+            <div class="alert alert-success media fade in">
+              <p>
+                <strong>Well done!</strong> Upload Successful.</p>
+            </div>
+          </div>
+
+          <div class="row" ng-hide="doneSearching">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label">File</label>
+                <div class="file">
+                  <div class="option-group">
+                    <input type="file" ngf-select="equipmentlist.uploadSpecs($file, $invalidFiles)" class="custom-file" name="avatar" required>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer text-center">
+          <!--<button type="button" class="btn btn-primary btn-embossed bnt-square" ><i class="fa fa-check"></i> Add</button>-->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="upload-pages" aria-hidden="true">
+    <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            <i class="icons-office-52"></i>
+          </button>
+          <h4 class="modal-title">
+            <strong>Upload</strong> Page</h4>
+        </div>
+        <div class="modal-body">
+          <!--<p>Change screen size to see responsive behaviour.</p>-->
+          <div ng-show="doneSearching" class="loader2 col-sm-offset-5"></div>
+          <div ng-show="uploadSuccess" class="preview active">
+            <div class="alert alert-success media fade in">
+              <p>
+                <strong>Well done!</strong> Upload Successful.</p>
+            </div>
+          </div>
+
+          <div class="row" ng-hide="doneSearching">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="control-label">Page Number</label>
+                <input type="text" ng-model="equipmentlist.pageNum" class="form-control" placeholder="1" required>
+              </div>
+            </div>
+            <div class="col-md-6" ng-if="equipmentlist.pageNum">
+              <div class="form-group">
+                <label class="control-label">File</label>
+                <div class="file">
+                  <div class="option-group">
+                    <input type="file" ngf-select="equipmentlist.uploadPage($file, $invalidFiles)" class="custom-file" name="avatar" required>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer text-center">
+          <!--<button type="button" class="btn btn-primary btn-embossed bnt-square" ><i class="fa fa-check"></i> Add</button>-->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="upload-image" aria-hidden="true">
+    <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            <i class="icons-office-52"></i>
+          </button>
+          <h4 class="modal-title">
+            <strong>Upload</strong> Image</h4>
+        </div>
+        <div class="modal-body">
+          <!--<p>Change screen size to see responsive behaviour.</p>-->
+          <div ng-show="doneSearching" class="loader2 col-sm-offset-5"></div>
+          <div ng-show="uploadSuccess" class="preview active">
+            <div class="alert alert-success media fade in">
+              <p>
+                <strong>Well done!</strong> Upload Successful.</p>
+            </div>
+          </div>
+
+          <div class="row" ng-hide="doneSearching">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label">File</label>
+                <div class="file">
+                  <div class="option-group">
+                    <input type="file" ngf-select="equipmentlist.uploadImage($file, $invalidFiles)" class="custom-file" name="avatar" required>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer text-center">
+          <!--<button type="button" class="btn btn-primary btn-embossed bnt-square" ><i class="fa fa-check"></i> Add</button>-->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="work-history" aria-hidden="true">
+    <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            <i class="icons-office-52"></i>
+          </button>
+          <h4 class="modal-title">
+            <strong>Work</strong> History</h4>
+        </div>
+        <div class="modal-body " style="overflow-x: hidden !important;">
+
+        </div>
+        <div class="modal-footer text-center">
+          <!--<button type="button" class="btn btn-primary btn-embossed bnt-square" ><i class="fa fa-check"></i> Add</button>-->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="group-history" aria-hidden="true">
+    <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            <i class="icons-office-52"></i>
+          </button>
+          <h4 class="modal-title">
+            <strong>Group</strong> History</h4>
+        </div>
+        <div class="modal-body " style="overflow-x: hidden !important;">
+
+        </div>
+        <div class="modal-footer text-center">
+          <!--<button type="button" class="btn btn-primary btn-embossed bnt-square" ><i class="fa fa-check"></i> Add</button>-->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="add-support" aria-hidden="true">
+    <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            <i class="icons-office-52"></i>
+          </button>
+          <h4 class="modal-title">
+            <strong>Add</strong> Support Information</h4>
+        </div>
+        <div class="modal-body ">
+          <div class="col-sm-12">
+            <textarea rows="10" class="form-control" ng-model="equipmentlist.support.info" placeholder="Write support..."></textarea>
+          </div>
+          <div class="col-sm-9 col-sm-offset-3" style="margin-top: 10px !important;">
+            <div class="pull-right">
+              <button ng-click="equipmentlist.supportSave()" data-dismiss="modal" class="btn btn-embossed btn-primary m-r-20">
+                <i class="fa fa-save"></i> Save</button>
+            </div>
+          </div>
+
+
+        </div>
+        <div class="modal-footer text-center">
+          <!--<button type="button" class="btn btn-primary btn-embossed bnt-square" ><i class="fa fa-check"></i> Add</button>-->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="view-support" aria-hidden="true">
+    <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            <i class="icons-office-52"></i>
+          </button>
+          <h4 class="modal-title">
+            <strong>Support</strong> Information</h4>
+        </div>
+        <div class="modal-body " style="overflow-x: hidden !important;">
+          <table class="table table-hover dataTable">
+            <thead>
+              <tr>
+                <th> </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="support in equipmentlist.supports" ng-if="support.jobID == equipmentlist.job._id">
+                <td>{{support.info}}</td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer text-center">
+          <!--<button type="button" class="btn btn-primary btn-embossed bnt-square" ><i class="fa fa-check"></i> Add</button>-->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modal-confirm" aria-hidden="true">
+    <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            <i class="icons-office-52"></i>
+          </button>
+          <h4 class="modal-title">Are you sure you want to delete this job:
+            <strong>{{jobName}}</strong>?</h4>
+        </div>
+        <div class="modal-body">
+          <div ng-show="notMatch" class="preview active">
+            <div class="alert alert-danger media fade in">
+              <p> Incorrect Password</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-4 control-label">Type password to confirm
+            </label>
+            <div class="col-sm-8">
+              <input type="password" class="form-control" ng-model="passworD">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer text-center">
+          <button class="btn btn-dark f-12" data-dismiss="modal">Cancel</button>
+          <button class="btn btn-dark f-12" type="submit" ng-click="equipmentlist.removeJob()">
+            <i class="fa fa-trash"></i> Delete Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="upload-service" aria-hidden="true">
+    <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            <i class="icons-office-52"></i>
+          </button>
+          <h4 class="modal-title">
+            <strong>Upload</strong> Service Reports</h4>
+        </div>
+        <div class="modal-body">
+          <!--<p>Change screen size to see responsive behaviour.</p>-->
+          <div ng-show="doneSearching" class="loader2 col-sm-offset-5"></div>
+          <div ng-show="uploadSuccess" class="preview active">
+            <div class="alert alert-success media fade in">
+              <p>
+                <strong>Well done!</strong> Upload Successful.</p>
+            </div>
+          </div>
+          <div class="row" ng-hide="doneSearching">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label">File</label>
+                <div class="file">
+                  <div class="option-group">
+                    <input type="file" ngf-select="equipmentlist.uploadService($file, $invalidFiles)" class="custom-file" name="avatar" required>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="view-service" aria-hidden="true">
+    <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            <i class="icons-office-52"></i>
+          </button>
+          <h4 class="modal-title">
+            <strong>Service Reports</strong> Information</h4>
+        </div>
+        <div class="modal-body " style="overflow-x: hidden !important;">
+          <div class="row">
+            <div class="col-sm-3" ng-repeat="service in equipmentlist.docs" ng-if="service.fileType == 'service'">
+              <a target="_blank" href="{{service.downloadurl}}" class="btn btn-embossed btn-primary m-r-20">{{service.date | date: mediumDate}}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>

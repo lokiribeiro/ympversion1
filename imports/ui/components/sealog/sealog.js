@@ -2,7 +2,7 @@ import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
 import utilsPagination from 'angular-utils-pagination';
-import {pleaseWait} from '../../../startup/please-wait.js';
+import { pleaseWait } from '../../../startup/please-wait.js';
 
 import { Meteor } from 'meteor/meteor';
 import { Counts } from 'meteor/tmeasday:publish-counts';
@@ -13,11 +13,11 @@ import { Groups } from '../../../api/groups';
 import { Subgroups } from '../../../api/subgroups';
 
 import template from './sealog.html';
- 
+
 class Sealog {
   constructor($scope, $reactive, $state) {
     //'ngInject';
- 
+
     $reactive(this).attach($scope);
 
     this.port = {};
@@ -59,9 +59,9 @@ class Sealog {
     ]);
 
     this.subscribe('groups');
-    
+
     this.subscribe('subgroups');
- 
+
     this.helpers({
       isLoggedIn() {
         return !!Meteor.userId();
@@ -76,13 +76,13 @@ class Sealog {
         var userID = Meteor.userId();
         var boats = Meteor.users.findOne(userID);
         console.info('boats', boats);
-        if(boats){
+        if (boats) {
           $scope.userBoatID = boats.boatID;
           var boatID = $scope.userBoatID;
-          var selector = {boatID: boatID};
+          var selector = { boatID: boatID };
         } else {
           var selector = {};
-        } 
+        }
         return Profiles.find(selector);
       },
       logbooks() {
@@ -92,103 +92,110 @@ class Sealog {
         var userID = Meteor.userId();
         var boats = Meteor.users.findOne(userID);
         console.info('boats', boats);
-        if(boats){
+        if (boats) {
           $scope.userBoatID = boats.boatID;
           var boatID = $scope.userBoatID;
-          var selector = {boatID: boatID};
+          var selector = { boatID: boatID };
         } else {
           var selector = {};
-        } 
+        }
         return Groups.find(selector, {
-          sort : this.getReactively('sort')
+          sort: this.getReactively('sort')
         });
       },
       subgroups() {
         var userID = Meteor.userId();
         var boats = Meteor.users.findOne(userID);
         console.info('boats', boats);
-        if(boats){
+        if (boats) {
           $scope.userBoatID = boats.boatID;
           var boatID = $scope.userBoatID;
-          var selector = {boatID: boatID};
+          var selector = { boatID: boatID };
         } else {
           var selector = {};
-        } 
+        }
         return Subgroups.find(selector, {
-          sort : this.getReactively('sort2')
+          sort: this.getReactively('sort2')
         });
       }
     });
 
-    this.logout = function() {
+    this.logout = function () {
       window.loading_screen = pleaseWait({
         logo: "../assets/global/images/logo/logo-white2.png",
         backgroundColor: '#8c9093',
         loadingHtml: "<div class='sk-spinner sk-spinner-wave'><div class='sk-rect1'></div><div class='sk-rect2'></div><div class='sk-rect3'></div><div class='sk-rect4'></div><div class='sk-rect5'></div></div>"
       });
       Accounts.logout();
-      window.setTimeout(function(){
+      window.setTimeout(function () {
         window.loading_screen.finish();
-        $state.go('login', {}, {reload: 'login'});
-      },2000);
+        $state.go('login', {}, { reload: 'login' });
+      }, 2000);
     }
 
-    this.gotoDashboard = function() {
+    this.gotoDashboard = function () {
       angular.element("body").removeClass("modal-open");
       var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
       removeMe.remove();
-      $state.go('dashboard', {}, {reload: 'dashboard'});
+      $state.go('dashboard', {}, { reload: 'dashboard' });
     }
-    this.gotoInventory = function() {
+    this.gotoInventory = function () {
       angular.element("body").removeClass("modal-open");
       var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
       removeMe.remove();
-      $state.go('inventory', {}, {reload: 'inventory'});
+      $state.go('inventory', {}, { reload: 'inventory' });
     }
-    this.gotoLogbook = function() {
+    this.gotoLogbook = function () {
       angular.element("body").removeClass("modal-open");
       var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
       removeMe.remove();
-      $state.go('logbook', {}, {reload: 'logbook'});
+      $state.go('logbook', {}, { reload: 'logbook' });
     }
-    this.gotoEmployees = function() {
+    this.gotoEmployees = function () {
       angular.element("body").removeClass("modal-open");
       var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
       removeMe.remove();
-      $state.go('employees', {}, {reload: 'employees'});
+      $state.go('employees', {}, { reload: 'employees' });
     }
-    this.gotoWatchkeep = function() {
+    this.gotoWatchkeep = function () {
       angular.element("body").removeClass("modal-open");
       var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
       removeMe.remove();
-      $state.go('watchkeep', {}, {reload: 'watchkeep'});
+      $state.go('watchkeep', {}, { reload: 'watchkeep' });
     }
-    this.gotoSettings = function() {
+    this.gotoSettings = function () {
       angular.element("body").removeClass("modal-open");
       var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
       removeMe.remove();
-      $state.go('settings', {}, {reload: 'settings'});
+      $state.go('settings', {}, { reload: 'settings' });
     }
-    this.gotoAdminPanel = function() {
+    this.gotoAdminPanel = function () {
       angular.element("body").removeClass("modal-open");
       var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
       removeMe.remove();
-      $state.go('adminpanel', {}, {reload: 'adminpanel'});
+      $state.go('adminpanel', {}, { reload: 'adminpanel' });
     }
-    this.gotoReports = function(equipID) {
+    this.gotoReports = function (equipID) {
       angular.element("body").removeClass("modal-open");
       var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
       removeMe.remove();
-      $state.go('reports', {equipID: equipID}, {reload: 'reports'});
+      $state.go('reports', { equipID: equipID }, { reload: 'reports' });
+    }
+    this.gotoSupplier = function (equipID) {
+      angular.element("body").removeClass("modal-open");
+      var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
+      removeMe.remove();
+      $state.go('supplier', { equipID: equipID }, { reload: 'supplier' });
     }
 
-    this.notification = function() {
-      
+
+    this.notification = function () {
+
       this.showNotif = false;
       console.info('notif daan', this.showNotif);
     }
 
-    this.save = function() {
+    this.save = function () {
       this.port.date = new Date();
       this.port.dateTime = this.port.date.getTime();
       this.port.userID = this.engineer.doneBy.userID;
@@ -197,27 +204,27 @@ class Sealog {
       this.port.boatID = $scope.userBoatID;
       console.info('port details', this.port);
       Logbooks.insert(this.port, (error) => {
-          if (error) {
-            console.log('Oops, unable to insert...');
-          } else {
-            console.log('Done!');
-            $state.go('logbook', {}, {reload: 'logbook'});
-          }
+        if (error) {
+          console.log('Oops, unable to insert...');
+        } else {
+          console.log('Done!');
+          $state.go('logbook', {}, { reload: 'logbook' });
+        }
       });
     }
 
-}
+  }
 
   isOwner(party) {
     return this.isLoggedIn && party.owner === this.currentUserId;
   }
 
 }
- 
+
 const name = 'sealog';
 
 //Jobdetails.$inject = ['$scope', '$reactive', '$stateParams'];
- 
+
 // create a module
 export default angular.module(name, [
   angularMeteor,
@@ -228,33 +235,33 @@ export default angular.module(name, [
   controllerAs: name,
   controller: ['$scope', '$reactive', '$state', Sealog]
 })
-.config(['$stateProvider',
-function($stateProvider) {
-    //'ngInject';
-    $stateProvider
-      .state('sealog', {
-        url: '/sealog',
-        template: '<sealog></sealog>',
-        resolve: {
+  .config(['$stateProvider',
+    function ($stateProvider) {
+      //'ngInject';
+      $stateProvider
+        .state('sealog', {
+          url: '/sealog',
+          template: '<sealog></sealog>',
+          resolve: {
             currentUser($q, $state) {
-                if (Meteor.userId() === null) {
-                    return $q.reject('AUTH_REQUIRED');
-                } else {
-                  var userID = Meteor.userId();
-                  var access = Meteor.users.findOne({_id: userID});
-                  try{
-                    if(access.logbook){
-                      return $q.resolve();
-                    } else {
-                      return $q.reject('LOGGED_IN');
-                    }
-                  } catch(err) {
+              if (Meteor.userId() === null) {
+                return $q.reject('AUTH_REQUIRED');
+              } else {
+                var userID = Meteor.userId();
+                var access = Meteor.users.findOne({ _id: userID });
+                try {
+                  if (access.logbook) {
+                    return $q.resolve();
+                  } else {
                     return $q.reject('LOGGED_IN');
                   }
-                };
+                } catch (err) {
+                  return $q.reject('LOGGED_IN');
+                }
+              };
             }
-        }
-      });
+          }
+        });
     }
-]);
+  ]);
 

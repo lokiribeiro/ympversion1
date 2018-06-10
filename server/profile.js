@@ -14,10 +14,47 @@ export function  upsertProfilePhoto(profileID, downloadUrl){
   return fileUpsert;
 }
 
-export function upsertBoatIDProfile(userID, boatID){
+export function upsertBoatIDProfile(userID, boatID, boatName){
   var selector = {_id: userID};
   var modifier = {$set: {
-    boatID: boatID
+    boatID: boatID,
+    boatName: boatName
+  }};
+  var roleUpsert = Profiles.upsert(selector, modifier);
+  return roleUpsert;
+}
+
+export function upsertRemoveProfile(userID, setRemove){
+  var selector = {_id: userID};
+  var modifier = {$set: {
+    setRemove: setRemove
+  }};
+  var roleUpsert = Profiles.upsert(selector, modifier);
+  return roleUpsert;
+}
+
+export function upsertRemoveProfileConfirm(userID){
+  var selector = {_id: userID};
+  var boatID = '';
+  var boatName = '';
+  var removed = true;
+  var modifier = {$set: {
+    boatID: boatID,
+    boatName: boatName,
+    removed: removed
+  }};
+  var roleUpsert = Profiles.upsert(selector, modifier);
+  return roleUpsert;
+}
+
+export function upsertOnboardProfile(userID, boatID, boatName){
+  var selector = {_id: userID};
+  var status = false;
+  var modifier = {$set: {
+    boatID: boatID,
+    boatName: boatName,
+    removed: status,
+    setRemove: status
   }};
   var roleUpsert = Profiles.upsert(selector, modifier);
   return roleUpsert;
@@ -26,5 +63,8 @@ export function upsertBoatIDProfile(userID, boatID){
 
 Meteor.methods({
     upsertProfilePhoto,
-    upsertBoatIDProfile
+    upsertBoatIDProfile,
+    upsertRemoveProfile,
+    upsertRemoveProfileConfirm,
+    upsertOnboardProfile
 });

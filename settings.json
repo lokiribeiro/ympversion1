@@ -1,8 +1,6 @@
 {
-  "galaxy.meteor.com": {
-     "env": {
-       "MONGO_URL": "mongodb://lokigrey3:lokigrey3@ds249428.mlab.com:49428/ymp"
-     }
-   }
+  "AWSAccessKeyId" : "AKIAI6TFCDHHGSYYNCJA",
+  "AWSSecretAccessKey" : "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",
+  "AWSRegion": "us-east-2",
+  "SENDGRID_API_KEY" : "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"
 }
-

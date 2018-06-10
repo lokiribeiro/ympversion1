@@ -1,0 +1,1027 @@
+<!-- BEGIN SIDEBAR -->
+<div class="sidebar" style="z-index: 999999999 !important;">
+        <div class="logopanel">
+          <h1>
+            <a href="/"></a>
+          </h1>
+        </div>
+        <div class="sidebar-inner">
+          <ul class="nav nav-sidebar">
+            <li class="nav-parent" ng-click="searchdetails.gotoDashboard()" ng-if="searchdetails.currentUser.jobs">
+              <a href="">
+                <i class="icon-home"></i>
+                <span>Jobs</span>
+              </a>
+            </li>
+            <li class="nav-parent" ng-click="searchdetails.gotoInventory()" ng-if="searchdetails.currentUser.inventory">
+              <a href="">
+                <i class="icon-basket"></i>
+                <span>Inventory</span>
+                <span class="fa arrow"></span>
+              </a>
+            </li>
+            <li class="nav-parent" ng-click="searchdetails.gotoLogbook()" ng-if="searchdetails.currentUser.logbook">
+              <a href="">
+                <i class="icon-note"></i>
+                <span>Logbook </span>
+                <span class="fa arrow"></span>
+              </a>
+            </li>
+            <li class="nav-parent active" ng-click="searchdetails.gotoEmployees()" ng-if="searchdetails.currentUser.employees">
+              <a href="">
+                <i class="icon-user"></i>
+                <span>Employees </span>
+                <span class="fa arrow"></span>
+              </a>
+            </li>
+            <li class="nav-parent" ng-click="searchdetails.gotoReports()" ng-if="searchdetails.currentUser.reports">
+              <a href="">
+                <i class="icon-docs"></i>
+                <span>Reports </span>
+                <span class="fa arrow"></span>
+              </a>
+            </li>
+            <li class="nav-parent" ng-click="searchdetails.gotoWatchkeep()" ng-if="searchdetails.currentUser.watchkeeping || searchdetails.currentUser.watchkeeper">
+              <a href="">
+                <i class="icon-cup"></i>
+                <span>Watchkeep </span>
+                <span class="fa arrow"></span>
+              </a>
+            </li>
+            <li class="nav-parent" ng-click="searchdetails.gotoSupplier()" ng-if="searchdetails.currentUser.supplier">
+              <a href="">
+                <i class="icon-layers"></i>
+                <span>Supplier </span>
+                <span class="fa arrow"></span>
+              </a>
+            </li>
+            <li class="nav-parent" ng-click="searchdetails.gotoAdminPanel()" ng-if="searchdetails.currentUser.superadmin">
+              <a href="">
+                <i class="icon-puzzle"></i>
+                <span>Super Admin </span>
+                <span class="fa arrow"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- END SIDEBAR -->
+      
+      <div class="main-content">
+        <!-- BEGIN TOPBAR -->
+        <div class="topbar" style="z-index: 999999999 !important;">
+          <div class="header-left" style="margin-top: 15px !important; margin-left: 10px !important;">
+            <span class="username" style="color: #fff !important;">{{searchdetails.currentUser.boatName}}</span>
+          </div>
+          <div class="header-right">
+            <ul class="header-menu nav navbar-nav">
+              <!-- BEGIN USER DROPDOWN 
+                <li class="dropdown" id="language-header">
+                  <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                  <i class="icon-globe"></i>
+                  <span>Language</span>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a href="#" data-lang="en"><img src="../assets/global/images/flags/usa.png" alt="flag-english"> <span>English</span></a>
+                    </li>
+                    <li>
+                      <a href="#" data-lang="es"><img src="../assets/global/images/flags/spanish.png" alt="flag-english"> <span>Español</span></a>
+                    </li>
+                    <li>
+                      <a href="#" data-lang="fr"><img src="../assets/global/images/flags/french.png" alt="flag-english"> <span>Français</span></a>
+                    </li>
+                  </ul>
+                </li> -->
+              <!-- END USER DROPDOWN -->
+              <!-- BEGIN NOTIFICATION DROPDOWN 
+                <li class="dropdown" id="notifications-header">
+                  <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                  <i class="icon-bell"></i>
+                  <span class="badge badge-danger badge-header">6</span>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li class="dropdown-header clearfix">
+                      <p class="pull-left">12 Pending Notifications</p>
+                    </li>
+                    <li>
+                      <ul class="dropdown-menu-list withScroll" data-height="220">
+                        <li>
+                          <a href="#">
+                          <i class="fa fa-star p-r-10 f-18 c-orange"></i>
+                          Steve have rated your photo
+                          <span class="dropdown-time">Just now</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                          <i class="fa fa-heart p-r-10 f-18 c-red"></i>
+                          John added you to his favs
+                          <span class="dropdown-time">15 mins</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                          <i class="fa fa-file-text p-r-10 f-18"></i>
+                          New document available
+                          <span class="dropdown-time">22 mins</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                          <i class="fa fa-picture-o p-r-10 f-18 c-blue"></i>
+                          New picture added
+                          <span class="dropdown-time">40 mins</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                          <i class="fa fa-bell p-r-10 f-18 c-orange"></i>
+                          Meeting in 1 hour
+                          <span class="dropdown-time">1 hour</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                          <i class="fa fa-bell p-r-10 f-18"></i>
+                          Server 5 overloaded
+                          <span class="dropdown-time">2 hours</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                          <i class="fa fa-comment p-r-10 f-18 c-gray"></i>
+                          Bill comment your post
+                          <span class="dropdown-time">3 hours</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                          <i class="fa fa-picture-o p-r-10 f-18 c-blue"></i>
+                          New picture added
+                          <span class="dropdown-time">2 days</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="dropdown-footer clearfix">
+                      <a href="#" class="pull-left">See all notifications</a>
+                      <a href="#" class="pull-right">
+                      <i class="icon-settings"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </li> -->
+              <!-- END NOTIFICATION DROPDOWN -->
+              <!-- BEGIN USER DROPDOWN -->
+              <li class="dropdown" id="user-header">
+                <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                  <img style="width: 36px !important; height: 36px !important;" src="{{searchdetails.currentUser.profilePhoto}}" alt="user image">
+                  <span class="username">Hi, {{searchdetails.currentUser.username}}</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a ui-sref="profilepage({ employeeId: searchdetails.currentUserId })">
+                      <i class="icon-user"></i>
+                      <span>My Profile</span>
+                    </a>
+                  </li>
+                  <!--<li>
+                      <a href="#"><i class="icon-settings"></i><span>Account Settings</span></a>
+                    </li>-->
+                  <li>
+                    <a href="#" ng-click="searchdetails.logout()">
+                      <i class="icon-logout"></i>
+                      <span>Logout</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <!-- END USER DROPDOWN -->
+            </ul>
+          </div>
+          <!-- header-right -->
+        </div>
+        <!-- END TOPBAR -->
+        <!-- BEGIN PAGE CONTENT -->
+        <div class="page-content">
+          <div ng-if="searchdetails.showNotif2" class="preview active">
+            <div class="alert alert-success media fade in">
+              <p>Changes Saved
+                <button type="button" class="close" ng-click="searchdetails.notification2()" aria-hidden="true">
+                  <i class="icons-office-52"></i>
+                </button>
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="panel panel-default">
+                <div class="panel-header bg-dark">
+                  <h3>Personal
+                    <strong>info</strong>
+                  </h3>
+                </div>
+                <div class="panel-content bg-dark">
+                  <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                      <form role="form" class="form-horizontal form-validation">
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label class="col-sm-3 control-label f-12">First name
+                              </label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" ng-model="searchdetails.profile.firstName" disabled>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label class="col-sm-3 control-label f-12">Last name
+                              </label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" ng-model="searchdetails.profile.lastName" disabled>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label class="col-sm-3 control-label f-12">Email
+                              </label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" ng-model="searchdetails.profile.email" disabled>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label class="col-sm-3 control-label f-12">Birthdate
+                              </label>
+                              <div class="prepend-icon col-sm-9">
+                                <date-picker language="en" ng-model="searchdetails.profile.birthDate" format="MMMM d, y" disabled></date-picker>
+                                <i class="icon-calendar"></i>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+      
+                        <!--<div class="row">
+                                <div class="col-sm-6">
+                              <div class="form-group">
+                                <label class="col-sm-3 control-label f-12">Type
+                                </label>
+                                <div class="col-sm-9">
+                                    <select ng-model="searchdetails.profile.type" name="group" class="form-control" required>
+                                        <option ng-repeat="type in searchdetails.types" value="{{type.value}}">{{type.name}}</option>
+                                      </select>
+                                </div>
+                              </div>
+                              </div>
+                              <div class="col-sm-6">
+                              <div class="form-group">
+                                <label class="col-sm-3 control-label f-12">Status
+                                </label>
+                                <div class="col-sm-9">
+                                    <select ng-model="searchdetails.profile.status" name="group" class="form-control" required>
+                                        <option ng-repeat="status in searchdetails.statuses" value="{{status.value}}">{{status.name}}</option>
+                                      </select>
+                                </div>
+                              </div>
+                            </div>
+                            </div>-->
+      
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label class="col-sm-3 control-label f-12">Mailing
+                              </label>
+                              <div class="col-sm-9">
+                                <select ng-model="searchdetails.profile.mailing" name="group" class="form-control" disabled>
+                                  <option ng-repeat="mailing in searchdetails.mailings" value="{{mailing.value}}">{{mailing.name}}</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label class="col-sm-3 control-label f-12">Boat Name</label>
+                              <div class="col-sm-9">
+                                <input type="text" ng-model="searchdetails.profile.boatName" class="form-control" placeholder="Boat Name" disabled>
+                              </div>
+                            </div>
+                          </div>
+                          <!--<div class="col-sm-6">
+                              <div class="form-group">
+                                <label class="col-sm-3 control-label f-12">Term of Employment
+                                </label>
+                                <div class="col-sm-9">
+                                    <select ng-model="searchdetails.profile.termOfEmployment" name="group" class="form-control" required>
+                                        <option ng-repeat="term in searchdetails.terms" value="{{term.value}}">{{term.name}}</option>
+                                      </select>
+                                </div>
+                              </div>
+                            </div>-->
+                        </div>
+      
+                        <div class="row">
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label class="col-sm-3 control-label f-12">Department</label>
+                              <div class="col-sm-9">
+                                <select ng-model="searchdetails.profile.department" name="group" class="form-control" disabled>
+                                  <option ng-repeat="department in searchdetails.departments" value="{{department.value}}">{{department.name}}</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label class="col-sm-3 control-label f-12">Job Title</label>
+                              <div class="col-sm-9">
+                                <select ng-model="searchdetails.profile.jobtitle" name="group" class="form-control" disabled>
+                                  <option ng-repeat="jobtitle in searchdetails.jobtitles" value="{{jobtitle.value}}">{{jobtitle.name}}</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="panel panel-default">
+                <div class="panel-content bg-dark">
+                  <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                      <form role="form" class="form-horizontal form-validation">
+                        <div class="row">
+                          <div class="col-sm-9 col-sm-offset-3">
+                            <div class="pull-right">
+                              <button class="btn btn-dark m-r-20" data-toggle="modal" data-target="#modal-confirm">Onboard Account</button>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="panel-group panel-accordion dark-accordion" id="accordion">
+                <div class="panel panel-default">
+                  <div class="panel-heading bg-dark">
+                    <h4>
+                      <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#Collapse_5">
+                        Contact Info
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="Collapse_5" class="panel-collapse collapse">
+                    <div class="panel-body bg-dark">
+                      <div class="row" style="margin-bottom:5px !important;">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="col-sm-3 control-label f-12">Address
+                            </label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" ng-model="searchdetails.profile.address" disabled>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="col-sm-3 control-label f-12">Mobile
+                            </label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" ng-model="searchdetails.profile.phone" disabled>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="col-sm-3 control-label f-12">Mobile no. 2
+                            </label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" ng-model="searchdetails.profile.phone2" disabled>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="col-sm-3 control-label f-12">Mobile no. 3
+                            </label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" ng-model="searchdetails.profile.phone3" disabled>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <div class="form-group">
+                            <label class="col-sm-3 control-label f-12">skype
+                            </label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" ng-model="searchdetails.profile.skype" disabled>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <div class="form-group">
+                            <label class="control-label">Notes
+                            </label>
+                            <div>
+                              <textarea rows="5" class="form-control" ng-model="searchdetails.profile.notes" placeholder="Write notes... " disabled></textarea>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+      
+      
+      
+                    </div>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading bg-dark">
+                    <h4>
+                      <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#Collapse_1">
+                        Emergency Contact
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="Collapse_1" class="panel-collapse collapse">
+                    <div class="panel-body bg-dark">
+                      <div class="row" style="margin-bottom:5px !important;">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="col-sm-3 control-label f-12">Fullname
+                            </label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" ng-model="searchdetails.profile.ecFullName" disabled>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="col-sm-3 control-label f-12">Relation
+                            </label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" ng-model="searchdetails.profile.ecRelation" disabled> 
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+      
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="col-sm-3 control-label f-12">Contact No
+                            </label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" ng-model="searchdetails.profile.ecContactNum" disabled>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="col-sm-3 control-label f-12">Contact No. 2
+                            </label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" ng-model="searchdetails.profile.ecContactNum2" disabled>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+      
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="col-sm-3 control-label f-12">Contact No. 3
+                            </label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" ng-model="searchdetails.profile.ecContactNum3" disabled>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="col-sm-3 control-label f-12">Email
+                            </label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" ng-model="searchdetails.profile.ecEmail" disabled>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+      
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="col-sm-3 control-label f-12">Address
+                            </label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" ng-model="searchdetails.profile.ecAddress" disabled>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="col-sm-3 control-label f-12">Skype (if any)
+                            </label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" ng-model="searchdetails.profile.ecSkype" disabled>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+      
+                    </div>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading bg-dark">
+                    <h4>
+                      <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#Collapse_2">
+                        Recent Photo
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="Collapse_2" class="panel-collapse collapse">
+                    <div class="panel-body bg-dark">
+                      <div class="row" style="margin-bottom:5px !important;">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <img src="{{searchdetails.profile.profilePhoto}}" style="width: 250px !important; height: 250px !important;" class="img-user img-responsive"
+                              alt="picture 2">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading bg-dark">
+                    <h4>
+                      <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#Collapse_7">
+                        CV / Passport
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="Collapse_7" class="panel-collapse collapse">
+                    <div class="panel-body bg-dark">
+                      <div class="row" style="margin-bottom:5px !important;">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="col-sm-3 control-label f-12">CV
+                            </label>
+                            <div class="col-sm-9">
+                              <a target="_blank" ng-repeat="doc in searchdetails.docs" ng-if="doc.fileType == 'cv'" href="{{doc.downloadurl}}" class="btn btn-embossed btn-primary m-r-20">view</a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label class="col-sm-3 control-label f-12">Passport
+                            </label>
+                            <div class="col-sm-9">
+                              <a target="_blank" ng-repeat="doc in searchdetails.docs" ng-if="doc.fileType == 'passport'" href="{{doc.downloadurl}}"
+                                class="btn btn-embossed btn-primary m-r-20">view</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading bg-dark">
+                    <h4>
+                      <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#Collapse_3">
+                        Licenses / Certificates
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="Collapse_3" class="panel-collapse collapse">
+                    <div class="panel-body bg-dark">
+                      <div class="row">
+                        <table class="table dataTable" id="table-editable">
+                          <thead>
+                            <tr>
+                              <th>Cert. Type</th>
+                              <th>Exp. Date</th>
+                              <th class="text-right"> </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr ng-repeat="license in searchdetails.docs" ng-if="license.fileType == 'license'">
+                              <td>{{license.certType}}</td>
+                              <td>{{license.expDate | date : "mediumDate"}}</td>
+                              <td class="text-right">
+                                <a target="_blank" href="{{license.downloadurl}}" class="btn btn-embossed btn-primary">view</a>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4>
+                      <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#Collapse_4">
+                        Miscellaneous Files
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="Collapse_4" class="panel-collapse collapse">
+                    <div class="panel-body bg-dark">
+                      <div class="row">
+                        <table class="table dataTable" id="table-editable">
+                          <thead>
+                            <tr>
+                              <th>Filename</th>
+                              <th>Description</th>
+                              <th class="text-right"> </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr ng-repeat="misc in searchdetails.docs" ng-if="misc.fileType == 'misc'">
+                              <td>{{misc.fileName}}</td>
+                              <td>{{misc.desc}}</td>
+                              <td class="text-right">
+                                <a target="_blank" href="{{misc.downloadurl}}" class="btn btn-embossed btn-primary">view</a>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="footer">
+            <div class="copyright">
+              <p class="pull-left sm-pull-reset">
+                <span>Copyright
+                  <span class="copyright">©</span> 2018 </span>
+                <span>Powered by TYS Ltd</span>.
+                <span>All rights reserved. </span>
+              </p>
+              <p class="pull-right sm-pull-reset">
+                <span>
+                  <a href="#" class="m-r-10">Support</a> |
+                  <a href="#" class="m-l-10 m-r-10">Terms of use</a> |
+                  <a href="#" class="m-l-10">Privacy Policy</a>
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+      
+        <div class="modal fade" id="modal-responsive" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                  <i class="icons-office-52"></i>
+                </button>
+                <h4 class="modal-title">
+                  <strong>New</strong> Job</h4>
+              </div>
+              <div class="modal-body">
+                <!--<p>Change screen size to see responsive behaviour.</p>-->
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="field-1" class="control-label">Title</label>
+                      <input type="text" ng-model="dashboard.job.title" class="form-control" placeholder="Job Title" required>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="field-3" class="control-label">Location</label>
+                      <input type="text" ng-model="dashboard.job.location" class="form-control" placeholder="Location" required>
+                    </div>
+                  </div>
+                </div>
+      
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="field-4" class="control-label">Frequency in hours</label>
+                      <input type="text" ng-model="dashboard.job.hours" class="form-control" placeholder="0" required>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="field-5" class="control-label">Frequency in years</label>
+                      <input type="text" ng-model="dashboard.job.years" class="form-control" placeholder="0" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label class="control-label">Group</label>
+                      <select ng-model="dashboard.job.group" name="group" class="form-control" required>
+                        <option value="">Select Group...</option>
+                        <option value="Main Engine">Main Engine</option>
+                        <option value="Engine Room">Engine Room</option>
+                        <option value="Bridge">Bridge</option>
+                        <option value="Fuel Tank">Fuel Tank</option>
+                        <option value="Jet Ski">Jet Ski</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer text-center">
+                <button type="button" class="btn btn-primary btn-embossed bnt-square" ng-click="dashboard.submit()">
+                  <i class="fa fa-check"></i> Add</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END PAGE CONTENT -->
+      
+        <div class="modal fade" id="upload-cv" aria-hidden="true">
+          <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
+            <div class="modal-content">
+              <div class="modal-header bg-dark">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                  <i class="icons-office-52"></i>
+                </button>
+                <h4 class="modal-title">
+                  <strong>Upload</strong> CV</h4>
+              </div>
+              <div class="modal-body bg-dark">
+                <!--<p>Change screen size to see responsive behaviour.</p>-->
+                <div ng-show="doneSearching" class="loader2 col-sm-offset-5"></div>
+                <div ng-show="uploadSuccess" class="preview active">
+                  <div class="alert alert-success media fade in">
+                    <p>
+                      <strong>Well done!</strong> Upload Successful.</p>
+                  </div>
+                </div>
+      
+                <div class="row" ng-hide="doneSearching">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="control-label">File</label>
+                      <div class="file">
+                        <div class="option-group">
+                          <input type="file" ngf-select="searchdetails.uploadCv($file, $invalidFiles)" class="custom-file" name="avatar" required>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer text-center bg-dark">
+                <!--<button type="button" class="btn btn-primary btn-embossed bnt-square" ><i class="fa fa-check"></i> Add</button>-->
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="modal fade" id="upload-passport" aria-hidden="true">
+          <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
+            <div class="modal-content">
+              <div class="modal-header bg-dark">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                  <i class="icons-office-52"></i>
+                </button>
+                <h4 class="modal-title">
+                  <strong>Upload</strong> Passport</h4>
+              </div>
+              <div class="modal-body bg-dark">
+                <!--<p>Change screen size to see responsive behaviour.</p>-->
+                <div ng-show="doneSearching" class="loader2 col-sm-offset-5"></div>
+                <div ng-show="uploadSuccess" class="preview active">
+                  <div class="alert alert-success media fade in">
+                    <p>
+                      <strong>Well done!</strong> Upload Successful.</p>
+                  </div>
+                </div>
+      
+                <div class="row" ng-hide="doneSearching">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="control-label">File</label>
+                      <div class="file">
+                        <div class="option-group">
+                          <input type="file" ngf-select="searchdetails.uploadPassport($file, $invalidFiles)" class="custom-file" name="avatar" required>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer text-center bg-dark">
+                <!--<button type="button" class="btn btn-primary btn-embossed bnt-square" ><i class="fa fa-check"></i> Add</button>-->
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="modal fade" id="upload-photo" aria-hidden="true">
+          <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
+            <div class="modal-content">
+              <div class="modal-header bg-dark">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                  <i class="icons-office-52"></i>
+                </button>
+                <h4 class="modal-title">
+                  <strong>Upload</strong> Photo</h4>
+              </div>
+              <div class="modal-body bg-dark">
+                <!--<p>Change screen size to see responsive behaviour.</p>-->
+                <div ng-show="doneSearching" class="loader2 col-sm-offset-5"></div>
+                <div ng-show="uploadSuccess" class="preview active">
+                  <div class="alert alert-success media fade in">
+                    <p>
+                      <strong>Well done!</strong> Upload Successful.</p>
+                  </div>
+                </div>
+      
+                <div class="row" ng-hide="doneSearching">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="control-label">File</label>
+                      <div class="file">
+                        <div class="option-group">
+                          <input type="file" ngf-select="searchdetails.uploadPhoto($file, $invalidFiles)" class="custom-file" name="avatar" required>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer text-center bg-dark">
+                <!--<button type="button" class="btn btn-primary btn-embossed bnt-square" ><i class="fa fa-check"></i> Add</button>-->
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="modal fade" id="upload-licenses" aria-hidden="true">
+          <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
+            <div class="modal-content">
+              <div class="modal-header bg-dark">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                  <i class="icons-office-52"></i>
+                </button>
+                <h4 class="modal-title">
+                  <strong>Upload</strong> License</h4>
+              </div>
+              <div class="modal-body bg-dark">
+                <!--<p>Change screen size to see responsive behaviour.</p>-->
+                <div ng-show="doneSearching" class="loader2 col-sm-offset-5"></div>
+                <div ng-show="uploadSuccess" class="preview active">
+                  <div class="alert alert-success media fade in">
+                    <p>
+                      <strong>Well done!</strong> Upload Successful.</p>
+                  </div>
+                </div>
+      
+                <div class="row" ng-hide="doneSearching">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-label">Issue Date</label>
+                      <div class="prepend-icon">
+                        <date-picker language="en" ng-model="lic.issueDate" format="MMMM d, y"></date-picker>
+                        <i class="icon-calendar"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-label">Expiry Date</label>
+                      <div class="prepend-icon">
+                        <date-picker language="en" ng-model="lic.expDate" format="MMMM d, y"></date-picker>
+                        <i class="icon-calendar"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <select ng-model="lic.certType" name="group" class="form-control" required>
+                      <option ng-repeat="certificate in searchdetails.certificates" value="{{certificate.value}}">{{certificate.name}}</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6" ng-if="lic.certType || lic.expDate">
+                    <div class="form-group">
+                      <label class="control-label">File</label>
+                      <div class="file">
+                        <div class="option-group">
+                          <input type="file" ngf-select="searchdetails.uploadLicenses($file, $invalidFiles)" class="custom-file" name="avatar" required>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer text-center bg-dark">
+                <!--<button type="button" class="btn btn-primary btn-embossed bnt-square" ><i class="fa fa-check"></i> Add</button>-->
+              </div>
+            </div>
+          </div>
+        </div>
+      
+      
+        <div class="modal fade" id="upload-misc" aria-hidden="true">
+          <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
+            <div class="modal-content">
+              <div class="modal-header bg-dark">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                  <i class="icons-office-52"></i>
+                </button>
+                <h4 class="modal-title">
+                  <strong>Upload</strong> Miscellaneous Files</h4>
+              </div>
+              <div class="modal-body bg-dark">
+                <!--<p>Change screen size to see responsive behaviour.</p>-->
+                <div ng-show="doneSearching" class="loader2 col-sm-offset-5"></div>
+                <div ng-show="uploadSuccess" class="preview active">
+                  <div class="alert alert-success media fade in">
+                    <p>
+                      <strong>Well done!</strong> Upload Successful.</p>
+                  </div>
+                </div>
+      
+                <div class="row" ng-hide="doneSearching">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="control-label">Filename</label>
+                      <input type="text" ng-model="misce.fileName" class="form-control" placeholder="Filename" required>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="control-label">Description</label>
+                      <input type="text" ng-model="misce.desc" class="form-control" placeholder="Description" required>
+                    </div>
+                  </div>
+                  <div class="col-md-6" ng-if="misce.fileName || misce.desc">
+                    <div class="form-group">
+                      <label class="control-label">File</label>
+                      <div class="file">
+                        <div class="option-group">
+                          <input type="file" ngf-select="searchdetails.uploadMisc($file, $invalidFiles)" class="custom-file" name="avatar" required>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer text-center bg-dark">
+                <!--<button type="button" class="btn btn-primary btn-embossed bnt-square" ><i class="fa fa-check"></i> Add</button>-->
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="modal fade" id="modal-confirm" aria-hidden="true">
+            <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
+              <div class="modal-content">
+                <div class="modal-header bg-dark">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="icons-office-52" style="color: #fff !important;"></i>
+                  </button>
+                  <h4 class="modal-title">Are you sure you want to onboard this account?</h4>
+                </div>
+                <div class="modal-body bg-dark">
+                  <div ng-show="notMatch" class="preview active">
+                    <div class="alert alert-danger media fade in">
+                      <p> Incorrect Password</p>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-4 control-label">Type password to confirm
+                    </label>
+                    <div class="col-md-8">
+                      <input type="password" class="form-control" ng-model="passworD">
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer text-center bg-dark">
+                  <button class="btn btn-dark f-12" data-dismiss="modal">Cancel</button>
+                  <button class="btn btn-dark f-12" type="submit" ng-click="searchdetails.onboardEmployee()"> Yes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+      </div>

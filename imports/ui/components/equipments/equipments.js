@@ -2,7 +2,7 @@ import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
 import utilsPagination from 'angular-utils-pagination';
-import {pleaseWait} from '../../../startup/please-wait.js';
+import { pleaseWait } from '../../../startup/please-wait.js';
 
 import { Meteor } from 'meteor/meteor';
 
@@ -13,11 +13,12 @@ import { Jobs } from '../../../api/jobs';
 import { Subgroups } from '../../../api/subgroups';
 
 import template from './equipments.html';
- 
+
 class Equipments {
   constructor($scope, $reactive, $state) {
     //'ngInject';
- 
+    
+
     $reactive(this).attach($scope);
 
     this.group = {};
@@ -25,30 +26,31 @@ class Equipments {
     $scope.equipName = '';
     this.subgroup = {};
     this.units = [
-        {unit: 'C', value: "C'"},
-        {unit: 'BAR', value: 'BAR'},
-        {unit: 'Kpa', value: 'Kpa'},
-        {unit: 'F', value: "F'"},
-        {unit: 'RPM', value: 'RPM'},
-        {unit: 'V', value: 'V'},
-        {unit: 'Hours', value: 'Hours'},
-        {unit: 'I', value: 'I'},
-        {unit: 'IH', value: 'I/H'},
-        {unit: 'A', value: 'A'},
-        {unit: 'kW', value: 'kW'},
-        {unit: 'Hz', value: 'Hz'},
-        {unit: 'kVA', value: 'kVA'},
-        {unit: 'percent', value: '%'},
-        {unit: 'm2', value: 'm2'},
-        {unit: 'five', value: '5'},
-        {unit: 'KPM', value: 'KPM'},
-        {unit: 'Others', value: ' '}
+      { unit: 'C', value: "C'" },
+      { unit: 'BAR', value: 'BAR' },
+      { unit: 'Kpa', value: 'Kpa' },
+      { unit: 'F', value: "F'" },
+      { unit: 'RPM', value: 'RPM' },
+      { unit: 'V', value: 'V' },
+      { unit: 'Hours', value: 'Hours' },
+      { unit: 'I', value: 'I' },
+      { unit: 'IH', value: 'I/H' },
+      { unit: 'A', value: 'A' },
+      { unit: 'kW', value: 'kW' },
+      { unit: 'Hz', value: 'Hz' },
+      { unit: 'kVA', value: 'kVA' },
+      { unit: 'percent', value: '%' },
+      { unit: 'm2', value: 'm2' },
+      { unit: 'five', value: '5' },
+      { unit: 'KPM', value: 'KPM' },
+      { unit: 'Others', value: ' ' }
     ];
 
     this.inputs = [];
     this.option = {};
     this.withoutOptions = true;
     $scope.groupName = '';
+    this.showNotif2 = false;
 
     this.subscribe('users');
 
@@ -57,32 +59,32 @@ class Equipments {
     this.subscribe('jobs');
 
     this.subscribe('subgroups');
- 
+
     this.helpers({
       groups() {
         var userID = Meteor.userId();
         var boats = Meteor.users.findOne(userID);
         console.info('boats', boats);
-        if(boats){
+        if (boats) {
           $scope.userBoatID = boats.boatID;
           var boatID = $scope.userBoatID;
-          var selector = {boatID: boatID};
+          var selector = { boatID: boatID };
         } else {
           var selector = {};
-        } 
+        }
         return Groups.find(selector);
       },
       subgroups() {
         var userID = Meteor.userId();
         var boats = Meteor.users.findOne(userID);
         console.info('boats', boats);
-        if(boats){
+        if (boats) {
           $scope.userBoatID = boats.boatID;
           var boatID = $scope.userBoatID;
-          var selector = {boatID: boatID};
+          var selector = { boatID: boatID };
         } else {
           var selector = {};
-        } 
+        }
         return Subgroups.find(selector);
       },
       isLoggedIn() {
@@ -96,85 +98,92 @@ class Equipments {
       }
     });
 
-    this.logout = function() {
+    this.logout = function () {
       window.loading_screen = pleaseWait({
         logo: "../assets/global/images/logo/logo-white2.png",
         backgroundColor: '#8c9093',
         loadingHtml: "<div class='sk-spinner sk-spinner-wave'><div class='sk-rect1'></div><div class='sk-rect2'></div><div class='sk-rect3'></div><div class='sk-rect4'></div><div class='sk-rect5'></div></div>"
       });
       Accounts.logout();
-      window.setTimeout(function(){
+      window.setTimeout(function () {
         window.loading_screen.finish();
-        $state.go('login', {}, {reload: 'login'});
-      },2000);
+        $state.go('login', {}, { reload: 'login' });
+      }, 2000);
     }
 
-    this.gotoDashboard = function() {
+    this.gotoDashboard = function () {
       angular.element("body").removeClass("modal-open");
       var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
       removeMe.remove();
-      $state.go('dashboard', {}, {reload: 'dashboard'});
+      $state.go('dashboard', {}, { reload: 'dashboard' });
     }
-    this.gotoInventory = function() {
+    this.gotoInventory = function () {
       angular.element("body").removeClass("modal-open");
       var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
       removeMe.remove();
-      $state.go('inventory', {}, {reload: 'inventory'});
+      $state.go('inventory', {}, { reload: 'inventory' });
     }
-    this.gotoLogbook = function() {
+    this.gotoLogbook = function () {
       angular.element("body").removeClass("modal-open");
       var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
       removeMe.remove();
-      $state.go('logbook', {}, {reload: 'logbook'});
+      $state.go('logbook', {}, { reload: 'logbook' });
     }
-    this.gotoEmployees = function() {
+    this.gotoEmployees = function () {
       angular.element("body").removeClass("modal-open");
       var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
       removeMe.remove();
-      $state.go('employees', {}, {reload: 'employees'});
+      $state.go('employees', {}, { reload: 'employees' });
     }
-    this.gotoWatchkeep = function() {
+    this.gotoWatchkeep = function () {
       angular.element("body").removeClass("modal-open");
       var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
       removeMe.remove();
-      $state.go('watchkeep', {}, {reload: 'watchkeep'});
+      $state.go('watchkeep', {}, { reload: 'watchkeep' });
     }
-    this.gotoEquipments = function() {
+    this.gotoEquipments = function () {
       angular.element("body").removeClass("modal-open");
       var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
       removeMe.remove();
-      $state.go('equipments', {}, {reload: 'equipments'});
+      $state.go('equipments', {}, { reload: 'equipments' });
     }
-    this.gotoAdminPanel = function() {
+    this.gotoAdminPanel = function () {
       angular.element("body").removeClass("modal-open");
       var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
       removeMe.remove();
-      $state.go('adminpanel', {}, {reload: 'adminpanel'});
+      $state.go('adminpanel', {}, { reload: 'adminpanel' });
     }
-    this.gotoReports = function(equipID) {
+    this.gotoReports = function (equipID) {
       angular.element("body").removeClass("modal-open");
       var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
       removeMe.remove();
-      $state.go('reports', {equipID: equipID}, {reload: 'reports'});
+      $state.go('reports', { equipID: equipID }, { reload: 'reports' });
     }
+    this.gotoSupplier = function (equipID) {
+      angular.element("body").removeClass("modal-open");
+      var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
+      removeMe.remove();
+      $state.go('supplier', { equipID: equipID }, { reload: 'supplier' });
+    }
+
     this.addField = function () {
-        this.inputs.push({});
+      this.inputs.push({});
     }
-    this.removeGroup = function() {
+    this.removeGroup = function () {
       Groups.remove($scope.removeID);
     }
-    this.removeGroupConfirm = function(group) {
+    this.removeGroupConfirm = function (group) {
       console.info('remove group', group);
       $scope.removeID = group._id;
       $scope.equipName = group.name;
     }
-    this.deleteRow = function(row){
+    this.deleteRow = function (row) {
       console.info('row', row);
       var rowID = row._id;
       var status = Subgroups.remove(rowID);
       console.info('status', status);
     }
-    this.save = function() {
+    this.save = function () {
       console.info('group value', this.group)
       this.group.owner = Meteor.userId();
       this.group.date = new Date();
@@ -182,16 +191,16 @@ class Equipments {
       var status = Groups.insert(this.group);
       this.group = {};
     }
-    this.addRow = function(passedGroup, unit) {
+    this.addRow = function (passedGroup, unit) {
       console.info('array value', unit);
       console.info('inputs value', this.inputs);
       console.info('passed group', passedGroup);
       var inputs = this.inputs;
       var lenth = inputs.length;
       var optionArray = [];
-      for(x=0;x<lenth;x++){
-          optionArray[x] = this.inputs[x].option;
-          this.withoutOptions = false;
+      for (x = 0; x < lenth; x++) {
+        optionArray[x] = this.inputs[x].option;
+        this.withoutOptions = false;
       }
       this.subgroup.optionItems = optionArray;
       this.subgroup.groupID = passedGroup._id;
@@ -204,48 +213,33 @@ class Equipments {
       this.inputs = [];
     }
 
-    this.saveChanges = function(group) {
+    this.saveChanges = function (group) {
+      this.showNotif2 = true;
       console.info('group value', group)
       $scope.groupName = group.name;
       Groups.update({
         _id: group._id
       }, {
-        $set: {
-          location: group.location,
-          modelNumber: group.modelNumber,
-          serialNumber: group.serialNumber,
-          manufacturer: group.manufacturer,
-          name: group.name
-        }
-      }, (error) => {
+          $set: {
+            location: group.location,
+            modelNumber: group.modelNumber,
+            serialNumber: group.serialNumber,
+            manufacturer: group.manufacturer,
+            name: group.name
+          }
+        }, (error) => {
           if (error) {
             console.log('Oops, unable to update the party...');
           } else {
             console.log('Done!');
+            this.showNotif2 = true;
           }
-      });
-
-      /*var selector = {group: $scope.groupName};
-      var editJobs = Jobs.find(selector);
-      var count = editJobs.count();
-      console.info('count', count);
-      editJobs.forEach(function(editJob){
-        var jobID = editJob._id;
-        Jobs.update({
-          _id: jobID
-        }, {
-          $set: {
-            group: $scope.groupName
-          }
-        }, (error) => {
-            if (error) {
-              console.log('Oops, unable to update the party...');
-            } else {
-              console.log('Done!');
-            }
         });
-      });
-      $scope.groupName = '';*/
+    }
+
+    this.notification2 = function () {
+      this.showNotif2 = false;
+      console.info('notif daan', this.showNotif);
     }
 
   }
@@ -253,7 +247,7 @@ class Equipments {
   isOwner(party) {
     return this.isLoggedIn && party.owner === this.currentUserId;
   }
-   
+
   pageChanged(newPage) {
     this.page = newPage;
     console.info('new page', this.page);
@@ -264,21 +258,20 @@ class Equipments {
   }
 
   updatePort(group) {
-      console.info('value upon entrance', group.atPort);
-      Groups.update({
-        _id: group._id
-      }, {
+    console.info('value upon entrance', group.atPort);
+    Groups.update({
+      _id: group._id
+    }, {
         $set: {
           atPort: group.atPort
         }
       }, (error) => {
-          if (error) {
-            console.log('Oops, unable to update the party...');
-          } else {
-            console.log('Done!');
-          }
+        if (error) {
+          console.log('Oops, unable to update the party...');
+        } else {
+          console.log('Done!');
+        }
       });
-      
   }
 
   updateSea(group) {
@@ -286,25 +279,41 @@ class Equipments {
     Groups.update({
       _id: group._id
     }, {
-      $set: {
-        atSea: group.atSea
-      }
-    }, (error) => {
+        $set: {
+          atSea: group.atSea
+        }
+      }, (error) => {
         if (error) {
           console.log('Oops, unable to update the party...');
         } else {
           console.log('Done!');
         }
-    });
-    
-}
+      });
+  }
 
-  
+  updateHours(group) {
+    console.info('value upon entrance', group.hours);
+    Groups.update({
+      _id: group._id
+    }, {
+        $set: {
+          hours: group.hours
+        }
+      }, (error) => {
+        if (error) {
+          console.log('Oops, unable to update the party...');
+        } else {
+          console.log('Done!');
+        }
+      });
+  }
+
+
   reset() {
     this.searchText = '';
     this.dateFrom2 = '';
     this.dateTo2 = '';
-    
+
   }
 
   filterNow() {
@@ -313,11 +322,11 @@ class Equipments {
     this.dateTo2 = this.dateTo.getTime();
   }
 }
- 
+
 const name = 'equipments';
 
 //Dashboard.$inject = ['$scope', '$reactive'];
- 
+
 // create a module
 export default angular.module(name, [
   angularMeteor,
@@ -328,23 +337,23 @@ export default angular.module(name, [
   controllerAs: name,
   controller: ['$scope', '$reactive', '$state', Equipments]
 })
-.config(['$stateProvider', 
-function($stateProvider) {
-  //'ngInject';
-  $stateProvider
-    .state('equipments', {
-      url: '/equipments',
-      template: '<equipments></equipments>',
-      resolve: {
-        currentUser($q, $state) {
-            if (!Meteor.userId()) {
+  .config(['$stateProvider',
+    function ($stateProvider) {
+      //'ngInject';
+      $stateProvider
+        .state('equipments', {
+          url: '/equipments',
+          template: '<equipments></equipments>',
+          resolve: {
+            currentUser($q, $state) {
+              if (!Meteor.userId()) {
                 return $q.reject('AUTH_REQUIRED');
-            } else {
-              return $q.resolve();
-            };
-        }
+              } else {
+                return $q.resolve();
+              };
+            }
+          }
+        });
     }
-    });
-  } 
-]);
+  ]);
 

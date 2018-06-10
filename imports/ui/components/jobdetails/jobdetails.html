@@ -1,44 +1,81 @@
 <!-- BEGIN SIDEBAR -->
 <div class="sidebar" style="z-index: 999999999 !important;">
-    <div class="logopanel">
-      <h1>
-        <a href="/"></a>
-      </h1>
-    </div>
-    <div class="sidebar-inner">
-      <ul class="nav nav-sidebar">
-        <li class="nav-parent active" ng-click="jobdetails.gotoDashboard()" ng-if="jobdetails.currentUser.jobs">
-          <a href=""><i class="icon-home"></i><span>Jobs</span></a>
-        </li>
-        <li class="nav-parent" ng-click="jobdetails.gotoInventory()" ng-if="jobdetails.currentUser.inventory">
-          <a href=""><i class="icon-basket"></i><span>Inventory</span><span class="fa arrow"></span></a>
-        </li>
-        <li class="nav-parent" ng-click="jobdetails.gotoLogbook()" ng-if="jobdetails.currentUser.logbook">
-          <a href=""><i class="icon-note"></i><span>Logbook </span><span class="fa arrow"></span></a>
-        </li>
-        <li class="nav-parent" ng-click="jobdetails.gotoEmployees()" ng-if="jobdetails.currentUser.employees">
-          <a href=""><i class="icon-user"></i><span>Employees </span><span class="fa arrow"></span></a>
-        </li>
-        <li class="nav-parent" ng-click="jobdetails.gotoReports()" ng-if="jobdetails.currentUser.reports">
-            <a href=""><i class="icon-docs"></i><span>Reports </span><span class="fa arrow"></span></a>
-        </li>
-        <li class="nav-parent" ng-click="jobdetails.gotoWatchkeep()" ng-if="jobdetails.currentUser.watchkeeping || jobdetails.currentUser.watchkeeper">
-          <a href=""><i class="icon-cup"></i><span>Watchkeep </span><span class="fa arrow"></span></a>
-        </li>
-        <li class="nav-parent" ng-click="jobdetails.gotoAdminPanel()" ng-if="jobdetails.currentUser.superadmin">
-          <a href=""><i class="icon-puzzle"></i><span>Super Admin </span><span class="fa arrow"></span></a>
-        </li>
-      </ul>
-    </div>
+  <div class="logopanel">
+    <h1>
+      <a href="/"></a>
+    </h1>
   </div>
-  <!-- END SIDEBAR -->
-  
-  <div class="main-content">
-    <!-- BEGIN TOPBAR -->
-    <div class="topbar" style="z-index: 999999999 !important;">
-      <div class="header-right">
-        <ul class="header-menu nav navbar-nav">
-          <!-- BEGIN USER DROPDOWN 
+  <div class="sidebar-inner">
+    <ul class="nav nav-sidebar">
+      <li class="nav-parent active" ng-click="jobdetails.gotoDashboard()" ng-if="jobdetails.currentUser.jobs">
+        <a href="">
+          <i class="icon-home"></i>
+          <span>Jobs</span>
+        </a>
+      </li>
+      <li class="nav-parent" ng-click="jobdetails.gotoInventory()" ng-if="jobdetails.currentUser.inventory">
+        <a href="">
+          <i class="icon-basket"></i>
+          <span>Inventory</span>
+          <span class="fa arrow"></span>
+        </a>
+      </li>
+      <li class="nav-parent" ng-click="jobdetails.gotoLogbook()" ng-if="jobdetails.currentUser.logbook">
+        <a href="">
+          <i class="icon-note"></i>
+          <span>Logbook </span>
+          <span class="fa arrow"></span>
+        </a>
+      </li>
+      <li class="nav-parent" ng-click="jobdetails.gotoEmployees()" ng-if="jobdetails.currentUser.employees">
+        <a href="">
+          <i class="icon-user"></i>
+          <span>Employees </span>
+          <span class="fa arrow"></span>
+        </a>
+      </li>
+      <li class="nav-parent" ng-click="jobdetails.gotoReports()" ng-if="jobdetails.currentUser.reports">
+        <a href="">
+          <i class="icon-docs"></i>
+          <span>Reports </span>
+          <span class="fa arrow"></span>
+        </a>
+      </li>
+      <li class="nav-parent" ng-click="jobdetails.gotoWatchkeep()" ng-if="jobdetails.currentUser.watchkeeping || jobdetails.currentUser.watchkeeper">
+        <a href="">
+          <i class="icon-cup"></i>
+          <span>Watchkeep </span>
+          <span class="fa arrow"></span>
+        </a>
+      </li>
+      <li class="nav-parent" ng-click="jobdetails.gotoSupplier()" ng-if="jobdetails.currentUser.supplier">
+        <a href="">
+          <i class="icon-layers"></i>
+          <span>Supplier </span>
+          <span class="fa arrow"></span>
+        </a>
+      </li>
+      <li class="nav-parent" ng-click="jobdetails.gotoAdminPanel()" ng-if="jobdetails.currentUser.superadmin">
+        <a href="">
+          <i class="icon-puzzle"></i>
+          <span>Super Admin </span>
+          <span class="fa arrow"></span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- END SIDEBAR -->
+
+<div class="main-content">
+  <!-- BEGIN TOPBAR -->
+  <div class="topbar" style="z-index: 999999999 !important;">
+    <div class="header-left" style="margin-top: 15px !important; margin-left: 10px !important;">
+      <span class="username" style="color: #fff !important;">{{jobdetails.currentUser.boatName}}</span>
+    </div>
+    <div class="header-right">
+      <ul class="header-menu nav navbar-nav">
+        <!-- BEGIN USER DROPDOWN 
           <li class="dropdown" id="language-header">
             <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
             <i class="icon-globe"></i>
@@ -56,8 +93,8 @@
               </li>
             </ul>
           </li> -->
-          <!-- END USER DROPDOWN -->
-          <!-- BEGIN NOTIFICATION DROPDOWN 
+        <!-- END USER DROPDOWN -->
+        <!-- BEGIN NOTIFICATION DROPDOWN 
           <li class="dropdown" id="notifications-header">
             <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
             <i class="icon-bell"></i>
@@ -135,806 +172,888 @@
               </li>
             </ul>
           </li> -->
-          <!-- END NOTIFICATION DROPDOWN -->
-          <!-- BEGIN USER DROPDOWN -->
-          <li class="dropdown" id="user-header">
-            <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+        <!-- END NOTIFICATION DROPDOWN -->
+        <!-- BEGIN USER DROPDOWN -->
+        <li class="dropdown" id="user-header">
+          <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
             <img style="width: 36px !important; height: 36px !important;" src="{{jobdetails.currentUser.profilePhoto}}" alt="user image">
             <span class="username">Hi, {{jobdetails.currentUser.username}}</span>
-            </a>
-            <ul class="dropdown-menu">
-              <li>
-                <a ui-sref="profilepage({ employeeId: jobdetails.currentUserId })"><i class="icon-user"></i><span>My Profile</span></a>
-              </li>
-              <!--<li>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a ui-sref="profilepage({ employeeId: jobdetails.currentUserId })">
+                <i class="icon-user"></i>
+                <span>My Profile</span>
+              </a>
+            </li>
+            <!--<li>
                 <a href="#"><i class="icon-settings"></i><span>Account Settings</span></a>
               </li>-->
-              <li>
-                <a href="#" ng-click="jobdetails.logout()"><i class="icon-logout"></i><span>Logout</span></a>
-              </li>
-            </ul>
-          </li>
-          <!-- END USER DROPDOWN -->
-        </ul>
-      </div>
-      <!-- header-right -->
+            <li>
+              <a href="#" ng-click="jobdetails.logout()">
+                <i class="icon-logout"></i>
+                <span>Logout</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <!-- END USER DROPDOWN -->
+      </ul>
     </div>
-    <!-- END TOPBAR -->
-    <!-- BEGIN PAGE CONTENT -->
-    <div class="page-content">
-        <div ng-if="jobdetails.showNotif2" class="preview active">
-            <div class="alert alert-success media fade in">
-              <p>Changes Saved <button type="button" class="close" ng-click="jobdetails.notification2()" aria-hidden="true"><i class="icons-office-52"></i></button></p>
-            </div>
-          </div>
-          <div ng-if="jobdetails.showNotif" class="preview active">
-            <div class="alert alert-success media fade in">
-              <p>Job Submitted <button type="button" class="close" ng-click="jobdetails.notification()" aria-hidden="true"><i class="icons-office-52"></i></button></p>
-            </div>
-          </div>
-          <div ng-if="jobdetails.notComplete" class="preview active">
-              <div class="alert alert-danger media fade in">
-                <p>Please fill in "Done by" field <button type="button" class="close" ng-click="jobdetails.notCompleted()" aria-hidden="true"><i class="icons-office-52"></i></button></p>
-              </div>
-            </div>
-      <div class="row">
-            <div class="col-md-6">
-              <div class="panel panel-default">
-                <div class="panel-content bg-dark">
-                  <div class="row">
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                      <form role="form" class="form-horizontal form-validation">
-                      <div class="form-group">
-                              <label class="col-sm-3 control-label">Equipment</label>
-                              <div class="col-sm-3">
-                                <select ng-model="jobdetails.job.group" name="group"  class="form-control" >
-                                  <option ng-repeat="group in jobdetails.groups" value="{{group.name}}">{{group.name}}</option>
-                                </select>
-                              </div>
-                                <label class="col-sm-3 control-label">Title
-                                  </label>
-                                  <div class="col-sm-3">
-                                    <input type="text" class="form-control" ng-model="jobdetails.job.title">
-                                  </div>
-                      </div>
-                        <div class="form-group" ng-hide="jobdetails.job.unplanned">
-                          <label class="col-sm-3 control-label">Frequency in hours
-                          </label>
-                          <div class="col-sm-3">
-                            <input type="text" class="form-control" ng-model="jobdetails.job.hours">
-                          </div>
-                          <label class="col-sm-3 control-label">Frequency in days</label>
-                          <div class="col-sm-3">
-                            <input type="text" class="form-control" ng-model="jobdetails.job.days">
-                          </div>
-                        </div>
-                        <div class="form-group" ng-repeat="group in jobdetails.groups" ng-if="jobdetails.job.group == group.name && jobdetails.job.boatID == group.boatID">
-                          <label class="col-sm-3 control-label">Location</label>
-                          <div class="col-sm-3">
-                            <input type="text" class="form-control" ng-model="group.location" disabled>
-                          </div>
-                          <label class="col-sm-3 control-label">Model Number
-                            </label>
-                            <div class="col-sm-3">
-                              <input type="text" class="form-control" ng-model="group.modelNumber" disabled>
-                            </div>
-                        </div>
-                        <div class="form-group" ng-repeat="group in jobdetails.groups" ng-if="jobdetails.job.group == group.name && jobdetails.job.boatID == group.boatID">
-                          <label class="col-sm-3 control-label">Serial Number</label>
-                          <div class="col-sm-3">
-                            <input type="text" class="form-control" ng-model="group.serialNumber" disabled>
-                          </div>
-                          <label class="col-sm-3 control-label">Manufacturer</label>
-                          <div class="col-sm-3">
-                            <input type="text" class="form-control" ng-model="group.manufacturer" disabled>
-                          </div>
-                        </div>
-                        <div class="form-group" ng-hide="jobdetails.job.unplanned">
-                          <label class="control-label col-sm-3">Last Service (optional)</label>
-                          <div class="prepend-icon col-sm-3">
-                            <date-picker language="en" ng-model="jobdetails.job.lastService" format="MMMM d, y"></date-picker>
-                            <i class="icon-calendar"></i>
-                          </div>
-                          <label class="control-label col-sm-3">Hours since last service (optional)</label>
-                          <div class="col-sm-3">
-                            <input type="text" ng-model="jobdetails.job.lastServiceHours" class="form-control" placeholder="0">
-                          </div>
-                        </div>
-                        <div class="form-group" ng-if="jobdetails.currentUser.superadmin">
-                          <label class="control-label col-sm-3">Department</label>
-                          <div class="col-sm-9">
-                            <select ng-model="jobdetails.job.department" class="form-control">
-                              <option ng-repeat="department in jobdetails.departments" value="{{department.value}}">{{department.name}}</option>
-                            </select>
-                          </div>
-                        </div>
-                        <div class="form-group" ng-hide="jobdetails.job.unplanned">
-                          <div  ng-repeat="doc in jobdetails.docs" ng-if="doc.fileType == 'drawings'" class="col-sm-3">
-                            <a target="_blank" href="{{doc.downloadurl}}" class="col-sm-12 btn btn-dark">Drawing</a>
-                          </div>
-                          <div ng-repeat="doc in jobdetails.docs" ng-if="doc.fileType == 'specification'" class="col-sm-3">
-                            <a target="_blank" href="{{doc.downloadurl}}" class="col-sm-12 btn btn-dark">Specification</a>
-                          </div>
-                          <div ng-repeat="doc in jobdetails.docs" ng-if="doc.fileType == 'manual'" class="col-sm-3">
-                            <a target="_blank" href="{{doc.downloadurl}}" class="col-sm-12 btn btn-dark">Service Manual</a>
-                          </div>
-                          <div ng-repeat="doc in jobdetails.docs" ng-if="doc.fileType == 'parts'" class="col-sm-3">
-                              <a target="_blank" href="{{doc.downloadurl}}" class="col-sm-12 btn btn-dark">Parts Manual</a>
-                          </div>
-                          <div ng-repeat="doc in jobdetails.docs" ng-if="doc.fileType == 'page'" class="col-sm-3">
-                            <a target="_blank" href="{{doc.downloadurl}}#page={{doc.page}}" class="col-sm-12 btn btn-dark f-10" style="white-space:normal;">Page {{doc.page}}</a>
-                          </div>
-                        </div>
-                        <!--<div class="form-group" ng-hide="jobdetails.job.unplanned">
+    <!-- header-right -->
+  </div>
+  <!-- END TOPBAR -->
+  <!-- BEGIN PAGE CONTENT -->
+  <div class="page-content">
+    <div ng-if="jobdetails.showNotif2" class="preview active">
+      <div class="alert alert-success media fade in">
+        <p>Changes Saved
+          <button type="button" class="close" ng-click="jobdetails.notification2()" aria-hidden="true">
+            <i class="icons-office-52"></i>
+          </button>
+        </p>
+      </div>
+    </div>
+    <div ng-if="jobdetails.showNotif" class="preview active">
+      <div class="alert alert-success media fade in">
+        <p>Job Submitted
+          <button type="button" class="close" ng-click="jobdetails.notification()" aria-hidden="true">
+            <i class="icons-office-52"></i>
+          </button>
+        </p>
+      </div>
+    </div>
+    <div ng-if="jobdetails.notComplete" class="preview active">
+      <div class="alert alert-danger media fade in">
+        <p>Please fill in "Done by" field
+          <button type="button" class="close" ng-click="jobdetails.notCompleted()" aria-hidden="true">
+            <i class="icons-office-52"></i>
+          </button>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-content bg-dark">
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <form role="form" class="form-horizontal form-validation">
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">Equipment</label>
+                    <div class="col-sm-3">
+                      <select ng-model="jobdetails.job.group" name="group" class="form-control">
+                        <option ng-repeat="group in jobdetails.groups" value="{{group.name}}">{{group.name}}</option>
+                      </select>
+                    </div>
+                    <label class="col-sm-3 control-label">Title
+                    </label>
+                    <div class="col-sm-3">
+                      <input type="text" class="form-control" ng-model="jobdetails.job.title">
+                    </div>
+                  </div>
+                  <div class="form-group" ng-hide="jobdetails.job.unplanned">
+                    <label class="col-sm-3 control-label">Frequency in hours
+                    </label>
+                    <div class="col-sm-3">
+                      <input type="text" class="form-control" ng-model="jobdetails.job.hours">
+                    </div>
+                    <label class="col-sm-3 control-label">Frequency in days</label>
+                    <div class="col-sm-3">
+                      <input type="text" class="form-control" ng-model="jobdetails.job.days">
+                    </div>
+                  </div>
+                  <div class="form-group" ng-repeat="group in jobdetails.groups" ng-if="jobdetails.job.group == group.name && jobdetails.job.boatID == group.boatID">
+                    <label class="col-sm-3 control-label">Location</label>
+                    <div class="col-sm-3">
+                      <input type="text" class="form-control" ng-model="group.location" disabled>
+                    </div>
+                    <label class="col-sm-3 control-label">Model Number
+                    </label>
+                    <div class="col-sm-3">
+                      <input type="text" class="form-control" ng-model="group.modelNumber" disabled>
+                    </div>
+                  </div>
+                  <div class="form-group" ng-repeat="group in jobdetails.groups" ng-if="jobdetails.job.group == group.name && jobdetails.job.boatID == group.boatID">
+                    <label class="col-sm-3 control-label">Serial Number</label>
+                    <div class="col-sm-3">
+                      <input type="text" class="form-control" ng-model="group.serialNumber" disabled>
+                    </div>
+                    <label class="col-sm-3 control-label">Manufacturer</label>
+                    <div class="col-sm-3">
+                      <input type="text" class="form-control" ng-model="group.manufacturer" disabled>
+                    </div>
+                  </div>
+                  <div class="form-group" ng-hide="jobdetails.job.unplanned">
+                    <label class="control-label col-sm-3">Last Service (optional)</label>
+                    <div class="prepend-icon col-sm-3">
+                      <date-picker language="en" ng-model="jobdetails.job.lastService" format="MMMM d, y"></date-picker>
+                      <i class="icon-calendar"></i>
+                    </div>
+                    <label class="control-label col-sm-3">Hours since last service (optional)</label>
+                    <div class="col-sm-3">
+                      <input type="text" ng-model="jobdetails.job.lastServiceHours" class="form-control" placeholder="0">
+                    </div>
+                  </div>
+                  <div class="form-group" ng-if="jobdetails.currentUser.superadmin">
+                    <label class="control-label col-sm-3">Department</label>
+                    <div class="col-sm-9">
+                      <select ng-model="jobdetails.job.department" class="form-control">
+                        <option ng-repeat="department in jobdetails.departments" value="{{department.value}}">{{department.name}}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group" ng-hide="jobdetails.job.unplanned">
+                    <div ng-repeat="doc in jobdetails.docs" ng-if="doc.fileType == 'drawings'" class="col-sm-3">
+                      <a target="_blank" href="{{doc.downloadurl}}" class="col-sm-12 btn btn-dark">Drawing</a>
+                    </div>
+                    <div ng-repeat="doc in jobdetails.docs" ng-if="doc.fileType == 'specification'" class="col-sm-3">
+                      <a target="_blank" href="{{doc.downloadurl}}" class="col-sm-12 btn btn-dark">Specification</a>
+                    </div>
+                    <div ng-repeat="doc in jobdetails.docs" ng-if="doc.fileType == 'manual'" class="col-sm-3">
+                      <a target="_blank" href="{{doc.downloadurl}}" class="col-sm-12 btn btn-dark">Service Manual</a>
+                    </div>
+                    <div ng-repeat="doc in jobdetails.docs" ng-if="doc.fileType == 'parts'" class="col-sm-3">
+                      <a target="_blank" href="{{doc.downloadurl}}" class="col-sm-12 btn btn-dark">Parts Manual</a>
+                    </div>
+                    <div ng-repeat="doc in jobdetails.docs" ng-if="doc.fileType == 'page'" class="col-sm-3">
+                      <a target="_blank" href="{{doc.downloadurl}}#page={{doc.page}}" class="col-sm-12 btn btn-dark f-10" style="white-space:normal;">Page {{doc.page}}</a>
+                    </div>
+                  </div>
+                  <!--<div class="form-group" ng-hide="jobdetails.job.unplanned">
                           <div ng-repeat="doc in jobdetails.docs" ng-if="doc.fileType == 'page'" class="col-sm-3">
                             <a target="_blank" href="{{doc.downloadurl}}#page={{doc.page}}" class="col-sm-12 btn btn-dark">Page {{doc.page}}</a>
                           </div>
                         </div>-->
-                        <div class="col-sm-12" ng-hide="jobdetails.job.unplanned">
-                          <div class="form-group" id="printThisElement">
-                            <label class="control-label">Description
-                            </label>
-                            <div>
-                              <textarea rows="10" class="form-control" ng-model="jobdetails.job.description" placeholder="Write description... (minimum 30 characters)"></textarea>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row" ng-if="jobdetails.currentUser.role == 'admin'">
-                          <div class="col-sm-9 col-sm-offset-3">
-                            <div class="pull-right">
-                              <button class="btn btn-dark m-r-20" ng-print-element print-element-id="printThisElement"><i class="fa fa-print"></i>Print</button>
-                              <button data-toggle="modal" data-target="#modal-confirm" ng-click="jobdetails.removeJobConfirm(jobdetails.job)" class="btn btn-dark m-r-20"><i class="fa fa-trash"></i> Delete Job</button>
-                              <button ng-click="jobdetails.save()" class="btn btn-dark"><i class="fa fa-save"></i> Save Changes</button>
-                            </div>
-                          </div>
-                        </div>
-                        
-                        <!--<div class="row">
+                  <div class="col-sm-12" ng-hide="jobdetails.job.unplanned">
+                    <div class="form-group" id="printThisElement">
+                      <label class="control-label">Description
+                      </label>
+                      <div>
+                        <textarea rows="10" class="form-control" ng-model="jobdetails.job.description" placeholder="Write description... (minimum 30 characters)"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row" ng-if="jobdetails.currentUser.role == 'admin'">
+                    <div class="col-sm-9 col-sm-offset-3">
+                      <div class="pull-right">
+                        <button class="btn btn-dark m-r-20" ng-print-element print-element-id="printThisElement">
+                          <i class="fa fa-print"></i>Print</button>
+                        <button data-toggle="modal" data-target="#modal-confirm" ng-click="jobdetails.removeJobConfirm(jobdetails.job)" class="btn btn-dark m-r-20">
+                          <i class="fa fa-trash"></i> Delete Job</button>
+                        <button ng-click="jobdetails.save()" class="btn btn-dark">
+                          <i class="fa fa-save"></i> Save Changes</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!--<div class="row">
                           <div class="col-sm-9 col-sm-offset-3">
                             <div class="pull-right">
                               <button ng-click="jobdetails.save()" type="submit" class="btn btn-dark m-r-20">Save</button>
                             </div>
                           </div>
                         </div>-->
-                      </form>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-body bg-dark">
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="row" ng-if="jobdetails.currentUser.role == 'admin'">
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                      <label class="control-label">Drawing</label>
+                      <div>
+                        <button data-toggle="modal" data-target="#upload-drawing" class="col-sm-12 btn btn-dark m-r-20">Upload</button>
+                      </div>
+                      <!---->
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                      <label class="control-label">Service Manual</label>
+                      <div>
+                        <button data-toggle="modal" data-target="#upload-manual" class="col-sm-12 btn btn-dark m-r-20">Upload</button>
+                      </div>
+                      <!---->
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                      <label class="control-label">Parts Manual</label>
+                      <div>
+                        <button data-toggle="modal" data-target="#upload-manualParts" class="col-sm-12 btn btn-dark m-r-20">Upload</button>
+                      </div>
+                      <!---->
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                      <label class="control-label">Specification</label>
+                      <div>
+                        <button data-toggle="modal" data-target="#upload-specs" class="col-sm-12 btn btn-dark m-r-20">Upload</button>
+                      </div>
+                      <!---->
+                    </div>
+                  </div>
+                  <div class="col-sm-3" ng-hide="jobdetails.job.unplanned">
+                    <div class="form-group">
+                      <label class="control-label">Pages</label>
+                      <div>
+                        <button data-toggle="modal" data-target="#upload-pages" class="col-sm-12 btn btn-dark m-r-20">Upload</button>
+                      </div>
+                      <!---->
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                      <label class="control-label">Documents</label>
+                      <div>
+                        <button data-toggle="modal" data-target="#delete-docs" class="col-sm-12 btn btn-dark m-r-20">Delete</button>
+                      </div>
+                      <!---->
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="nav-tabs3">
+                    <ul id="myTab6" class="nav nav-tabs">
+                      <li class="active">
+                        <a href="#tab6_1" data-toggle="tab">Job History</a>
+                      </li>
+                      <li class="">
+                        <a href="#tab6_2" data-toggle="tab">Equipment History</a>
+                      </li>
+                    </ul>
+                    <div class="tab-content">
+                      <div class="tab-pane fade active in" id="tab6_1">
+                        <div class="form-group">
+                          <div>
+                            <textarea rows="5" class="form-control" ng-model="jobdetails.job.workHistory" placeholder="Write work history..."></textarea>
+                          </div>
+                        </div>
+                        <div class="panel-content withScroll" data-height="200" style="max-height: 200px; overflow: auto !important;">
+                          <p ng-repeat="history in jobdetails.histories" ng-if="history.jobID == jobdetails.job._id">
+                            <span class="f-12">{{history.dateNow | date : "medium"}}</span>
+                            <br /> {{history.workHistory}}
+                            <br /> _________________________________________________________
+                          </p>
+                        </div>
+                      </div>
+                      <div class="tab-pane fade" id="tab6_2">
+                        <div class="row">
+                          <div class="col-sm-12">
+                            <form>
+                              <div class="append-icon">
+                                <input type="search" ng-model="jobdetails.searchGroup" class="form-control form-white input-lg" placeholder="Search..." autofocus>
+                                <i class="icon-magnifier"></i>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                        <div class="panel-content withScroll" data-height="200" style="max-height: 200px; overflow: auto !important;">
+                          <p ng-repeat="history in jobdetails.histories" ng-if="history.group == jobdetails.job.group">
+                            <span class="f-12">
+                              <strong>{{history.title}}</strong> | {{history.dateNow | date : "medium"}}</span>
+                            <br /> {{history.workHistory}}
+                            <br /> _________________________________________________________
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6" ng-hide="jobdetails.job.unplanned">
+                    <div class="form-group">
+                      <label class="control-label">Support</label>
+                      <div>
+                        <button class="btn btn-dark m-r-20 col-sm-5" data-toggle="modal" data-target="#add-support">Add</button>
+                        <button class="btn btn-dark m-r-20 col-sm-5" data-toggle="modal" data-target="#view-support">View</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label class="control-label">Service Reports</label>
+                      <div>
+                        <button class="btn btn-dark m-r-20 col-sm-5" data-toggle="modal" data-target="#upload-service">Add</button>
+                        <button class="btn btn-dark m-r-20 col-sm-5" data-toggle="modal" data-target="#view-service">View</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6 col-sm-offset-6">
+                    <div class="form-group">
+                      <label class="control-label">Job Done by</label>
+                      <div>
+                        <select ng-model="jobdetails.job.doneBy" name="users" class="form-control" required>
+                          <option ng-repeat="profile in jobdetails.profiles" ng-value="profile">{{profile.firstName + ' ' + profile.lastName}}</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-9 col-sm-offset-3">
+                    <div class="pull-right">
+                      <button ng-click="jobdetails.saveWork()" class="btn btn-dark"> Submit Job</button>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-md-6">
-              <div class="panel panel-default">
-                <div class="panel-body bg-dark">
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="row" ng-hide="jobdetails.job.unplanned">
+      <div class="col-md-12">
+        <div class="panel panel-default">
+          <div class="panel-body bg-dark">
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <form role="form" class="form-validation">
                   <div class="row">
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="row" ng-if="jobdetails.currentUser.role == 'admin'">
-                            <div class="col-sm-3">
-                                <div class="form-group">
-                                    <label class="control-label">Drawing</label>
-                                    <div>
-                                        <button  data-toggle="modal" data-target="#upload-drawing" class="col-sm-12 btn btn-dark m-r-20">Upload</button>
-                                      </div>
-                                          <!---->
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                              <div class="form-group">
-                                <label class="control-label">Service Manual</label>
-                                <div>
-                                    <button  data-toggle="modal" data-target="#upload-manual" class="col-sm-12 btn btn-dark m-r-20">Upload</button>
-                                  </div>
-                                      <!---->
-                              </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="form-group">
-                                  <label class="control-label">Parts Manual</label>
-                                  <div>
-                                      <button  data-toggle="modal" data-target="#upload-manualParts" class="col-sm-12 btn btn-dark m-r-20">Upload</button>
-                                    </div>
-                                        <!---->
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                              <div class="form-group">
-                                <label class="control-label">Specification</label>
-                                <div>
-                                    <button data-toggle="modal" data-target="#upload-specs" class="col-sm-12 btn btn-dark m-r-20">Upload</button>
-                                  </div>
-                                      <!---->
-                              </div>
-                            </div>
-                            <div class="col-sm-3" ng-hide="jobdetails.job.unplanned">
-                              <div class="form-group">
-                                  <label class="control-label">Pages</label>
-                                  <div>
-                                      <button  data-toggle="modal" data-target="#upload-pages" class="col-sm-12 btn btn-dark m-r-20">Upload</button>
-                                    </div>
-                                        <!---->
-                              </div>
-                            </div>
-                            <div class="col-sm-3">
-                              <div class="form-group">
-                                  <label class="control-label">Documents</label>
-                                  <div>
-                                      <button  data-toggle="modal" data-target="#delete-docs" class="col-sm-12 btn btn-dark m-r-20">Delete</button>
-                                    </div>
-                                        <!---->
-                              </div>
-                            </div>
-                        </div>                    
-
-                          <div class="row">
-                              <div class="nav-tabs3">
-                                  <ul id="myTab6" class="nav nav-tabs">
-                                    <li class="active"><a href="#tab6_1" data-toggle="tab">Job History</a></li>
-                                    <li class=""><a href="#tab6_2" data-toggle="tab">Equipment History</a></li>
-                                  </ul>
-                                  <div class="tab-content">
-                                    <div class="tab-pane fade active in" id="tab6_1">
-                                        <div class="form-group">
-                                            <div>
-                                              <textarea rows="5" class="form-control" ng-model="jobdetails.job.workHistory" placeholder="Write work history..."></textarea>
-                                            </div>
-                                          </div>
-                                          <div class="panel-content withScroll" data-height="200" style="max-height: 200px; overflow: auto !important;">
-                                            <p ng-repeat="history in jobdetails.histories" ng-if="history.jobID == jobdetails.job._id">
-                                              <span class="f-12">{{history.dateNow | date : "medium"}}</span>
-                                              <br />
-                                              {{history.workHistory}}
-                                              <br />
-                                              _________________________________________________________
-                                            </p>
-                                          </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="tab6_2">
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <form>
-                                                  <div class="append-icon">
-                                                    <input type="search" ng-model="jobdetails.searchGroup" class="form-control form-white input-lg" placeholder="Search..." autofocus>
-                                                    <i class="icon-magnifier"></i>
-                                                  </div>
-                                                </form>
-                                              </div>
-                                        </div>             
-                                        <div class="panel-content withScroll" data-height="200" style="max-height: 200px; overflow: auto !important;">
-                                            <p ng-repeat="history in jobdetails.histories" ng-if="history.group == jobdetails.job.group">
-                                              <span class="f-12"><strong>{{history.title}}</strong> | {{history.dateNow | date : "medium"}}</span>
-                                              <br />
-                                              {{history.workHistory}}
-                                              <br />
-                                              _________________________________________________________
-                                            </p>
-                                          </div>
-                                    </div>
-                                  </div>
-                                </div>
-                          </div>
-                          <div class="row">
-                            <div class="col-sm-6" ng-hide="jobdetails.job.unplanned">
-                              <div class="form-group">
-                                <label class="control-label">Support</label>
-                                <div>
-                                  <button class="btn btn-dark m-r-20 col-sm-5" data-toggle="modal" data-target="#add-support" >Add</button>
-                                  <button class="btn btn-dark m-r-20 col-sm-5" data-toggle="modal" data-target="#view-support">View</button>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-sm-6">
-                              <div class="form-group">
-                                <label class="control-label">Service Reports</label>
-                                <div>
-                                  <button class="btn btn-dark m-r-20 col-sm-5" data-toggle="modal" data-target="#upload-service" >Add</button>
-                                  <button class="btn btn-dark m-r-20 col-sm-5" data-toggle="modal" data-target="#view-service">View</button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="row">
-                            <div class="col-sm-6 col-sm-offset-6">
-                              <div class="form-group">
-                                <label class="control-label">Job Done by</label>
-                                  <div>
-                                    <select ng-model="jobdetails.job.doneBy" name="users" class="form-control" required>
-                                      <option ng-repeat="profile in jobdetails.profiles" ng-value="profile" >{{profile.firstName + ' ' + profile.lastName}}</option>
-                                    </select>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="row">
-                            <div class="col-sm-9 col-sm-offset-3">
-                              <div class="pull-right">
-                                <button ng-click="jobdetails.saveWork()" class="btn btn-dark"> Submit Job</button>
-                              </div>
-                            </div>
-                          </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-            </div>
-          </div>
-          <div class="row" ng-hide="jobdetails.job.unplanned">
-          <div class="col-md-12">
-              <div class="panel panel-default">
-                  <div class="panel-body bg-dark">
-                    <div class="row">
-                      <div class="col-md-12 col-sm-12 col-xs-12">
-                        <form role="form" class="form-validation">
-                          <div class="row">
-                              <div class="col-sm-3">
-                                  <div class="form-group">
-                                      <div>
-                                          <button  data-toggle="modal" data-target="#upload-image" class="btn btn-dark m-r-20">Upload Image</button>
-                                        </div>
-                                            <!---->
-                                  </div>
-                              </div>
-                              <div class="col-sm-12">
-                                      <div class="fileinput fileinput-new" data-provides="fileinput">
-                                              <div class="fileinput-new thumbnail" style="margin-right: 10px;" ng-repeat="photo in jobdetails.photos">
-                                                <a href="{{photo.downloadurl}}" target="_blank">
-                                                  <img src="{{photo.downloadurl}}" class="img-responsive" style="width: 120px; height: 120px;" >
-                                                  </a>
-                                              </div>                                           
-                                      </div>
-                              </div>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-          </div>
-        </div>
-      <div class="footer">
-        <div class="copyright">
-          <p class="pull-left sm-pull-reset">
-            <span>Copyright <span class="copyright">©</span> 2018 </span>
-            <span>Powered by TYS Ltd</span>.
-            <span>All rights reserved. </span>
-          </p>
-          <p class="pull-right sm-pull-reset">
-            <span><a href="#" class="m-r-10">Support</a> | <a href="#" class="m-l-10 m-r-10">Terms of use</a> | <a href="#" class="m-l-10">Privacy Policy</a></span>
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal fade" id="delete-docs" aria-hidden="true">
-      <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
-        <div class="modal-content">
-          <div class="modal-header bg-dark">
-            <button type="button" class="close" data-dismiss="modal" ng-click="jobdetails.resetValue()" aria-hidden="true"><i class="icons-office-52" style="color: #fff !important;"></i></button>
-            <h4 class="modal-title"><strong>Delete</strong> Documents</h4>
-          </div>
-          <div class="modal-body bg-dark">
-            <!--<p>Change screen size to see responsive behaviour.</p>-->
-                  <div  ng-show="doneSearching" class="loader2 col-sm-offset-5"></div>
-                  <div ng-show="uploadSuccess" class="preview active">
-                      <div class="alert alert-success media fade in">
-                        <p><strong>Document</strong> Deleted</p>
-                      </div>
-                    </div>
-            
-            <div ng-hide="doneSearching">
-              <table class="table table-hover dataTable" id="table-editable">
-                <thead>
-                  <tr>
-                    <th>Document Type</th>
-                    <th>Page No.</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr ng-repeat="doc in jobdetails.docs" >
-                    <td>{{doc.fileType}}</td>
-                    <td>{{doc.page ? doc.page : "none"}}</td>
-                    <td><button class="btn btn-dark f-12" type="submit" ng-click="jobdetails.removeDocs(doc)"><i class="fa fa-trash"></i> Delete</button></td>
-                  </tr>    
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div class="modal-footer text-center bg-dark">
-           <!--<button type="button" class="btn btn-primary btn-embossed bnt-square" ><i class="fa fa-check"></i> Add</button>-->
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="modal fade" id="upload-drawing" aria-hidden="true">
-      <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
-        <div class="modal-content">
-          <div class="modal-header bg-dark">
-            <button type="button" class="close" data-dismiss="modal" ng-click="jobdetails.resetValue()" aria-hidden="true"><i class="icons-office-52" style="color: #fff !important;"></i></button>
-            <h4 class="modal-title"><strong>Upload</strong> Drawing</h4>
-          </div>
-          <div class="modal-body bg-dark">
-            <!--<p>Change screen size to see responsive behaviour.</p>-->
-                  <div  ng-show="doneSearching" class="loader2 col-sm-offset-5"></div>
-                  <div ng-show="uploadSuccess" class="preview active">
-                      <div class="alert alert-success media fade in">
-                        <p><strong>Well done!</strong> Upload Successful.</p>
-                      </div>
-                    </div>
-            
-            <div class="row" ng-hide="doneSearching">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label class="control-label">File</label>
-                  <div class="file">
-                      <div class="option-group">
-                        <input type="file"  ngf-select="jobdetails.uploadFiles($file, $invalidFiles)" class="custom-file" name="avatar" required>
-                      </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer text-center bg-dark">
-           <!--<button type="button" class="btn btn-primary btn-embossed bnt-square" ><i class="fa fa-check"></i> Add</button>-->
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal fade" id="upload-manual" aria-hidden="true">
-      <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
-        <div class="modal-content">
-          <div class="modal-header bg-dark">
-            <button type="button" class="close" data-dismiss="modal" ng-click="jobdetails.resetValue()" aria-hidden="true"><i class="icons-office-52" style="color: #fff !important;"></i></button>
-            <h4 class="modal-title"><strong>Upload</strong> Service Manual</h4>
-          </div>
-          <div class="modal-body bg-dark">
-            <!--<p>Change screen size to see responsive behaviour.</p>-->
-                  <div  ng-show="doneSearching" class="loader2 col-sm-offset-5"></div>
-                  <div ng-show="uploadSuccess" class="preview active">
-                      <div class="alert alert-success media fade in">
-                        <p><strong>Well done!</strong> Upload Successful.</p>
-                      </div>
-                    </div>
-            
-            <div class="row" ng-hide="doneSearching">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label class="control-label">File</label>
-                  <div class="file">
-                      <div class="option-group">
-                        <input type="file"  ngf-select="jobdetails.uploadManual($file, $invalidFiles)" class="custom-file" name="avatar" required>
-                      </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer text-center bg-dark">
-           <!--<button type="button" class="btn btn-primary btn-embossed bnt-square" ><i class="fa fa-check"></i> Add</button>-->
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal fade" id="upload-manualParts" aria-hidden="true">
-        <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
-          <div class="modal-content">
-            <div class="modal-header bg-dark">
-              <button type="button" class="close" data-dismiss="modal" ng-click="jobdetails.resetValue()" aria-hidden="true"><i class="icons-office-52" style="color: #fff !important;"></i></button>
-              <h4 class="modal-title"><strong>Upload</strong> Parts Manual</h4>
-            </div>
-            <div class="modal-body bg-dark">
-              <!--<p>Change screen size to see responsive behaviour.</p>-->
-                    <div  ng-show="doneSearching" class="loader2 col-sm-offset-5"></div>
-                    <div ng-show="uploadSuccess" class="preview active">
-                        <div class="alert alert-success media fade in">
-                          <p><strong>Well done!</strong> Upload Successful.</p>
-                        </div>
-                      </div>
-              
-              <div class="row" ng-hide="doneSearching">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label class="control-label">File</label>
-                    <div class="file">
-                        <div class="option-group">
-                          <input type="file"  ngf-select="jobdetails.uploadManualParts($file, $invalidFiles)" class="custom-file" name="avatar" required>
-                        </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="modal-footer text-center bg-dark">
-             <!--<button type="button" class="btn btn-primary btn-embossed bnt-square" ><i class="fa fa-check"></i> Add</button>-->
-            </div>
-          </div>
-        </div>
-      </div>
-
-    <div class="modal fade" id="upload-specs" aria-hidden="true">
-      <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
-        <div class="modal-content">
-          <div class="modal-header bg-dark">
-            <button type="button" class="close" data-dismiss="modal" ng-click="jobdetails.resetValue()" aria-hidden="true"><i class="icons-office-52" style="color: #fff !important;"></i></button>
-            <h4 class="modal-title"><strong>Upload</strong> Specification</h4>
-          </div>
-          <div class="modal-body bg-dark">
-            <!--<p>Change screen size to see responsive behaviour.</p>-->
-                  <div  ng-show="doneSearching" class="loader2 col-sm-offset-5"></div>
-                  <div ng-show="uploadSuccess" class="preview active">
-                      <div class="alert alert-success media fade in">
-                        <p><strong>Well done!</strong> Upload Successful.</p>
-                      </div>
-                    </div>
-            
-            <div class="row" ng-hide="doneSearching">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label class="control-label">File</label>
-                  <div class="file">
-                      <div class="option-group">
-                        <input type="file"  ngf-select="jobdetails.uploadSpecs($file, $invalidFiles)" class="custom-file" name="avatar" required>
-                      </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer text-center bg-dark">
-           <!--<button type="button" class="btn btn-primary btn-embossed bnt-square" ><i class="fa fa-check"></i> Add</button>-->
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal fade" id="upload-pages" aria-hidden="true">
-      <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
-        <div class="modal-content">
-          <div class="modal-header bg-dark">
-            <button type="button" class="close" data-dismiss="modal" ng-click="jobdetails.resetValue()" aria-hidden="true"><i class="icons-office-52" style="color: #fff !important;"></i></button>
-            <h4 class="modal-title"><strong>Upload</strong> Page</h4>
-          </div>
-          <div class="modal-body bg-dark">
-            <!--<p>Change screen size to see responsive behaviour.</p>-->
-                  <div  ng-show="doneSearching" class="loader2 col-sm-offset-5"></div>
-                  <div ng-show="uploadSuccess" class="preview active">
-                      <div class="alert alert-success media fade in">
-                        <p><strong>Well done!</strong> Upload Successful.</p>
-                      </div>
-                    </div>
-            
-            <div class="row" ng-hide="doneSearching">
-                    <div class="col-md-12">
+                    <div class="col-sm-3">
                       <div class="form-group">
-                        <label class="control-label">Page Number</label>
-                        <input type="text" ng-model="jobdetails.pageNum" class="form-control" placeholder="1" required>
+                        <div>
+                          <button data-toggle="modal" data-target="#upload-image" class="btn btn-dark m-r-20">Upload Image</button>
+                        </div>
+                        <!---->
                       </div>
                     </div>
-              <div class="col-md-6" ng-if="jobdetails.pageNum">
-                <div class="form-group">
-                  <label class="control-label">File</label>
-                  <div class="file">
-                      <div class="option-group">
-                        <input type="file"  ngf-select="jobdetails.uploadPage($file, $invalidFiles)" class="custom-file" name="avatar" required>
-                      </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer text-center bg-dark">
-           <!--<button type="button" class="btn btn-primary btn-embossed bnt-square" ><i class="fa fa-check"></i> Add</button>-->
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal fade" id="upload-image" aria-hidden="true">
-        <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
-          <div class="modal-content">
-            <div class="modal-header bg-dark">
-              <button type="button" class="close" data-dismiss="modal" ng-click="jobdetails.resetValue()" aria-hidden="true"><i class="icons-office-52" style="color: #fff !important;"></i></button>
-              <h4 class="modal-title"><strong>Upload</strong> Image</h4>
-            </div>
-            <div class="modal-body bg-dark">
-              <!--<p>Change screen size to see responsive behaviour.</p>-->
-                    <div  ng-show="doneSearching" class="loader2 col-sm-offset-5"></div>
-                    <div ng-show="uploadSuccess" class="preview active">
-                        <div class="alert alert-success media fade in">
-                          <p><strong>Well done!</strong> Upload Successful.</p>
-                        </div>
-                      </div>
-              
-              <div class="row" ng-hide="doneSearching">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label class="control-label">File</label>
-                    <div class="file">
-                        <div class="option-group">
-                          <input type="file"  ngf-select="jobdetails.uploadImage($file, $invalidFiles)" class="custom-file" name="avatar" required>
-                        </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="modal-footer text-center bg-dark">
-             <!--<button type="button" class="btn btn-primary btn-embossed bnt-square" ><i class="fa fa-check"></i> Add</button>-->
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="modal fade" id="work-history" aria-hidden="true">
-        <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
-          <div class="modal-content">
-            <div class="modal-header bg-dark">
-              <button type="button" class="close" data-dismiss="modal" ng-click="jobdetails.resetValue()" aria-hidden="true"><i class="icons-office-52" style="color: #fff !important;"></i></button>
-              <h4 class="modal-title"><strong>Work</strong> History</h4>
-            </div>
-            <div class="modal-body bg-dark" style="overflow-x: hidden !important;">                  
-                
-            </div>
-            <div class="modal-footer text-center">
-             <!--<button type="button" class="btn btn-primary btn-embossed bnt-square" ><i class="fa fa-check"></i> Add</button>-->
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="modal fade" id="group-history" aria-hidden="true">
-          <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" ng-click="jobdetails.resetValue()" aria-hidden="true"><i class="icons-office-52" style="color: #fff !important;"></i></button>
-                <h4 class="modal-title"><strong>Group</strong> History</h4>
-              </div>
-              <div class="modal-body " style="overflow-x: hidden !important;">      
-                  
-              </div>
-              <div class="modal-footer text-center bg-dark">
-               <!--<button type="button" class="btn btn-primary btn-embossed bnt-square" ><i class="fa fa-check"></i> Add</button>-->
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="modal fade" id="add-support" aria-hidden="true">
-            <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
-              <div class="modal-content">
-                <div class="modal-header bg-dark">
-                  <button type="button" class="close" data-dismiss="modal" ng-click="jobdetails.resetValue()" aria-hidden="true"><i class="icons-office-52" style="color: #fff !important;"></i></button>
-                  <h4 class="modal-title"><strong>Add</strong> Support Information</h4>
-                </div>
-                <div class="modal-body bg-dark">         
                     <div class="col-sm-12">
-                        <textarea rows="10" class="form-control" ng-model="jobdetails.support.info" placeholder="Write support..."></textarea>
-                      </div>    
-                      <div class="col-sm-9 col-sm-offset-3" style="margin-top: 10px !important;">
-                        <div class="pull-right">
-                            <button ng-click="jobdetails.supportSave()" data-dismiss="modal" class="btn btn-dark m-r-20"><i class="fa fa-save"></i> Save</button>     
-                        </div>
-                      </div>
-                      
-                    
-                </div>
-                <div class="modal-footer text-center bg-dark">
-                 <!--<button type="button" class="btn btn-primary btn-embossed bnt-square" ><i class="fa fa-check"></i> Add</button>-->
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="modal fade" id="view-support" aria-hidden="true">
-              <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
-                <div class="modal-content">
-                  <div class="modal-header bg-dark">
-                    <button type="button" class="close" data-dismiss="modal" ng-click="jobdetails.resetValue()" aria-hidden="true"><i class="icons-office-52" style="color: #fff !important;"></i></button>
-                    <h4 class="modal-title"><strong>Support</strong> Information</h4>
-                  </div>
-                  <div class="modal-body bg-dark" style="overflow-x: hidden !important;">                 
-                      <table class="table table-hover dataTable" >
-                        <thead>
-                          <tr>
-                            <th> </th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr ng-repeat="support in jobdetails.supports" ng-if="support.jobID == jobdetails.job._id">
-                            <td>{{support.info}}</td>
-                          </tr>
-                          
-                        </tbody>
-                      </table>
-                  </div>
-                  <div class="modal-footer text-center bg-dark">
-                   <!--<button type="button" class="btn btn-primary btn-embossed bnt-square" ><i class="fa fa-check"></i> Add</button>-->
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="modal fade" id="modal-confirm" aria-hidden="true">
-              <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
-                <div class="modal-content">
-                  <div class="modal-header bg-dark">
-                    <button type="button" class="close" data-dismiss="modal" ng-click="jobdetails.resetValue()" aria-hidden="true"><i class="icons-office-52" style="color: #fff !important;"></i></button>
-                      <h4 class="modal-title">Are you sure you want to delete this job: <strong>{{jobName}}</strong>?</h4>
-                  </div>
-                  <div class="modal-body bg-dark">
-                      <div ng-show="notMatch" class="preview active">
-                          <div class="alert alert-danger media fade in">
-                            <p> Incorrect Password</p>
-                          </div>
-                      </div>
-                      <div class="form-group">
-                          <label class="col-sm-4 control-label">Type password to confirm
-                          </label>
-                          <div class="col-sm-8">
-                            <input type="password" class="form-control" ng-model="passworD">
-                          </div>
-                        </div>
-                  </div>
-                  <div class="modal-footer text-center bg-dark">
-                    <button class="btn btn-dark f-12" data-dismiss="modal">Cancel</button>
-                    <button class="btn btn-dark f-12" type="submit" ng-click="jobdetails.removeJob()"><i class="fa fa-trash"></i> Delete Now</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="modal fade" id="upload-service" aria-hidden="true">
-              <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
-                <div class="modal-content">
-                  <div class="modal-header bg-dark">
-                    <button type="button" class="close" data-dismiss="modal" ng-click="jobdetails.resetValue()" aria-hidden="true"><i class="icons-office-52" style="color: #fff !important;"></i></button>
-                    <h4 class="modal-title"><strong>Upload</strong> Service Reports</h4>
-                  </div>
-                  <div class="modal-body bg-dark">
-                    <!--<p>Change screen size to see responsive behaviour.</p>-->
-                    <div  ng-show="doneSearching" class="loader2 col-sm-offset-5"></div>
-                      <div ng-show="uploadSuccess" class="preview active">
-                        <div class="alert alert-success media fade in">
-                          <p><strong>Well done!</strong> Upload Successful.</p>
-                        </div>
-                      </div>     
-                      <div class="row" ng-hide="doneSearching">
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <label class="control-label">File</label>
-                            <div class="file">
-                              <div class="option-group">
-                                <input type="file"  ngf-select="jobdetails.uploadService($file, $invalidFiles)" class="custom-file" name="avatar" required>
-                              </div>
-                            </div>
-                          </div>
+                      <div class="fileinput fileinput-new" data-provides="fileinput">
+                        <div class="fileinput-new thumbnail" style="margin-right: 10px;" ng-repeat="photo in jobdetails.photos">
+                          <a href="{{photo.downloadurl}}" target="_blank">
+                            <img src="{{photo.downloadurl}}" class="img-responsive" style="width: 120px; height: 120px;">
+                          </a>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                </form>
+              </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="copyright">
+        <p class="pull-left sm-pull-reset">
+          <span>Copyright
+            <span class="copyright">©</span> 2018 </span>
+          <span>Powered by TYS Ltd</span>.
+          <span>All rights reserved. </span>
+        </p>
+        <p class="pull-right sm-pull-reset">
+          <span>
+            <a href="#" class="m-r-10">Support</a> |
+            <a href="#" class="m-l-10 m-r-10">Terms of use</a> |
+            <a href="#" class="m-l-10">Privacy Policy</a>
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
 
-            <div class="modal fade" id="view-service" aria-hidden="true">
-              <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
-                <div class="modal-content">
-                  <div class="modal-header bg-dark">
-                    <button type="button" class="close" data-dismiss="modal" ng-click="jobdetails.resetValue()" aria-hidden="true"><i class="icons-office-52" style="color: #fff !important;"></i></button>
-                    <h4 class="modal-title"><strong>Service Reports</strong> Information</h4>
-                  </div>
-                  <div class="modal-body bg-dark" style="overflow-x: hidden !important;">     
-                    <div class="row">
-                      <div class="col-sm-3" ng-repeat="service in jobdetails.docs" ng-if="service.fileType == 'service'">
-                        <a target="_blank" href="{{service.downloadurl}}" class="btn btn-dark m-r-20">{{service.date | date: mediumDate}}</a>
-                      </div>
-                    </div>            
+  <div class="modal fade" id="delete-docs" aria-hidden="true">
+    <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
+      <div class="modal-content">
+        <div class="modal-header bg-dark">
+          <button type="button" class="close" data-dismiss="modal" ng-click="jobdetails.resetValue()" aria-hidden="true">
+            <i class="icons-office-52" style="color: #fff !important;"></i>
+          </button>
+          <h4 class="modal-title">
+            <strong>Delete</strong> Documents</h4>
+        </div>
+        <div class="modal-body bg-dark">
+          <!--<p>Change screen size to see responsive behaviour.</p>-->
+          <div ng-show="doneSearching" class="loader2 col-sm-offset-5"></div>
+          <div ng-show="uploadSuccess" class="preview active">
+            <div class="alert alert-success media fade in">
+              <p>
+                <strong>Document</strong> Deleted</p>
+            </div>
+          </div>
+
+          <div ng-hide="doneSearching">
+            <table class="table table-hover dataTable" id="table-editable">
+              <thead>
+                <tr>
+                  <th>Document Type</th>
+                  <th>Page No.</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="doc in jobdetails.docs">
+                  <td>{{doc.fileType}}</td>
+                  <td>{{doc.page ? doc.page : "none"}}</td>
+                  <td>
+                    <button class="btn btn-dark f-12" type="submit" ng-click="jobdetails.removeDocs(doc)">
+                      <i class="fa fa-trash"></i> Delete</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="modal-footer text-center bg-dark">
+          <!--<button type="button" class="btn btn-primary btn-embossed bnt-square" ><i class="fa fa-check"></i> Add</button>-->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="upload-drawing" aria-hidden="true">
+    <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
+      <div class="modal-content">
+        <div class="modal-header bg-dark">
+          <button type="button" class="close" data-dismiss="modal" ng-click="jobdetails.resetValue()" aria-hidden="true">
+            <i class="icons-office-52" style="color: #fff !important;"></i>
+          </button>
+          <h4 class="modal-title">
+            <strong>Upload</strong> Drawing</h4>
+        </div>
+        <div class="modal-body bg-dark">
+          <!--<p>Change screen size to see responsive behaviour.</p>-->
+          <div ng-show="doneSearching" class="loader2 col-sm-offset-5"></div>
+          <div ng-show="uploadSuccess" class="preview active">
+            <div class="alert alert-success media fade in">
+              <p>
+                <strong>Well done!</strong> Upload Successful.</p>
+            </div>
+          </div>
+
+          <div class="row" ng-hide="doneSearching">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label">File</label>
+                <div class="file">
+                  <div class="option-group">
+                    <input type="file" ngf-select="jobdetails.uploadFiles($file, $invalidFiles)" class="custom-file" name="avatar" required>
                   </div>
                 </div>
               </div>
             </div>
-
-
+          </div>
+        </div>
+        <div class="modal-footer text-center bg-dark">
+          <!--<button type="button" class="btn btn-primary btn-embossed bnt-square" ><i class="fa fa-check"></i> Add</button>-->
+        </div>
+      </div>
+    </div>
   </div>
+
+  <div class="modal fade" id="upload-manual" aria-hidden="true">
+    <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
+      <div class="modal-content">
+        <div class="modal-header bg-dark">
+          <button type="button" class="close" data-dismiss="modal" ng-click="jobdetails.resetValue()" aria-hidden="true">
+            <i class="icons-office-52" style="color: #fff !important;"></i>
+          </button>
+          <h4 class="modal-title">
+            <strong>Upload</strong> Service Manual</h4>
+        </div>
+        <div class="modal-body bg-dark">
+          <!--<p>Change screen size to see responsive behaviour.</p>-->
+          <div ng-show="doneSearching" class="loader2 col-sm-offset-5"></div>
+          <div ng-show="uploadSuccess" class="preview active">
+            <div class="alert alert-success media fade in">
+              <p>
+                <strong>Well done!</strong> Upload Successful.</p>
+            </div>
+          </div>
+
+          <div class="row" ng-hide="doneSearching">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label">File</label>
+                <div class="file">
+                  <div class="option-group">
+                    <input type="file" ngf-select="jobdetails.uploadManual($file, $invalidFiles)" class="custom-file" name="avatar" required>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer text-center bg-dark">
+          <!--<button type="button" class="btn btn-primary btn-embossed bnt-square" ><i class="fa fa-check"></i> Add</button>-->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="upload-manualParts" aria-hidden="true">
+    <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
+      <div class="modal-content">
+        <div class="modal-header bg-dark">
+          <button type="button" class="close" data-dismiss="modal" ng-click="jobdetails.resetValue()" aria-hidden="true">
+            <i class="icons-office-52" style="color: #fff !important;"></i>
+          </button>
+          <h4 class="modal-title">
+            <strong>Upload</strong> Parts Manual</h4>
+        </div>
+        <div class="modal-body bg-dark">
+          <!--<p>Change screen size to see responsive behaviour.</p>-->
+          <div ng-show="doneSearching" class="loader2 col-sm-offset-5"></div>
+          <div ng-show="uploadSuccess" class="preview active">
+            <div class="alert alert-success media fade in">
+              <p>
+                <strong>Well done!</strong> Upload Successful.</p>
+            </div>
+          </div>
+
+          <div class="row" ng-hide="doneSearching">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label">File</label>
+                <div class="file">
+                  <div class="option-group">
+                    <input type="file" ngf-select="jobdetails.uploadManualParts($file, $invalidFiles)" class="custom-file" name="avatar" required>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer text-center bg-dark">
+          <!--<button type="button" class="btn btn-primary btn-embossed bnt-square" ><i class="fa fa-check"></i> Add</button>-->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="upload-specs" aria-hidden="true">
+    <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
+      <div class="modal-content">
+        <div class="modal-header bg-dark">
+          <button type="button" class="close" data-dismiss="modal" ng-click="jobdetails.resetValue()" aria-hidden="true">
+            <i class="icons-office-52" style="color: #fff !important;"></i>
+          </button>
+          <h4 class="modal-title">
+            <strong>Upload</strong> Specification</h4>
+        </div>
+        <div class="modal-body bg-dark">
+          <!--<p>Change screen size to see responsive behaviour.</p>-->
+          <div ng-show="doneSearching" class="loader2 col-sm-offset-5"></div>
+          <div ng-show="uploadSuccess" class="preview active">
+            <div class="alert alert-success media fade in">
+              <p>
+                <strong>Well done!</strong> Upload Successful.</p>
+            </div>
+          </div>
+
+          <div class="row" ng-hide="doneSearching">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label">File</label>
+                <div class="file">
+                  <div class="option-group">
+                    <input type="file" ngf-select="jobdetails.uploadSpecs($file, $invalidFiles)" class="custom-file" name="avatar" required>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer text-center bg-dark">
+          <!--<button type="button" class="btn btn-primary btn-embossed bnt-square" ><i class="fa fa-check"></i> Add</button>-->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="upload-pages" aria-hidden="true">
+    <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
+      <div class="modal-content">
+        <div class="modal-header bg-dark">
+          <button type="button" class="close" data-dismiss="modal" ng-click="jobdetails.resetValue()" aria-hidden="true">
+            <i class="icons-office-52" style="color: #fff !important;"></i>
+          </button>
+          <h4 class="modal-title">
+            <strong>Upload</strong> Page</h4>
+        </div>
+        <div class="modal-body bg-dark">
+          <!--<p>Change screen size to see responsive behaviour.</p>-->
+          <div ng-show="doneSearching" class="loader2 col-sm-offset-5"></div>
+          <div ng-show="uploadSuccess" class="preview active">
+            <div class="alert alert-success media fade in">
+              <p>
+                <strong>Well done!</strong> Upload Successful.</p>
+            </div>
+          </div>
+
+          <div class="row" ng-hide="doneSearching">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="control-label">Page Number</label>
+                <input type="text" ng-model="jobdetails.pageNum" class="form-control" placeholder="1" required>
+              </div>
+            </div>
+            <div class="col-md-6" ng-if="jobdetails.pageNum">
+              <div class="form-group">
+                <label class="control-label">File</label>
+                <div class="file">
+                  <div class="option-group">
+                    <input type="file" ngf-select="jobdetails.uploadPage($file, $invalidFiles)" class="custom-file" name="avatar" required>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer text-center bg-dark">
+          <!--<button type="button" class="btn btn-primary btn-embossed bnt-square" ><i class="fa fa-check"></i> Add</button>-->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="upload-image" aria-hidden="true">
+    <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
+      <div class="modal-content">
+        <div class="modal-header bg-dark">
+          <button type="button" class="close" data-dismiss="modal" ng-click="jobdetails.resetValue()" aria-hidden="true">
+            <i class="icons-office-52" style="color: #fff !important;"></i>
+          </button>
+          <h4 class="modal-title">
+            <strong>Upload</strong> Image</h4>
+        </div>
+        <div class="modal-body bg-dark">
+          <!--<p>Change screen size to see responsive behaviour.</p>-->
+          <div ng-show="doneSearching" class="loader2 col-sm-offset-5"></div>
+          <div ng-show="uploadSuccess" class="preview active">
+            <div class="alert alert-success media fade in">
+              <p>
+                <strong>Well done!</strong> Upload Successful.</p>
+            </div>
+          </div>
+
+          <div class="row" ng-hide="doneSearching">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label">File</label>
+                <div class="file">
+                  <div class="option-group">
+                    <input type="file" ngf-select="jobdetails.uploadImage($file, $invalidFiles)" class="custom-file" name="avatar" required>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer text-center bg-dark">
+          <!--<button type="button" class="btn btn-primary btn-embossed bnt-square" ><i class="fa fa-check"></i> Add</button>-->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="work-history" aria-hidden="true">
+    <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
+      <div class="modal-content">
+        <div class="modal-header bg-dark">
+          <button type="button" class="close" data-dismiss="modal" ng-click="jobdetails.resetValue()" aria-hidden="true">
+            <i class="icons-office-52" style="color: #fff !important;"></i>
+          </button>
+          <h4 class="modal-title">
+            <strong>Work</strong> History</h4>
+        </div>
+        <div class="modal-body bg-dark" style="overflow-x: hidden !important;">
+
+        </div>
+        <div class="modal-footer text-center">
+          <!--<button type="button" class="btn btn-primary btn-embossed bnt-square" ><i class="fa fa-check"></i> Add</button>-->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="group-history" aria-hidden="true">
+    <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" ng-click="jobdetails.resetValue()" aria-hidden="true">
+            <i class="icons-office-52" style="color: #fff !important;"></i>
+          </button>
+          <h4 class="modal-title">
+            <strong>Group</strong> History</h4>
+        </div>
+        <div class="modal-body " style="overflow-x: hidden !important;">
+
+        </div>
+        <div class="modal-footer text-center bg-dark">
+          <!--<button type="button" class="btn btn-primary btn-embossed bnt-square" ><i class="fa fa-check"></i> Add</button>-->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="add-support" aria-hidden="true">
+    <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
+      <div class="modal-content">
+        <div class="modal-header bg-dark">
+          <button type="button" class="close" data-dismiss="modal" ng-click="jobdetails.resetValue()" aria-hidden="true">
+            <i class="icons-office-52" style="color: #fff !important;"></i>
+          </button>
+          <h4 class="modal-title">
+            <strong>Add</strong> Support Information</h4>
+        </div>
+        <div class="modal-body bg-dark">
+          <div class="col-sm-12">
+            <textarea rows="10" class="form-control" ng-model="jobdetails.support.info" placeholder="Write support..."></textarea>
+          </div>
+          <div class="col-sm-9 col-sm-offset-3" style="margin-top: 10px !important;">
+            <div class="pull-right">
+              <button ng-click="jobdetails.supportSave()" data-dismiss="modal" class="btn btn-dark m-r-20">
+                <i class="fa fa-save"></i> Save</button>
+            </div>
+          </div>
+
+
+        </div>
+        <div class="modal-footer text-center bg-dark">
+          <!--<button type="button" class="btn btn-primary btn-embossed bnt-square" ><i class="fa fa-check"></i> Add</button>-->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="view-support" aria-hidden="true">
+    <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
+      <div class="modal-content">
+        <div class="modal-header bg-dark">
+          <button type="button" class="close" data-dismiss="modal" ng-click="jobdetails.resetValue()" aria-hidden="true">
+            <i class="icons-office-52" style="color: #fff !important;"></i>
+          </button>
+          <h4 class="modal-title">
+            <strong>Support</strong> Information</h4>
+        </div>
+        <div class="modal-body bg-dark" style="overflow-x: hidden !important;">
+          <table class="table table-hover dataTable">
+            <thead>
+              <tr>
+                <th> </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="support in jobdetails.supports" ng-if="support.jobID == jobdetails.job._id">
+                <td>{{support.info}}</td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer text-center bg-dark">
+          <!--<button type="button" class="btn btn-primary btn-embossed bnt-square" ><i class="fa fa-check"></i> Add</button>-->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modal-confirm" aria-hidden="true">
+    <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
+      <div class="modal-content">
+        <div class="modal-header bg-dark">
+          <button type="button" class="close" data-dismiss="modal" ng-click="jobdetails.resetValue()" aria-hidden="true">
+            <i class="icons-office-52" style="color: #fff !important;"></i>
+          </button>
+          <h4 class="modal-title">Are you sure you want to delete this job:
+            <strong>{{jobName}}</strong>?</h4>
+        </div>
+        <div class="modal-body bg-dark">
+          <div ng-show="notMatch" class="preview active">
+            <div class="alert alert-danger media fade in">
+              <p> Incorrect Password</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-4 control-label">Type password to confirm
+            </label>
+            <div class="col-sm-8">
+              <input type="password" class="form-control" ng-model="passworD">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer text-center bg-dark">
+          <button class="btn btn-dark f-12" data-dismiss="modal">Cancel</button>
+          <button class="btn btn-dark f-12" type="submit" ng-click="jobdetails.removeJob()">
+            <i class="fa fa-trash"></i> Delete Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="upload-service" aria-hidden="true">
+    <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
+      <div class="modal-content">
+        <div class="modal-header bg-dark">
+          <button type="button" class="close" data-dismiss="modal" ng-click="jobdetails.resetValue()" aria-hidden="true">
+            <i class="icons-office-52" style="color: #fff !important;"></i>
+          </button>
+          <h4 class="modal-title">
+            <strong>Upload</strong> Service Reports</h4>
+        </div>
+        <div class="modal-body bg-dark">
+          <!--<p>Change screen size to see responsive behaviour.</p>-->
+          <div ng-show="doneSearching" class="loader2 col-sm-offset-5"></div>
+          <div ng-show="uploadSuccess" class="preview active">
+            <div class="alert alert-success media fade in">
+              <p>
+                <strong>Well done!</strong> Upload Successful.</p>
+            </div>
+          </div>
+          <div class="row" ng-hide="doneSearching">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label">File</label>
+                <div class="file">
+                  <div class="option-group">
+                    <input type="file" ngf-select="jobdetails.uploadService($file, $invalidFiles)" class="custom-file" name="avatar" required>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="view-service" aria-hidden="true">
+    <div class="modal-dialog modal-responsive" style="margin-top: 15% !important;">
+      <div class="modal-content">
+        <div class="modal-header bg-dark">
+          <button type="button" class="close" data-dismiss="modal" ng-click="jobdetails.resetValue()" aria-hidden="true">
+            <i class="icons-office-52" style="color: #fff !important;"></i>
+          </button>
+          <h4 class="modal-title">
+            <strong>Service Reports</strong> Information</h4>
+        </div>
+        <div class="modal-body bg-dark" style="overflow-x: hidden !important;">
+          <div class="row">
+            <div class="col-sm-3" ng-repeat="service in jobdetails.docs" ng-if="service.fileType == 'service'">
+              <a target="_blank" href="{{service.downloadurl}}" class="btn btn-dark m-r-20">{{service.date | date: mediumDate}}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>

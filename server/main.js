@@ -23,3 +23,5 @@ import '../imports/api/watchkeeplogs';
 import '../imports/api/notes';
 import '../imports/api/taskgrouplists';
 import '../imports/api/taskgroupscheds';
+import '../imports/api/suppliers';
+import '../imports/api/products';

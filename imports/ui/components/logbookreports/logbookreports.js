@@ -6,17 +6,17 @@ import utilsPagination from 'angular-utils-pagination';
 import { Meteor } from 'meteor/meteor';
 
 import { Counts } from 'meteor/tmeasday:publish-counts';
-import {pleaseWait} from '../../../startup/please-wait.js';
+import { pleaseWait } from '../../../startup/please-wait.js';
 
 
 import { Logbooks } from '../../../api/logbooks';
 import { Profiles } from '../../../api/profiles';
 import template from './logbookreports.html';
- 
+
 class Logbookreports {
   constructor($scope, $reactive, $state) {
     //'ngInject';
- 
+
     $reactive(this).attach($scope);
 
     this.job = {};
@@ -37,61 +37,61 @@ class Logbookreports {
     this.viewJobs = true;
 
     this.choices = [
-      {name: 'Yes', value: true},
-      {name: 'No', value: false},
+      { name: 'Yes', value: true },
+      { name: 'No', value: false },
     ];
 
     this.choices2 = [
-      {name: 'Yes', value: false},
-      {name: 'No', value: true},
+      { name: 'Yes', value: false },
+      { name: 'No', value: true },
     ];
 
-    this.subscribe('logbooks', () => [{
-        limit: parseInt(this.perPage),
-        skip: parseInt((this.getReactively('page') - 1) * this.perPage),
-        sort: this.getReactively('sort')
-      }, this.getReactively('dateFrom2'),
-      this.getReactively('dateTo2'),
-      this.getReactively('searchText')
+    this.subscribe('logbookshistory', () => [{
+      limit: parseInt(this.perPage),
+      skip: parseInt((this.getReactively('page') - 1) * this.perPage),
+      sort: this.getReactively('sort')
+    }, this.getReactively('dateFrom2'),
+    this.getReactively('dateTo2'),
+    this.getReactively('searchText')
     ]);
 
     this.subscribe('profiles');
 
     this.subscribe('users');
- 
+
     this.helpers({
       logbooks() {
-            var userID = Meteor.userId();
-            var boats = Meteor.users.findOne(userID);
-            console.info('boats', boats);
-            if(boats){
-              $scope.userBoatID = boats.boatID;
-              var boatID = $scope.userBoatID;
-              var selector = {boatID: boatID};
-            } else {
-              var selector = {};
-            } 
-            var logbooks =  Logbooks.find(selector, {
-              sort : this.getReactively('sort')
-            });
-            console.info('parties', logbooks);
-            return logbooks;
+        var userID = Meteor.userId();
+        var boats = Meteor.users.findOne(userID);
+        console.info('boats', boats);
+        if (boats) {
+          $scope.userBoatID = boats.boatID;
+          var boatID = $scope.userBoatID;
+          var selector = { boatID: boatID };
+        } else {
+          var selector = {};
+        }
+        var logbooks = Logbooks.find(selector, {
+          sort: this.getReactively('sort')
+        });
+        console.info('parties', logbooks);
+        return logbooks;
       },
       profiles() {
         var userID = Meteor.userId();
         var boats = Meteor.users.findOne(userID);
         console.info('boats', boats);
-        if(boats){
+        if (boats) {
           $scope.userBoatID = boats.boatID;
           var boatID = $scope.userBoatID;
-          var selector = {boatID: boatID};
+          var selector = { boatID: boatID };
         } else {
           var selector = {};
-        } 
+        }
         return Profiles.find(selector);
       },
       logbooksCount() {
-        return Counts.get('numberOfLogbooks');
+        return Counts.get('numberOfLogbooksHistory');
       },
       isLoggedIn() {
         return !!Meteor.userId();
@@ -104,109 +104,117 @@ class Logbookreports {
       }
     });
 
-    this.logout = function() {
+    this.logout = function () {
       window.loading_screen = pleaseWait({
         logo: "../assets/global/images/logo/logo-white2.png",
         backgroundColor: '#8c9093',
         loadingHtml: "<div class='sk-spinner sk-spinner-wave'><div class='sk-rect1'></div><div class='sk-rect2'></div><div class='sk-rect3'></div><div class='sk-rect4'></div><div class='sk-rect5'></div></div>"
       });
       Accounts.logout();
-      window.setTimeout(function(){
+      window.setTimeout(function () {
         window.loading_screen.finish();
-        $state.go('login', {}, {reload: 'login'});
-      },2000);
+        $state.go('login', {}, { reload: 'login' });
+      }, 2000);
     }
 
-    this.viewFilter = function() {
+    this.viewFilter = function () {
       this.viewJobs = !this.viewJobs;
       console.info('viewJobs', this.viewJobs);
     }
 
-    this.gotoDashboard = function() {
+    this.gotoDashboard = function () {
       angular.element("body").removeClass("modal-open");
       var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
       removeMe.remove();
-      $state.go('dashboard', {}, {reload: 'dashboard'});
+      $state.go('dashboard', {}, { reload: 'dashboard' });
     }
-    this.gotoInventory = function() {
+    this.gotoInventory = function () {
       angular.element("body").removeClass("modal-open");
       var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
       removeMe.remove();
-      $state.go('inventory', {}, {reload: 'inventory'});
+      $state.go('inventory', {}, { reload: 'inventory' });
     }
-    this.gotoLogbook = function() {
+    this.gotoLogbook = function () {
       angular.element("body").removeClass("modal-open");
       var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
       removeMe.remove();
-      $state.go('logbook', {}, {reload: 'logbook'});
+      $state.go('logbook', {}, { reload: 'logbook' });
     }
-    this.gotoEmployees = function() {
+    this.gotoEmployees = function () {
       angular.element("body").removeClass("modal-open");
       var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
       removeMe.remove();
-      $state.go('employees', {}, {reload: 'employees'});
+      $state.go('employees', {}, { reload: 'employees' });
     }
-    this.gotoEquipments = function() {
+    this.gotoEquipments = function () {
       angular.element("body").removeClass("modal-open");
       var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
       removeMe.remove();
-      $state.go('equipments', {}, {reload: 'equipments'});
+      $state.go('equipments', {}, { reload: 'equipments' });
     }
-    this.gotoWatchkeep = function() {
+    this.gotoWatchkeep = function () {
       angular.element("body").removeClass("modal-open");
       var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
       removeMe.remove();
-      $state.go('watchkeep', {}, {reload: 'watchkeep'});
+      $state.go('watchkeep', {}, { reload: 'watchkeep' });
     }
-    this.gotoAdminPanel = function() {
+    this.gotoAdminPanel = function () {
       angular.element("body").removeClass("modal-open");
       var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
       removeMe.remove();
-      $state.go('adminpanel', {}, {reload: 'adminpanel'});
+      $state.go('adminpanel', {}, { reload: 'adminpanel' });
     }
 
-    this.gotoEquipList = function(equipID) {
+    this.gotoEquipList = function (equipID) {
       angular.element("body").removeClass("modal-open");
       var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
       removeMe.remove();
-      $state.go('equipmentlist', {equipID: equipID}, {reload: 'equipmentlist'});
+      $state.go('equipmentlist', { equipID: equipID }, { reload: 'equipmentlist' });
     }
 
-    this.gotoReports = function(equipID) {
-        angular.element("body").removeClass("modal-open");
-        var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
-        removeMe.remove();
-        $state.go('reports', {equipID: equipID}, {reload: 'reports'});
+    this.gotoReports = function (equipID) {
+      angular.element("body").removeClass("modal-open");
+      var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
+      removeMe.remove();
+      $state.go('reports', { equipID: equipID }, { reload: 'reports' });
     }
 
-    this.gotoLogbookReports = function(equipID) {
-        angular.element("body").removeClass("modal-open");
-        var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
-        removeMe.remove();
-        $state.go('logbookreports', {equipID: equipID}, {reload: 'logbookreports'});
+    this.gotoLogbookReports = function (equipID) {
+      angular.element("body").removeClass("modal-open");
+      var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
+      removeMe.remove();
+      $state.go('logbookreports', { equipID: equipID }, { reload: 'logbookreports' });
     }
 
-    this.submit = function() {
+    this.gotoSupplier = function (equipID) {
+      angular.element("body").removeClass("modal-open");
+      var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
+      removeMe.remove();
+      $state.go('supplier', { equipID: equipID }, { reload: 'supplier' });
+    }
+
+
+    this.submit = function () {
       this.job.owner = Meteor.userId();
       this.job.date = new Date();
       this.job.dateTime = this.job.date.getTime();
       this.job.boatID = $scope.userBoatID;
       var user = Meteor.user();
       console.info('user with department', user);
-      if(user.department) {
+      if (user.department) {
         this.job.department = user.department;
-      } 
-      if(this.job.hours){
+      }
+      if (this.job.hours) {
         console.log('no lastservice date with hours');
-        this.job.dateNext = this.job.dateTime + (this.job.hours*60*60*1000);
+        this.job.dateNext = this.job.dateTime + (this.job.hours * 60 * 60 * 1000);
         var newDate = this.job.dateNext;
         this.job.date = new Date(newDate);
         this.job.dateTime = this.job.date.getTime();
         this.job.status = false;
-      } else if(this.job.days){
+      } else if (this.job.days) {
         console.log('no lastservice date with days');
         var hours = this.job.days * 24;
-        this.job.dateNext = this.job.dateTime + (hours*60*60*1000);
+        this.job.dateNext = this.job.dateTime + (hours * 60 * 60 * 1000);
         var newDate = this.job.dateNext;
         this.job.date = new Date(newDate);
         this.job.dateTime = this.job.date.getTime();
@@ -221,7 +229,7 @@ class Logbookreports {
       this.job = {};
     }
 
-    this.submitUnplanned = function() {
+    this.submitUnplanned = function () {
       this.job.owner = Meteor.userId();
       this.job.date = new Date();
       this.job.dateTime = this.job.date.getTime();
@@ -241,7 +249,7 @@ class Logbookreports {
   isOwner(party) {
     return this.isLoggedIn && party.owner === this.currentUserId;
   }
-   
+
   pageChanged(newPage) {
     this.page = newPage;
     console.info('new page', this.page);
@@ -255,7 +263,9 @@ class Logbookreports {
     this.searchText = '';
     this.dateFrom2 = '';
     this.dateTo2 = '';
-    
+    this.dateFrom = '';
+    this.dateTo = '';
+
   }
 
   resetForm() {
@@ -268,11 +278,11 @@ class Logbookreports {
     this.dateTo2 = this.dateTo.getTime();
   }
 }
- 
+
 const name = 'logbookreports';
 
 //Dashboard.$inject = ['$scope', '$reactive'];
- 
+
 // create a module
 export default angular.module(name, [
   angularMeteor,
@@ -283,33 +293,33 @@ export default angular.module(name, [
   controllerAs: name,
   controller: ['$scope', '$reactive', '$state', Logbookreports]
 })
-.config(['$stateProvider', 
-function($stateProvider) {
-  //'ngInject';
-  $stateProvider
-    .state('logbookreports', {
-      url: '/logbookreports',
-      template: '<logbookreports></logbookreports>',
-      resolve: {
-        currentUser($q, $state) {
-            if (!Meteor.userId()) {
+  .config(['$stateProvider',
+    function ($stateProvider) {
+      //'ngInject';
+      $stateProvider
+        .state('logbookreports', {
+          url: '/logbookreports',
+          template: '<logbookreports></logbookreports>',
+          resolve: {
+            currentUser($q, $state) {
+              if (!Meteor.userId()) {
                 return $q.reject('AUTH_REQUIRED');
-            } else {
-              var userID = Meteor.userId();
-              var access = Meteor.users.findOne({_id: userID});
-              try{
-                if(access.reports){
-                  return $q.resolve();
-                } else {
+              } else {
+                var userID = Meteor.userId();
+                var access = Meteor.users.findOne({ _id: userID });
+                try {
+                  if (access.reports) {
+                    return $q.resolve();
+                  } else {
+                    return $q.reject('LOGGED_IN');
+                  }
+                } catch (err) {
                   return $q.reject('LOGGED_IN');
                 }
-              } catch(err) {
-                return $q.reject('LOGGED_IN');
-              }
-            };
-        }
-      }
-    });
-  } 
-]);
+              };
+            }
+          }
+        });
+    }
+  ]);
 

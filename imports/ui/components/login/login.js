@@ -10,11 +10,11 @@ import { Profiles } from '../../../api/profiles';
 import { Boats } from '../../../api/boats';
 
 import template from './login.html';
- 
+
 class Login {
   constructor($scope, $reactive, $state) {
     //'ngInject';
- 
+
     $reactive(this).attach($scope);
 
     this.login = {};
@@ -24,7 +24,7 @@ class Login {
     this.boat = {};
 
     this.subscribe('users');
- 
+
     this.helpers({
       isLoggedIn() {
         return !!Meteor.userId();
@@ -34,31 +34,33 @@ class Login {
       }
     });
 
-    this.signin = function(){
-        Meteor.loginWithPassword(this.login.username, this.login.password,
-            this.$bindToContext((err) => {
-              if (err) {
-                $scope.loginerror = err.reason;
-                    console.info('err: ' ,   $scope.loginerror );
-                    this.error = true;
-                } else {
-                    var user = Meteor.user();
-                    console.info('user', user);
-                    if(user.watchkeeper) {
-                      $state.go('watchkeep', {}, {reload: 'watchkeep'});
-                    } else {
-                      $state.go('dashboard', {}, {reload: 'dashboard'});
-                    }
-                }
-              })
-            );
-      }
+    this.signin = function () {
+      Meteor.loginWithPassword(this.login.username, this.login.password,
+        this.$bindToContext((err) => {
+          if (err) {
+            $scope.loginerror = err.reason;
+            console.info('err: ', $scope.loginerror);
+            this.error = true;
+          } else {
+            var user = Meteor.user();
+            console.info('user', user);
+            if (user.watchkeeper) {
+              $state.go('watchkeep', {}, { reload: 'watchkeep' });
+            } if (user.supplier) {
+              $state.go('supplier', {}, { reload: 'supplier' });
+            } else {
+              $state.go('dashboard', {}, { reload: 'dashboard' });
+            }
+          }
+        })
+      );
+    }
 
-    this.signup = function() {
+    this.signup = function () {
       $scope.signUpNow = !$scope.signUpNow;
     }
 
-    $scope.createProfile = function(details){
+    $scope.createProfile = function (details) {
       console.info('employee details', $scope.profile)
       $scope.profile.userID = details;
       $scope.profile.role = 'admin';
@@ -68,29 +70,29 @@ class Login {
       var inventory = true;
       var employees = true;
       var superadmin = true;
-      Meteor.call('upsertNewRoleFromRegister', details, $scope.profile.role, boatID, jobs, logbook, inventory, employees, superadmin, function(err, detail) {
+      Meteor.call('upsertNewRoleFromRegister', details, $scope.profile.role, boatID, jobs, logbook, inventory, employees, superadmin, function (err, detail) {
         console.info('detail', detail);
-          if (err) {
-              console.info('err', err);
-         } else {
-           console.info('success', detail);
-         }
+        if (err) {
+          console.info('err', err);
+        } else {
+          console.info('success', detail);
+        }
       });
       var downloadurl = '../assets/img/user.jpg';
-      Meteor.call('upsertPhotoUser', $scope.profile.userID, downloadurl, function(err, result) {
+      Meteor.call('upsertPhotoUser', $scope.profile.userID, downloadurl, function (err, result) {
         if (err) {
           console.info('err', err);
         } else {
           console.info('uploaded', err);
-       }
+        }
       });
       var status = Profiles.insert($scope.profile);
     }
 
-    this.registerNow = function() {
-      if(this.register.password == this.register.password2){
+    this.registerNow = function () {
+      if (this.register.password == this.register.password2) {
         this.error = false;
-        if(this.register.license == 'tySLTdymp2018'){
+        if (this.register.license == 'tySLTdymp2018') {
           console.info('this.register.boatID', this.register.boatID);
           //this.boat.boatID = this.register.boatID;
           this.register.boatName = this.register.boatID;
@@ -106,31 +108,31 @@ class Login {
           this.register.date = new Date();
           $scope.profile = this.register;
           console.info('profile', this.register);
-          Meteor.call('createUsersFromRegister', this.register.password, this.register.username, this.register.boatID, function(err, detail) {
-              console.info('detail', detail);
-                if (err) {
-                    console.info('err', err);
-                    $scope.inProgress = false;
-                    $scope.loginerror = err.reason;
-                    console.info('err: ' ,   $scope.loginerror );
-                    this.error = true;
-                    window.setTimeout(function(){
-                      $scope.$apply();
-                    },2000);
-               } else {
-                 this.userID = detail;
-                 console.info('success', this.userID);
-                 this.cancreate = true;
-                 console.info('cancreate', this.cancreate);
-                 $scope.inProgress = false;
-                 $scope.completed = true;
-                 $scope.signUpNow = !$scope.signUpNow;
-                 window.setTimeout(function(){
-                  $scope.$apply();
-                },2000);
-                 $scope.createProfile(detail);
-               }
-            });
+          Meteor.call('createUsersFromRegister', this.register.password, this.register.username, this.register.boatID, function (err, detail) {
+            console.info('detail', detail);
+            if (err) {
+              console.info('err', err);
+              $scope.inProgress = false;
+              $scope.loginerror = err.reason;
+              console.info('err: ', $scope.loginerror);
+              this.error = true;
+              window.setTimeout(function () {
+                $scope.$apply();
+              }, 2000);
+            } else {
+              this.userID = detail;
+              console.info('success', this.userID);
+              this.cancreate = true;
+              console.info('cancreate', this.cancreate);
+              $scope.inProgress = false;
+              $scope.completed = true;
+              $scope.signUpNow = !$scope.signUpNow;
+              window.setTimeout(function () {
+                $scope.$apply();
+              }, 2000);
+              $scope.createProfile(detail);
+            }
+          });
 
         } else {
           $scope.loginerror = 'invalid License Code';
@@ -147,13 +149,13 @@ class Login {
     return this.isLoggedIn && party.owner === this.currentUserId;
   }
 
-  
+
 }
- 
+
 const name = 'login';
 
 //Login.$inject = ['$scope', '$reactive', '$state'];
- 
+
 // create a module
 export default angular.module(name, [
   angularMeteor,
@@ -164,23 +166,23 @@ export default angular.module(name, [
   controllerAs: name,
   controller: ['$scope', '$reactive', '$state', Login]
 })
-.config(['$stateProvider',
-function($stateProvider) {
-    //'ngInject';
-    $stateProvider
-      .state('login', {
-        url: '/',
-        template: '<login></login>',
-        resolve: {
+  .config(['$stateProvider',
+    function ($stateProvider) {
+      //'ngInject';
+      $stateProvider
+        .state('login', {
+          url: '/',
+          template: '<login></login>',
+          resolve: {
             currentUser($q, $state) {
-                if (!Meteor.userId()) {
-                  return $q.resolve();
-                } else {
-                  return $q.reject('LOGGED_IN');
-                };
+              if (!Meteor.userId()) {
+                return $q.resolve();
+              } else {
+                return $q.reject('LOGGED_IN');
+              };
             }
           }
-      });
+        });
     }
-]);
+  ]);
 

@@ -3,7 +3,8 @@ import { Meteor } from 'meteor/meteor';
 Slingshot.GoogleCloud.directiveDefault.GoogleAccessId = "ymp-397@squalaschools-1491907969245.iam.gserviceaccount.com";
 Slingshot.GoogleCloud.directiveDefault.GoogleSecretKey = Assets.getText('google-cloud-service-key.pem');
 
-Slingshot.createDirective('myFileUploads', Slingshot.GoogleCloud, {
+//Slingshot.createDirective('myFileUploads', Slingshot.GoogleCloud, {
+Slingshot.createDirective('myFileUploads', Slingshot.S3Storage, {
     bucket: 'ympbucket',
     acl: 'public-read',
     allowedFileTypes: null,

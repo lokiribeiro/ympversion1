@@ -1,0 +1,466 @@
+<!-- BEGIN SIDEBAR -->
+<div class="sidebar" style="z-index: 999999999 !important;">
+    <div class="logopanel">
+        <h1>
+            <a href="/"></a>
+        </h1>
+    </div>
+    <div class="sidebar-inner">
+        <ul class="nav nav-sidebar">
+            <li class="nav-parent" ng-click="searchinventory.gotoDashboard()" ng-if="searchinventory.currentUser.jobs">
+                <a href="">
+                    <i class="icon-home"></i>
+                    <span>Jobs</span>
+                </a>
+            </li>
+            <li class="nav-parent active" ng-click="searchinventory.gotoInventory()" ng-if="searchinventory.currentUser.inventory">
+                <a href="">
+                    <i class="icon-basket"></i>
+                    <span>Inventory</span>
+                    <span class="fa arrow"></span>
+                </a>
+            </li>
+            <li class="nav-parent" ng-click="searchinventory.gotoLogbook()" ng-if="searchinventory.currentUser.logbook">
+                <a href="">
+                    <i class="icon-note"></i>
+                    <span>Logbook </span>
+                    <span class="fa arrow"></span>
+                </a>
+            </li>
+            <li class="nav-parent" ng-click="searchinventory.gotoEmployees()" ng-if="searchinventory.currentUser.employees">
+                <a href="">
+                    <i class="icon-user"></i>
+                    <span>Employees </span>
+                    <span class="fa arrow"></span>
+                </a>
+            </li>
+            <li class="nav-parent" ng-click="searchinventory.gotoReports()" ng-if="searchinventory.currentUser.reports">
+                <a href="">
+                    <i class="icon-docs"></i>
+                    <span>Reports </span>
+                    <span class="fa arrow"></span>
+                </a>
+            </li>
+            <li class="nav-parent" ng-click="searchinventory.gotoWatchkeep()" ng-if="searchinventory.currentUser.watchkeeping || searchinventory.currentUser.watchkeeper">
+                <a href="">
+                    <i class="icon-cup"></i>
+                    <span>Watchkeep </span>
+                    <span class="fa arrow"></span>
+                </a>
+            </li>
+            <li class="nav-parent" ng-click="searchinventory.gotoSupplier()" ng-if="searchinventory.currentUser.supplier">
+                <a href="">
+                    <i class="icon-layers"></i>
+                    <span>Supplier </span>
+                    <span class="fa arrow"></span>
+                </a>
+            </li>
+            <li class="nav-parent" ng-click="searchinventory.gotoAdminPanel()" ng-if="searchinventory.currentUser.superadmin">
+                <a href="">
+                    <i class="icon-puzzle"></i>
+                    <span>Super Admin </span>
+                    <span class="fa arrow"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- END SIDEBAR -->
+
+<div class="main-content">
+    <!-- BEGIN TOPBAR -->
+    <div class="topbar" style="z-index: 999999999 !important;">
+        <div class="header-left" style="margin-top: 15px !important; margin-left: 10px !important;">
+            <span class="username" style="color: #fff !important;">{{searchinventory.currentUser.boatName}}</span>
+        </div>
+        <div class="header-right">
+            <ul class="header-menu nav navbar-nav">
+                <!-- BEGIN USER DROPDOWN 
+                <li class="dropdown" id="language-header">
+                  <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                  <i class="icon-globe"></i>
+                  <span>Language</span>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a href="#" data-lang="en"><img src="../assets/global/images/flags/usa.png" alt="flag-english"> <span>English</span></a>
+                    </li>
+                    <li>
+                      <a href="#" data-lang="es"><img src="../assets/global/images/flags/spanish.png" alt="flag-english"> <span>Español</span></a>
+                    </li>
+                    <li>
+                      <a href="#" data-lang="fr"><img src="../assets/global/images/flags/french.png" alt="flag-english"> <span>Français</span></a>
+                    </li>
+                  </ul>
+                </li> -->
+                <!-- END USER DROPDOWN -->
+                <!-- BEGIN NOTIFICATION DROPDOWN 
+                <li class="dropdown" id="notifications-header">
+                  <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                  <i class="icon-bell"></i>
+                  <span class="badge badge-danger badge-header">6</span>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li class="dropdown-header clearfix">
+                      <p class="pull-left">12 Pending Notifications</p>
+                    </li>
+                    <li>
+                      <ul class="dropdown-menu-list withScroll" data-height="220">
+                        <li>
+                          <a href="#">
+                          <i class="fa fa-star p-r-10 f-18 c-orange"></i>
+                          Steve have rated your photo
+                          <span class="dropdown-time">Just now</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                          <i class="fa fa-heart p-r-10 f-18 c-red"></i>
+                          John added you to his favs
+                          <span class="dropdown-time">15 mins</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                          <i class="fa fa-file-text p-r-10 f-18"></i>
+                          New document available
+                          <span class="dropdown-time">22 mins</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                          <i class="fa fa-picture-o p-r-10 f-18 c-blue"></i>
+                          New picture added
+                          <span class="dropdown-time">40 mins</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                          <i class="fa fa-bell p-r-10 f-18 c-orange"></i>
+                          Meeting in 1 hour
+                          <span class="dropdown-time">1 hour</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                          <i class="fa fa-bell p-r-10 f-18"></i>
+                          Server 5 overloaded
+                          <span class="dropdown-time">2 hours</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                          <i class="fa fa-comment p-r-10 f-18 c-gray"></i>
+                          Bill comment your post
+                          <span class="dropdown-time">3 hours</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#">
+                          <i class="fa fa-picture-o p-r-10 f-18 c-blue"></i>
+                          New picture added
+                          <span class="dropdown-time">2 days</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="dropdown-footer clearfix">
+                      <a href="#" class="pull-left">See all notifications</a>
+                      <a href="#" class="pull-right">
+                      <i class="icon-settings"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </li> -->
+                <!-- END NOTIFICATION DROPDOWN -->
+                <!-- BEGIN USER DROPDOWN -->
+                <li class="dropdown" id="user-header">
+                    <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                        <img style="width: 36px !important; height: 36px !important;" src="{{searchinventory.currentUser.profilePhoto}}" alt="user image">
+                        <span class="username">Hi, {{searchinventory.currentUser.username}}</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a ui-sref="profilepage({ employeeId: searchinventory.currentUserId })">
+                                <i class="icon-user"></i>
+                                <span>My Profile</span>
+                            </a>
+                        </li>
+                        <!--<li>
+                      <a href="#"><i class="icon-settings"></i><span>Account Settings</span></a>
+                    </li>-->
+                        <li>
+                            <a href="#" ng-click="searchinventory.logout()">
+                                <i class="icon-logout"></i>
+                                <span>Logout</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- END USER DROPDOWN -->
+            </ul>
+        </div>
+        <!-- header-right -->
+    </div>
+    <!-- END TOPBAR -->
+    <!-- BEGIN PAGE CONTENT -->
+    <div class="page-content" id="thisPage">
+        <div class="row">
+            <div class="col-md-4 portlets">
+                <div class="panel bg-dark">
+                    <div class="panel-content">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="field-1" class="control-label">Name</label>
+                                    <input type="text" ng-model="searchinventory.name" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="field-3" class="control-label">Category</label>
+                                    <input type="text" ng-model="searchinventory.category" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="field-4" class="control-label">Manufacturer</label>
+                                    <input type="text" ng-model="searchinventory.manufacturer" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="field-5" class="control-label">Model Number</label>
+                                    <input type="text" ng-model="searchinventory.modelNo" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="field-4" class="control-label">Part Number</label>
+                                    <input type="text" ng-model="searchinventory.partNo" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="field-5" class="control-label">Supplier</label>
+                                    <input type="text" ng-model="searchinventory.supplierName" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="field-4" class="control-label">Minimum Price</label>
+                                    <input type="text" ng-model="searchinventory.minPrice" class="form-control" placeholder="0.00" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="field-4" class="control-label">Maximum Price</label>
+                                    <input type="text" ng-model="searchinventory.maxPrice" class="form-control" placeholder="0.00" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn-group">
+                            <button class="btn btn-dark m-r-20" ng-click="searchinventory.filterNow()"> Search</button>
+                            <button class="btn btn-dark" ng-click="searchinventory.reset()"> Reset</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8 portlets">
+                <div class="panel bg-dark">
+                    <div class="panel-content">
+                        <table class="table table-hover dataTable" id="table-editable">
+                            <thead>
+                                <tr>
+                                    <th>Item</th>
+                                    <th>Supplier</th>
+                                    <th>Price
+                                        <a href="#" ng-click="searchinventory.sortPriceUp()" ng-if="searchinventory.priceUp">
+                                            <i class="fa fa-arrow-circle-up"></i>
+                                        </a>
+                                        <a href="#" ng-click="searchinventory.sortPriceDown()" ng-hide="searchinventory.priceUp">
+                                            <i class="fa fa-arrow-circle-down"></i>
+                                        </a>
+                                    </th>
+                                    <th>Email</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr dir-paginate="product in searchinventory.products | itemsPerPage: searchinventory.perPage" total-items="searchinventory.productsCount"
+                                    ui-sref="sendorder({ productId: product._id })" ng-click="">
+                                    <td>{{product.name}}</td>
+                                    <td>{{product.supplierName}}</td>
+                                    <td>{{product.price}}</td>
+                                    <td>{{product.email}}</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                        <dir-pagination-controls on-page-change="searchinventory.pageChanged(newPageNumber)"></dir-pagination-controls>
+
+
+                        <div class="btn-group">
+                            <button class="btn btn-dark m-r-20" ng-print print-element-id="thisPage">
+                                <i class="fa fa-print"></i>Print</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="copyright">
+                <p class="pull-left sm-pull-reset">
+                    <span>Copyright
+                        <span class="copyright">©</span> 2018 </span>
+                    <span>Powered by TYS Ltd</span>.
+                    <span>All rights reserved. </span>
+                </p>
+                <p class="pull-right sm-pull-reset">
+                    <span>
+                        <a href="#" class="m-r-10">Support</a> |
+                        <a href="#" class="m-l-10 m-r-10">Terms of use</a> |
+                        <a href="#" class="m-l-10">Privacy Policy</a>
+                    </span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modal-responsive" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-dark">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        <i class="icons-office-52" style="color: #fff !important;"></i>
+                    </button>
+                    <h4 class="modal-title">
+                        <strong>New</strong> Inventory</h4>
+                </div>
+                <div class="modal-body bg-dark">
+                    <!--<p>Change screen size to see responsive behaviour.</p>-->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="field-1" class="control-label">Name</label>
+                                <input type="text" ng-model="searchinventory.inventory.name" class="form-control" placeholder="Item name" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="field-3" class="control-label">Category</label>
+                                <input type="text" ng-model="searchinventory.inventory.category" class="form-control" placeholder="Category" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="field-4" class="control-label">Manufacturer</label>
+                                <input type="text" ng-model="searchinventory.inventory.manufacturer" class="form-control" placeholder="manufacturer name"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="field-5" class="control-label">Model Number</label>
+                                <input type="text" ng-model="searchinventory.inventory.modelNo" class="form-control" placeholder="Model No." required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="field-4" class="control-label">Part Number</label>
+                                <input type="text" ng-model="searchinventory.inventory.partNo" class="form-control" placeholder="Part No." required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="field-5" class="control-label">Total Amount</label>
+                                <input type="text" ng-model="searchinventory.inventory.totalAmount" class="form-control" placeholder="0" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="field-4" class="control-label">Minimum Amount</label>
+                                <input type="text" ng-model="searchinventory.inventory.minAmount" class="form-control" placeholder="0" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Department</label>
+                                <select ng-model="searchinventory.inventory.department" name="group" class="form-control">
+                                    <option ng-repeat="department in searchinventory.departments" value="{{department.value}}">{{department.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--<div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="field-4" class="control-label">Used For</label>
+                          <input type="text" ng-model="searchinventory.inventory.usedFor" class="form-control" placeholder="item usage" required>
+                        </div>
+                      </div>
+                </div>-->
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="field-4" class="control-label">Price</label>
+                                <input type="text" ng-model="searchinventory.inventory.price" class="form-control" placeholder="0.00" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Critical Item?</label>
+                                <select ng-model="searchinventory.inventory.critical" class="form-control" required>
+                                    <option ng-repeat="option in searchinventory.options" value="{{option.value}}">{{option.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Make Item Private?</label>
+                                <select ng-model="searchinventory.inventory.private" class="form-control" required>
+                                    <option ng-repeat="option in searchinventory.options" value="{{option.value}}">{{option.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer bg-dark text-center">
+                    <button type="submit" class="btn btn-dark" data-dismiss="modal" ng-click="searchinventory.submit()">
+                        <i class="fa fa-check"></i> Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END PAGE CONTENT -->
+
+</div>

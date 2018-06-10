@@ -1,44 +1,81 @@
 <!-- BEGIN SIDEBAR -->
 <div class="sidebar" style="z-index: 999999999 !important;">
-        <div class="logopanel">
-          <h1>
-            <a href="/"></a>
-          </h1>
-        </div>
-        <div class="sidebar-inner">
-          <ul class="nav nav-sidebar">
-            <li class="nav-parent" ng-click="newlog.gotoDashboard()" ng-if="newlog.currentUser.jobs">
-              <a href=""><i class="icon-home"></i><span>Jobs</span></a>
-            </li>
-            <li class="nav-parent" ng-click="newlog.gotoInventory()" ng-if="newlog.currentUser.inventory">
-              <a href=""><i class="icon-basket"></i><span>Inventory</span><span class="fa arrow"></span></a>
-            </li>
-            <li class="nav-parent active" ng-click="newlog.gotoLogbook()" ng-if="newlog.currentUser.logbook">
-              <a href=""><i class="icon-note"></i><span>Logbook </span><span class="fa arrow"></span></a>
-            </li>
-            <li class="nav-parent" ng-click="newlog.gotoEmployees()" ng-if="newlog.currentUser.employees">
-              <a href=""><i class="icon-user"></i><span>Employees </span><span class="fa arrow"></span></a>
-            </li>
-            <li class="nav-parent" ng-click="newlog.gotoReports()" ng-if="newlog.currentUser.reports">
-                <a href=""><i class="icon-docs"></i><span>Reports </span><span class="fa arrow"></span></a>
-            </li>
-            <li class="nav-parent" ng-click="newlog.gotoWatchkeep()" ng-if="newlog.currentUser.watchkeeping || newlog.currentUser.watchkeeper">
-              <a href=""><i class="icon-cup"></i><span>Watchkeep </span><span class="fa arrow"></span></a>
-            </li>
-            <li class="nav-parent" ng-click="newlog.gotoAdminPanel()" ng-if="newlog.currentUser.superadmin">
-              <a href=""><i class="icon-puzzle"></i><span>Super Admin </span><span class="fa arrow"></span></a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <!-- END SIDEBAR -->
-      
-      <div class="main-content">
-        <!-- BEGIN TOPBAR -->
-        <div class="topbar" style="z-index: 999999999 !important;">
-          <div class="header-right">
-            <ul class="header-menu nav navbar-nav">
-              <!-- BEGIN USER DROPDOWN 
+  <div class="logopanel">
+    <h1>
+      <a href="/"></a>
+    </h1>
+  </div>
+  <div class="sidebar-inner">
+    <ul class="nav nav-sidebar">
+      <li class="nav-parent" ng-click="newlog.gotoDashboard()" ng-if="newlog.currentUser.jobs">
+        <a href="">
+          <i class="icon-home"></i>
+          <span>Jobs</span>
+        </a>
+      </li>
+      <li class="nav-parent" ng-click="newlog.gotoInventory()" ng-if="newlog.currentUser.inventory">
+        <a href="">
+          <i class="icon-basket"></i>
+          <span>Inventory</span>
+          <span class="fa arrow"></span>
+        </a>
+      </li>
+      <li class="nav-parent active" ng-click="newlog.gotoLogbook()" ng-if="newlog.currentUser.logbook">
+        <a href="">
+          <i class="icon-note"></i>
+          <span>Logbook </span>
+          <span class="fa arrow"></span>
+        </a>
+      </li>
+      <li class="nav-parent" ng-click="newlog.gotoEmployees()" ng-if="newlog.currentUser.employees">
+        <a href="">
+          <i class="icon-user"></i>
+          <span>Employees </span>
+          <span class="fa arrow"></span>
+        </a>
+      </li>
+      <li class="nav-parent" ng-click="newlog.gotoReports()" ng-if="newlog.currentUser.reports">
+        <a href="">
+          <i class="icon-docs"></i>
+          <span>Reports </span>
+          <span class="fa arrow"></span>
+        </a>
+      </li>
+      <li class="nav-parent" ng-click="newlog.gotoWatchkeep()" ng-if="newlog.currentUser.watchkeeping || newlog.currentUser.watchkeeper">
+        <a href="">
+          <i class="icon-cup"></i>
+          <span>Watchkeep </span>
+          <span class="fa arrow"></span>
+        </a>
+      </li>
+      <li class="nav-parent" ng-click="newlog.gotoSupplier()" ng-if="newlog.currentUser.supplier">
+        <a href="">
+          <i class="icon-layers"></i>
+          <span>Supplier </span>
+          <span class="fa arrow"></span>
+        </a>
+      </li>
+      <li class="nav-parent" ng-click="newlog.gotoAdminPanel()" ng-if="newlog.currentUser.superadmin">
+        <a href="">
+          <i class="icon-puzzle"></i>
+          <span>Super Admin </span>
+          <span class="fa arrow"></span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- END SIDEBAR -->
+
+<div class="main-content">
+  <!-- BEGIN TOPBAR -->
+  <div class="topbar" style="z-index: 999999999 !important;">
+    <div class="header-left" style="margin-top: 15px !important; margin-left: 10px !important;">
+      <span class="username" style="color: #fff !important;">{{newlog.currentUser.boatName}}</span>
+    </div>
+    <div class="header-right">
+      <ul class="header-menu nav navbar-nav">
+        <!-- BEGIN USER DROPDOWN 
               <li class="dropdown" id="language-header">
                 <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                 <i class="icon-globe"></i>
@@ -56,8 +93,8 @@
                   </li>
                 </ul>
               </li> -->
-              <!-- END USER DROPDOWN -->
-              <!-- BEGIN NOTIFICATION DROPDOWN 
+        <!-- END USER DROPDOWN -->
+        <!-- BEGIN NOTIFICATION DROPDOWN 
               <li class="dropdown" id="notifications-header">
                 <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                 <i class="icon-bell"></i>
@@ -135,153 +172,172 @@
                   </li>
                 </ul>
               </li> -->
-              <!-- END NOTIFICATION DROPDOWN -->
-              <!-- BEGIN USER DROPDOWN -->
-              <li class="dropdown" id="user-header">
-                <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                <img style="width: 36px !important; height: 36px !important;" src="{{newlog.currentUser.profilePhoto}}" alt="user image">
-                <span class="username">Hi, {{newlog.currentUser.username}}</span>
-                </a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <a ui-sref="profilepage({ employeeId: newlog.currentUserId })"><i class="icon-user"></i><span>My Profile</span></a>
-                  </li>
-                  <!--<li>
+        <!-- END NOTIFICATION DROPDOWN -->
+        <!-- BEGIN USER DROPDOWN -->
+        <li class="dropdown" id="user-header">
+          <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+            <img style="width: 36px !important; height: 36px !important;" src="{{newlog.currentUser.profilePhoto}}" alt="user image">
+            <span class="username">Hi, {{newlog.currentUser.username}}</span>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a ui-sref="profilepage({ employeeId: newlog.currentUserId })">
+                <i class="icon-user"></i>
+                <span>My Profile</span>
+              </a>
+            </li>
+            <!--<li>
                     <a href="#"><i class="icon-settings"></i><span>Account Settings</span></a>
                   </li>-->
-                  <li>
-                    <a href="#" ng-click="newlog.logout()"><i class="icon-logout"></i><span>Logout</span></a>
-                  </li>
-                </ul>
-              </li>
-              <!-- END USER DROPDOWN -->
-            </ul>
-          </div>
-          <!-- header-right -->
-        </div>
-        <!-- END TOPBAR -->
-        <!-- BEGIN PAGE CONTENT -->
-        <div class="page-content" id="thisPage">
-          <div ng-if="newlog.showNotif" class="preview active">
-            <div class="alert alert-success media fade in">
-              <p>Changes Saved <button type="button" class="close" ng-click="jobdetails.notification()" aria-hidden="true"><i class="icons-office-52"></i></button></p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="panel panel-default">
-                <div class="panel-content bg-dark">
-                  <div class="row">
-                    <div class="col-sm-12">
-                        <div class="row" >
-                            <div class="col-sm-6" ng-repeat="group in newlog.groups track by $index" ng-if="group.atPort">
-                              <div class="panel panel-default" style="border: 1px solid #fff !important;">
-                                <div class="panel-header">
-                                  {{group.name}}
-                                </div>
-                                <div class="panel-content bg-dark f-10">
-                                  <div class="row">
-                                    <div class="col-md-12 col-sm-12 col-xs-12">
-                                      <form role="form" class="form-horizontal form-validation">   
-                                          <div class="row">
-                                              <div class="form-group" ng-if="group.hours">
-                                                  <label class="col-sm-4 control-label f-10">Running Hours
-                                                  </label>
-                                                  <div class="col-sm-4">
-                                                      <input type="text" class="form-control f-10" ng-model="newlog.port.groupHours[$parent.$index]" placeholder="0" >
-                                                  </div>
-                                                  <div class="col-sm-4">
-                                                      <input type="text" class="form-control f-10" ng-model="subgroup.unit" placeholder="Hours" disabled>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                          <div class="row" ng-repeat="subgroup in newlog.subgroups" ng-if="subgroup.groupID == group._id">
-                                            <div class="form-group">
-                                              <label class="col-sm-4 control-label f-10">{{subgroup.itemName}}
-                                              </label>
-                                              <div class="col-sm-2" ng-if="subgroup.withoutOptions">
-                                                <input type="text" class="form-control f-10" ng-model="newlog.port.groupSub[$parent.$index]" placeholder="{{subgroup.itemName}}" >
-                                              </div>
-                                              <div class="col-sm-2" ng-repeat="option in subgroup.optionItems track by $index">
-                                                <input type="text" class="form-control"  ng-model="newlog.port.groupSub[$parent.$index].item[$index]" placeholder="{{option}}" >
-                                              </div>
-                                              <div class="col-sm-2">
-                                                <input type="text" class="form-control f-10" ng-model="newlog.port.groupUnit[$parent.$index]" value="{{subgroup.unit}}" placeholder="{{subgroup.unit}}"  disabled>
-                                              </div>
-                                            </div>
-                                          </div>         
-                                      </form>
-                                    </div>
+            <li>
+              <a href="#" ng-click="newlog.logout()">
+                <i class="icon-logout"></i>
+                <span>Logout</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <!-- END USER DROPDOWN -->
+      </ul>
+    </div>
+    <!-- header-right -->
+  </div>
+  <!-- END TOPBAR -->
+  <!-- BEGIN PAGE CONTENT -->
+  <div class="page-content" id="thisPage">
+    <div ng-if="newlog.showNotif" class="preview active">
+      <div class="alert alert-success media fade in">
+        <p>Changes Saved
+          <button type="button" class="close" ng-click="jobdetails.notification()" aria-hidden="true">
+            <i class="icons-office-52"></i>
+          </button>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="panel panel-default">
+          <div class="panel-content bg-dark">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="row">
+                  <div class="col-sm-6" ng-repeat="group in newlog.groups track by $index" ng-if="group.atPort">
+                    <div class="panel panel-default" style="border: 1px solid #fff !important;">
+                      <div class="panel-header">
+                        {{group.name}}
+                      </div>
+                      <div class="panel-content bg-dark f-10">
+                        <div class="row">
+                          <div class="col-md-12 col-sm-12 col-xs-12">
+                            <form role="form" class="form-horizontal form-validation">
+                              <div class="row">
+                                <div class="form-group" ng-if="group.hours">
+                                  <label class="col-sm-4 control-label f-10">Running Hours
+                                  </label>
+                                  <div class="col-sm-4">
+                                    <input type="text" class="form-control f-10" ng-model="newlog.port.groupHours[$parent.$index]" placeholder="0">
+                                  </div>
+                                  <div class="col-sm-4">
+                                    <input type="text" class="form-control f-10" ng-model="subgroup.unit" placeholder="Hours" disabled>
                                   </div>
                                 </div>
                               </div>
-                            </div>
-      
-                            <div class="col-sm-6">
-                                <div class="panel panel-default" style="border: 1px solid #fff !important;">
-                                    <div class="panel-content bg-dark f-10">
-                                      <div class="row">
-                                        <div class="col-md-12 col-sm-12 col-xs-12">
-                                          <form role="form" class="form-horizontal form-validation">
-                                              <div class="col-sm-12">
-                                                  <div class="form-group">
-                                                      <label class="control-label">Notes / History
-                                                      </label>
-                                                      <div>
-                                                        <textarea rows="10" class="form-control" ng-model="newlog.port.notes" placeholder="Write notes..."></textarea>
-                                                      </div>
-                                                    </div>
-                                              </div>
-                                              <div class="col-sm-12">
-                                                  <div class="form-group">
-                                                          <label class="control-label">Engineer on watch</label>
-                                                          <div>
-                                                          <select ng-model="newlog.engineer.doneBy" name="users" class="form-control" required>
-                                                            <option ng-repeat="profile in newlog.profiles" ng-value="profile" >{{profile.firstName + ' ' + profile.lastName}}</option>
-                                                          </select>
-                                                        </div>
-                                                  </div>
-                                              </div>
-                                              <div class="row">
-                                                  <div class="col-sm-12">
-                                                    <div class="col-sm-4">
-                                                      <button ng-click="newlog.save()" type="submit" class="btn btn-dark m-r-20"><i class="fa fa-save"></i> Save Changes</button>
-                                                    </div>
-                                                    <div class="col-sm-4">
-                                                        <button class="btn btn-dark m-r-20" ng-print print-element-id="thisPage"><i class="fa fa-print"></i>Print</button>
-                                                      </div>
-                                                      <div class="col-sm-4">
-                                                          <button ng-click="newlog.gotoLogbook()" class="btn btn-dark m-r-20"><i class="fa fa-exclamation-circle"></i>Cancel</button>
-                                                        </div>
-                                                  </div>
-                                              </div>
-          
-                                          </form>
-                                        </div>
-                                      </div>
-                                    </div>
+                              <div class="row" ng-repeat="subgroup in newlog.subgroups" ng-if="subgroup.groupID == group._id">
+                                <div class="form-group">
+                                  <label class="col-sm-4 control-label f-10">{{subgroup.itemName}}
+                                  </label>
+                                  <div class="col-sm-2" ng-if="subgroup.withoutOptions">
+                                    <input type="text" class="form-control f-10" ng-model="newlog.port.groupSub[$parent.$index]" placeholder="{{subgroup.itemName}}">
                                   </div>
-                            </div>
+                                  <div class="col-sm-2" ng-repeat="option in subgroup.optionItems track by $index">
+                                    <input type="text" class="form-control" ng-model="newlog.port.groupSub[$parent.$index].item[$index]" placeholder="{{option}}">
+                                  </div>
+                                  <div class="col-sm-2">
+                                    <input type="text" class="form-control f-10" ng-model="newlog.port.groupUnit[$parent.$index]" value="{{subgroup.unit}}" placeholder="{{subgroup.unit}}"
+                                      disabled>
+                                  </div>
+                                </div>
+                              </div>
+                            </form>
                           </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-6">
+                    <div class="panel panel-default" style="border: 1px solid #fff !important;">
+                      <div class="panel-content bg-dark f-10">
+                        <div class="row">
+                          <div class="col-md-12 col-sm-12 col-xs-12">
+                            <form role="form" class="form-horizontal form-validation">
+                              <div class="col-sm-12">
+                                <div class="form-group">
+                                  <label class="control-label">Notes / History
+                                  </label>
+                                  <div>
+                                    <textarea rows="10" class="form-control" ng-model="newlog.port.notes" placeholder="Write notes..."></textarea>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-sm-12">
+                                <div class="form-group">
+                                  <label class="control-label">Engineer on watch</label>
+                                  <div>
+                                    <select ng-model="newlog.engineer.doneBy" name="users" class="form-control" required>
+                                      <option ng-repeat="profile in newlog.profiles" ng-value="profile">{{profile.firstName + ' ' + profile.lastName}}</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-sm-12">
+                                  <div class="col-sm-4">
+                                    <button ng-click="newlog.save()" type="submit" class="btn btn-dark m-r-20">
+                                      <i class="fa fa-save"></i> Save Changes</button>
+                                  </div>
+                                  <div class="col-sm-4">
+                                    <button class="btn btn-dark m-r-20" ng-print print-element-id="thisPage">
+                                      <i class="fa fa-print"></i>Print</button>
+                                  </div>
+                                  <div class="col-sm-4">
+                                    <button ng-click="newlog.gotoLogbook()" class="btn btn-dark m-r-20">
+                                      <i class="fa fa-exclamation-circle"></i>Cancel</button>
+                                  </div>
+                                </div>
+                              </div>
+
+                            </form>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-            
-          <div class="footer">
-            <div class="copyright">
-              <p class="pull-left sm-pull-reset">
-                <span>Copyright <span class="copyright">©</span> 2018 </span>
-                <span>Powered by TYS Ltd</span>.
-                <span>All rights reserved. </span>
-              </p>
-              <p class="pull-right sm-pull-reset">
-                <span><a href="#" class="m-r-10">Support</a> | <a href="#" class="m-l-10 m-r-10">Terms of use</a> | <a href="#" class="m-l-10">Privacy Policy</a></span>
-              </p>
-            </div>
-          </div>
         </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="copyright">
+        <p class="pull-left sm-pull-reset">
+          <span>Copyright
+            <span class="copyright">©</span> 2018 </span>
+          <span>Powered by TYS Ltd</span>.
+          <span>All rights reserved. </span>
+        </p>
+        <p class="pull-right sm-pull-reset">
+          <span>
+            <a href="#" class="m-r-10">Support</a> |
+            <a href="#" class="m-l-10 m-r-10">Terms of use</a> |
+            <a href="#" class="m-l-10">Privacy Policy</a>
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
 
 </div>

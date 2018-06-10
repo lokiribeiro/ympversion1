@@ -32,14 +32,15 @@ import { Meteor } from 'meteor/meteor';
     return roleUpsert;
   }
 
-  export function upsertNewRoleFromAdmin(userID, userRole, department, jobtitle, boatID, jobs){
+  export function upsertNewRoleFromAdmin(userID, userRole, department, jobtitle, boatID, jobs, boatName){
     var selector = {_id: userID};
     var modifier = {$set: {
       role: userRole,
       department: department,
       jobtitle: jobtitle,
       boatID: boatID,
-      jobs: jobs
+      jobs: jobs,
+      boatName: boatName
     }};
     var roleUpsert = Meteor.users.upsert(selector, modifier);
     return roleUpsert;
@@ -108,6 +109,15 @@ import { Meteor } from 'meteor/meteor';
     return roleUpsert;
   }
 
+  export function upsertSupplierAccess(userID, access){
+    var selector = {_id: userID};
+    var modifier = {$set: {
+      supplier: access
+    }};
+    var roleUpsert = Meteor.users.upsert(selector, modifier);
+    return roleUpsert;
+  }
+
   export function  upsertPhotoUser(profileID, downloadUrl){
     var selector = {_id: profileID};
     var modifier = {$set: {
@@ -139,20 +149,22 @@ import { Meteor } from 'meteor/meteor';
     return username;
   }
 
-  export function upsertBoatID(userID, boatID){
+  export function upsertBoatID(userID, boatID, boatName){
     var selector = {_id: userID};
     var modifier = {$set: {
-      boatID: boatID
+      boatID: boatID,
+      boatName: boatName
     }};
     var roleUpsert = Meteor.users.upsert(selector, modifier);
     return roleUpsert;
   }
 
-  export function upsertDeptTitle(userID, department, jobtitle){
+  export function upsertDeptTitle(userID, department, jobtitle, role){
     var selector = {_id: userID};
     var modifier = {$set: {
       department: department,
-      jobtitle: jobtitle
+      jobtitle: jobtitle,
+      role: role
     }};
     var roleUpsert = Meteor.users.upsert(selector, modifier);
     return roleUpsert;
@@ -166,16 +178,66 @@ import { Meteor } from 'meteor/meteor';
     var roleUpsert = Meteor.users.upsert(selector, modifier);
     return roleUpsert;
   }
-    
-   
-   
-   
-   
 
+  export function upsertSetRemove(userID, forRemove){
+    var selector = {_id: userID};
+    var setToFalse = false;
+    var modifier = {$set: {
+      forRemove: forRemove,
+      jobs: setToFalse,
+      inventory: setToFalse,
+      logbook: setToFalse,
+      employees: setToFalse,
+      equipments: setToFalse,
+      watchkeeping: setToFalse,
+      watchkeeper: setToFalse,
+      reports: setToFalse,
+      supplier: setToFalse
+    }};
+    var roleUpsert = Meteor.users.upsert(selector, modifier);
+    return roleUpsert;
+  }
 
+  export function upsertRemoveUser(userID, status){
+    var selector = {_id: userID};
+    var boatID = '';
+    var boatName = '';
+    var role = 'user';
+    var modifier = {$set: {
+      status: status,
+      boatID: boatID,
+      boatName: boatName,
+      role: role
+    }};
+    var roleUpsert = Meteor.users.upsert(selector, modifier);
+    return roleUpsert;
+  }
 
+  export function upsertDeclineRemove(userID, setRemove, decline){
+    var selector = {_id: userID};
+    var modifier = {$set: {
+      forRemove: setRemove,
+      decline: decline
+    }};
+    var roleUpsert = Meteor.users.upsert(selector, modifier);
+    return roleUpsert;
+  }
 
-
+  export function upsertOnboardUser(userID, boatID, boatName){
+    var selector = {_id: userID};
+    var status = true;
+    var forRemove = false;
+    var jobs = true;
+    var modifier = {$set: {
+      status: status,
+      boatID: boatID,
+      boatName: boatName,
+      forRemove: forRemove,
+      jobs: jobs
+    }};
+    var roleUpsert = Meteor.users.upsert(selector, modifier);
+    return roleUpsert;
+  }
 
 
 
@@ -195,5 +257,10 @@ import { Meteor } from 'meteor/meteor';
        createUsersFromRegister,
        upsertBoatID,
        upsertDeptTitle,
-       upsertReportsAccess
+       upsertReportsAccess,
+       upsertSupplierAccess,
+       upsertSetRemove,
+       upsertRemoveUser,
+       upsertDeclineRemove,
+       upsertOnboardUser
    });

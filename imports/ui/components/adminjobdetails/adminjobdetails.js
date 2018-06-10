@@ -2,7 +2,7 @@ import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
 import utilsPagination from 'angular-utils-pagination';
-import {pleaseWait} from '../../../startup/please-wait.js';
+import { pleaseWait } from '../../../startup/please-wait.js';
 
 import { Meteor } from 'meteor/meteor';
 
@@ -16,11 +16,11 @@ import { Histories } from '../../../api/histories';
 import { Supports } from '../../../api/supports';
 import { Ympequipments } from '../../../api/ympequipments';
 import template from './adminjobdetails.html';
- 
+
 class Adminjobdetails {
   constructor($scope, $reactive, $stateParams, $state, Upload) {
     //'ngInject';
- 
+
     $reactive(this).attach($scope);
 
     this.jobId = $stateParams.jobId;
@@ -48,7 +48,7 @@ class Adminjobdetails {
     this.searchText = '';
     this.searchGroup = '';
     $scope.passworD = '';
-    this.pageNum  = null;
+    this.pageNum = null;
     $scope.doneSearching = false;
     $scope.uploadSuccess = false;
     this.showNotif = false;
@@ -61,11 +61,11 @@ class Adminjobdetails {
     $scope.groupFromJob = '';
 
     this.departments = [
-      {name: 'Engine Department', value: 'Engine Department'},
-      {name: 'Interior Department', value: 'Interior Department'},
-      {name: 'Deck Department', value: 'Deck Department'},
-      {name: 'Galley', value: 'Galley'},
-      {name: 'Captain', value: 'Captain'}
+      { name: 'Engine Department', value: 'Engine Department' },
+      { name: 'Interior Department', value: 'Interior Department' },
+      { name: 'Deck Department', value: 'Deck Department' },
+      { name: 'Galley', value: 'Galley' },
+      { name: 'Captain', value: 'Captain' }
     ];
 
     this.subscribe('ympjobs');
@@ -86,26 +86,26 @@ class Adminjobdetails {
     this.subscribe('supports');
 
     this.subscribe('ympequipments');
- 
+
     this.helpers({
       job() {
         return Ympjobs.findOne({
-            _id: $stateParams.jobId
-          });
+          _id: $stateParams.jobId
+        });
       },
       docs() {
         var docs = Docs.find({
-            jobID: $stateParams.jobId
-          });
-          console.info('docs', docs);
-          return docs;
+          jobID: $stateParams.jobId
+        });
+        console.info('docs', docs);
+        return docs;
       },
       photos() {
         var photos = Photos.find({
-            jobID: $stateParams.jobId
-          });
-          console.info('photos', photos);
-          return photos;
+          jobID: $stateParams.jobId
+        });
+        console.info('photos', photos);
+        return photos;
       },
       isLoggedIn() {
         return !!Meteor.userId();
@@ -120,26 +120,26 @@ class Adminjobdetails {
         var userID = Meteor.userId();
         var boats = Meteor.users.findOne(userID);
         console.info('boats', boats);
-        if(boats){
+        if (boats) {
           $scope.userBoatID = boats.boatID;
           var boatID = $scope.userBoatID;
-          var selector = {boatID: boatID};
+          var selector = { boatID: boatID };
         } else {
           var selector = {};
-        } 
+        }
         return Profiles.find(selector);
       },
       histories() {
         var userID = Meteor.userId();
         var boats = Meteor.users.findOne(userID);
         console.info('boats', boats);
-        if(boats){
+        if (boats) {
           $scope.userBoatID = boats.boatID;
           var boatID = $scope.userBoatID;
-          var selector = {boatID: boatID};
+          var selector = { boatID: boatID };
         } else {
           var selector = {};
-        } 
+        }
         return Histories.find(selector);
       },
       supports() {
@@ -148,117 +148,134 @@ class Adminjobdetails {
       groups() {
         var selector = {};
         return Ympequipments.find(selector, {
-          sort : this.getReactively('sort')
+          sort: this.getReactively('sort')
         });
       }
     });
 
-    this.logout = function() {
+    this.logout = function () {
       window.loading_screen = pleaseWait({
         logo: "../assets/global/images/logo/logo-white2.png",
         backgroundColor: '#8c9093',
         loadingHtml: "<div class='sk-spinner sk-spinner-wave'><div class='sk-rect1'></div><div class='sk-rect2'></div><div class='sk-rect3'></div><div class='sk-rect4'></div><div class='sk-rect5'></div></div>"
       });
       Accounts.logout();
-      window.setTimeout(function(){
+      window.setTimeout(function () {
         window.loading_screen.finish();
-        $state.go('login', {}, {reload: 'login'});
-      },2000);
+        $state.go('login', {}, { reload: 'login' });
+      }, 2000);
     }
 
-    this.gotoDashboard = function() {
+    this.gotoDashboard = function () {
       angular.element("body").removeClass("modal-open");
       var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
       removeMe.remove();
-      $state.go('dashboard', {}, {reload: 'dashboard'});
+      $state.go('dashboard', {}, { reload: 'dashboard' });
     }
-    this.gotoInventory = function() {
+    this.gotoInventory = function () {
       angular.element("body").removeClass("modal-open");
       var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
       removeMe.remove();
-      $state.go('inventory', {}, {reload: 'inventory'});
+      $state.go('inventory', {}, { reload: 'inventory' });
     }
-    this.gotoLogbook = function() {
+    this.gotoLogbook = function () {
       angular.element("body").removeClass("modal-open");
       var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
       removeMe.remove();
-      $state.go('logbook', {}, {reload: 'logbook'});
+      $state.go('logbook', {}, { reload: 'logbook' });
     }
-    this.gotoEmployees = function() {
+    this.gotoEmployees = function () {
       angular.element("body").removeClass("modal-open");
       var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
       removeMe.remove();
-      $state.go('employees', {}, {reload: 'employees'});
+      $state.go('employees', {}, { reload: 'employees' });
     }
-    this.gotoWatchkeep = function() {
+    this.gotoWatchkeep = function () {
       angular.element("body").removeClass("modal-open");
       var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
       removeMe.remove();
-      $state.go('watchkeep', {}, {reload: 'watchkeep'});
+      $state.go('watchkeep', {}, { reload: 'watchkeep' });
     }
-    this.gotoSettings = function() {
+    this.gotoSettings = function () {
       angular.element("body").removeClass("modal-open");
       var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
       removeMe.remove();
-      $state.go('settings', {}, {reload: 'settings'});
+      $state.go('settings', {}, { reload: 'settings' });
     }
-    this.gotoAdminPanel = function() {
+    this.gotoAdminPanel = function () {
       angular.element("body").removeClass("modal-open");
       var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
       removeMe.remove();
-      $state.go('adminpanel', {}, {reload: 'adminpanel'});
+      $state.go('adminpanel', {}, { reload: 'adminpanel' });
     }
-    this.gotoReports = function(equipID) {
+    this.gotoReports = function (equipID) {
       angular.element("body").removeClass("modal-open");
       var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
       removeMe.remove();
-      $state.go('reports', {equipID: equipID}, {reload: 'reports'});
+      $state.go('reports', { equipID: equipID }, { reload: 'reports' });
+    }
+    this.gotoSupplier = function (equipID) {
+      angular.element("body").removeClass("modal-open");
+      var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
+      removeMe.remove();
+      $state.go('supplier', { equipID: equipID }, { reload: 'supplier' });
     }
 
-    this.notification = function() {
-      
+
+    this.notification = function () {
+
       this.showNotif = false;
       console.info('notif daan', this.showNotif);
     }
 
-    this.notification2 = function() {
-      
+    this.notification2 = function () {
+
       this.showNotif2 = false;
       console.info('notif daan', this.showNotif);
     }
 
-    this.notCompleted = function() {
-      
+    this.notCompleted = function () {
+
       this.notComplete = false;
       console.info('complete daan', this.notComplete);
     }
 
-    this.delete = function() {
+    this.delete = function () {
       var jobId = $stateParams.jobId;
       var status = Ympjobs.remove(jobId);
       console.info('status removed', status);
-      $state.go('dashboard', {}, {reload: 'dashboard'});
+      $state.go('dashboard', {}, { reload: 'dashboard' });
     }
 
-    this.removeJobConfirm = function(job) {
+    this.removeJobConfirm = function (job) {
       console.info('remove job', job);
       $scope.removeID = job._id;
       $scope.jobName = job.title;
       $scope.notMatch = false;
     }
 
-    this.resetValue = function() {
+    this.resetValue = function () {
       $scope.uploadSuccess = false;
     }
 
-    this.removeDocs = function(document){
+    this.removeDocs = function (document) {
       console.info('document', document);
-      Docs.remove(document._id);
+      if (document.fileType == 'ympmanual' || document.fileType == 'ympmanualparts' || document.fileType == 'ympspecification') {
+        var selector = { downloadurl: document.downloadurl };
+        var documents = Docs.find(selector);
+        documents.forEach(function (document) {
+          var status = Docs.remove(document._id);
+          console.info('status', status);
+        });
+      } else {
+        var status = Docs.remove(document._id);
+        console.info('status', status);
+      }
     };
 
-    this.saveWork = function() {
+    this.saveWork = function () {
       console.info('doneby', this.job.doneBy);
-      if(this.job.doneBy){
+      if (this.job.doneBy) {
         this.history.jobID = this.job._id;
         this.history.title = this.job.title;
         this.history.group = this.job.group;
@@ -269,60 +286,60 @@ class Adminjobdetails {
         this.history.name = this.job.doneBy.name;
         this.history.boatID = $scope.userBoatID;
         this.job.status = true;
-    
+
         Ympjobs.update({
           _id: this.job._id
         }, {
-          $set: {
-            status: this.job.status
-          }
-        }, (error) => {
+            $set: {
+              status: this.job.status
+            }
+          }, (error) => {
             if (error) {
               console.log('Oops, unable to update the job...');
             } else {
               console.log('Done!');
             }
-        });
-    
+          });
+
         var status = Histories.insert(this.history);
         console.info('status', status);
         this.showNotif = true;
-        $state.go('dashboard', {}, {reload: 'dashboard'});
-  
+        $state.go('dashboard', {}, { reload: 'dashboard' });
+
       } else {
         this.notComplete = true;
       }
-      
+
     }
 
-    this.removeJob = function() {
+    this.removeJob = function () {
       console.info('userID', $scope.userID);
       var profiles = Profiles.find({
         userID: $scope.userID
       });
 
       console.info('profiles', profiles);
-      profiles.forEach(function(profile){
-        if(profile.userID == $scope.userID){
+      profiles.forEach(function (profile) {
+        if (profile.userID == $scope.userID) {
           console.info('pasok', profile.password);
           console.info('pass ko', $scope.passworD);
-          if(profile.password == $scope.passworD){
+          if (profile.password == $scope.passworD) {
             Ympjobs.remove($scope.removeID);
             angular.element("body").removeClass("modal-open");
             var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
             removeMe.remove();
-            $state.go('adminpanel', {}, {reload: 'adminpanel'});
+            $state.go('adminpanel', {}, { reload: 'adminpanel' });
           } else {
             $scope.notMatch = true;
             $scope.passworD = '';
           }
-        } 
+        }
       });
 
 
     }
 
-    this.uploadFiles = function(file, errFiles) {
+    this.uploadFiles = function (file, errFiles) {
       console.info('pasok', file);
       this.progress = 0;
       this.uploadingNow = true;
@@ -334,204 +351,64 @@ class Adminjobdetails {
       $scope.uploadSuccess = false;
       if (file) {
         console.log(file);
-  
-  
+
+
         this.uploader.send(file, function (error, downloadUrl) {
           if (error) {
             // Log service detailed response.
             console.error('Error uploading', this.uploader);
-            alert (error);
+            alert(error);
           }
           else {
             var filename = this.fileHere;
             $scope.profileID = Meteor.userId();
             $scope.downloadUrl = downloadUrl;
 
-            var selector = {_id: $stateParams.jobId};
-            var ympjobs = Ympjobs.findOne(selector);
-            console.info('ympjobs', ympjobs);
-            $scope.groupFromJob = ympjobs.group;
-            console.info('ympjobgroup', $scope.groupFromJob);
-            var selector = {group: $scope.groupFromJob};
-            var ympjobs = Ympjobs.find(selector);
-            ympjobs.forEach(function(ympjob){
-            if(ympjob.group == $scope.groupFromJob){
-              var jobID = ympjob._id;
-              console.info('pasok jobID', jobID);
-            
-            Meteor.call('upsertYmpDrawing', $scope.profileID, $scope.downloadUrl, jobID, function(err, result) {
-                console.log(downloadUrl);
-                console.log('success: ' + downloadUrl);
-                  if (err) {
-                    console.info('err', err);
-                    $scope.doneSearching = false;
-                    window.setTimeout(function(){
-                      $scope.$apply();
-                      //this.doneSearching = false;
-                    },2000);
-
-                 } else {
-                   var toasted = 'New file uploaded.';
-                   console.info('uploaded', err);
-                   $scope.doneSearching = false;
-                   console.info('doneSearching', $scope.doneSearching);
-                   $scope.uploadSuccess = true;
-                   window.setTimeout(function(){
-                    $scope.$apply();
-                    //this.doneSearching = false;
-                  },2000);
-                 }
-               });
-              }
-            });
-            }
-          });
-        file.upload = Upload.upload({
-              url: '/uploads',
-              data: {file: file}
-          });
-          var filename = file.name;
-          var path = '/uploads';
-          var type = file.type;
-          switch (type) {
-            case 'text':
-            //tODO Is this needed? If we're uploading content from file, yes, but if it's from an input/textarea I think not...
-            var method = 'readAsText';
-            var encoding = 'utf8';
-            break;
-            case 'binary':
-            var method = 'readAsBinaryString';
-            var encoding = 'binary';
-            break;
-            default:
-            var method = 'readAsBinaryString';
-            var encoding = 'binary';
-            break;
-          }
-          /*Meteor.call('uploadFileFromClient', filename, path, file, encoding, function(err) {
-            if (err) {
-              console.log(err);
-            } else {
-              console.log('success maybe?');
-            }
-          });*/
-  
-  
-          file.upload.then(function (response) {
-              $timeout(function () {
-                console.log(response);
-                  file.result = response.data;
-                  this.Fresult = response.config.data.file;
-  
-                  var errs = 0;
-                  var Fresult = this.Fresult;
-                  console.info('this', Fresult);
-              });
-          }, function (response) {
-              if (response.status > 0)
-                  this.errorMsg = response.status + ': ' + response.data;
-              else {
-                console.log('else pa');
-              }
-          }, function (event) {
-              file.progress = Math.min(100, parseInt(100.0 *
-                                       event.loaded / event.total));
-              this.progress = file.progress;
-              if (this.progress == 100) {
-                this.uploadingNow = false;
-              }
-              console.log(this.progress);
-          });
-  
-      }
-  };
-
-
-  this.uploadManual = function(file, errFiles) {
-    console.info('pasok', file);
-    this.progress = 0;
-    this.uploadingNow = true;
-    this.f = file;
-    this.errFile = errFiles && errFiles[0];
-    this.fileHere = file.name;
-    this.profileID = Meteor.userId();
-    $scope.doneSearching = true;
-    $scope.uploadSuccess = false;
-    if (file) {
-      console.log(file);
-
-
-      this.uploader.send(file, function (error, downloadUrl) {
-        if (error) {
-          // Log service detailed response.
-          console.error('Error uploading', this.uploader);
-          alert (error);
-        }
-        else {
-          var filename = this.fileHere;
-          $scope.profileID = Meteor.userId();
-            $scope.downloadUrl = downloadUrl;
-
-            var selector = {_id: $stateParams.jobId};
-            var ympjobs = Ympjobs.findOne(selector);
-            console.info('ympjobs', ympjobs);
-            $scope.groupFromJob = ympjobs.group;
-            console.info('ympjobgroup', $scope.groupFromJob);
-            var selector = {group: $scope.groupFromJob};
-            var ympjobs = Ympjobs.find(selector);
-            ympjobs.forEach(function(ympjob){
-            if(ympjob.group == $scope.groupFromJob){
-              var jobID = ympjob._id;
-              console.info('pasok jobID', jobID);
-
-              Meteor.call('upsertYmpManual', $scope.profileID, $scope.downloadUrl, jobID, function(err, result) {
-                console.log($scope.downloadUrl);
-                console.log('success: ' + $scope.downloadUrl);
-                if (err) {
-                  console.info('err', err);
-                  $scope.doneSearching = false;
-                  window.setTimeout(function(){
-                    $scope.$apply();
-                    //this.doneSearching = false;
-                  },2000);
-
-               } else {
-                 var toasted = 'New file uploaded.';
-                 console.info('uploaded', err);
-                 $scope.doneSearching = false;
-                 console.info('doneSearching', $scope.doneSearching);
-                 $scope.uploadSuccess = true;
-                 window.setTimeout(function(){
+            Meteor.call('upsertYmpDrawing', $scope.profileID, $scope.downloadUrl, $stateParams.jobId, function (err, result) {
+              console.log('success: ' + $scope.downloadUrl);
+              if (err) {
+                console.info('err', err);
+                $scope.doneSearching = false;
+                window.setTimeout(function () {
                   $scope.$apply();
                   //this.doneSearching = false;
-                },2000);
-               }
-             });
-            }
-          });
-        }
+                }, 2000);
+
+              } else {
+                var toasted = 'New file uploaded.';
+                console.info('uploaded', err);
+                $scope.doneSearching = false;
+                console.info('doneSearching', $scope.doneSearching);
+                $scope.uploadSuccess = true;
+                window.setTimeout(function () {
+                  $scope.$apply();
+                  //this.doneSearching = false;
+                }, 2000);
+              }
+            });
+          }
         });
         file.upload = Upload.upload({
-            url: '/uploads',
-            data: {file: file}
+          url: '/uploads',
+          data: { file: file }
         });
         var filename = file.name;
         var path = '/uploads';
         var type = file.type;
         switch (type) {
           case 'text':
-          //tODO Is this needed? If we're uploading content from file, yes, but if it's from an input/textarea I think not...
-          var method = 'readAsText';
-          var encoding = 'utf8';
-          break;
+            //tODO Is this needed? If we're uploading content from file, yes, but if it's from an input/textarea I think not...
+            var method = 'readAsText';
+            var encoding = 'utf8';
+            break;
           case 'binary':
-          var method = 'readAsBinaryString';
-          var encoding = 'binary';
-          break;
+            var method = 'readAsBinaryString';
+            var encoding = 'binary';
+            break;
           default:
-          var method = 'readAsBinaryString';
-          var encoding = 'binary';
-          break;
+            var method = 'readAsBinaryString';
+            var encoding = 'binary';
+            break;
         }
         /*Meteor.call('uploadFileFromClient', filename, path, file, encoding, function(err) {
           if (err) {
@@ -543,627 +420,753 @@ class Adminjobdetails {
 
 
         file.upload.then(function (response) {
-            $timeout(function () {
-              console.log(response);
-                file.result = response.data;
-                this.Fresult = response.config.data.file;
+          $timeout(function () {
+            console.log(response);
+            file.result = response.data;
+            this.Fresult = response.config.data.file;
 
-                var errs = 0;
-                var Fresult = this.Fresult;
-                console.info('this', Fresult);
-            });
+            var errs = 0;
+            var Fresult = this.Fresult;
+            console.info('this', Fresult);
+          });
         }, function (response) {
-            if (response.status > 0)
-                this.errorMsg = response.status + ': ' + response.data;
-            else {
-              console.log('else pa');
-            }
+          if (response.status > 0)
+            this.errorMsg = response.status + ': ' + response.data;
+          else {
+            console.log('else pa');
+          }
         }, function (event) {
-            file.progress = Math.min(100, parseInt(100.0 *
-                                     event.loaded / event.total));
-            this.progress = file.progress;
-            if (this.progress == 100) {
-              this.uploadingNow = false;
-            }
-            console.log(this.progress);
+          file.progress = Math.min(100, parseInt(100.0 *
+            event.loaded / event.total));
+          this.progress = file.progress;
+          if (this.progress == 100) {
+            this.uploadingNow = false;
+          }
+          console.log(this.progress);
         });
 
-    }
-};
-
-this.uploadManualParts = function(file, errFiles) {
-  console.info('pasok', file);
-  this.progress = 0;
-  this.uploadingNow = true;
-  this.f = file;
-  this.errFile = errFiles && errFiles[0];
-  this.fileHere = file.name;
-  this.profileID = Meteor.userId();
-  $scope.doneSearching = true;
-  $scope.uploadSuccess = false;
-  if (file) {
-    console.log(file);
-
-
-    this.uploader.send(file, function (error, downloadUrl) {
-      if (error) {
-        // Log service detailed response.
-        console.error('Error uploading', this.uploader);
-        alert (error);
       }
-      else {
-        var filename = this.fileHere;
-        $scope.profileID = Meteor.userId();
+    };
+
+
+    this.uploadManual = function (file, errFiles) {
+      console.info('pasok', file);
+      this.progress = 0;
+      this.uploadingNow = true;
+      this.f = file;
+      this.errFile = errFiles && errFiles[0];
+      this.fileHere = file.name;
+      this.profileID = Meteor.userId();
+      $scope.doneSearching = true;
+      $scope.uploadSuccess = false;
+      if (file) {
+        console.log(file);
+
+
+        this.uploader.send(file, function (error, downloadUrl) {
+          if (error) {
+            // Log service detailed response.
+            console.error('Error uploading', this.uploader);
+            alert(error);
+          }
+          else {
+            var filename = this.fileHere;
+            $scope.profileID = Meteor.userId();
             $scope.downloadUrl = downloadUrl;
 
-            var selector = {_id: $stateParams.jobId};
+            var selector = { _id: $stateParams.jobId };
             var ympjobs = Ympjobs.findOne(selector);
             console.info('ympjobs', ympjobs);
             $scope.groupFromJob = ympjobs.group;
             console.info('ympjobgroup', $scope.groupFromJob);
-            var selector = {group: $scope.groupFromJob};
+            var selector = { group: $scope.groupFromJob };
             var ympjobs = Ympjobs.find(selector);
-            ympjobs.forEach(function(ympjob){
-              if(ympjob.group == $scope.groupFromJob){
+            ympjobs.forEach(function (ympjob) {
+              if (ympjob.group == $scope.groupFromJob) {
                 var jobID = ympjob._id;
                 console.info('pasok jobID', jobID);
 
-              Meteor.call('upsertYmpManualParts', $scope.profileID, $scope.downloadUrl, jobID, function(err, result) {
-              console.log($scope.downloadUrl);
-              console.log('success: ' + $scope.downloadUrl);
-              if (err) {
-                console.info('err', err);
-                $scope.doneSearching = false;
-                window.setTimeout(function(){
-                  $scope.$apply();
-                  //this.doneSearching = false;
-                },2000);
+                Meteor.call('upsertYmpManual', $scope.profileID, $scope.downloadUrl, jobID, function (err, result) {
+                  console.log($scope.downloadUrl);
+                  console.log('success: ' + $scope.downloadUrl);
+                  if (err) {
+                    console.info('err', err);
+                    $scope.doneSearching = false;
+                    window.setTimeout(function () {
+                      $scope.$apply();
+                      //this.doneSearching = false;
+                    }, 2000);
 
-             } else {
-               var toasted = 'New file uploaded.';
-               console.info('uploaded', err);
-               $scope.doneSearching = false;
-               console.info('doneSearching', $scope.doneSearching);
-               $scope.uploadSuccess = true;
-               window.setTimeout(function(){
-                $scope.$apply();
-                //this.doneSearching = false;
-              },2000);
-             }
-           });
+                  } else {
+                    var toasted = 'New file uploaded.';
+                    console.info('uploaded', err);
+                    $scope.doneSearching = false;
+                    console.info('doneSearching', $scope.doneSearching);
+                    $scope.uploadSuccess = true;
+                    window.setTimeout(function () {
+                      $scope.$apply();
+                      //this.doneSearching = false;
+                    }, 2000);
+                  }
+                });
+              }
+            });
           }
         });
-      }
-      });
-      file.upload = Upload.upload({
+        file.upload = Upload.upload({
           url: '/uploads',
-          data: {file: file}
-      });
-      var filename = file.name;
-      var path = '/uploads';
-      var type = file.type;
-      switch (type) {
-        case 'text':
-        //tODO Is this needed? If we're uploading content from file, yes, but if it's from an input/textarea I think not...
-        var method = 'readAsText';
-        var encoding = 'utf8';
-        break;
-        case 'binary':
-        var method = 'readAsBinaryString';
-        var encoding = 'binary';
-        break;
-        default:
-        var method = 'readAsBinaryString';
-        var encoding = 'binary';
-        break;
-      }
-      /*Meteor.call('uploadFileFromClient', filename, path, file, encoding, function(err) {
-        if (err) {
-          console.log(err);
-        } else {
-          console.log('success maybe?');
+          data: { file: file }
+        });
+        var filename = file.name;
+        var path = '/uploads';
+        var type = file.type;
+        switch (type) {
+          case 'text':
+            //tODO Is this needed? If we're uploading content from file, yes, but if it's from an input/textarea I think not...
+            var method = 'readAsText';
+            var encoding = 'utf8';
+            break;
+          case 'binary':
+            var method = 'readAsBinaryString';
+            var encoding = 'binary';
+            break;
+          default:
+            var method = 'readAsBinaryString';
+            var encoding = 'binary';
+            break;
         }
-      });*/
+        /*Meteor.call('uploadFileFromClient', filename, path, file, encoding, function(err) {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log('success maybe?');
+          }
+        });*/
 
 
-      file.upload.then(function (response) {
+        file.upload.then(function (response) {
           $timeout(function () {
             console.log(response);
-              file.result = response.data;
-              this.Fresult = response.config.data.file;
+            file.result = response.data;
+            this.Fresult = response.config.data.file;
 
-              var errs = 0;
-              var Fresult = this.Fresult;
-              console.info('this', Fresult);
+            var errs = 0;
+            var Fresult = this.Fresult;
+            console.info('this', Fresult);
           });
-      }, function (response) {
+        }, function (response) {
           if (response.status > 0)
-              this.errorMsg = response.status + ': ' + response.data;
+            this.errorMsg = response.status + ': ' + response.data;
           else {
             console.log('else pa');
           }
-      }, function (event) {
+        }, function (event) {
           file.progress = Math.min(100, parseInt(100.0 *
-                                   event.loaded / event.total));
+            event.loaded / event.total));
           this.progress = file.progress;
           if (this.progress == 100) {
             this.uploadingNow = false;
           }
           console.log(this.progress);
-      });
+        });
 
-  }
-};
-
-this.uploadSpecs = function(file, errFiles) {
-  console.info('pasok', file);
-  this.progress = 0;
-  this.uploadingNow = true;
-  this.f = file;
-  this.errFile = errFiles && errFiles[0];
-  this.fileHere = file.name;
-  this.profileID = Meteor.userId();
-  $scope.doneSearching = true;
-  $scope.uploadSuccess = false;
-  if (file) {
-    console.log(file);
-
-
-    this.uploader.send(file, function (error, downloadUrl) {
-      if (error) {
-        // Log service detailed response.
-        console.error('Error uploading', this.uploader);
-        alert (error);
       }
-      else {
-        var filename = this.fileHere;
-        $scope.profileID = Meteor.userId();
+    };
+
+    this.uploadManualParts = function (file, errFiles) {
+      console.info('pasok', file);
+      this.progress = 0;
+      this.uploadingNow = true;
+      this.f = file;
+      this.errFile = errFiles && errFiles[0];
+      this.fileHere = file.name;
+      this.profileID = Meteor.userId();
+      $scope.doneSearching = true;
+      $scope.uploadSuccess = false;
+      if (file) {
+        console.log(file);
+
+
+        this.uploader.send(file, function (error, downloadUrl) {
+          if (error) {
+            // Log service detailed response.
+            console.error('Error uploading', this.uploader);
+            alert(error);
+          }
+          else {
+            var filename = this.fileHere;
+            $scope.profileID = Meteor.userId();
             $scope.downloadUrl = downloadUrl;
 
-            var selector = {_id: $stateParams.jobId};
+            var selector = { _id: $stateParams.jobId };
             var ympjobs = Ympjobs.findOne(selector);
             console.info('ympjobs', ympjobs);
             $scope.groupFromJob = ympjobs.group;
             console.info('ympjobgroup', $scope.groupFromJob);
-            var selector = {group: $scope.groupFromJob};
+            var selector = { group: $scope.groupFromJob };
             var ympjobs = Ympjobs.find(selector);
-            ympjobs.forEach(function(ympjob){
-              if(ympjob.group == $scope.groupFromJob){
+            ympjobs.forEach(function (ympjob) {
+              if (ympjob.group == $scope.groupFromJob) {
                 var jobID = ympjob._id;
                 console.info('pasok jobID', jobID);
 
-              Meteor.call('upsertYmpSpecs', $scope.profileID, $scope.downloadUrl, jobID, function(err, result) {
-              console.log($scope.downloadUrl);
-              console.log('success: ' + $scope.downloadUrl);
-              if (err) {
-                console.info('err', err);
-                $scope.doneSearching = false;
-                window.setTimeout(function(){
-                  $scope.$apply();
-                  //this.doneSearching = false;
-                },2000);
+                Meteor.call('upsertYmpManualParts', $scope.profileID, $scope.downloadUrl, jobID, function (err, result) {
+                  console.log($scope.downloadUrl);
+                  console.log('success: ' + $scope.downloadUrl);
+                  if (err) {
+                    console.info('err', err);
+                    $scope.doneSearching = false;
+                    window.setTimeout(function () {
+                      $scope.$apply();
+                      //this.doneSearching = false;
+                    }, 2000);
 
-             } else {
-               var toasted = 'New file uploaded.';
-               console.info('uploaded', err);
-               $scope.doneSearching = false;
-               console.info('doneSearching', $scope.doneSearching);
-               $scope.uploadSuccess = true;
-               window.setTimeout(function(){
-                $scope.$apply();
-                //this.doneSearching = false;
-              },2000);
-             }
-           });
+                  } else {
+                    var toasted = 'New file uploaded.';
+                    console.info('uploaded', err);
+                    $scope.doneSearching = false;
+                    console.info('doneSearching', $scope.doneSearching);
+                    $scope.uploadSuccess = true;
+                    window.setTimeout(function () {
+                      $scope.$apply();
+                      //this.doneSearching = false;
+                    }, 2000);
+                  }
+                });
+              }
+            });
           }
         });
-      }
-      });
-      file.upload = Upload.upload({
+        file.upload = Upload.upload({
           url: '/uploads',
-          data: {file: file}
-      });
-      var filename = file.name;
-      var path = '/uploads';
-      var type = file.type;
-      switch (type) {
-        case 'text':
-        //tODO Is this needed? If we're uploading content from file, yes, but if it's from an input/textarea I think not...
-        var method = 'readAsText';
-        var encoding = 'utf8';
-        break;
-        case 'binary':
-        var method = 'readAsBinaryString';
-        var encoding = 'binary';
-        break;
-        default:
-        var method = 'readAsBinaryString';
-        var encoding = 'binary';
-        break;
-      }
-      /*Meteor.call('uploadFileFromClient', filename, path, file, encoding, function(err) {
-        if (err) {
-          console.log(err);
-        } else {
-          console.log('success maybe?');
+          data: { file: file }
+        });
+        var filename = file.name;
+        var path = '/uploads';
+        var type = file.type;
+        switch (type) {
+          case 'text':
+            //tODO Is this needed? If we're uploading content from file, yes, but if it's from an input/textarea I think not...
+            var method = 'readAsText';
+            var encoding = 'utf8';
+            break;
+          case 'binary':
+            var method = 'readAsBinaryString';
+            var encoding = 'binary';
+            break;
+          default:
+            var method = 'readAsBinaryString';
+            var encoding = 'binary';
+            break;
         }
-      });*/
+        /*Meteor.call('uploadFileFromClient', filename, path, file, encoding, function(err) {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log('success maybe?');
+          }
+        });*/
 
 
-      file.upload.then(function (response) {
+        file.upload.then(function (response) {
           $timeout(function () {
             console.log(response);
-              file.result = response.data;
-              this.Fresult = response.config.data.file;
+            file.result = response.data;
+            this.Fresult = response.config.data.file;
 
-              var errs = 0;
-              var Fresult = this.Fresult;
-              console.info('this', Fresult);
+            var errs = 0;
+            var Fresult = this.Fresult;
+            console.info('this', Fresult);
           });
-      }, function (response) {
+        }, function (response) {
           if (response.status > 0)
-              this.errorMsg = response.status + ': ' + response.data;
+            this.errorMsg = response.status + ': ' + response.data;
           else {
             console.log('else pa');
           }
-      }, function (event) {
+        }, function (event) {
           file.progress = Math.min(100, parseInt(100.0 *
-                                   event.loaded / event.total));
+            event.loaded / event.total));
           this.progress = file.progress;
           if (this.progress == 100) {
             this.uploadingNow = false;
           }
           console.log(this.progress);
-      });
+        });
 
-  }
-};
-
-this.uploadPage = function(file, errFiles) {
-  console.info('pasok', file);
-  $scope.pageNum = this.pageNum;
-  this.progress = 0;
-  this.uploadingNow = true;
-  this.f = file;
-  this.errFile = errFiles && errFiles[0];
-  this.fileHere = file.name;
-  this.profileID = Meteor.userId();
-  $scope.doneSearching = true;
-  $scope.uploadSuccess = false;
-  if (file) {
-    console.log(file);
-
-
-    this.uploader.send(file, function (error, downloadUrl) {
-      if (error) {
-        // Log service detailed response.
-        console.error('Error uploading', this.uploader);
-        alert (error);
       }
-      else {
-        var filename = this.fileHere;
-        var profileID = Meteor.userId();
-        
+    };
 
-        Meteor.call('upsertYmpPage', profileID, downloadUrl, $stateParams.jobId, $scope.pageNum, function(err, result) {
+    this.uploadSpecs = function (file, errFiles) {
+      console.info('pasok', file);
+      this.progress = 0;
+      this.uploadingNow = true;
+      this.f = file;
+      this.errFile = errFiles && errFiles[0];
+      this.fileHere = file.name;
+      this.profileID = Meteor.userId();
+      $scope.doneSearching = true;
+      $scope.uploadSuccess = false;
+      if (file) {
+        console.log(file);
+
+
+        this.uploader.send(file, function (error, downloadUrl) {
+          if (error) {
+            // Log service detailed response.
+            console.error('Error uploading', this.uploader);
+            alert(error);
+          }
+          else {
+            var filename = this.fileHere;
+            $scope.profileID = Meteor.userId();
+            $scope.downloadUrl = downloadUrl;
+
+            var selector = { _id: $stateParams.jobId };
+            var ympjobs = Ympjobs.findOne(selector);
+            console.info('ympjobs', ympjobs);
+            $scope.groupFromJob = ympjobs.group;
+            console.info('ympjobgroup', $scope.groupFromJob);
+            var selector = { group: $scope.groupFromJob };
+            var ympjobs = Ympjobs.find(selector);
+            ympjobs.forEach(function (ympjob) {
+              if (ympjob.group == $scope.groupFromJob) {
+                var jobID = ympjob._id;
+                console.info('pasok jobID', jobID);
+
+                Meteor.call('upsertYmpSpecs', $scope.profileID, $scope.downloadUrl, jobID, function (err, result) {
+                  console.log($scope.downloadUrl);
+                  console.log('success: ' + $scope.downloadUrl);
+                  if (err) {
+                    console.info('err', err);
+                    $scope.doneSearching = false;
+                    window.setTimeout(function () {
+                      $scope.$apply();
+                      //this.doneSearching = false;
+                    }, 2000);
+
+                  } else {
+                    var toasted = 'New file uploaded.';
+                    console.info('uploaded', err);
+                    $scope.doneSearching = false;
+                    console.info('doneSearching', $scope.doneSearching);
+                    $scope.uploadSuccess = true;
+                    window.setTimeout(function () {
+                      $scope.$apply();
+                      //this.doneSearching = false;
+                    }, 2000);
+                  }
+                });
+              }
+            });
+          }
+        });
+        file.upload = Upload.upload({
+          url: '/uploads',
+          data: { file: file }
+        });
+        var filename = file.name;
+        var path = '/uploads';
+        var type = file.type;
+        switch (type) {
+          case 'text':
+            //tODO Is this needed? If we're uploading content from file, yes, but if it's from an input/textarea I think not...
+            var method = 'readAsText';
+            var encoding = 'utf8';
+            break;
+          case 'binary':
+            var method = 'readAsBinaryString';
+            var encoding = 'binary';
+            break;
+          default:
+            var method = 'readAsBinaryString';
+            var encoding = 'binary';
+            break;
+        }
+        /*Meteor.call('uploadFileFromClient', filename, path, file, encoding, function(err) {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log('success maybe?');
+          }
+        });*/
+
+
+        file.upload.then(function (response) {
+          $timeout(function () {
+            console.log(response);
+            file.result = response.data;
+            this.Fresult = response.config.data.file;
+
+            var errs = 0;
+            var Fresult = this.Fresult;
+            console.info('this', Fresult);
+          });
+        }, function (response) {
+          if (response.status > 0)
+            this.errorMsg = response.status + ': ' + response.data;
+          else {
+            console.log('else pa');
+          }
+        }, function (event) {
+          file.progress = Math.min(100, parseInt(100.0 *
+            event.loaded / event.total));
+          this.progress = file.progress;
+          if (this.progress == 100) {
+            this.uploadingNow = false;
+          }
+          console.log(this.progress);
+        });
+
+      }
+    };
+
+    this.uploadPage = function (file, errFiles) {
+      console.info('pasok', file);
+      $scope.pageNum = this.pageNum;
+      this.progress = 0;
+      this.uploadingNow = true;
+      this.f = file;
+      this.errFile = errFiles && errFiles[0];
+      this.fileHere = file.name;
+      this.profileID = Meteor.userId();
+      $scope.doneSearching = true;
+      $scope.uploadSuccess = false;
+      if (file) {
+        console.log(file);
+
+
+        this.uploader.send(file, function (error, downloadUrl) {
+          if (error) {
+            // Log service detailed response.
+            console.error('Error uploading', this.uploader);
+            alert(error);
+          }
+          else {
+            var filename = this.fileHere;
+            var profileID = Meteor.userId();
+
+
+            Meteor.call('upsertYmpPage', profileID, downloadUrl, $stateParams.jobId, $scope.pageNum, function (err, result) {
               console.log(downloadUrl);
-        console.log('success: ' + downloadUrl);
+              console.log('success: ' + downloadUrl);
               if (err) {
                 console.info('err', err);
                 $scope.doneSearching = false;
-                window.setTimeout(function(){
+                window.setTimeout(function () {
                   $scope.$apply();
                   //this.doneSearching = false;
-                },2000);
+                }, 2000);
 
-             } else {
-               var toasted = 'New file uploaded.';
-               console.info('uploaded', err);
-               $scope.doneSearching = false;
-               console.info('doneSearching', $scope.doneSearching);
-               $scope.uploadSuccess = true;
-               window.setTimeout(function(){
-                $scope.$apply();
-                //this.doneSearching = false;
-              },2000);
-             }
-           });
-      }
-      });
-      file.upload = Upload.upload({
+              } else {
+                var toasted = 'New file uploaded.';
+                console.info('uploaded', err);
+                $scope.doneSearching = false;
+                console.info('doneSearching', $scope.doneSearching);
+                $scope.uploadSuccess = true;
+                window.setTimeout(function () {
+                  $scope.$apply();
+                  //this.doneSearching = false;
+                }, 2000);
+              }
+            });
+          }
+        });
+        file.upload = Upload.upload({
           url: '/uploads',
-          data: {file: file}
-      });
-      var filename = file.name;
-      var path = '/uploads';
-      var type = file.type;
-      switch (type) {
-        case 'text':
-        //tODO Is this needed? If we're uploading content from file, yes, but if it's from an input/textarea I think not...
-        var method = 'readAsText';
-        var encoding = 'utf8';
-        break;
-        case 'binary':
-        var method = 'readAsBinaryString';
-        var encoding = 'binary';
-        break;
-        default:
-        var method = 'readAsBinaryString';
-        var encoding = 'binary';
-        break;
-      }
-      /*Meteor.call('uploadFileFromClient', filename, path, file, encoding, function(err) {
-        if (err) {
-          console.log(err);
-        } else {
-          console.log('success maybe?');
+          data: { file: file }
+        });
+        var filename = file.name;
+        var path = '/uploads';
+        var type = file.type;
+        switch (type) {
+          case 'text':
+            //tODO Is this needed? If we're uploading content from file, yes, but if it's from an input/textarea I think not...
+            var method = 'readAsText';
+            var encoding = 'utf8';
+            break;
+          case 'binary':
+            var method = 'readAsBinaryString';
+            var encoding = 'binary';
+            break;
+          default:
+            var method = 'readAsBinaryString';
+            var encoding = 'binary';
+            break;
         }
-      });*/
+        /*Meteor.call('uploadFileFromClient', filename, path, file, encoding, function(err) {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log('success maybe?');
+          }
+        });*/
 
 
-      file.upload.then(function (response) {
+        file.upload.then(function (response) {
           $timeout(function () {
             console.log(response);
-              file.result = response.data;
-              this.Fresult = response.config.data.file;
+            file.result = response.data;
+            this.Fresult = response.config.data.file;
 
-              var errs = 0;
-              var Fresult = this.Fresult;
-              console.info('this', Fresult);
+            var errs = 0;
+            var Fresult = this.Fresult;
+            console.info('this', Fresult);
           });
-      }, function (response) {
+        }, function (response) {
           if (response.status > 0)
-              this.errorMsg = response.status + ': ' + response.data;
+            this.errorMsg = response.status + ': ' + response.data;
           else {
             console.log('else pa');
           }
-      }, function (event) {
+        }, function (event) {
           file.progress = Math.min(100, parseInt(100.0 *
-                                   event.loaded / event.total));
+            event.loaded / event.total));
           this.progress = file.progress;
           if (this.progress == 100) {
             this.uploadingNow = false;
           }
           console.log(this.progress);
-      });
+        });
 
-  }
-};
-
-
-this.uploadImage = function(file, errFiles) {
-  console.info('pasok', file);
-  this.progress = 0;
-  this.uploadingNow = true;
-  this.f = file;
-  this.errFile = errFiles && errFiles[0];
-  this.fileHere = file.name;
-  this.profileID = Meteor.userId();
-  $scope.doneSearching = true;
-  $scope.uploadSuccess = false;
-  if (file) {
-    console.log(file);
-
-
-    this.uploader.send(file, function (error, downloadUrl) {
-      if (error) {
-        // Log service detailed response.
-        console.error('Error uploading', this.uploader);
-        alert (error);
       }
-      else {
-        var filename = this.fileHere;
-        var profileID = Meteor.userId();
+    };
 
-        Meteor.call('upsertPhotos', profileID, downloadUrl, $stateParams.jobId, function(err, result) {
+
+    this.uploadImage = function (file, errFiles) {
+      console.info('pasok', file);
+      this.progress = 0;
+      this.uploadingNow = true;
+      this.f = file;
+      this.errFile = errFiles && errFiles[0];
+      this.fileHere = file.name;
+      this.profileID = Meteor.userId();
+      $scope.doneSearching = true;
+      $scope.uploadSuccess = false;
+      if (file) {
+        console.log(file);
+
+
+        this.uploader.send(file, function (error, downloadUrl) {
+          if (error) {
+            // Log service detailed response.
+            console.error('Error uploading', this.uploader);
+            alert(error);
+          }
+          else {
+            var filename = this.fileHere;
+            var profileID = Meteor.userId();
+
+            Meteor.call('upsertPhotos', profileID, downloadUrl, $stateParams.jobId, function (err, result) {
               console.log(downloadUrl);
-        console.log('success: ' + downloadUrl);
+              console.log('success: ' + downloadUrl);
               if (err) {
                 console.info('err', err);
                 $scope.doneSearching = false;
-                window.setTimeout(function(){
+                window.setTimeout(function () {
                   $scope.$apply();
                   //this.doneSearching = false;
-                },2000);
+                }, 2000);
 
-             } else {
-               var toasted = 'New file uploaded.';
-               console.info('uploaded', err);
-               $scope.doneSearching = false;
-               console.info('doneSearching', $scope.doneSearching);
-               $scope.uploadSuccess = true;
-               window.setTimeout(function(){
-                $scope.$apply();
-                //this.doneSearching = false;
-              },2000);
-             }
-           });
-      }
-      });
-      file.upload = Upload.upload({
+              } else {
+                var toasted = 'New file uploaded.';
+                console.info('uploaded', err);
+                $scope.doneSearching = false;
+                console.info('doneSearching', $scope.doneSearching);
+                $scope.uploadSuccess = true;
+                window.setTimeout(function () {
+                  $scope.$apply();
+                  //this.doneSearching = false;
+                }, 2000);
+              }
+            });
+          }
+        });
+        file.upload = Upload.upload({
           url: '/uploads',
-          data: {file: file}
-      });
-      var filename = file.name;
-      var path = '/uploads';
-      var type = file.type;
-      switch (type) {
-        case 'text':
-        //tODO Is this needed? If we're uploading content from file, yes, but if it's from an input/textarea I think not...
-        var method = 'readAsText';
-        var encoding = 'utf8';
-        break;
-        case 'binary':
-        var method = 'readAsBinaryString';
-        var encoding = 'binary';
-        break;
-        default:
-        var method = 'readAsBinaryString';
-        var encoding = 'binary';
-        break;
-      }
-      /*Meteor.call('uploadFileFromClient', filename, path, file, encoding, function(err) {
-        if (err) {
-          console.log(err);
-        } else {
-          console.log('success maybe?');
+          data: { file: file }
+        });
+        var filename = file.name;
+        var path = '/uploads';
+        var type = file.type;
+        switch (type) {
+          case 'text':
+            //tODO Is this needed? If we're uploading content from file, yes, but if it's from an input/textarea I think not...
+            var method = 'readAsText';
+            var encoding = 'utf8';
+            break;
+          case 'binary':
+            var method = 'readAsBinaryString';
+            var encoding = 'binary';
+            break;
+          default:
+            var method = 'readAsBinaryString';
+            var encoding = 'binary';
+            break;
         }
-      });*/
+        /*Meteor.call('uploadFileFromClient', filename, path, file, encoding, function(err) {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log('success maybe?');
+          }
+        });*/
 
 
-      file.upload.then(function (response) {
+        file.upload.then(function (response) {
           $timeout(function () {
             console.log(response);
-              file.result = response.data;
-              this.Fresult = response.config.data.file;
+            file.result = response.data;
+            this.Fresult = response.config.data.file;
 
-              var errs = 0;
-              var Fresult = this.Fresult;
-              console.info('this', Fresult);
+            var errs = 0;
+            var Fresult = this.Fresult;
+            console.info('this', Fresult);
           });
-      }, function (response) {
+        }, function (response) {
           if (response.status > 0)
-              this.errorMsg = response.status + ': ' + response.data;
+            this.errorMsg = response.status + ': ' + response.data;
           else {
             console.log('else pa');
           }
-      }, function (event) {
+        }, function (event) {
           file.progress = Math.min(100, parseInt(100.0 *
-                                   event.loaded / event.total));
+            event.loaded / event.total));
           this.progress = file.progress;
           if (this.progress == 100) {
             this.uploadingNow = false;
           }
           console.log(this.progress);
-      });
+        });
 
-  }
-};
-
-this.uploadService = function(file, errFiles) {
-  console.info('pasok', file);
-  this.progress = 0;
-  this.uploadingNow = true;
-  this.f = file;
-  this.errFile = errFiles && errFiles[0];
-  this.fileHere = file.name;
-  this.profileID = Meteor.userId();
-  $scope.doneSearching = true;
-  $scope.uploadSuccess = false;
-  if (file) {
-    console.log(file);
-
-
-    this.uploader.send(file, function (error, downloadUrl) {
-      if (error) {
-        // Log service detailed response.
-        console.error('Error uploading', this.uploader);
-        alert (error);
       }
-      else {
-        var filename = this.fileHere;
-        var profileID = Meteor.userId();
-        var dateNow = new Date();
+    };
 
-        Meteor.call('upsertService', profileID, downloadUrl, $stateParams.jobId, dateNow, function(err, result) {
+    this.uploadService = function (file, errFiles) {
+      console.info('pasok', file);
+      this.progress = 0;
+      this.uploadingNow = true;
+      this.f = file;
+      this.errFile = errFiles && errFiles[0];
+      this.fileHere = file.name;
+      this.profileID = Meteor.userId();
+      $scope.doneSearching = true;
+      $scope.uploadSuccess = false;
+      if (file) {
+        console.log(file);
+
+
+        this.uploader.send(file, function (error, downloadUrl) {
+          if (error) {
+            // Log service detailed response.
+            console.error('Error uploading', this.uploader);
+            alert(error);
+          }
+          else {
+            var filename = this.fileHere;
+            var profileID = Meteor.userId();
+            var dateNow = new Date();
+
+            Meteor.call('upsertService', profileID, downloadUrl, $stateParams.jobId, dateNow, function (err, result) {
               console.log(downloadUrl);
-        console.log('success: ' + downloadUrl);
+              console.log('success: ' + downloadUrl);
               if (err) {
                 console.info('err', err);
                 $scope.doneSearching = false;
-                window.setTimeout(function(){
+                window.setTimeout(function () {
                   $scope.$apply();
                   //this.doneSearching = false;
-                },2000);
+                }, 2000);
 
-             } else {
-               var toasted = 'New file uploaded.';
-               console.info('uploaded', err);
-               $scope.doneSearching = false;
-               console.info('doneSearching', $scope.doneSearching);
-               $scope.uploadSuccess = true;
-               window.setTimeout(function(){
-                $scope.$apply();
-                //this.doneSearching = false;
-              },2000);
-             }
-           });
-      }
-      });
-      file.upload = Upload.upload({
+              } else {
+                var toasted = 'New file uploaded.';
+                console.info('uploaded', err);
+                $scope.doneSearching = false;
+                console.info('doneSearching', $scope.doneSearching);
+                $scope.uploadSuccess = true;
+                window.setTimeout(function () {
+                  $scope.$apply();
+                  //this.doneSearching = false;
+                }, 2000);
+              }
+            });
+          }
+        });
+        file.upload = Upload.upload({
           url: '/uploads',
-          data: {file: file}
-      });
-      var filename = file.name;
-      var path = '/uploads';
-      var type = file.type;
-      switch (type) {
-        case 'text':
-        //tODO Is this needed? If we're uploading content from file, yes, but if it's from an input/textarea I think not...
-        var method = 'readAsText';
-        var encoding = 'utf8';
-        break;
-        case 'binary':
-        var method = 'readAsBinaryString';
-        var encoding = 'binary';
-        break;
-        default:
-        var method = 'readAsBinaryString';
-        var encoding = 'binary';
-        break;
-      }
-      /*Meteor.call('uploadFileFromClient', filename, path, file, encoding, function(err) {
-        if (err) {
-          console.log(err);
-        } else {
-          console.log('success maybe?');
+          data: { file: file }
+        });
+        var filename = file.name;
+        var path = '/uploads';
+        var type = file.type;
+        switch (type) {
+          case 'text':
+            //tODO Is this needed? If we're uploading content from file, yes, but if it's from an input/textarea I think not...
+            var method = 'readAsText';
+            var encoding = 'utf8';
+            break;
+          case 'binary':
+            var method = 'readAsBinaryString';
+            var encoding = 'binary';
+            break;
+          default:
+            var method = 'readAsBinaryString';
+            var encoding = 'binary';
+            break;
         }
-      });*/
+        /*Meteor.call('uploadFileFromClient', filename, path, file, encoding, function(err) {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log('success maybe?');
+          }
+        });*/
 
 
-      file.upload.then(function (response) {
+        file.upload.then(function (response) {
           $timeout(function () {
             console.log(response);
-              file.result = response.data;
-              this.Fresult = response.config.data.file;
+            file.result = response.data;
+            this.Fresult = response.config.data.file;
 
-              var errs = 0;
-              var Fresult = this.Fresult;
-              console.info('this', Fresult);
+            var errs = 0;
+            var Fresult = this.Fresult;
+            console.info('this', Fresult);
           });
-      }, function (response) {
+        }, function (response) {
           if (response.status > 0)
-              this.errorMsg = response.status + ': ' + response.data;
+            this.errorMsg = response.status + ': ' + response.data;
           else {
             console.log('else pa');
           }
-      }, function (event) {
+        }, function (event) {
           file.progress = Math.min(100, parseInt(100.0 *
-                                   event.loaded / event.total));
+            event.loaded / event.total));
           this.progress = file.progress;
           if (this.progress == 100) {
             this.uploadingNow = false;
           }
           console.log(this.progress);
-      });
+        });
 
+      }
+    };
   }
-};
-}
 
   isOwner(party) {
     return this.isLoggedIn && party.owner === this.currentUserId;
   }
-   
+
   save() {
-      Ympjobs.update({
-        _id: this.job._id
-      }, {
+    Ympjobs.update({
+      _id: this.job._id
+    }, {
         $set: {
           title: this.job.title,
           description: this.job.description,
           location: this.job.location,
           hours: this.job.hours,
+          days: this.job.days,
           years: this.job.years,
           group: this.job.group,
           support: this.job.support,
@@ -1173,12 +1176,12 @@ this.uploadService = function(file, errFiles) {
           department: this.job.department,
         }
       }, (error) => {
-          if (error) {
-            console.log('Oops, unable to update the job...');
-          } else {
-            console.log('Done!');
-            this.showNotif2 = true;
-          }
+        if (error) {
+          console.log('Oops, unable to update the job...');
+        } else {
+          console.log('Done!');
+          this.showNotif2 = true;
+        }
       });
   }
 
@@ -1187,14 +1190,14 @@ this.uploadService = function(file, errFiles) {
     this.date = new Date();
     var status = Supports.insert(this.support);
     console.info('statussupport', status);
-    
+
   }
 }
- 
+
 const name = 'adminjobdetails';
 
 //Jobdetails.$inject = ['$scope', '$reactive', '$stateParams'];
- 
+
 // create a module
 export default angular.module(name, [
   angularMeteor,
@@ -1205,37 +1208,37 @@ export default angular.module(name, [
   controllerAs: name,
   controller: ['$scope', '$reactive', '$stateParams', '$state', 'Upload', Adminjobdetails]
 })
-.config(['$stateProvider',
-function($stateProvider) {
-    //'ngInject';
-    $stateProvider
-      .state('adminjobdetails', {
-        url: '/adminjobdetails/:stateHolder/:jobId',
-        template: '<adminjobdetails></adminjobdetails>',
-    
-        resolve: {
+  .config(['$stateProvider',
+    function ($stateProvider) {
+      //'ngInject';
+      $stateProvider
+        .state('adminjobdetails', {
+          url: '/adminjobdetails/:stateHolder/:jobId',
+          template: '<adminjobdetails></adminjobdetails>',
+
+          resolve: {
             currentUser($q, $state) {
-                if (Meteor.userId() === null) {
-                    return $q.reject('AUTH_REQUIRED');
-                } else {
-                  var userID = Meteor.userId();
-                  var access = Meteor.users.findOne({_id: userID});
-                  try{
-                    if(access.superadmin){
-                      return $q.resolve();
-                    } else {
-                      return $q.reject('LOGGED_IN');
-                    }
-                  } catch(err) {
+              if (Meteor.userId() === null) {
+                return $q.reject('AUTH_REQUIRED');
+              } else {
+                var userID = Meteor.userId();
+                var access = Meteor.users.findOne({ _id: userID });
+                try {
+                  if (access.superadmin) {
+                    return $q.resolve();
+                  } else {
                     return $q.reject('LOGGED_IN');
                   }
-                };
+                } catch (err) {
+                  return $q.reject('LOGGED_IN');
+                }
+              };
             }
-        },
-        onEnter: ['$rootScope', '$stateParams', '$state', function ($rootScope, $stateParams, $state) {
-          $rootScope.stateHolder = $stateParams.stateHolder;
-      }]
-      });
+          },
+          onEnter: ['$rootScope', '$stateParams', '$state', function ($rootScope, $stateParams, $state) {
+            $rootScope.stateHolder = $stateParams.stateHolder;
+          }]
+        });
     }
-]);
+  ]);
 

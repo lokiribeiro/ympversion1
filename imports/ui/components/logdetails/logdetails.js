@@ -12,11 +12,11 @@ import { Groups } from '../../../api/groups';
 import { Subgroups } from '../../../api/subgroups';
 
 import template from './logdetails.html';
- 
+
 class Logdetails {
   constructor($scope, $reactive, $state, $stateParams) {
     //'ngInject';
- 
+
     $reactive(this).attach($scope);
 
     var userBoat = Meteor.user();
@@ -66,9 +66,9 @@ class Logdetails {
     ]);
 
     this.subscribe('groups');
-    
+
     this.subscribe('subgroups');
- 
+
     this.helpers({
       isLoggedIn() {
         return !!Meteor.userId();
@@ -84,86 +84,93 @@ class Logdetails {
       },
       port() {
         return Logbooks.findOne({
-            _id: $stateParams.logId
-          });
+          _id: $stateParams.logId
+        });
       },
       groups() {
-        var selector = {boatID: $scope.userBoatID};
+        var selector = { boatID: $scope.userBoatID };
         return Groups.find(selector, {
-          sort : this.getReactively('sort')
+          sort: this.getReactively('sort')
         });
       },
       subgroups() {
-        var selector = {boatID: $scope.userBoatID};
+        var selector = { boatID: $scope.userBoatID };
         return Subgroups.find(selector, {
-          sort : this.getReactively('sort2')
+          sort: this.getReactively('sort2')
         });
       }
     });
 
-    this.logout = function() {
+    this.logout = function () {
       Accounts.logout();
-      window.setTimeout(function(){
-        $state.go('login', {}, {reload: 'login'});
-      },2000);
+      window.setTimeout(function () {
+        $state.go('login', {}, { reload: 'login' });
+      }, 2000);
     }
 
-    this.gotoDashboard = function() {
+    this.gotoDashboard = function () {
       angular.element("body").removeClass("modal-open");
       var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
       removeMe.remove();
-      $state.go('dashboard', {}, {reload: 'dashboard'});
+      $state.go('dashboard', {}, { reload: 'dashboard' });
     }
-    this.gotoInventory = function() {
+    this.gotoInventory = function () {
       angular.element("body").removeClass("modal-open");
       var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
       removeMe.remove();
-      $state.go('inventory', {}, {reload: 'inventory'});
+      $state.go('inventory', {}, { reload: 'inventory' });
     }
-    this.gotoLogbook = function() {
+    this.gotoLogbook = function () {
       angular.element("body").removeClass("modal-open");
       var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
       removeMe.remove();
-      $state.go('logbook', {}, {reload: 'logbook'});
+      $state.go('logbook', {}, { reload: 'logbook' });
     }
-    this.gotoEmployees = function() {
+    this.gotoEmployees = function () {
       angular.element("body").removeClass("modal-open");
       var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
       removeMe.remove();
-      $state.go('employees', {}, {reload: 'employees'});
+      $state.go('employees', {}, { reload: 'employees' });
     }
-    this.gotoWatchkeep = function() {
+    this.gotoWatchkeep = function () {
       angular.element("body").removeClass("modal-open");
       var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
       removeMe.remove();
-      $state.go('watchkeep', {}, {reload: 'watchkeep'});
+      $state.go('watchkeep', {}, { reload: 'watchkeep' });
     }
-    this.gotoSettings = function() {
+    this.gotoSettings = function () {
       angular.element("body").removeClass("modal-open");
       var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
       removeMe.remove();
-      $state.go('settings', {}, {reload: 'settings'});
+      $state.go('settings', {}, { reload: 'settings' });
     }
-    this.gotoAdminPanel = function() {
+    this.gotoAdminPanel = function () {
       angular.element("body").removeClass("modal-open");
       var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
       removeMe.remove();
-      $state.go('adminpanel', {}, {reload: 'adminpanel'});
+      $state.go('adminpanel', {}, { reload: 'adminpanel' });
     }
-    this.gotoReports = function(equipID) {
+    this.gotoReports = function (equipID) {
       angular.element("body").removeClass("modal-open");
       var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
       removeMe.remove();
-      $state.go('reports', {equipID: equipID}, {reload: 'reports'});
+      $state.go('reports', { equipID: equipID }, { reload: 'reports' });
+    }
+    this.gotoSupplier = function (equipID) {
+      angular.element("body").removeClass("modal-open");
+      var removeMe = angular.element(document.getElementsByClassName("modal-backdrop"));
+      removeMe.remove();
+      $state.go('supplier', { equipID: equipID }, { reload: 'supplier' });
     }
 
-    this.notification = function() {
-      
+
+    this.notification = function () {
+
       this.showNotif = false;
       console.info('notif daan', this.showNotif);
     }
 
-    this.save = function() {
+    this.save = function () {
       this.port.date = new Date();
       this.port.dateTime = this.port.date.getTime();
       this.port.userID = this.engineer.doneBy.userID;
@@ -171,27 +178,27 @@ class Logdetails {
       this.port.type = 'sea';
       console.info('port details', this.port);
       Logbooks.insert(this.port, (error) => {
-          if (error) {
-            console.log('Oops, unable to insert...');
-          } else {
-            console.log('Done!');
-            $state.go('logbook', {}, {reload: 'logbook'});
-          }
+        if (error) {
+          console.log('Oops, unable to insert...');
+        } else {
+          console.log('Done!');
+          $state.go('logbook', {}, { reload: 'logbook' });
+        }
       });
     }
 
-}
+  }
 
   isOwner(party) {
     return this.isLoggedIn && party.owner === this.currentUserId;
   }
 
 }
- 
+
 const name = 'logdetails';
 
 //Jobdetails.$inject = ['$scope', '$reactive', '$stateParams'];
- 
+
 // create a module
 export default angular.module(name, [
   angularMeteor,
@@ -202,23 +209,23 @@ export default angular.module(name, [
   controllerAs: name,
   controller: ['$scope', '$reactive', '$state', '$stateParams', Logdetails]
 })
-.config(['$stateProvider',
-function($stateProvider) {
-    //'ngInject';
-    $stateProvider
-      .state('logdetails', {
-        url: '/logdetails/:logId',
-        template: '<logdetails></logdetails>',
-        resolve: {
+  .config(['$stateProvider',
+    function ($stateProvider) {
+      //'ngInject';
+      $stateProvider
+        .state('logdetails', {
+          url: '/logdetails/:logId',
+          template: '<logdetails></logdetails>',
+          resolve: {
             currentUser($q, $state) {
-                if (Meteor.userId() === null) {
-                    return $q.reject('AUTH_REQUIRED');
-                } else {
-                  return $q.resolve();
-                };
+              if (Meteor.userId() === null) {
+                return $q.reject('AUTH_REQUIRED');
+              } else {
+                return $q.resolve();
+              };
             }
-        }
-      });
+          }
+        });
     }
-]);
+  ]);
 

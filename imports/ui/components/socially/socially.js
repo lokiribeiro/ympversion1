@@ -39,6 +39,13 @@ import Watchkeeplogdetails from '../watchkeeplogdetails/watchkeeplogdetails';
 import Taskgroupdetails from '../taskgroupdetails/taskgroupdetails';
 import Reports from '../reports/reports';
 import Logbookreports from '../logbookreports/logbookreports';
+import Searchinventory from '../searchinventory/searchinventory';
+import Supplier from '../supplier/supplier';
+import Supplierdetails from '../supplierdetails/supplierdetails';
+import Productdetails from '../productdetails/productdetails';
+import Sendorder from '../sendorder/sendorder';
+import Ympnetwork from '../ympnetwork/ympnetwork';
+import Searchdetails from '../searchdetails/searchdetails';
  
 class Socially {}
  
@@ -75,6 +82,13 @@ export default angular.module(name, [
   Taskgroupdetails.name,
   Reports.name,
   Logbookreports.name,
+  Searchinventory.name,
+  Supplier.name,
+  Supplierdetails.name,
+  Productdetails.name,
+  Sendorder.name,
+  Ympnetwork.name,
+  Searchdetails.name,
   'accounts.ui',
   'date-picker',
   'ngPrint',
