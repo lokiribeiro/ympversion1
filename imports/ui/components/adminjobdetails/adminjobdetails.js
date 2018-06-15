@@ -23,6 +23,188 @@ class Adminjobdetails {
 
     $reactive(this).attach($scope);
 
+    $('body').removeClass('sidebar-collapsed');
+    $('.nav-sidebar li.active ul').css({ display: 'block' });
+    $(this).removeClass('menu-collapsed');
+    createSideScroll();
+
+    /****  Variables Initiation  ****/
+    var doc = document;
+    var docEl = document.documentElement;
+    var $sidebar = $('.sidebar');
+    var $sidebarFooter = $('.sidebar .sidebar-footer');
+    var $mainContent = $('.main-content');
+    var $pageContent = $('.page-content');
+    var $topbar = $('.topbar');
+    var $logopanel = $('.logopanel');
+    var $sidebarWidth = $(".sidebar").width();
+    var content = document.querySelector('.page-content');
+    var docHeight = $(document).height();
+    var windowHeight = $(window).height();
+    var windowWidth = $(window).width();
+    /* ==========================================================*/
+    /* BEGIN SIDEBAR                                             */
+    function createSideScroll() {
+      if ($.fn.mCustomScrollbar) {
+        destroySideScroll();
+        if (!$('body').hasClass('sidebar-collapsed') && !$('body').hasClass('sidebar-collapsed') && !$('body').hasClass('submenu-hover') && $('body').hasClass('fixed-sidebar')) {
+          $('.sidebar-inner').mCustomScrollbar({
+            scrollButtons: {
+              enable: false
+            },
+            autoHideScrollbar: true,
+            scrollInertia: 150,
+            theme: "light-thin",
+            advanced: {
+              updateOnContentResize: true
+            }
+          });
+        }
+        if ($('body').hasClass('sidebar-top')) {
+          destroySideScroll();
+        }
+      }
+    }
+
+    function destroySideScroll() {
+      $('.sidebar-inner').mCustomScrollbar("destroy");
+    }
+
+    /* Toggle submenu open */
+    this.toggleSidebarMenu = function () {
+      console.log('hello sidebar');
+      // Check if sidebar is collapsed
+      if ($('body').hasClass('sidebar-collapsed')) {
+        $('.nav-sidebar .children').css({ display: '' });
+      } else {
+        $('.nav-active.active .children').css('display', 'block');
+      }
+
+      $('.nav-sidebar').on('click', 'li.nav-parent > a', function (e) {
+        e.preventDefault();
+        if ($('body').hasClass('sidebar-collapsed') && !$('body').hasClass('sidebar-hover')) return;
+        if ($('body').hasClass('submenu-hover')) return;
+        var parent = $(this).parent().parent();
+        parent.children('li.active').children('.children').slideUp(200);
+        $('.nav-sidebar .arrow').removeClass('active');
+        parent.children('li.active').removeClass('active');
+
+        var sub = $(this).next();
+        // var slideOffeset = -200;
+        var slideSpeed = 200;
+
+        if (sub.is(":visible")) {
+          $(this).parent().removeClass("active");
+          sub.slideUp(slideSpeed, function () {
+            if ($('body').hasClass('page-sidebar-fixed') == false && $('body').hasClass('page-sidebar-closed') == false) {
+              // App.scrollTo(the, slideOffeset);
+            }
+            // handleSidebarAndContentHeight();
+          });
+        } else {
+          $(this).find('.arrow').addClass('active');
+          sub.slideDown(slideSpeed, function () {
+            $(this).parent().addClass("active");
+            if ($('body').hasClass('page-sidebar-fixed') == false && $('body').hasClass('page-sidebar-closed') == false) {
+              //App.scrollTo(the, slideOffeset);
+            }
+            //handleSidebarAndContentHeight();
+          });
+        }
+        createSideScroll();
+      });
+    }
+
+    // Add class everytime a mouse pointer hover over it
+    var hoverTimeout;
+    $('.nav-sidebar > li').hover(function () {
+      clearTimeout(hoverTimeout);
+      $(this).siblings().removeClass('nav-hover');
+      $(this).addClass('nav-hover');
+    }, function () {
+      var $self = $(this);
+      hoverTimeout = setTimeout(function () {
+        $self.removeClass('nav-hover');
+      }, 200);
+    });
+
+    $('.nav-sidebar > li .children').hover(function () {
+      clearTimeout(hoverTimeout);
+      $(this).closest('.nav-parent').siblings().removeClass('nav-hover');
+      $(this).closest('.nav-parent').addClass('nav-hover');
+    }, function () {
+      var $self = $(this);
+      hoverTimeout = setTimeout(function () {
+        $(this).closest('.nav-parent').removeClass('nav-hover');
+      }, 200);
+    });
+
+
+    // Menu Toggle
+    this.toggleSidebar = function () {
+      console.log('hello sidebar toggled');
+      var body = $('body');
+      var bodypos = body.css('position');
+      if (bodypos != 'relative') {
+        if (!body.hasClass('sidebar-collapsed')) {
+          body.addClass('sidebar-collapsed');
+          $('.nav-sidebar ul').attr('style', '');
+          $(this).addClass('menu-collapsed');
+          destroySideScroll();
+        } else {
+          body.removeClass('sidebar-collapsed');
+          $('.nav-sidebar li.active ul').css({ display: 'block' });
+          $(this).removeClass('menu-collapsed');
+          createSideScroll();
+        }
+      } else {
+        if (body.hasClass('sidebar-show'))
+          body.removeClass('sidebar-show');
+        else
+          body.addClass('sidebar-show');
+      }
+
+      var body = $('body');
+      var bodypos = body.css('position');
+      windowWidth = $(window).width();
+      if (windowWidth < 1024) {
+        body.addClass('sidebar-collapsed');
+        $('.nav-sidebar ul').attr('style', '');
+        $(this).addClass('menu-collapsed');
+        destroySideScroll();
+      }
+      else {
+        body.removeClass('sidebar-collapsed');
+        $('.nav-sidebar li.active ul').css({ display: 'block' });
+        $(this).removeClass('menu-collapsed');
+        createSideScroll();
+      }
+    }
+
+    /* END SIDEBAR                                               */
+    /* ========================================================= */
+
+    // Check if sidebar is collapsed
+    if ($('body').hasClass('sidebar-collapsed'))
+      $('.nav-sidebar .children').css({ display: '' });
+
+    /***** Scroll to top button *****/
+    function scrollTop() {
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+          $('.scrollup').fadeIn();
+        } else {
+          $('.scrollup').fadeOut();
+        }
+      });
+      $('.scrollup').click(function () {
+        $("html, body").animate({
+          scrollTop: 0
+        }, 1000);
+        return false;
+      });
+    }
+
     this.jobId = $stateParams.jobId;
     this.stateHolder = $stateParams.stateHolder;
     $scope.userID = Meteor.userId();

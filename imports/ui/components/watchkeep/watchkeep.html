@@ -63,6 +63,12 @@
                 </a>
             </li>
         </ul>
+        <div class="sidebar-footer clearfix">
+            <a class="pull-left btn-effect" href="#" data-modal="modal-1" data-rel="tooltip" data-placement="top" data-original-title="Logout"
+                ng-click="watchkeep.logout()">
+                <i class="icon-power"></i>
+            </a>
+        </div>
     </div>
 </div>
 <!-- END SIDEBAR -->
@@ -70,8 +76,15 @@
 <div class="main-content">
     <!-- BEGIN TOPBAR -->
     <div class="topbar" style="z-index: 999999999 !important;">
-        <div class="header-left" style="margin-top: 15px !important; margin-left: 10px !important;">
-            <span class="username" style="color: #fff !important;">{{watchkeep.currentUser.boatName}}</span>
+        <div class="header-left">
+            <div class="topnav">
+                <a class="menutoggle" href="#" data-toggle="sidebar-collapsed" ng-click="watchkeep.toggleSidebar()">
+                    <span class="menu__handle">
+                        <span>Menu</span>
+                    </span>
+                </a>
+                <span class="username" style="color: #fff !important;">{{watchkeep.currentUser.boatName}}</span>
+            </div>
         </div>
         <div class="header-right">
             <ul class="header-menu nav navbar-nav">
@@ -373,7 +386,8 @@
             </div>
         </div>
         <div class="row" ng-repeat="watchkeeper in watchkeep.watchkeepers" ng-if="(watchkeeper.userID == watchkeep.currentUserId) && (watchkeeper.withTime == 'true')">
-            <div class="col-lg-12 portlets" ng-repeat="item in watchkeeper.dates track by $index" ng-if="item.dateTime == watchkeep.floatDate" ng-hide="item.status == false">
+            <div class="col-lg-12 portlets" ng-repeat="item in watchkeeper.dates track by $index" ng-if="item.dateTime == watchkeep.floatDate"
+                ng-hide="item.status == false">
                 <div class="panel bg-dark">
                     <div class="panel-header header-line bg-dark">
                         <h2>{{watchkeeper.taskGroup}}
@@ -394,7 +408,8 @@
         </div>
 
         <div class="row" ng-repeat="watchkeeper in watchkeep.watchkeepers" ng-if="(watchkeeper.userID == watchkeep.currentUserId) && (watchkeeper.withTime == 'false')">
-            <div class="col-lg-12 portlets" ng-repeat="item in watchkeeper.dates track by $index" ng-if="item.dateTime == watchkeep.floatDate" ng-hide="item.status == false">
+            <div class="col-lg-12 portlets" ng-repeat="item in watchkeeper.dates track by $index" ng-if="item.dateTime == watchkeep.floatDate"
+                ng-hide="item.status == false">
                 <div class="panel bg-dark">
                     <div class="panel-header header-line bg-dark">
                         <h2>{{watchkeeper.taskGroup}} </h2>
