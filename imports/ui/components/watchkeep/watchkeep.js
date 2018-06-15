@@ -372,7 +372,22 @@ class Watchkeep {
         });
       }
 
-      Watchkeepers.update({
+      var watchkeepID = watchkeeper.watchkeepID;
+      var userID = watchkeeper.userID;
+      var dateTime = this.logs.date;
+      console.info('dateNow before upsert', dateNow);
+      var newDate = dateNow;
+      console.info('dateTime before upsert watchkeep', dateTime);
+
+      Meteor.call('upsertWatchkeepDay', userID, watchkeepID, dateTime, newDate, function (err, result) {
+        if (err) {
+          console.info('err', err);
+        } else {
+          console.info('uploaded', err);
+        }
+      });
+
+      /*Watchkeepers.update({
         _id: watchkeeper._id
       }, {
           $set: {
@@ -384,7 +399,7 @@ class Watchkeep {
           } else {
             console.log('Done!');
           }
-        });
+        });*/
     }
 
     this.markTaskNotDone = function (watchkeeper) {
@@ -434,7 +449,22 @@ class Watchkeep {
         });
       }
 
-      Watchkeepers.update({
+      var watchkeepID = watchkeeper.watchkeepID;
+      var userID = watchkeeper.userID;
+      var dateTime = this.logs.date;
+      console.info('dateNow before upsert', dateNow);
+      var newDate = dateNow;
+      console.info('dateTime before upsert watchkeep', dateTime);
+
+      Meteor.call('upsertWatchkeepDay', userID, watchkeepID, dateTime, newDate, function (err, result) {
+        if (err) {
+          console.info('err', err);
+        } else {
+          console.info('uploaded', err);
+        }
+      });
+
+      /*Watchkeepers.update({
         _id: watchkeeper._id
       }, {
           $set: {
@@ -446,7 +476,7 @@ class Watchkeep {
           } else {
             console.log('Done!');
           }
-        });
+        });*/
     }
 
     this.notification = function () {

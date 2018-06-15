@@ -31,10 +31,31 @@ export function  pushSchedule(watchkeeperID, newUserID, scheduleName, dateTime, 
   }
   return watchUpsert;
 }
+
+export function upsertWatchkeepDay(userID, watchkeepID, dateTime, newDate){
+  var status = false;
+  var idNow = 'Completed';
+  var selector = {$and: [
+      {watchkeepID: watchkeepID},
+      {userID: userID},
+      {"dates.dateTime": dateTime}
+    ]};
+  var modifier = {$set: {
+    "dates.$": {
+      id: idNow,
+      newdate: newDate,
+      dateTime: dateTime,
+      status: status
+    }
+  }}
+  var userUpsert =  Watchkeepers.update(selector, modifier);
+  return userUpsert;
+}
   
   
 
 Meteor.methods({
   pullSchedule,
-  pushSchedule
+  pushSchedule,
+  upsertWatchkeepDay
 });

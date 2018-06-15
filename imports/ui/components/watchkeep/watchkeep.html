@@ -372,8 +372,8 @@
                 </p>
             </div>
         </div>
-        <div class="row" ng-repeat="watchkeeper in watchkeep.watchkeepers" ng-if="(watchkeeper.userID == watchkeep.currentUserId) && (watchkeeper.withTime == 'true') && (watchkeeper.status)">
-            <div class="col-lg-12 portlets" ng-repeat="item in watchkeeper.dates track by $index" ng-if="item.dateTime == watchkeep.floatDate">
+        <div class="row" ng-repeat="watchkeeper in watchkeep.watchkeepers" ng-if="(watchkeeper.userID == watchkeep.currentUserId) && (watchkeeper.withTime == 'true')">
+            <div class="col-lg-12 portlets" ng-repeat="item in watchkeeper.dates track by $index" ng-if="item.dateTime == watchkeep.floatDate" ng-hide="item.status == false">
                 <div class="panel bg-dark">
                     <div class="panel-header header-line bg-dark">
                         <h2>{{watchkeeper.taskGroup}}
@@ -393,8 +393,8 @@
             </div>
         </div>
 
-        <div class="row" ng-repeat="watchkeeper in watchkeep.watchkeepers" ng-if="(watchkeeper.userID == watchkeep.currentUserId) && (watchkeeper.withTime == 'false') && (watchkeeper.status)">
-            <div class="col-lg-12 portlets" ng-repeat="item in watchkeeper.dates track by $index" ng-if="item.dateTime == watchkeep.floatDate">
+        <div class="row" ng-repeat="watchkeeper in watchkeep.watchkeepers" ng-if="(watchkeeper.userID == watchkeep.currentUserId) && (watchkeeper.withTime == 'false')">
+            <div class="col-lg-12 portlets" ng-repeat="item in watchkeeper.dates track by $index" ng-if="item.dateTime == watchkeep.floatDate" ng-hide="item.status == false">
                 <div class="panel bg-dark">
                     <div class="panel-header header-line bg-dark">
                         <h2>{{watchkeeper.taskGroup}} </h2>

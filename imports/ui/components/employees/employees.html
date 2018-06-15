@@ -205,9 +205,9 @@
   <!-- END TOPBAR -->
   <!-- BEGIN PAGE CONTENT -->
   <div class="page-content">
-    <div ng-if="employees.showNotif" class="preview active">
+    <div ng-if="showNotifErr" class="preview active">
       <div class="alert alert-success media fade in">
-        <p>Username is already taken
+        <p>{{errMessage}}
           <button type="button" class="close" ng-click="employees.notification()" aria-hidden="true">
             <i class="icons-office-52" style="color: #fff !important;"></i>
           </button>
@@ -219,7 +219,7 @@
         <div class="panel bg-dark">
           <div class="panel-header panel-controls" ng-if="employees.currentUser.role == 'admin'">
             <div class="m-b-20">
-                <button class="btn btn-dark" data-toggle="modal" data-target="#modal-responsive">
+                <button class="btn btn-dark" data-toggle="modal" data-target="#modal-responsive" ng-click="employees.addNewUser()">
                   <i class="fa fa-plus"></i> Add New User</button>
                 <button class="btn btn-dark" ng-click="employees.gotoYmpnetwork()">
                   <i class="fa fa-search"></i> Search YMP Network</button>

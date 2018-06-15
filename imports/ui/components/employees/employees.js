@@ -32,6 +32,7 @@ class Employees {
     };
     this.searchText = '';
     this.showNotif = false;
+    $scope.showNotifErr = false;
 
     $scope.thisUser = Meteor.userId();
     console.info('userID', $scope.thisUser);
@@ -179,17 +180,23 @@ class Employees {
     }
 
     this.submit = function () {
+      $scope.showNotifErr = false;
       this.showNotif = false;
       this.employee.date = new Date();
       this.employee.password = 'Password123';
       this.employee.profilePhoto = '../assets/img/user.jpg';
+      this.employee.status == true;
       $scope.profile = this.employee;
       console.info('username', this.employee.username);
       Meteor.call('createUsers', this.employee.username, this.employee.password, this.employee.email, function (err, detail) {
         console.info('detail', detail);
         if (err) {
           console.info('err', err);
-          this.showNotif = true;
+          $scope.showNotifErr = true;
+          $scope.errMessage = err;
+          //window.setTimeout(function () {
+            $scope.$apply();
+          //}, 2000);
         } else {
           this.userID = detail;
           console.info('success', this.userID);
@@ -204,7 +211,12 @@ class Employees {
     this.notification = function () {
 
       this.showNotif = false;
+      $scope.showNotifErr = false;
       console.info('notif daan', this.showNotif);
+    }
+
+    this.addNewUser = function() {
+      this.employee = {};
     }
 
     this.logout = function () {
